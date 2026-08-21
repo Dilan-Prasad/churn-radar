@@ -86,6 +86,21 @@
   .dont{display:flex;gap:10px;align-items:baseline;font-size:13.5px;color:var(--mut58);max-width:66ch}
   .dont .tag{font:500 10px/1 var(--mono);letter-spacing:.16em;color:var(--red);flex:none}
 
+  /* endpoint pipeline map */
+  .pipe{display:flex;flex-direction:column;gap:1px;background:var(--line2);
+    border:1px solid var(--line);border-radius:12px;overflow:hidden}
+  .prow{display:grid;grid-template-columns:168px 1fr;gap:16px;background:var(--panel);padding:15px 18px}
+  @media(max-width:600px){.prow{grid-template-columns:1fr;gap:8px}}
+  .prow .ep{display:flex;flex-direction:column;gap:6px}
+  .prow .step{font:500 9.5px/1 var(--mono);letter-spacing:.16em;color:var(--mut44)}
+  .prow .call{font:500 12px/1.45 var(--mono);color:var(--peri)}
+  .prow .call .x{color:var(--mut44)}
+  .prow p{margin:0;font-size:13.5px;line-height:1.55;color:var(--mut72);max-width:60ch}
+  .prow p b{color:var(--text);font-weight:500}
+  .recon{display:flex;gap:10px;align-items:baseline;font:400 12.5px/1.6 var(--mono);
+    color:var(--mut58);padding:2px 4px}
+  .recon .tag{font:500 10px/1 var(--mono);letter-spacing:.16em;color:var(--green);flex:none}
+
   /* correction callout */
   .fix{background:rgba(255,106,106,.06);border:1px solid rgba(255,106,106,.26);border-radius:12px;
     padding:16px 18px;display:flex;flex-direction:column;gap:8px}
@@ -353,6 +368,94 @@
 
     <div class="dont"><span class="tag">DON'T</span><span>Recite a feature list. Naming what you'd skip, and
     why, reads as product judgment; naming five equal priorities reads as none.</span></div>
+  </section>
+
+  <section class="q">
+    <div class="qhead">
+      <div class="topic">THE STACK</div>
+      <h2>What APIs were used where in the demo?</h2>
+    </div>
+
+    <div class="lead">
+      <div class="tag">LEAD WITH</div>
+      <p>Don't answer this one from memory — answer it from the product. Every panel and every account
+      row carries an API pill showing the verbatim request that produced it; click one, then give the
+      map. Three endpoints, each worn several ways, and structured output on every single call.</p>
+    </div>
+
+    <div class="body">
+      <h3>THE MAP — IN PIPELINE ORDER</h3>
+      <div class="pipe">
+        <div class="prow">
+          <div class="ep"><span class="step">1 · GUARD</span><span class="call">/search <span class="x">×1</span></span></div>
+          <p>Scoped with <b>includeDomains</b> to the typed domain: does this site exist in Exa's index
+          at all? Without it, /answer cheerfully invents a plausible company for a nonsense domain —
+          I found that by testing garbage input.</p>
+        </div>
+        <div class="prow">
+          <div class="ep"><span class="step">2 · VENDOR PROFILE</span><span class="call">/answer <span class="x">×1</span></span></div>
+          <p>One call with an <b>outputSchema</b>: category, buyer, named competitors, and the
+          capability phrase. Every downstream query is phrased from this object — it's why the same app
+          asks search-infrastructure questions for exa.ai and deployment-platform questions for vercel.com.</p>
+        </div>
+        <div class="prow">
+          <div class="ep"><span class="step">3 · COMPETITIVE SET</span><span class="call">/findSimilar <span class="x">×1</span></span></div>
+          <p>Competitor candidates from nothing but the homepage URL, each vetted by a schema summary
+          ("is this a <b>direct</b> competitor?") before it joins the sweep — similar-looking is not the
+          same as competing.</p>
+        </div>
+        <div class="prow">
+          <div class="ep"><span class="step">4 · THE ACCOUNT LIST</span><span class="call">/answer <span class="x">×1–2</span> + /search <span class="x">×2</span></span></div>
+          <p>Typed accounts resolve to canonical brand names via /answer (typo-tolerant — "open router"
+          → OpenRouter), and open slots fill from a cross-reference: the vendor's own case-study pages
+          (<b>includeDomains</b> on their site) against open-web coverage (<b>excludeDomains</b>),
+          both extracted through schema summaries.</p>
+        </div>
+        <div class="prow">
+          <div class="ep"><span class="step">5 · THE SWEEP</span><span class="call">/search <span class="x">×lanes×accounts</span></span></div>
+          <p>The core. Each call composes a semantic query from the profile, <b>includeDomains</b>
+          scoped to rival domains on the competitor lane, <b>category:news</b> plus a date window on
+          budget, and — the part to slow down on — <b>highlights + a schema summary in the same
+          request</b>: find the page and read it in one call, returning the quote, the date, and a
+          typed strong/weak/none verdict.</p>
+        </div>
+        <div class="prow">
+          <div class="ep"><span class="step">6 · KEY TEST</span><span class="call">/search <span class="x">×1</span></span></div>
+          <p>The bring-your-own-key panel validates a pasted key with one minimal call before any
+          sweep spends it.</p>
+        </div>
+      </div>
+      <div class="recon"><span class="tag">RECONCILES</span><span>the demo run's summary strip reads
+      56 calls: 6 setup + 10 accounts × 5 lanes. The arithmetic checks out on screen.</span></div>
+    </div>
+
+    <div class="body">
+      <h3>THE SHAPE TO POINT OUT</h3>
+      <ul>
+        <li><b>One endpoint, many hats.</b> /search appears five different ways — existence probe,
+        case-study crawl, web cross-reference, signal lanes, key test — differentiated entirely by
+        scoping and schemas, not by different products. That's the composability argument made concrete.</li>
+        <li><b>No raw text anywhere.</b> Every call returns structured output — outputSchema on /answer,
+        schema summaries on /search and /findSimilar. The schema doubles as the prompt; nothing
+        downstream parses prose.</li>
+        <li><b>The drawer is the receipt.</b> The under-the-hood console shows every call live with
+        latency and per-call cost from the response's own <b>costDollars</b> — the $0.63 total is the
+        sum of what's on screen, not an estimate.</li>
+      </ul>
+    </div>
+
+    <div class="push">
+      <div class="tag">IF THEY PUSH</div>
+      <div class="askt">“What didn't you use?”</div>
+      <p>Two things, deliberately named. <b>Websets</b> — gated on my key tier, and exactly what I'd
+      swap in for step 4: one filtered, enriched company list instead of my two-source cross-reference.
+      It's on the roadmap because I know precisely where it slots. And the <b>Research API</b>, which is
+      retired — I know because I probed the whole surface before building. Knowing what you didn't use,
+      and why, is the difference between using an API and knowing one.</p>
+    </div>
+
+    <div class="dont"><span class="tag">DON'T</span><span>Recite endpoint names in the abstract. Tie each
+    one to a moment they just watched — “the panel on the left was this /answer call” beats any list.</span></div>
   </section>
 
   <section class="q">
