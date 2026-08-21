@@ -8,6 +8,8 @@ own customers are building in-house retrieval, showing up in competitors'
 changelogs, getting acquired, or cutting spend — every verdict backed by dated,
 clickable evidence.
 
+**Live demo: [churn.salua.ai](https://churn.salua.ai)** · slides: `slides.html`
+
 ---
 
 ## Who it's for
@@ -127,6 +129,17 @@ while the board fills.
 - **Empty states**: non-domain input, domain not in the index, zero documented
   customers, and thin (<5 customers) footprints each get their own explicit,
   human-readable path.
+- **Public-deployment spend guard**: live scans are rate-limited (per-IP and
+  global hourly budgets, max 2 concurrent) since each costs real API credits;
+  cached replays are free and unthrottled. Tune via `LIVE_SCANS_PER_HOUR` /
+  `LIVE_SCANS_PER_IP_PER_HOUR`.
+
+## Deploying (how churn.salua.ai runs)
+
+`deploy/churn-radar.service` (systemd, uvicorn on 127.0.0.1:8010) +
+`deploy/nginx-churn.salua.ai.conf` (nginx reverse proxy with SSE buffering
+disabled) + `certbot --nginx -d churn.salua.ai` for TLS. Install commands are
+in each file's header comment.
 - **Noise filters learned from live calibration**: funding rounds are growth
   (not "budget distress"), a customer *acquiring* someone is not "being
   acquired", ubiquitous-brand tutorial pages ("deploy a Stripe webhook on
