@@ -1,0 +1,715 @@
+{
+ "profile": {
+  "company_name": "Exa",
+  "buyer_persona": "Developers, AI companies, and enterprises building AI agents and applications (such as coding agents, research systems, and copilots).",
+  "capability_phrase": "web-scale search engine infrastructure, including custom crawlers, proprietary embedding and ranking models, GPU-accelerated training clusters, and specialized vector databases for AI-scale query performance.",
+  "product_category": "AI-native web search API for developers and agents",
+  "competitors": [
+   {
+    "domain": "perplexity.ai",
+    "name": "Perplexity"
+   },
+   {
+    "name": "Tavily",
+    "domain": "tavily.com"
+   },
+   {
+    "domain": "jina.ai",
+    "name": "Jina AI"
+   },
+   {
+    "domain": "brave.com/brave-search-api/",
+    "name": "Brave Search API"
+   },
+   {
+    "domain": "serpapi.com",
+    "name": "SerpAPI"
+   }
+  ],
+  "one_liner": "Exa provides a modern AI search engine and API designed to power AI agents and large language models with high-quality, semantically-indexed web information.",
+  "churn_modes": [
+   "Building an internal, proprietary search index and retrieval pipeline using open-source tools and LLMs.",
+   "Switching to other AI-native search APIs like Tavily or specialized RAG infrastructure providers.",
+   "Migrating to enterprise-grade cloud-native search tools like Google Cloud's Vertex AI Search.",
+   "Reducing dependency by utilizing open-source web-scraping and embedding libraries to handle retrieval in-house."
+  ]
+ },
+ "domain": "exa.ai",
+ "customers": [
+  {
+   "name": "HubSpot",
+   "domain": "hubspot.com",
+   "evidence": "HubSpot has a dedicated case study on exa.ai detailing how it uses Exa to connect its agents to live web intelligence.",
+   "source": "web evidence"
+  },
+  {
+   "name": "monday.com",
+   "domain": "monday.com",
+   "evidence": "monday.com has a dedicated case study on exa.ai about building an agentic lead engine with Exa.",
+   "source": "web evidence"
+  },
+  {
+   "name": "OpenRouter",
+   "domain": "openrouter.ai",
+   "evidence": "OpenRouter has a dedicated case study on exa.ai regarding its use of Exa for agentic web search across its model marketplace.",
+   "source": "web evidence"
+  },
+  {
+   "name": "Cognition",
+   "domain": "cognition.ai",
+   "evidence": "Cognition has a dedicated case study on exa.ai explaining how Exa powers web search for its agentic products like Devin.",
+   "source": "web evidence"
+  },
+  {
+   "name": "WebFX",
+   "domain": "webfx.com",
+   "evidence": "WebFX has a dedicated case study on exa.ai detailing how they use Exa to scale digital marketing workflows.",
+   "source": "web evidence"
+  },
+  {
+   "name": "StackAI",
+   "domain": "stackai.com",
+   "evidence": "StackAI has a dedicated case study on exa.ai explaining how Exa powers its enterprise AI agent platform.",
+   "source": "web evidence"
+  },
+  {
+   "name": "CodeRabbit",
+   "domain": "coderabbit.ai",
+   "evidence": "CodeRabbit has a dedicated case study on exa.ai detailing how they use Exa to review PRs faster.",
+   "source": "web evidence"
+  },
+  {
+   "name": "HockeyStack",
+   "domain": "hockeystack.com",
+   "evidence": "HockeyStack has a dedicated case study on exa.ai regarding its use of Exa for people search within revenue agents.",
+   "source": "web evidence"
+  },
+  {
+   "name": "11x",
+   "domain": "11x.ai",
+   "evidence": "Official case study: Digital GTM workforce: using Exa to find novel GTM signals from live web, enrich accounts with live context, and power agent workflows (prospecting, research, enrichment, personal",
+   "source": "vendor case study"
+  },
+  {
+   "name": "WhyHow AI",
+   "domain": "whyhow.ai",
+   "evidence": "Official case study: Litigation intelligence: identifying emerging class action and mass-tort opportunities by surfacing weak signals from web pages, forums, and regulatory filings using Exa search an",
+   "source": "vendor case study"
+  }
+ ],
+ "verdicts": [
+  {
+   "customer": {
+    "name": "HubSpot",
+    "domain": "hubspot.com",
+    "evidence": "HubSpot has a dedicated case study on exa.ai detailing how it uses Exa to connect its agents to live web intelligence.",
+    "source": "web evidence"
+   },
+   "score": 9.48,
+   "tier": "at_risk",
+   "evidence": [
+    {
+     "lane": "in_house_build",
+     "lane_label": "Building in-house",
+     "url": "https://www.linkedin.com/pulse/how-hubspot-scaled-vector-search-20-billion-vectors-developrec-lya3f",
+     "title": "How HubSpot Scaled Vector Search to 20 Billion Vectors",
+     "source": "linkedin.com",
+     "date": "2026-07-08",
+     "relevance": "strong",
+     "evidence": "HubSpot built an internal platform called VaaS, or Vector-as-a-Service. VaaS sits between product teams and Qdrant. Teams do not speak directly to the vector database. Instead, they use VaaS as the central API layer.",
+     "mentions_vendor": false,
+     "points": 3.0
+    },
+    {
+     "lane": "budget_distress",
+     "lane_label": "Budget / strategy risk",
+     "url": "https://www.fool.com/earnings/call-transcripts/2026/08/12/hubspot-hubs-q2-2026-earnings-call-transcript/",
+     "title": "HubSpot (HUBS) Q2 2026 Earnings Call Transcript | The Motley Fool",
+     "source": "fool.com",
+     "date": "2026-08-13",
+     "relevance": "strong",
+     "evidence": "\u201cIn response, we introduced outcome-based pricing for several of our HubSpot agents, lowered entry price points and are providing customers clear visibility and control over usage and spend, including the ability to set thresholds that fit their budget.\u201d (HubSpot commentary on pricing and budget sensitivity)",
+     "mentions_vendor": false,
+     "points": 1.5
+    },
+    {
+     "lane": "budget_distress",
+     "lane_label": "Budget / strategy risk",
+     "url": "https://www.hubspot.com/company-news/hubspots-customer-agent-and-prospecting-agent-now-you-pay-when-the-task-is-complete",
+     "title": "HubSpot's Customer Agent and Prospecting Agent: Now you pay when the task is complete",
+     "source": "hubspot.com",
+     "date": "2026-04-13",
+     "relevance": "strong",
+     "evidence": "HubSpot's updated pricing on Breeze Customer Agent and Breeze Prospecting Agent, with statements that pricing is outcome-based and tied to results (e.g., \u201cfrom $1.00 per conversation to $0.50 per resolved conversation\u201d and \u201c$1.00 per lead recommended for outreach\u201d), and notes that both agents are available to Pro and Enterprise customers with a 28-day free trial.",
+     "mentions_vendor": false,
+     "points": 1.5
+    },
+    {
+     "lane": "in_house_build",
+     "lane_label": "Building in-house",
+     "url": "https://product.hubspot.com/blog/building-the-ai-retrieval-infrastructure-behind-20-billion-vectors-at-hubspot?hs_amp=true",
+     "title": "Building the AI Retrieval Infrastructure Behind 20 Billion+ Vectors at HubSpot",
+     "source": "product.hubspot.com",
+     "date": "2026-06-25",
+     "relevance": "weak",
+     "evidence": "A sentence notes: \"The VaaS (Vector-as-a-Service) platform is currently used by 38+ teams and has more than 200 indexes... Collectively, the underlying vector database stores 20+ billion vectors...\" (HubSpot internal vector infrastructure, including self-managed components and in-house deployment).",
+     "mentions_vendor": false,
+     "points": 1.05
+    },
+    {
+     "lane": "competitor_adoption",
+     "lane_label": "Competitor adoption",
+     "url": "https://serpapi.com/blog/building-a-sales-assistant-with-real-time-market-awareness-and-crm-insights/",
+     "title": "Building a Sales Assistant with real-time market awareness and CRM insights",
+     "source": "serpapi.com",
+     "date": "2026-01-20",
+     "relevance": "weak",
+     "evidence": "\"Complete implementation is available on GitHub. The Sales Assistant relies on three main components: 1. HubSpot Native SDK 2. SerpApi Web and News Search 3. OpenAI LLM Integration\"",
+     "mentions_vendor": false,
+     "points": 0.89
+    },
+    {
+     "lane": "competitor_adoption",
+     "lane_label": "Competitor adoption",
+     "url": "https://www.perplexity.ai/hub/blog/everything-is-computer",
+     "title": "Everything is Computer",
+     "source": "perplexity.ai",
+     "date": null,
+     "relevance": "weak",
+     "evidence": "Last month, we announced Per \u2014 for Enterprise, new APIs for developers, and deeper capabilities for financial research.",
+     "mentions_vendor": false,
+     "points": 0.84
+    },
+    {
+     "lane": "hiring_to_replace",
+     "lane_label": "Hiring to replace",
+     "url": "https://simplify.jobs/p/0bff666d-23b7-4101-828b-3f9275162080/Senior-Machine-Learning-Engineer-2",
+     "title": "Senior Machine Learning Engineer 2 @ HubSpot | Simplify Jobs",
+     "source": "simplify.jobs",
+     "date": "2026-03-08",
+     "relevance": "weak",
+     "evidence": "The page describes a Senior Machine Learning Engineer II role at HubSpot, focused on building a context platform, retrieval, embeddings, and evaluation for AI assistants, but does not mention Exa or web-scale search engine infrastructure, custom crawlers, proprietary embedding/ranking models, GPU clusters, or vector databases. It is an ML platform/infrastructure role at HubSpot, not explicitly lin",
+     "mentions_vendor": false,
+     "points": 0.7
+    }
+   ]
+  },
+  {
+   "customer": {
+    "name": "monday.com",
+    "domain": "monday.com",
+    "evidence": "monday.com has a dedicated case study on exa.ai about building an agentic lead engine with Exa.",
+    "source": "web evidence"
+   },
+   "score": 5.66,
+   "tier": "at_risk",
+   "evidence": [
+    {
+     "lane": "budget_distress",
+     "lane_label": "Budget / strategy risk",
+     "url": "https://www.businessinsider.com/monday-com-layoffs-ai-growth-strategy-2026-7",
+     "title": "Monday.com Plans 20% Layoffs Citing 'AI-Driven Growth Strategy' - Business Insider",
+     "source": "businessinsider.com",
+     "date": "2026-07-22",
+     "relevance": "strong",
+     "evidence": "monday.com said it was pursuing an \"AI-driven growth strategy\" and reducing its global workforce by ~20% (around 620 people) to align with that strategy, stating: \"The organization we built for our previous chapter is not the organization that fits the new AI era... we are announcing the very difficult decision to reduce our global workforce by ~20%\".",
+     "mentions_vendor": false,
+     "points": 1.5
+    },
+    {
+     "lane": "budget_distress",
+     "lane_label": "Budget / strategy risk",
+     "url": "https://www.cio.com/article/4200330/monday-com-cuts-20-of-its-workforce-to-restructure-for-the-ai-era.html",
+     "title": "Monday.com cuts 20% of its workforce to restructure for the AI era | CIO",
+     "source": "cio.com",
+     "date": "2026-07-23",
+     "relevance": "strong",
+     "evidence": "Monday.com co-founder and co-CEO Eran Zinman today announced the \u201cvery difficult decision\u201d to reduce the AI work platform company\u2019s global workforce by about 20%, or 620 people.",
+     "mentions_vendor": false,
+     "points": 1.5
+    },
+    {
+     "lane": "in_house_build",
+     "lane_label": "Building in-house",
+     "url": "https://engineering.monday.com/mondaydb-3-solving-htap-for-a-trillion-table-system/",
+     "title": "mondayDB 3 - Solving HTAP for a Trillion-Table System - monday engineering",
+     "source": "engineering.monday.com",
+     "date": "2026-05-19",
+     "relevance": "weak",
+     "evidence": "\"We replaced our MySQL, Cassandra, and Redis fleet with a single, purpose-built system powered by a DuckDB columnar engine.\"",
+     "mentions_vendor": false,
+     "points": 1.05
+    },
+    {
+     "lane": "in_house_build",
+     "lane_label": "Building in-house",
+     "url": "https://aws.amazon.com/blogs/machine-learning/ai-teammates-how-monday-com-runs-production-ai-agents-on-amazon-bedrock/",
+     "title": "AI Teammates: how monday.com runs production AI agents on Amazon Bedrock | Artificial Intelligence",
+     "source": "aws.amazon.com",
+     "date": "2026-07-22",
+     "relevance": "weak",
+     "evidence": "The page discusses monday.com running production AI agents on Amazon Bedrock with AWS services, agent SDK, and orchestration, but does not mention Exa or web-scale search infrastructure; it describes internal production AI agent deployment and orchestration at monday.com, not a direct claim of in-house web-search infra capabilities overlapping Exa.",
+     "mentions_vendor": false,
+     "points": 1.05
+    },
+    {
+     "lane": "hiring_to_replace",
+     "lane_label": "Hiring to replace",
+     "url": "https://builtin.com/job/senior-software-engineer-agent-platform-data/10262918",
+     "title": "Senior Software Engineer -Agent Platform & Data - monday.com | Built In",
+     "source": "builtin.com",
+     "date": null,
+     "relevance": "weak",
+     "evidence": "The page describes a Senior Software Engineer role at monday.com focusing on AI Context Layer, RAG, memory layer, 3rd party integrations, and tech stack (TypeScript, React, Node, Rails, AWS, databases). It does not explicitly mention building capability that overlaps Exa\u2019s web-scale search engine infrastructure, proprietary embeddings/ranking models, GPU training clusters, or specialized vector da",
+     "mentions_vendor": false,
+     "points": 0.56
+    }
+   ]
+  },
+  {
+   "customer": {
+    "name": "OpenRouter",
+    "domain": "openrouter.ai",
+    "evidence": "OpenRouter has a dedicated case study on exa.ai regarding its use of Exa for agentic web search across its model marketplace.",
+    "source": "web evidence"
+   },
+   "score": 5.13,
+   "tier": "at_risk",
+   "evidence": [
+    {
+     "lane": "budget_distress",
+     "lane_label": "Budget / strategy risk",
+     "url": "https://stripe.com/en-hk/newsroom/news/stripe-agrees-to-acquire-openrouter",
+     "title": "Stripe agrees to acquire OpenRouter to help businesses optimize token routing and usage",
+     "source": "stripe.com",
+     "date": "2026-08-19",
+     "relevance": "strong",
+     "evidence": "\u201cStripe agrees to acquire OpenRouter, a leading AI model gateway and routing platform\u2026 Together, Stripe and OpenRouter will be able to help companies manage both sides of profitability in the AI era: maximizing revenue and efficacy while minimizing costs.\u201d",
+     "mentions_vendor": false,
+     "points": 1.5
+    },
+    {
+     "lane": "budget_distress",
+     "lane_label": "Budget / strategy risk",
+     "url": "https://www.cnbc.com/2026/08/19/stripe-openrouter-fintech-ai-model-marketplace-.html",
+     "title": "Stripe to buy OpenRouter as fintech expands deeper into AI",
+     "source": "cnbc.com",
+     "date": "2026-08-19",
+     "relevance": "strong",
+     "evidence": "The deal will \"maximize profitability by routing their requests intelligently and spending their tokens efficiently,\" Stripe CEO Patrick Collison said in a statement.",
+     "mentions_vendor": false,
+     "points": 1.5
+    },
+    {
+     "lane": "in_house_build",
+     "lane_label": "Building in-house",
+     "url": "https://www.firecrawl.dev/blog/firecrawl-search-openrouter",
+     "title": "Firecrawl /search is now available on OpenRouter",
+     "source": "firecrawl.dev",
+     "date": "2026-04-21",
+     "relevance": "weak",
+     "evidence": "Firecrawl is now a web search engine on OpenRouter. When your model reaches for the web, it gets the full page, rendered and converted to clean markdown, not a results list.",
+     "mentions_vendor": false,
+     "points": 1.05
+    },
+    {
+     "lane": "hiring_to_replace",
+     "lane_label": "Hiring to replace",
+     "url": "https://openrouter.ai/careers",
+     "title": "Careers at OpenRouter",
+     "source": "openrouter.ai",
+     "date": null,
+     "relevance": "weak",
+     "evidence": "The Careers page describes OpenRouter as a unified interface for LLMs, remote-work benefits, and open positions, but does not list any responsibilities or postings explicitly involving building web-scale search infrastructure, custom crawlers, embedding/ranking models, GPU training clusters, or vector databases. The page only states general company goals and perks.",
+     "mentions_vendor": false,
+     "points": 0.56
+    },
+    {
+     "lane": "in_house_build",
+     "lane_label": "Building in-house",
+     "url": "https://openrouter.ai/blog/announcements/web-search-benchmark/",
+     "title": "Pick the Right Engine, Depth, and Model for Your Agent",
+     "source": "openrouter.ai",
+     "date": "2026-08-11",
+     "relevance": "weak",
+     "evidence": "\"On OpenRouter, we offer Exa, Parallel, and Perplexity, alongside the native engines from labs like OpenAI, Anthropic, and Google.\"",
+     "mentions_vendor": true,
+     "points": 0.52
+    }
+   ]
+  },
+  {
+   "customer": {
+    "name": "Cognition",
+    "domain": "cognition.ai",
+    "evidence": "Cognition has a dedicated case study on exa.ai explaining how Exa powers web search for its agentic products like Devin.",
+    "source": "web evidence"
+   },
+   "score": 3.61,
+   "tier": "watch",
+   "evidence": [
+    {
+     "lane": "budget_distress",
+     "lane_label": "Budget / strategy risk",
+     "url": "https://thenextweb.com/news/spacex-cognition-acquisition-approach-denial",
+     "title": "Five days after buying Cursor for $60bn, SpaceX tried to buy Cognition",
+     "source": "thenextweb.com",
+     "date": "2026-08-19",
+     "relevance": "strong",
+     "evidence": "SpaceX approached AI coding startup Cognition about buying it, according to Bloomberg, and Cognition did not engage. Chief executive Scott Wu wrote publicly that Cognition is \u201cnot for sale and we haven\u2019t been talking.\u201d",
+     "mentions_vendor": false,
+     "points": 1.5
+    },
+    {
+     "lane": "in_house_build",
+     "lane_label": "Building in-house",
+     "url": "https://www.zenml.io/blog/llmops-in-production-another-419-case-studies-of-what-actually-works",
+     "title": "LLMOps in Production: Another 419 Case Studies of What ...",
+     "source": "zenml.io",
+     "date": "2025-12-15",
+     "relevance": "weak",
+     "evidence": "- Cognition- Cognition's autonomous AI software engineer, Devon, addresses LLM limitations in large codebases by using DeepWiki, a knowledge graph that extracts and maps codebase concepts from code and metadata. It further employs Devon Search for grounded codebase research and custom post-training via multi-turn reinforcement learning with automatic verification.",
+     "mentions_vendor": false,
+     "points": 0.89
+    },
+    {
+     "lane": "hiring_to_replace",
+     "lane_label": "Hiring to replace",
+     "url": "https://jobs.ashbyhq.com/cognition/b6f96827-ce14-44f4-98fa-b1b8640858b6",
+     "title": "Research Engineer, ML Infrastructure @ Cognition - Jobs",
+     "source": "jobs.ashbyhq.com",
+     "date": "2026-04-08",
+     "relevance": "weak",
+     "evidence": "The page describes a Research Engineer, Infrastructure role at Cognition focused on distributed training infrastructure, experiment orchestration, data pipelines, and tooling for research velocity; no explicit mention of building web-scale search engine infrastructure, custom crawlers, proprietary embedding/ranking models, GPU-accelerated training clusters, or vector databases as described in Exa\u2019",
+     "mentions_vendor": false,
+     "points": 0.7
+    },
+    {
+     "lane": "budget_distress",
+     "lane_label": "Budget / strategy risk",
+     "url": "https://techcrunch.com/2026/08/19/cognition-ceo-denies-report-that-spacex-tried-to-acquire-the-startup/",
+     "title": "Cognition CEO denies report that SpaceX tried to acquire the startup | TechCrunch",
+     "source": "techcrunch.com",
+     "date": "2026-08-19",
+     "relevance": "weak",
+     "evidence": "Cognition CEO Scott Wu disputed the Bloomberg report, stating that Cognition \u201cis not for sale,\u201d and that the two companies haven\u2019t been in talks.",
+     "mentions_vendor": false,
+     "points": 0.52
+    }
+   ]
+  },
+  {
+   "customer": {
+    "name": "WebFX",
+    "domain": "webfx.com",
+    "evidence": "WebFX has a dedicated case study on exa.ai detailing how they use Exa to scale digital marketing workflows.",
+    "source": "web evidence"
+   },
+   "score": 1.6,
+   "tier": "healthy",
+   "evidence": [
+    {
+     "lane": "hiring_to_replace",
+     "lane_label": "Hiring to replace",
+     "url": "https://www.webfx.com/careers/",
+     "title": "Digital Marketing, Web Design & Development Jobs",
+     "source": "webfx.com",
+     "date": null,
+     "relevance": "weak",
+     "evidence": "The page is a WebFX careers page listing open positions and company perks, with no mention of Exa or any explicit responsibilities related to web-scale search engine infrastructure, custom crawlers, proprietary embedding/ranking models, GPU-accelerated training clusters, or specialized vector databases.",
+     "mentions_vendor": false,
+     "points": 0.56
+    },
+    {
+     "lane": "budget_distress",
+     "lane_label": "Budget / strategy risk",
+     "url": "https://dced.pa.gov/newsroom/creating-jobs-in-harrisburg-governor-shapiro-secures-10-7-million-investment-from-webfx-to-expand-operations-create-100-new-tech-jobs/",
+     "title": "Creating Jobs in Harrisburg: Governor Shapiro Secures $10.7 Million Investment from WebFX to Expand Operations, Create 100 New Tech Jobs - PA Department of Community & Economic Development",
+     "source": "dced.pa.gov",
+     "date": "2026-04-09",
+     "relevance": "weak",
+     "evidence": "The page discusses a $10.7 million investment from WebFX to expand operations and create 100 tech jobs in Harrisburg; it does not mention budget pressures, strategy shifts, or cuts related to tools like Exa, procurement consolidations, layoffs, or AI-native web search API needs.",
+     "mentions_vendor": false,
+     "points": 0.52
+    },
+    {
+     "lane": "budget_distress",
+     "lane_label": "Budget / strategy risk",
+     "url": "https://theburgnews.com/around-the-burg/webfx-set-to-expand-into-nearby-mansion-with-state-support-purchases-another-building-for-possible-future-use",
+     "title": "WebFX set to expand into nearby mansion with state support; purchases another building for possible future use - TheBurg",
+     "source": "theburgnews.com",
+     "date": "2026-04-09",
+     "relevance": "weak",
+     "evidence": "The article discusses state support for WebFX expansion and purchasing/renovating a new building, not budget pressure or strategy change to cut spend on tools like Exa. Most damning sentence would be: \"WebFX was awarded $900,000 in PA First and WEDnet grants for the renovation and expansion into the Tracy Mansion, just up the street at 1829 N. Front St.\" (names: WebFX, PA First, WEDnet, Tracy Mans",
+     "mentions_vendor": false,
+     "points": 0.52
+    }
+   ]
+  },
+  {
+   "customer": {
+    "name": "StackAI",
+    "domain": "stackai.com",
+    "evidence": "StackAI has a dedicated case study on exa.ai explaining how Exa powers its enterprise AI agent platform.",
+    "source": "web evidence"
+   },
+   "score": 7.0,
+   "tier": "at_risk",
+   "evidence": [
+    {
+     "lane": "competitor_adoption",
+     "lane_label": "Competitor adoption",
+     "url": "https://docs.tavily.com/documentation/integrations/stackai",
+     "title": "StackAI",
+     "source": "docs.tavily.com",
+     "date": null,
+     "relevance": "strong",
+     "evidence": "Integrate Tavily with StackAI to enhance your AI workflows with real-time web data.",
+     "mentions_vendor": false,
+     "points": 2.4
+    },
+    {
+     "lane": "hiring_to_replace",
+     "lane_label": "Hiring to replace",
+     "url": "https://jobs.ashbyhq.com/stack-ai/f6b1d010-12ea-460e-aebb-85e2f7e6de45",
+     "title": "Forward Deployed Engineer - Healthcare @ StackAI",
+     "source": "jobs.ashbyhq.com",
+     "date": null,
+     "relevance": "strong",
+     "evidence": "The page describes an engineering role focused on deploying enterprise-grade AI solutions, including Retrieval-Augmented Generation (RAG) pipelines and LLM workflows for healthcare, with responsibilities around designing and deploying AI workflows, integrating with EHRs, claims processing, PHI security, and contributing to the StackAI codebase. It does not mention Exa or web-scale search infrastru",
+     "mentions_vendor": false,
+     "points": 1.6
+    },
+    {
+     "lane": "budget_distress",
+     "lane_label": "Budget / strategy risk",
+     "url": "https://techcrunch.com/2026/05/28/asana-acquires-no-code-agent-builder-stack-ai/",
+     "title": "Asana acquires no-code agent-builder StackAI | TechCrunch",
+     "source": "techcrunch.com",
+     "date": "2026-05-28",
+     "relevance": "strong",
+     "evidence": "\"Asana has acquired the workflow automation company StackAI for $75 million, part of a larger effort to position itself as an AI-native workplace platform. StackAI\u2019s founders, Tony Rosinol and Bernard Aceituno, will join Asana as part of the acquisition.\"",
+     "mentions_vendor": false,
+     "points": 1.5
+    },
+    {
+     "lane": "budget_distress",
+     "lane_label": "Budget / strategy risk",
+     "url": "https://finance.yahoo.com/sectors/technology/articles/asana-acquires-stackai-adding-cross-200300304.html",
+     "title": "Asana Acquires StackAI, Adding Cross-System Execution for Human-Agent Teams",
+     "source": "finance.yahoo.com",
+     "date": "2026-05-28",
+     "relevance": "strong",
+     "evidence": "The page states: \"Asana, Inc...(NYSE: ASAN)... completed the acquisition of StackAI. StackAI is a no-code AI workflow platform that enables companies to design, test, deploy and govern custom AI agents and intelligent automation of business-critical workflows.\"",
+     "mentions_vendor": false,
+     "points": 1.5
+    }
+   ]
+  },
+  {
+   "customer": {
+    "name": "CodeRabbit",
+    "domain": "coderabbit.ai",
+    "evidence": "CodeRabbit has a dedicated case study on exa.ai detailing how they use Exa to review PRs faster.",
+    "source": "web evidence"
+   },
+   "score": 3.02,
+   "tier": "watch",
+   "evidence": [
+    {
+     "lane": "in_house_build",
+     "lane_label": "Building in-house",
+     "url": "https://theaiengineer.substack.com/p/how-coderabbit-actually-works",
+     "title": "How CodeRabbit Works: Inside Its AI Code Review Pipeline",
+     "source": "theaiengineer.substack.com",
+     "date": "2026-06-20",
+     "relevance": "weak",
+     "evidence": "\"A separate service pulls the job and clones the repo into an isolated microVM, a throwaway machine that exists only for this\"",
+     "mentions_vendor": false,
+     "points": 1.05
+    },
+    {
+     "lane": "in_house_build",
+     "lane_label": "Building in-house",
+     "url": "https://lancedb.com/blog/case-study-coderabbit/",
+     "title": "Case Study: How CodeRabbit Leverages LanceDB for AI-Powered Code Reviews",
+     "source": "lancedb.com",
+     "date": "2025-09-03",
+     "relevance": "weak",
+     "evidence": "LanceDB enables CodeRabbit to ingest, embed, and retrieve high-dimensional knowledge across fragmented sources, serving as the brain behind its AI review engine.",
+     "mentions_vendor": false,
+     "points": 0.89
+    },
+    {
+     "lane": "hiring_to_replace",
+     "lane_label": "Hiring to replace",
+     "url": "https://forgeapply.com/j/senior-applied-ai-engineer-at-coderabbit-694eef48-8e31-4a85-af19-9bf420714ef8",
+     "title": "Senior Applied AI Engineer at Coderabbit ($200k \u2013 $300k) | ForgeApply",
+     "source": "forgeapply.com",
+     "date": null,
+     "relevance": "weak",
+     "evidence": "The page describes an Applied Gen AI Engineer role at CodeRabbit (CodeRabbit Code Review platform) focused on generative AI systems, LLMs, RAG, RLHF, knowledge retrieval, and production deployment; there is no mention of building web-scale search infrastructure, custom crawlers, proprietary embeddings/ranking models, GPU clusters, or specialized vector databases for AI-scale query performance.",
+     "mentions_vendor": false,
+     "points": 0.56
+    },
+    {
+     "lane": "budget_distress",
+     "lane_label": "Budget / strategy risk",
+     "url": "https://www.infoworld.com/article/4208611/coderabbit-targets-ai-generated-code-overload-with-agentic-change-management.html",
+     "title": "CodeRabbit targets AI-generated code overload with Agentic Change Management | InfoWorld",
+     "source": "infoworld.com",
+     "date": "2026-08-12",
+     "relevance": "weak",
+     "evidence": "CodeRabbit\u2019s new features have been made generally available.",
+     "mentions_vendor": false,
+     "points": 0.52
+    }
+   ]
+  },
+  {
+   "customer": {
+    "name": "HockeyStack",
+    "domain": "hockeystack.com",
+    "evidence": "HockeyStack has a dedicated case study on exa.ai regarding its use of Exa for people search within revenue agents.",
+    "source": "web evidence"
+   },
+   "score": 6.63,
+   "tier": "at_risk",
+   "evidence": [
+    {
+     "lane": "in_house_build",
+     "lane_label": "Building in-house",
+     "url": "https://www.hockeystack.com/blog-posts/why-hockeystack-is-built-on-clickhouse",
+     "title": "Why HockeyStack is Built on ClickHouse: Real-Time Analytics at Enterprise Scale",
+     "source": "hockeystack.com",
+     "date": "2026-06-03",
+     "relevance": "strong",
+     "evidence": "\u201cClickHouse meets that standard. It is engineered for speed, cost-efficiency, and runtime computation at scale. Engineered for extreme performance, it underpins the data infrastructure of HockeyStack and many enterprises. OpenAI, Anthropic, Twilio, Uber, IBM, Cloudflare, Cisco, and more are all running on Clickhouse instead of other platforms like BigQuery \u2014 proof that it can handle the world\u2019s mo",
+     "mentions_vendor": false,
+     "points": 3.0
+    },
+    {
+     "lane": "budget_distress",
+     "lane_label": "Budget / strategy risk",
+     "url": "https://appsumo.com/products/hockeystack/questions/unable-to-log-in-are-they-dead-1493863/",
+     "title": "Unable to log in - are they dead? | HockeyStack | AppSumo",
+     "source": "appsumo.com",
+     "date": "2026-03-31",
+     "relevance": "strong",
+     "evidence": "\"Unable to log in - are they dead?\" Can't log in and password reset emails are not being delivered. Their Zendesk support portal is completely gone. Starting to wonder if this deal quietly went the way of so many others.",
+     "mentions_vendor": false,
+     "points": 1.5
+    },
+    {
+     "lane": "in_house_build",
+     "lane_label": "Building in-house",
+     "url": "https://www.hockeystack.com/blog-posts/hockeystack-for-enterprise",
+     "title": "HockeyStack: Built for the Enterprise",
+     "source": "hockeystack.com",
+     "date": "2026-04-13",
+     "relevance": "weak",
+     "evidence": "\"Atlas is HockeyStack\u2019s enterprise data foundation that ingests all your systems\u2019 raw data, resolves identities, applies your own governed definitions, and powers explainable AI and activation on top.\"",
+     "mentions_vendor": false,
+     "points": 1.05
+    },
+    {
+     "lane": "hiring_to_replace",
+     "lane_label": "Hiring to replace",
+     "url": "https://www.builtinsf.com/job/ai-engineer/8798572",
+     "title": "AI Engineer - HockeyStack | Built In San Francisco",
+     "source": "builtinsf.com",
+     "date": null,
+     "relevance": "weak",
+     "evidence": "\"As an AI Engineer, you will enhance backend systems for agentic AI features, design and deploy multi-agent systems, and manage state and context workflows.\"",
+     "mentions_vendor": false,
+     "points": 0.56
+    },
+    {
+     "lane": "budget_distress",
+     "lane_label": "Budget / strategy risk",
+     "url": "https://www.finsmes.com/2026/04/hockeystack-closes-new-funding.html",
+     "title": "HockeyStack Closes Funding; Total Funding Reaches Over $50M",
+     "source": "finsmes.com",
+     "date": "2026-04-15",
+     "relevance": "weak",
+     "evidence": "The page reports HockeyStack raising undisclosed funding and reaching total funding over $50M, but does not mention Exa, budget pressure, layoffs, acquisitions, or pivots related to AI-native web search APIs; it only states funding and leadership details.",
+     "mentions_vendor": false,
+     "points": 0.52
+    }
+   ]
+  },
+  {
+   "customer": {
+    "name": "11x",
+    "domain": "11x.ai",
+    "evidence": "Official case study: Digital GTM workforce: using Exa to find novel GTM signals from live web, enrich accounts with live context, and power agent workflows (prospecting, research, enrichment, personal",
+    "source": "vendor case study"
+   },
+   "score": 1.61,
+   "tier": "healthy",
+   "evidence": [
+    {
+     "lane": "in_house_build",
+     "lane_label": "Building in-house",
+     "url": "https://www.11x.ai/blog/i-showed-a16z-our-entire-agent-stack",
+     "title": "11x - I showed a16z our entire agent stack",
+     "source": "11x.ai",
+     "date": "2026-07-01",
+     "relevance": "weak",
+     "evidence": "\"So we built an agent\" ... \"We built this on LangChain's LangSmith Fleet\"",
+     "mentions_vendor": false,
+     "points": 1.05
+    },
+    {
+     "lane": "hiring_to_replace",
+     "lane_label": "Hiring to replace",
+     "url": "https://jobs.a16z.com/jobs/11x.ai",
+     "title": "Jobs at 11x.ai | Andreessen Horowitz",
+     "source": "jobs.a16z.com",
+     "date": null,
+     "relevance": "weak",
+     "evidence": "null",
+     "mentions_vendor": false,
+     "points": 0.56
+    }
+   ]
+  },
+  {
+   "customer": {
+    "name": "WhyHow AI",
+    "domain": "whyhow.ai",
+    "evidence": "Official case study: Litigation intelligence: identifying emerging class action and mass-tort opportunities by surfacing weak signals from web pages, forums, and regulatory filings using Exa search an",
+    "source": "vendor case study"
+   },
+   "score": 0.56,
+   "tier": "healthy",
+   "evidence": [
+    {
+     "lane": "hiring_to_replace",
+     "lane_label": "Hiring to replace",
+     "url": "https://github.com/whyhow-ai",
+     "title": "WhyHow.ai",
+     "source": "github.com",
+     "date": null,
+     "relevance": "weak",
+     "evidence": "null",
+     "mentions_vendor": false,
+     "points": 0.56
+    }
+   ]
+  }
+ ],
+ "summary": {
+  "vendor": "Exa",
+  "domain": "exa.ai",
+  "counts": {
+   "at_risk": 5,
+   "watch": 2,
+   "healthy": 3
+  },
+  "elapsed_s": 35.8,
+  "api_calls": 56,
+  "cost_usd": 0.632,
+  "generated_at": "2026-08-21T05:23:02.711873+00:00"
+ }
+}

@@ -1,0 +1,20 @@
+# Churn Radar — systemd unit
+#
+# sudo cp deploy/churn-radar.service /etc/systemd/system/churn-radar.service
+# sudo systemctl daemon-reload && sudo systemctl enable --now churn-radar
+
+[Unit]
+Description=Churn Radar (Exa-powered account-risk board)
+After=network.target
+
+[Service]
+Type=simple
+User=ubuntu
+WorkingDirectory=/home/ubuntu/exa-take-home/churn-radar
+# EXA_API_KEY is read from .env in the working directory by the app itself
+ExecStart=/usr/bin/python3 -m uvicorn app:app --host 127.0.0.1 --port 8010
+Restart=always
+RestartSec=3
+
+[Install]
+WantedBy=multi-user.target

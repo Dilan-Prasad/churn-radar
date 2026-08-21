@@ -1,0 +1,340 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Churn Radar</title>
+<style>
+  :root{
+    --bg:#0b0f14; --panel:#121821; --panel2:#0e141c; --line:#1f2a37;
+    --text:#e6edf3; --muted:#8b98a5; --accent:#38bdf8;
+    --red:#ff5c5c; --amber:#f5a623; --green:#2fd07f; --purple:#b388ff;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--text);
+       font:14px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,sans-serif}
+  .wrap{max-width:1180px;margin:0 auto;padding:28px 24px 120px}
+  header{display:flex;align-items:center;gap:14px;margin-bottom:6px}
+  .radar-ico{width:38px;height:38px;border-radius:50%;position:relative;flex:none;
+    border:1px solid var(--line);
+    background:radial-gradient(circle,transparent 0 30%,rgba(56,189,248,.08) 31% 32%,transparent 33% 62%,rgba(56,189,248,.08) 63% 64%,transparent 65%);}
+  .radar-ico::after{content:"";position:absolute;inset:0;border-radius:50%;
+    background:conic-gradient(from 0deg,rgba(56,189,248,.55),transparent 70deg);
+    animation:spin 2.4s linear infinite paused}
+  .scanning .radar-ico::after{animation-play-state:running}
+  @keyframes spin{to{transform:rotate(360deg)}}
+  h1{font-size:22px;margin:0;letter-spacing:.04em}
+  h1 b{color:var(--accent);font-weight:700}
+  .tag{color:var(--muted);margin:0 0 22px 52px;font-size:13px}
+  .controls{display:flex;gap:10px;flex-wrap:wrap;align-items:center;
+    background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px}
+  .controls input[type=text]{flex:1;min-width:240px;background:var(--panel2);color:var(--text);
+    border:1px solid var(--line);border-radius:8px;padding:10px 12px;font-size:15px}
+  .controls input[type=text]:focus{outline:none;border-color:var(--accent)}
+  .controls label{color:var(--muted);font-size:12px;display:flex;align-items:center;gap:8px}
+  .controls input[type=range]{accent-color:var(--accent);width:110px}
+  button{background:var(--accent);color:#06222f;border:0;border-radius:8px;
+    padding:10px 20px;font-size:14px;font-weight:700;cursor:pointer}
+  button:hover{filter:brightness(1.1)}
+  button:disabled{opacity:.45;cursor:default}
+  button.ghost{background:transparent;color:var(--accent);border:1px solid var(--accent)}
+  .status{margin:14px 2px;color:var(--accent);font-size:13px;min-height:20px;
+    font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
+  .status .dim{color:var(--muted)}
+  .banner{border-radius:10px;padding:12px 16px;margin:12px 0;font-size:13px;display:none}
+  .banner.err{background:rgba(255,92,92,.1);border:1px solid rgba(255,92,92,.4);color:#ffb4b4}
+  .banner.warn{background:rgba(245,166,35,.08);border:1px solid rgba(245,166,35,.35);color:#ffd48a}
+  .banner.info{background:rgba(56,189,248,.08);border:1px solid rgba(56,189,248,.3);color:#a5dcf5}
+
+  .grid2{display:grid;grid-template-columns:1.15fr .85fr;gap:14px;margin-top:14px}
+  @media(max-width:880px){.grid2{grid-template-columns:1fr}}
+  .panel{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:16px;display:none}
+  .panel h2{margin:0 0 4px;font-size:15px}
+  .panel .sub{color:var(--muted);font-size:12.5px;margin:0 0 10px}
+  .chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+  .chip{background:var(--panel2);border:1px solid var(--line);color:var(--muted);
+    border-radius:999px;padding:3px 10px;font-size:11.5px}
+  .chip.cat{color:var(--accent);border-color:rgba(56,189,248,.4)}
+  .modes{margin:8px 0 0;padding-left:18px;color:var(--muted);font-size:12.5px}
+  .modes li{margin:3px 0}
+  .modes b{color:var(--text);font-weight:600}
+
+  .scorebar{display:none;gap:12px;margin:16px 0 4px;flex-wrap:wrap;align-items:center}
+  .stat{background:var(--panel);border:1px solid var(--line);border-radius:10px;
+    padding:8px 16px;text-align:center;min-width:92px}
+  .stat .n{font-size:20px;font-weight:800}
+  .stat .l{font-size:10.5px;letter-spacing:.08em;color:var(--muted);text-transform:uppercase}
+  .n.red{color:var(--red)}.n.amber{color:var(--amber)}.n.green{color:var(--green)}
+  .meta{color:var(--muted);font-size:12px;margin-left:auto;font-family:ui-monospace,Menlo,monospace}
+
+  .cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:12px;margin-top:14px}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px;
+    transition:border-color .3s}
+  .card.at_risk{border-color:rgba(255,92,92,.55)}
+  .card.watch{border-color:rgba(245,166,35,.45)}
+  .card .head{display:flex;align-items:center;gap:10px}
+  .card img{width:22px;height:22px;border-radius:5px;background:#fff2}
+  .card .nm{font-weight:700;font-size:14.5px}
+  .card .dm{color:var(--muted);font-size:11.5px;font-family:ui-monospace,Menlo,monospace}
+  .badge{margin-left:auto;font-size:10.5px;font-weight:800;letter-spacing:.06em;
+    border-radius:6px;padding:3px 9px;flex:none}
+  .badge.at_risk{background:rgba(255,92,92,.14);color:var(--red);border:1px solid rgba(255,92,92,.5)}
+  .badge.watch{background:rgba(245,166,35,.12);color:var(--amber);border:1px solid rgba(245,166,35,.45)}
+  .badge.healthy{background:rgba(47,208,127,.1);color:var(--green);border:1px solid rgba(47,208,127,.4)}
+  .badge.scanning{background:var(--panel2);color:var(--muted);border:1px solid var(--line);
+    animation:pulse 1.2s ease-in-out infinite}
+  @keyframes pulse{50%{opacity:.4}}
+  .why{color:var(--muted);font-size:12px;margin:8px 0 0;font-style:italic}
+  .ev{border-top:1px solid var(--line);margin-top:10px;padding-top:9px}
+  .ev .top{display:flex;gap:6px;align-items:center;flex-wrap:wrap;font-size:11px;color:var(--muted)}
+  .lane{border-radius:5px;padding:2px 7px;font-size:10px;font-weight:700;letter-spacing:.04em}
+  .lane.competitor_adoption{background:rgba(255,92,92,.13);color:var(--red)}
+  .lane.in_house_build{background:rgba(179,136,255,.13);color:var(--purple)}
+  .lane.hiring_to_replace{background:rgba(56,189,248,.12);color:var(--accent)}
+  .lane.shopping_around{background:rgba(245,166,35,.12);color:var(--amber)}
+  .lane.budget_distress{background:rgba(139,152,165,.15);color:var(--muted)}
+  .flag{background:rgba(47,208,127,.1);color:var(--green);border-radius:5px;padding:2px 7px;
+    font-size:10px;font-weight:700;cursor:help}
+  .ev .txt{font-size:12.5px;margin:5px 0 2px;color:#c9d4de}
+  .ev a{color:var(--accent);text-decoration:none;font-size:11.5px;word-break:break-all}
+  .ev a:hover{text-decoration:underline}
+  .quiet{color:var(--muted);font-size:12.5px;margin-top:10px;border-top:1px solid var(--line);padding-top:9px}
+
+  .console-toggle{position:fixed;bottom:0;left:0;right:0;background:var(--panel2);
+    border-top:1px solid var(--line);padding:7px 24px;font-family:ui-monospace,Menlo,monospace;
+    font-size:11.5px;color:var(--muted);cursor:pointer;display:flex;gap:16px;z-index:5}
+  .console-toggle:hover{color:var(--text)}
+  .console-toggle .k{color:var(--accent)}
+  .console{position:fixed;bottom:34px;left:0;right:0;height:230px;overflow-y:auto;
+    background:#070b10;border-top:1px solid var(--line);padding:10px 24px;display:none;z-index:5;
+    font-family:ui-monospace,Menlo,monospace;font-size:11px;color:#9fb0be}
+  .console div{white-space:nowrap}
+  .console .ep{color:var(--accent)} .console .err{color:var(--red)} .console .c{color:var(--green)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="radar-ico"></div>
+    <h1>CHURN <b>RADAR</b></h1>
+  </header>
+  <p class="tag">Point it at any B2B company → it maps their documented customers and sweeps the live web for account-specific churn signals. Powered by Exa.</p>
+
+  <div class="controls">
+    <input id="url" type="text" placeholder="Company domain — e.g. exa.ai" value="exa.ai"
+           onkeydown="if(event.key==='Enter')scan('live')">
+    <label>accounts <input id="maxc" type="range" min="5" max="20" value="15"
+           oninput="document.getElementById('maxcv').textContent=this.value">
+           <span id="maxcv">15</span></label>
+    <button id="goBtn" onclick="scan('live')">Scan live</button>
+    <button id="cacheBtn" class="ghost" onclick="scan('cached')" style="display:none">Replay cached</button>
+  </div>
+
+  <div class="status" id="status"></div>
+  <div class="banner err" id="err"></div>
+  <div class="banner warn" id="warn"></div>
+  <div class="banner info" id="info"></div>
+
+  <div class="grid2">
+    <div class="panel" id="profilePanel">
+      <h2 id="pName"></h2>
+      <p class="sub" id="pLine"></p>
+      <div class="chips" id="pChips"></div>
+      <p class="sub" style="margin:12px 0 0"><b style="color:var(--text)">What churn looks like for them:</b></p>
+      <ul class="modes" id="pModes"></ul>
+    </div>
+    <div class="panel" id="compPanel">
+      <h2>Competitive set</h2>
+      <p class="sub">Who we watch for this vendor's customers showing up somewhere else. ✦ = discovered by Exa findSimilar.</p>
+      <div class="chips" id="pComps"></div>
+    </div>
+  </div>
+
+  <div class="scorebar" id="scorebar">
+    <div class="stat"><div class="n red" id="nRisk">0</div><div class="l">At risk</div></div>
+    <div class="stat"><div class="n amber" id="nWatch">0</div><div class="l">Watch</div></div>
+    <div class="stat"><div class="n green" id="nOk">0</div><div class="l">Healthy</div></div>
+    <div class="meta" id="runMeta"></div>
+  </div>
+
+  <div class="cards" id="cards"></div>
+</div>
+
+<div class="console" id="console"></div>
+<div class="console-toggle" onclick="toggleConsole()">
+  <span>▲ <span class="k">under the hood</span> — live Exa API calls</span>
+  <span id="callStats"></span>
+</div>
+
+<script>
+const $ = id => document.getElementById(id);
+let es = null, cardsByDomain = {}, counts = {at_risk:0, watch:0, healthy:0};
+let callN = 0, costT = 0, consoleOpen = false;
+
+const LANE_NAMES = {
+  competitor_adoption:"COMPETITOR ADOPTION", in_house_build:"BUILDING IN-HOUSE",
+  hiring_to_replace:"HIRING TO REPLACE", shopping_around:"EVALUATING ALTERNATIVES",
+  budget_distress:"BUDGET / STRATEGY"};
+
+function esc(s){const d=document.createElement('div');d.textContent=s??'';return d.innerHTML}
+function fav(dom){return `https://www.google.com/s2/favicons?domain=${encodeURIComponent(dom)}&sz=64`}
+
+function toggleConsole(){consoleOpen=!consoleOpen;$('console').style.display=consoleOpen?'block':'none'}
+
+async function refreshCacheBtn(){
+  try{
+    const dom = $('url').value.trim().replace(/^https?:\/\//,'').replace(/^www\./,'').replace(/[/?#].*$/,'');
+    const runs = await (await fetch('/api/cached')).json();
+    const hit = runs.find(r=>r.domain===dom);
+    $('cacheBtn').style.display = hit ? 'inline-block' : 'none';
+    if(hit) $('cacheBtn').textContent = `Replay cached (${(hit.generated_at||'').slice(0,10)})`;
+  }catch(e){/* no cache list, fine */}
+}
+$('url').addEventListener('input', refreshCacheBtn);
+refreshCacheBtn();
+
+// deep link: /?url=exa.ai&auto=live|cached starts a scan on load
+const qp = new URLSearchParams(location.search);
+if(qp.get('url')) $('url').value = qp.get('url');
+if(qp.get('auto')) window.addEventListener('load', ()=>scan(qp.get('auto')==='cached'?'cached':'live'));
+
+function reset(){
+  cardsByDomain={}; counts={at_risk:0,watch:0,healthy:0}; callN=0; costT=0;
+  $('cards').innerHTML=''; $('pChips').innerHTML=''; $('pModes').innerHTML=''; $('pComps').innerHTML='';
+  $('console').innerHTML='';
+  ['err','warn','info'].forEach(i=>{$(i).style.display='none'});
+  ['profilePanel','compPanel'].forEach(i=>{$(i).style.display='none'});
+  $('scorebar').style.display='none';
+  $('nRisk').textContent=$('nWatch').textContent=$('nOk').textContent='0';
+  $('runMeta').textContent=''; $('callStats').textContent='';
+}
+
+function scan(mode){
+  if(es) es.close();
+  reset();
+  document.body.classList.add('scanning');
+  $('goBtn').disabled=true; $('cacheBtn').disabled=true;
+  const url = encodeURIComponent($('url').value.trim());
+  const maxc = $('maxc').value;
+  $('status').textContent = mode==='cached' ? '↺ replaying cached run…' : '⟲ starting scan…';
+  es = new EventSource(`/api/scan?url=${url}&max_customers=${maxc}&mode=${mode}`);
+  es.onmessage = e => handle(JSON.parse(e.data));
+  es.onerror = () => { finish(); };
+}
+
+function finish(){
+  if(es){es.close();es=null}
+  document.body.classList.remove('scanning');
+  $('goBtn').disabled=false; $('cacheBtn').disabled=false;
+  refreshCacheBtn();
+}
+
+function handle(ev){
+  if(ev.type==='phase'){ $('status').innerHTML = '⟲ ' + esc(ev.label); }
+
+  else if(ev.type==='replay'){
+    $('info').textContent = `Replaying cached run from ${ (ev.generated_at||'').replace('T',' ').slice(0,16) } UTC — no API calls being made. Re-run live for fresh verdicts.`;
+    $('info').style.display='block';
+  }
+
+  else if(ev.type==='call'){
+    callN++; costT += (ev.cost||0);
+    $('callStats').textContent = `${callN} calls · $${costT.toFixed(3)}`;
+    const line = document.createElement('div');
+    line.innerHTML = ev.error
+      ? `<span class="ep">POST ${esc(ev.endpoint)}</span> ${esc(ev.tag)} <span class="err">✗ ${esc(ev.error)}</span>`
+      : `<span class="ep">POST ${esc(ev.endpoint)}</span> ${esc(ev.tag)} · ${ev.ms}ms · <span class="c">$${(ev.cost||0).toFixed(4)}</span>`;
+    const c = $('console'); c.appendChild(line); c.scrollTop = c.scrollHeight;
+  }
+
+  else if(ev.type==='profile'){
+    const p = ev.data;
+    $('pName').textContent = p.company_name;
+    $('pLine').textContent = p.one_liner;
+    $('pChips').innerHTML = `<span class="chip cat">${esc(p.product_category)}</span>` +
+      (p.buyer_persona?`<span class="chip">buyer: ${esc(p.buyer_persona)}</span>`:'');
+    $('pModes').innerHTML = (p.churn_modes||[]).map(m=>`<li>${esc(m)}</li>`).join('');
+    $('pComps').innerHTML = (p.competitors||[]).map(c=>
+      `<span class="chip">${c.via?'✦ ':''}${esc(c.name)} <span style="opacity:.55">${esc(c.domain||'')}</span></span>`).join('');
+    $('profilePanel').style.display='block';
+    $('compPanel').style.display='block';
+  }
+
+  else if(ev.type==='customers'){
+    $('scorebar').style.display='flex';
+    for(const c of ev.data){
+      const el = document.createElement('div');
+      el.className='card'; el.id='card-'+c.domain;
+      el.innerHTML = `
+        <div class="head">
+          <img src="${fav(c.domain)}" onerror="this.style.visibility='hidden'">
+          <div><div class="nm">${esc(c.name)}</div><div class="dm">${esc(c.domain)}</div></div>
+          <span class="badge scanning">SCANNING</span>
+        </div>
+        <p class="why">${esc(c.evidence)}</p>`;
+      $('cards').appendChild(el);
+      cardsByDomain[c.domain]=el;
+    }
+  }
+
+  else if(ev.type==='verdict'){ renderVerdict(ev.data); }
+
+  else if(ev.type==='warning'){ $('warn').textContent=ev.message; $('warn').style.display='block'; }
+
+  else if(ev.type==='error'){ $('err').textContent=ev.message; $('err').style.display='block';
+    $('status').textContent=''; finish(); }
+
+  else if(ev.type==='done'){
+    const s = ev.data;
+    $('status').innerHTML = `✓ swept <b>${s.counts.at_risk+s.counts.watch+s.counts.healthy}</b> accounts of ${esc(s.vendor)} <span class="dim">in ${s.elapsed_s}s</span>`;
+    if(s.api_calls) $('runMeta').textContent = `${s.api_calls} Exa calls · $${(s.cost_usd).toFixed(2)} · ${s.elapsed_s}s`;
+    else $('runMeta').textContent = `cached · originally ${ (s.generated_at||'').slice(0,10) }`;
+    finish();
+  }
+}
+
+const TIER_LABEL = {at_risk:'AT RISK', watch:'WATCH', healthy:'HEALTHY'};
+
+function renderVerdict(v){
+  const el = cardsByDomain[v.customer.domain];
+  if(!el) return;
+  counts[v.tier]++;
+  $('nRisk').textContent=counts.at_risk; $('nWatch').textContent=counts.watch; $('nOk').textContent=counts.healthy;
+  el.className = 'card '+v.tier;
+  const evHtml = v.evidence.map(e=>`
+    <div class="ev">
+      <div class="top">
+        <span class="lane ${e.lane}">${LANE_NAMES[e.lane]||e.lane}</span>
+        ${e.date?`<span>${e.date}</span>`:''}
+        <span>${esc(e.source)}</span>
+        <span>+${e.points}</span>
+        ${e.mentions_vendor?`<span class="flag" title="This page mentions the vendor itself — it may describe an integration powered BY the vendor rather than a replacement. Verify before acting.">⚡ mentions vendor — verify</span>`:''}
+      </div>
+      <div class="txt">${esc(e.evidence)}</div>
+      <a href="${esc(e.url)}" target="_blank" rel="noopener">${esc(e.title)}</a>
+    </div>`).join('');
+  const quiet = `<div class="quiet">No churn signals across 5 lanes (competitor adoption, in-house build, hiring, alternatives, budget). Quiet is good news — absence of evidence, not proof of loyalty.</div>`;
+  el.innerHTML = `
+    <div class="head">
+      <img src="${fav(v.customer.domain)}" onerror="this.style.visibility='hidden'">
+      <div><div class="nm">${esc(v.customer.name)}</div><div class="dm">${esc(v.customer.domain)}</div></div>
+      <span class="badge ${v.tier}">${TIER_LABEL[v.tier]} · ${v.score}</span>
+    </div>
+    <p class="why">${esc(v.customer.evidence)}</p>
+    ${v.evidence.length ? evHtml : quiet}`;
+  // keep the board sorted riskiest-first as verdicts stream in
+  const order = {at_risk:0, watch:1, healthy:2};
+  const all = Object.values(cardsByDomain);
+  all.sort((a,b)=>{
+    const ta=a.className.split(' ')[1]||'zscanning', tb=b.className.split(' ')[1]||'zscanning';
+    const oa=order[ta]??1.5, ob=order[tb]??1.5;
+    if(oa!==ob) return oa-ob;
+    const sa=parseFloat((a.querySelector('.badge')?.textContent.split('·')[1])||0);
+    const sb=parseFloat((b.querySelector('.badge')?.textContent.split('·')[1])||0);
+    return sb-sa;
+  });
+  const parent=$('cards'); all.forEach(c=>parent.appendChild(c));
+}
+</script>
+</body>
+</html>

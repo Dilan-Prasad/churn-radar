@@ -1,0 +1,1058 @@
+{
+ "profile": {
+  "company_name": "Vercel",
+  "churn_modes": [
+   "Migrating to a general-purpose cloud provider (like AWS or Google Cloud) to manage custom-configured infrastructure, databases, and compute clusters directly.",
+   "Switching to a different specialized platform-as-a-service (PaaS) or developer toolset that better suits specific, non-Jamstack architectural requirements.",
+   "Transitioning to an internal, custom-built DevOps platform for teams that reach a scale where they prioritize granular infrastructure control over the platform's opinionated defaults.",
+   "Consolidating hosting and development workflows into an existing, enterprise-wide managed cloud environment."
+  ],
+  "product_category": "Frontend Cloud Platform / Platform as a Service (PaaS)",
+  "one_liner": "Vercel is a frontend cloud platform and developer tools company that provides infrastructure, frameworks, and workflows for building, deploying, and scaling web applications and AI agents.",
+  "competitors": [
+   {
+    "domain": "netlify.com",
+    "name": "Netlify"
+   },
+   {
+    "name": "Render",
+    "domain": "render.com"
+   },
+   {
+    "domain": "digitalocean.com",
+    "name": "DigitalOcean"
+   },
+   {
+    "domain": "railway.app",
+    "name": "Railway"
+   },
+   {
+    "name": "Fly.io",
+    "domain": "fly.io"
+   },
+   {
+    "name": "Heroku",
+    "domain": "heroku.com"
+   },
+   {
+    "name": "Deno",
+    "domain": "deno.com",
+    "via": "findSimilar"
+   },
+   {
+    "name": "Fastly, Inc.",
+    "domain": "glitch.com",
+    "via": "findSimilar"
+   },
+   {
+    "name": "v0 by Vercel",
+    "domain": "v0.app",
+    "via": "findSimilar"
+   }
+  ],
+  "capability_phrase": "A pre-configured, integrated cloud infrastructure stack including global CDN, serverless compute, automated deployment pipelines, and persistent storage that would otherwise require manually provisioning, clustering, and configuring individual cloud services.",
+  "buyer_persona": "Software developers, frontend teams, and full-stack engineering teams building web applications and AI-driven software."
+ },
+ "domain": "vercel.com",
+ "customers": [
+  {
+   "name": "The Washington Post",
+   "domain": "washingtonpost.com",
+   "evidence": "The Washington Post utilized Vercel and Next.js for their 2022 US midterm elections results pages.",
+   "source": "web evidence"
+  },
+  {
+   "name": "Shopify",
+   "domain": "shopify.com",
+   "evidence": "The Shopify team partnered with Vercel to rebuild Hydrogen.",
+   "source": "web evidence"
+  },
+  {
+   "name": "The Weather Company",
+   "domain": "theweathercompany.com",
+   "evidence": "The Weather Company rebuilt its web serving stack on Vercel.",
+   "source": "web evidence"
+  },
+  {
+   "name": "Code and Theory",
+   "domain": "codeandtheory.com",
+   "evidence": "Code and Theory is featured in a Vercel customer case study on using v0.",
+   "source": "web evidence"
+  },
+  {
+   "name": "Fern",
+   "domain": "fern.com",
+   "evidence": "Fern runs customer documentation for clients on Vercel.",
+   "source": "web evidence"
+  },
+  {
+   "name": "Notion",
+   "domain": "notion.so",
+   "evidence": "Notion is listed in Vercel's customer documentation.",
+   "source": "web evidence"
+  },
+  {
+   "name": "OpenEvidence",
+   "domain": "openevidence.com",
+   "evidence": "OpenEvidence is featured in a Vercel customer case study.",
+   "source": "web evidence"
+  },
+  {
+   "name": "Ramp",
+   "domain": "ramp.com",
+   "evidence": "Ramp rebuilt its marketing site on Next.js and Vercel.",
+   "source": "web evidence"
+  },
+  {
+   "name": "Stably",
+   "domain": "stably.io",
+   "evidence": "Stably is featured in a Vercel customer case study.",
+   "source": "web evidence"
+  },
+  {
+   "name": "Stripe",
+   "domain": "stripe.com",
+   "evidence": "Stripe built a Black Friday microsite and other applications using Vercel.",
+   "source": "web evidence"
+  },
+  {
+   "name": "Sensay",
+   "domain": "sensay.com",
+   "evidence": "Sensay is featured in a Vercel customer case study.",
+   "source": "web evidence"
+  },
+  {
+   "name": "Sonos",
+   "domain": "sonos.com",
+   "evidence": "Sonos migrated over ten properties to Vercel.",
+   "source": "web evidence"
+  }
+ ],
+ "verdicts": [
+  {
+   "customer": {
+    "name": "The Washington Post",
+    "domain": "washingtonpost.com",
+    "evidence": "The Washington Post utilized Vercel and Next.js for their 2022 US midterm elections results pages.",
+    "source": "web evidence"
+   },
+   "score": 5.2,
+   "tier": "watch",
+   "evidence": [
+    {
+     "lane": "budget_distress",
+     "lane_label": "Budget / strategy risk",
+     "url": "https://apnews.com/article/washington-post-staff-reduction-layoffs-cuts-923f87d4bd319c8a64b278165d0a6e27",
+     "title": "Washington Post cuts a third of its staff | AP News",
+     "source": "apnews.com",
+     "date": "2026-02-04",
+     "relevance": "strong",
+     "evidence": "The Washington Post laid off one-third of its staff Wednesday, eliminating its sports section, several foreign bureaus and its books coverage in a widespread purge that represented a brutal blow to journalism and one of its most legendary brands.",
+     "mentions_vendor": false,
+     "points": 1.27
+    },
+    {
+     "lane": "budget_distress",
+     "lane_label": "Budget / strategy risk",
+     "url": "https://www.npr.org/2026/02/04/nx-s1-5699328/washington-post-layoffs-jobs-bezos",
+     "title": "Bezos orders layoffs at 'Washington Post' : NPR",
+     "source": "npr.org",
+     "date": "2026-02-04",
+     "relevance": "strong",
+     "evidence": "\u201cThe Washington Post moved Wednesday at the behest of owner Jeff Bezos to cut a third of its entire workforce. The layoffs affect every corner of the newsroom.\u201d",
+     "mentions_vendor": false,
+     "points": 1.27
+    },
+    {
+     "lane": "in_house_build",
+     "lane_label": "Building in-house",
+     "url": "https://www.catalign.in/2021/11/from-digital-disruption-to-saas.html",
+     "title": "Catalign Innovation Consulting: From digital disruption to SaaS solution at The Washington Post: A Shailesh Prakash perspective",
+     "source": "catalign.in",
+     "date": "2026-07-24",
+     "relevance": "weak",
+     "evidence": "\u201cThe idea was to learn what it takes to run a multi-tenant architecture. Could it be ensured that the content of Yale is not seen by the student journalists in Columbia? What is the cost of running such a solution?\u201d",
+     "mentions_vendor": false,
+     "points": 1.05
+    },
+    {
+     "lane": "in_house_build",
+     "lane_label": "Building in-house",
+     "url": "https://linkedin.com/in/jasonbartz",
+     "title": "Jason Bartz",
+     "source": "linkedin.com",
+     "date": "2026-08-14",
+     "relevance": "weak",
+     "evidence": "\u201cDirector of Engineering Platform Architecture, AWS Automation Arc XP - The Washington Post\u201d and statements about managing engineers in Arc XP core services, AWS Automation and Platform Architecture teams, and building systems engineering and deployment tools suggest internal platform work, but no explicit claim that The Washington Post provides a pre-configured, integrated cloud infrastructure st",
+     "mentions_vendor": false,
+     "points": 1.05
+    },
+    {
+     "lane": "hiring_to_replace",
+     "lane_label": "Hiring to replace",
+     "url": "https://builtin.com/job/staff-software-engineer-cloud-platform/4671069",
+     "title": "Staff Software Engineer, Cloud Platform - The Washington Post | Built In",
+     "source": "builtin.com",
+     "date": null,
+     "relevance": "weak",
+     "evidence": "The page describes a Staff Software Engineer, Cloud Platform role at Arc XP within The Washington Post, focusing on AWS-based backend, serverless, CI/CD, and platform modernization, but it does not mention Vercel or a pre-configured cloud infrastructure stack like Vercel\u2019s offering.",
+     "mentions_vendor": false,
+     "points": 0.56
+    }
+   ]
+  },
+  {
+   "customer": {
+    "name": "Shopify",
+    "domain": "shopify.com",
+    "evidence": "The Shopify team partnered with Vercel to rebuild Hydrogen.",
+    "source": "web evidence"
+   },
+   "score": 9.11,
+   "tier": "at_risk",
+   "evidence": [
+    {
+     "lane": "competitor_adoption",
+     "lane_label": "Competitor adoption",
+     "url": "https://www.netlify.com/customers/victoria-beckham-beauty",
+     "title": "Case Study \n        Victoria Beckham\n         \n        Beauty",
+     "source": "netlify.com",
+     "date": null,
+     "relevance": "strong",
+     "evidence": "\"The checkout experience on victoriabeckhambeauty.com is handled by Shopify\u2019s checkout UI.\"",
+     "mentions_vendor": false,
+     "points": 2.4
+    },
+    {
+     "lane": "budget_distress",
+     "lane_label": "Budget / strategy risk",
+     "url": "https://thelogic.co/news/exclusive/shopify-layoffs-revenue-operations-restructure/",
+     "title": "Shopify makes cuts to its operations team in latest round of layoffs - The Logic",
+     "source": "thelogic.co",
+     "date": "2026-05-04",
+     "relevance": "strong",
+     "evidence": "\u201cShopify has laid off at least 30 people as part of a significant reorganization of its operations team, The Logic has learned.\u201d; \u201cThe changes to the operations team will \u2018sharpen focus on our highest priorities,\u2019 Ben McConaghy, Shopify\u2019s director of communications, told The Logic.\u201d; \u201cThe cuts to the operations team follow a smaller batch of layoffs in early April and another big batch in late Jan",
+     "mentions_vendor": false,
+     "points": 1.5
+    },
+    {
+     "lane": "budget_distress",
+     "lane_label": "Budget / strategy risk",
+     "url": "https://www.bnnbloomberg.ca/business/2026/05/05/shopify-leaning-deeper-into-ai-reports-us581m-q1-loss/",
+     "title": "Shop stock: Shopify leans deeper into AI, reports US$581M Q1 loss",
+     "source": "bnnbloomberg.ca",
+     "date": "2026-05-05",
+     "relevance": "strong",
+     "evidence": "The article notes that Shopify has \u201ccarried out several rounds of layoffs as it veers more heavily toward using AI\u201d and references headcount discipline over three years, with a recent round of cuts tied to its AI era. This indicates cost-cutting and budget pressure linked to strategic shift toward AI and efficiencies.",
+     "mentions_vendor": false,
+     "points": 1.5
+    },
+    {
+     "lane": "competitor_adoption",
+     "lane_label": "Competitor adoption",
+     "url": "https://www.netlify.com/blog/2020/08/31/how-fostr-used-shopify-and-the-jamstack-to-power-e-commerce-on-victoria-beckham-beauty/",
+     "title": "How Fostr used Shopify and the Jamstack for eCommerce on Victoria Beckham Beauty",
+     "source": "netlify.com",
+     "date": "2020-08-31",
+     "relevance": "strong",
+     "evidence": "\u201cVictoria Beckham Beauty engaged Fostr, an e-commerce agency, to create their online store. They wanted a premium, bespoke customer experience to match their brand.\u201d (context about Shopify, Jamstack, and Netlify integration as part of the project)",
+     "mentions_vendor": false,
+     "points": 1.05
+    },
+    {
+     "lane": "in_house_build",
+     "lane_label": "Building in-house",
+     "url": "https://shopify.engineering/quick",
+     "title": "Quick: An internal hosting platform for the AI era (2026) - Shopify",
+     "source": "shopify.engineering",
+     "date": "2026-06-10",
+     "relevance": "weak",
+     "evidence": "\u201cQuick: An internal platform where you drop in a folder of HTML and assets and get back a secure URL that only Shopify employees can see. No frameworks, deploy pipelines, or config files. You just upload a folder and your site is live.\u201d",
+     "mentions_vendor": false,
+     "points": 1.05
+    },
+    {
+     "lane": "in_house_build",
+     "lane_label": "Building in-house",
+     "url": "https://mgroupweb.com/blogs/shopify-oxygen-deployment/",
+     "title": "Shopify Oxygen Deployment: Complete Hydrogen Hosting Guide (2026)",
+     "source": "mgroupweb.com",
+     "date": "2026-05-07",
+     "relevance": "weak",
+     "evidence": "Shopify Oxygen is the managed oxygen edge hosting infrastructure that Shopify operates exclusively for Hydrogen storefronts.",
+     "mentions_vendor": false,
+     "points": 1.05
+    },
+    {
+     "lane": "hiring_to_replace",
+     "lane_label": "Hiring to replace",
+     "url": "https://www.shopify.com/careers/senior-infrastructure-engineer-database-platform_1a55ffbe-70ae-4c65-a43b-0c78df56f9e3",
+     "title": "Senior Infrastructure Engineer - Database Platform - Shopify",
+     "source": "shopify.com",
+     "date": null,
+     "relevance": "weak",
+     "evidence": "null",
+     "mentions_vendor": false,
+     "points": 0.56
+    }
+   ]
+  },
+  {
+   "customer": {
+    "name": "The Weather Company",
+    "domain": "theweathercompany.com",
+    "evidence": "The Weather Company rebuilt its web serving stack on Vercel.",
+    "source": "web evidence"
+   },
+   "score": 5.66,
+   "tier": "at_risk",
+   "evidence": [
+    {
+     "lane": "budget_distress",
+     "lane_label": "Budget / strategy risk",
+     "url": "https://www.mcpressonline.com/news/analytics-cognitive-news/francisco-partners-to-acquire-the-weather-company-assets-from-ibm",
+     "title": "Francisco Partners to Acquire The Weather Company Assets from IBM - MC Press Online",
+     "source": "mcpressonline.com",
+     "date": "2026-05-11",
+     "relevance": "strong",
+     "evidence": "\u201cIBM and Francisco Partners... signed a definitive agreement under which Francisco Partners will acquire The Weather Company assets from IBM.\u201d",
+     "mentions_vendor": false,
+     "points": 1.5
+    },
+    {
+     "lane": "budget_distress",
+     "lane_label": "Budget / strategy risk",
+     "url": "https://prod.mcpressonline.com/news/analytics-cognitive-news/francisco-partners-to-acquire-the-weather-company-assets-from-ibm",
+     "title": "Francisco Partners to Acquire The Weather Company Assets from IBM - MC Press Online",
+     "source": "prod.mcpressonline.com",
+     "date": "2026-07-13",
+     "relevance": "strong",
+     "evidence": "The Weather Company assets are being acquired by Francisco Partners from IBM, with the transaction expected to close by end of Q1 2024 and the Weather Company to become a standalone company under new ownership.",
+     "mentions_vendor": false,
+     "points": 1.5
+    },
+    {
+     "lane": "in_house_build",
+     "lane_label": "Building in-house",
+     "url": "https://linkedin.com/in/jmcgough",
+     "title": "Jeffrey McGough",
+     "source": "linkedin.com",
+     "date": "2026-07-14",
+     "relevance": "weak",
+     "evidence": "\u201cDevOps for weather.com and other Weather Company\u2019s digital properties. Infrastructure migration of three data centers for Apache/Tomcat/MySQL based applications to AWS. Infrastructure for weather.com migrated from on premise to Acquia hosting running under Drupal and Angular. Moved weather.com from Acquia hosting to in-house AWS hosting for control and cost reduction. Refactored infrastructure fo",
+     "mentions_vendor": false,
+     "points": 1.05
+    },
+    {
+     "lane": "in_house_build",
+     "lane_label": "Building in-house",
+     "url": "https://www.weathercompany.com/blog/future-proofing-weather-operations-through-virtualization-and-cloud-technology/",
+     "title": "Weather Operations and Virtualization in Broadcast Tech | The Weather Company",
+     "source": "weathercompany.com",
+     "date": "2026-02-27",
+     "relevance": "weak",
+     "evidence": "\u201cSystem virtualization replaces on-prem, physical infrastructure with cloud-hosted, software-defined systems. In a weather context, this means meteorologists and producers can access forecasting tools, create graphics, and manage digital publishing workflows from virtually anywhere.\u201d",
+     "mentions_vendor": false,
+     "points": 1.05
+    },
+    {
+     "lane": "hiring_to_replace",
+     "lane_label": "Hiring to replace",
+     "url": "https://job-boards.greenhouse.io/theweathercompany/jobs/5175205007",
+     "title": "Job Application for Lead Software Engineer, Meteorological Technologies at The Weather Company",
+     "source": "job-boards.greenhouse.io",
+     "date": null,
+     "relevance": "weak",
+     "evidence": "\u201cThis is both a leadership and hands-on technical role requiring someone who can co-design, build, manage, sustain and rapidly evolve cloud-based technology solutions in an operational meteorological environment, co-architect AI workflows and assess cutting-edge tools... You'll aggressively evaluate AI capabilities in partnership with science and technology colleagues while thoughtfully deploying ",
+     "mentions_vendor": false,
+     "points": 0.56
+    }
+   ]
+  },
+  {
+   "customer": {
+    "name": "Code and Theory",
+    "domain": "codeandtheory.com",
+    "evidence": "Code and Theory is featured in a Vercel customer case study on using v0.",
+    "source": "web evidence"
+   },
+   "score": 5.31,
+   "tier": "at_risk",
+   "evidence": [
+    {
+     "lane": "budget_distress",
+     "lane_label": "Budget / strategy risk",
+     "url": "https://www.accessnewswire.com/newsroom/en/business-and-professional-services/stagwell-stgw-to-acquire-qstrauss-consulting-to-expand-code-and-1195584",
+     "title": "Stagwell (STGW) to Acquire QStrauss Consulting to Expand Code and Theory's Implementation of Adobe's Suite of Solutions",
+     "source": "accessnewswire.com",
+     "date": "2026-07-27",
+     "relevance": "strong",
+     "evidence": "\"Stagwell(NASDAQ:STGW), the challenger network transforming marketing through AI, today announced it has entered into an agreement to acquire QStrauss Consulting\" and related lines indicating acquisition by Stagwell of QStrauss to join Code and Theory Network, i.e., acquisition/ consolidation within Code and Theory ecosystem.",
+     "mentions_vendor": false,
+     "points": 1.5
+    },
+    {
+     "lane": "in_house_build",
+     "lane_label": "Building in-house",
+     "url": "https://www.codeandtheory.com/careers/8541896002",
+     "title": "Senior Engineer, Cloud Infrastructure (US) | Careers",
+     "source": "codeandtheory.com",
+     "date": "2026-07-16",
+     "relevance": "weak",
+     "evidence": "\"Senior Engineer, Cloud Infrastructure (US)\" job listing at Code and Theory. The page is a careers posting, not an engineering blog or technical disclosure about in-house cloud infrastructure capabilities.",
+     "mentions_vendor": false,
+     "points": 1.05
+    },
+    {
+     "lane": "in_house_build",
+     "lane_label": "Building in-house",
+     "url": "https://jobs-radar.com/job/senior-engineer-devops-us-at-code-and-theory-97f421",
+     "title": "Senior Engineer, DevOps (US) at Code and Theory \u00b7 JobsRadar",
+     "source": "jobs-radar.com",
+     "date": "2026-07-07",
+     "relevance": "weak",
+     "evidence": "\u201cWe're looking for a Senior DevOps Engineer to own the infrastructure, tooling, and developer experience powering our AI-native digital platforms. You'll work across cloud, CI/CD, security, and observability \u2014 partnering with cross functional teams to ship faster and build more reliably.\u201d",
+     "mentions_vendor": false,
+     "points": 1.05
+    },
+    {
+     "lane": "competitor_adoption",
+     "lane_label": "Competitor adoption",
+     "url": "https://www.digitalocean.com/customers/cto-ai",
+     "title": "Customers - CTO.ai",
+     "source": "digitalocean.com",
+     "date": "2025-04-17",
+     "relevance": "weak",
+     "evidence": "The page discusses CTO.ai as a DigitalOcean partner focusing on migrations, Kubernetes, and scaling infrastructure; it does not mention Code and Theory or any integration/partnership with Code and Theory or Vercel. The text is about CTO.ai\u2019s work with DigitalOcean and NoBid, migration frameworks, and DevOps collaboration.",
+     "mentions_vendor": false,
+     "points": 0.63
+    },
+    {
+     "lane": "hiring_to_replace",
+     "lane_label": "Hiring to replace",
+     "url": "https://www.codeandtheory.com/careers/8594730002?gh_jid=8594730002",
+     "title": "Senior Engineer, DevOps (US) - Code and Theory",
+     "source": "codeandtheory.com",
+     "date": null,
+     "relevance": "weak",
+     "evidence": "The page title indicates a senior DevOps role at Code and Theory, but no sentence explicitly describing responsibilities overlapping Vercel\u2019s pre-configured cloud infrastructure stack.",
+     "mentions_vendor": false,
+     "points": 0.56
+    },
+    {
+     "lane": "budget_distress",
+     "lane_label": "Budget / strategy risk",
+     "url": "https://channellife.news/story/stagwell-acquires-qstrauss-to-boost-adobe-capabilities",
+     "title": "Stagwell acquires QStrauss to boost Adobe capabilities",
+     "source": "channellife.news",
+     "date": "2026-07-29",
+     "relevance": "weak",
+     "evidence": "The article reports that Stagwell is acquiring QStrauss Consulting to join the Code and Theory Network and expand Adobe capabilities; it does not discuss budget pressure, tool spend (like Vercel), or cost-cutting, but it frames the acquisition as growth and expansion of Adobe-related services.",
+     "mentions_vendor": false,
+     "points": 0.52
+    }
+   ]
+  },
+  {
+   "customer": {
+    "name": "Fern",
+    "domain": "fern.com",
+    "evidence": "Fern runs customer documentation for clients on Vercel.",
+    "source": "web evidence"
+   },
+   "score": 3.34,
+   "tier": "watch",
+   "evidence": [
+    {
+     "lane": "in_house_build",
+     "lane_label": "Building in-house",
+     "url": "https://buildwithfern.com/post/faster-docs",
+     "title": "Our largest docs sites now render ~6.4x faster | Fern",
+     "source": "buildwithfern.com",
+     "date": "2026-07-02",
+     "relevance": "weak",
+     "evidence": "\"Our largest docs sites now render ~6.4x faster\" and the accompanying description explain how Fern stores docs as content-addressed pieces and how publishing involves CLI-backend coordination with storage, reducing large JSON blobs. This demonstrates Fern building an in-house content storage and delivery optimization for docs sites, which is related to frontend hosting/delivery capabilities but no",
+     "mentions_vendor": false,
+     "points": 1.05
+    },
+    {
+     "lane": "in_house_build",
+     "lane_label": "Building in-house",
+     "url": "https://buildwithfern.com/post/self-hosted-launch",
+     "title": "Why we\u2019re launching Fern Self-Hosted Docs and SDKs  | Fern",
+     "source": "buildwithfern.com",
+     "date": "2025-09-03",
+     "relevance": "weak",
+     "evidence": "\u201cDeploy on your own infrastructure: Run Fern on-prem or in your private cloud. This ensures full control over where your data and content live.\u201d",
+     "mentions_vendor": false,
+     "points": 0.89
+    },
+    {
+     "lane": "competitor_adoption",
+     "lane_label": "Competitor adoption",
+     "url": "https://render.com/customers/ferndesk",
+     "title": "Enterprise-ready reliability: Why Ferndesk moved its AI help center to Render",
+     "source": "render.com",
+     "date": null,
+     "relevance": "weak",
+     "evidence": "\"Codex replicated Ferndesk's stack on Render: nine services across Docker and Node runtimes, plus a managed Valkey instance for Redis, all on one platform.\"",
+     "mentions_vendor": false,
+     "points": 0.84
+    },
+    {
+     "lane": "hiring_to_replace",
+     "lane_label": "Hiring to replace",
+     "url": "https://buildwithfern.com/careers",
+     "title": "Careers - Fern: Docs",
+     "source": "buildwithfern.com",
+     "date": null,
+     "relevance": "weak",
+     "evidence": "The Careers page for Fern lists engineering roles (Senior Software Engineer, Staff Software Engineer) and describes Fern as building APIs tooling, with no mention of pre-configured cloud infrastructure stack or overlap with Vercel\u2019s offerings.",
+     "mentions_vendor": false,
+     "points": 0.56
+    }
+   ]
+  },
+  {
+   "customer": {
+    "name": "Notion",
+    "domain": "notion.so",
+    "evidence": "Notion is listed in Vercel's customer documentation.",
+    "source": "web evidence"
+   },
+   "score": 6.87,
+   "tier": "at_risk",
+   "evidence": [
+    {
+     "lane": "budget_distress",
+     "lane_label": "Budget / strategy risk",
+     "url": "https://techcrunch.com/2026/06/25/notion-mail-shuts-down-amid-agent-takeover/",
+     "title": "Notion Mail shuts down amid agent takeover | TechCrunch",
+     "source": "techcrunch.com",
+     "date": "2026-06-25",
+     "relevance": "strong",
+     "evidence": "Notion Mail is shutting down its email product and pivoting to AI agents, stating: \u201cToday, more than half of Notion Mail users manage emails without ever opening their inbox. So, we\u2019re going all in on using agents to run your inbox,\u201d signaling a strategic shift away from an existing product and toward an AI agent-focused approach.",
+     "mentions_vendor": false,
+     "points": 1.5
+    },
+    {
+     "lane": "budget_distress",
+     "lane_label": "Budget / strategy risk",
+     "url": "https://usabusinesstimes.com/inside-the-bitter-split-tearing-apart-notions-founding-circle/",
+     "title": "Inside the Bitter Split Tearing Apart Notion\u2019s Founding Circle \u2013 USA Business Times",
+     "source": "usabusinesstimes.com",
+     "date": "2026-06-06",
+     "relevance": "strong",
+     "evidence": "\u201cthe fallout could reshape the company\u2019s trajectory heading into a pivotal late-stage funding round expected to value Notion above $12 billion.\u201d and \u201ca structured secondary funding round is reportedly still on the table for late 2026\u201d and \u201cCEO Ivan Zhao and a cohort of early angel investors have been locked in an escalating dispute over the company\u2019s strategic direction for the better part of eigh",
+     "mentions_vendor": false,
+     "points": 1.5
+    },
+    {
+     "lane": "in_house_build",
+     "lane_label": "Building in-house",
+     "url": "https://www.notion.com/blog/two-years-of-vector-search-at-notion",
+     "title": "Two years of vector search at Notion: 10x scale, 1/10th cost",
+     "source": "notion.com",
+     "date": "2026-02-19",
+     "relevance": "weak",
+     "evidence": "\u201cIn May 2024, we migrated our entire embeddings workload from the pre-existing dedicated-hardware \u201cpod\u201d architecture to a new serverless architecture that decoupled storage from compute and charged based on usage rather than uptime.\u201d",
+     "mentions_vendor": false,
+     "points": 1.05
+    },
+    {
+     "lane": "in_house_build",
+     "lane_label": "Building in-house",
+     "url": "https://www.notion.com/blog/enabling-multi-region-data-systems-at-notion",
+     "title": "Enabling Multi-Region Data Systems at Notion",
+     "source": "notion.com",
+     "date": "2026-04-09",
+     "relevance": "weak",
+     "evidence": "\u201cAll of our infrastructure is managed with Terraform, which helps standardize environments and ensure consistency across regions.\u201d",
+     "mentions_vendor": false,
+     "points": 1.05
+    },
+    {
+     "lane": "competitor_adoption",
+     "lane_label": "Competitor adoption",
+     "url": "https://www.netlify.com/compose/2024/ai-powered-synergy-revolutionizing-web-development-and-content-collaboration/",
+     "title": "AI-Powered Synergy: Revolutionizing Web Development and Content Collaboration | Compose 2024",
+     "source": "netlify.com",
+     "date": null,
+     "relevance": "weak",
+     "evidence": "\"Netlify\u2019s latest AI feature seamlessly integrates content from Notion into Git markdown.\"",
+     "mentions_vendor": false,
+     "points": 0.84
+    },
+    {
+     "lane": "hiring_to_replace",
+     "lane_label": "Hiring to replace",
+     "url": "https://builtin.com/job/software-engineer-cloud-infrastructure/6389002",
+     "title": "Software Engineer, Cloud Infrastructure - Notion | Built In",
+     "source": "builtin.com",
+     "date": null,
+     "relevance": "weak",
+     "evidence": "The job posting describes Cloud Infrastructure at Notion with focus on compute, networking, resource orchestration, self-service platform, observability, and IaC technologies (Terraform / Pulumi / Typescript); there is no explicit mention of Vercel or a pre-configured cloud stack like Vercel\u2019s.",
+     "mentions_vendor": false,
+     "points": 0.56
+    },
+    {
+     "lane": "competitor_adoption",
+     "lane_label": "Competitor adoption",
+     "url": "https://www.netlify.com/blog/form-handling-nextjs-notion/",
+     "title": "How to add form submission data to Notion with Next.js",
+     "source": "netlify.com",
+     "date": "2022-03-15",
+     "relevance": "weak",
+     "evidence": "The page discusses using Netlify forms to submit data to a Notion database via Next.js, including Notion integration tokens and Notion API usage. It does not show Notion using, integrating with, or partnering with Netlify\u2019s product in a direct, instantiated way beyond a tutorial that uses Notion and Netlify forms implicitly. A single Notion integration and API usage is present, but there is no exp",
+     "mentions_vendor": false,
+     "points": 0.37
+    }
+   ]
+  },
+  {
+   "customer": {
+    "name": "OpenEvidence",
+    "domain": "openevidence.com",
+    "evidence": "OpenEvidence is featured in a Vercel customer case study.",
+    "source": "web evidence"
+   },
+   "score": 5.66,
+   "tier": "at_risk",
+   "evidence": [
+    {
+     "lane": "budget_distress",
+     "lane_label": "Budget / strategy risk",
+     "url": "https://www.pymnts.com/news/artificial-intelligence/2026/medical-ai-startup-openevidence-weighs-200-million-funding-round/",
+     "title": "PYMNTS | Medical AI Startup OpenEvidence Weighs $200M Funding Round",
+     "source": "pymnts.com",
+     "date": "2026-07-20",
+     "relevance": "strong",
+     "evidence": "OpenEvidence has reportedly considered raising $200 million at a $20 billion valuation, but the fundraise is unlikely to proceed due to potential dilution for founders and shareholders; the article notes OpenEvidence has also held acquisition talks with a large tech company in the last few months.",
+     "mentions_vendor": false,
+     "points": 1.5
+    },
+    {
+     "lane": "budget_distress",
+     "lane_label": "Budget / strategy risk",
+     "url": "https://aistartupsnews.com/news/openevidence-eyes-20b-valuation-but-200m-round-on-hold-over-dilution/",
+     "title": "OpenEvidence eyes $20B valuation but $200M round on hold over dilution",
+     "source": "aistartupsnews.com",
+     "date": "2026-07-20",
+     "relevance": "strong",
+     "evidence": "OpenEvidence, the AI-powered medical search engine used by 860,000 U.S. clinicians, has considered a $200 million funding round at a $20 billion valuation. The round is unlikely to proceed due to dilution concerns, according to a source involved in the discussions.",
+     "mentions_vendor": false,
+     "points": 1.5
+    },
+    {
+     "lane": "in_house_build",
+     "lane_label": "Building in-house",
+     "url": "https://zilliz.com/customers/openevidence",
+     "title": "OpenEvidence Powers Medical AI with Zilliz Cloud",
+     "source": "zilliz.com",
+     "date": "2026-04-28",
+     "relevance": "weak",
+     "evidence": "\"Prior to Zilliz Cloud, OpenEvidence used an established leader in vector search, but then moved to Zilliz Cloud as its requirements for scale, performance, and operational flexibility increased.\"",
+     "mentions_vendor": false,
+     "points": 1.05
+    },
+    {
+     "lane": "in_house_build",
+     "lane_label": "Building in-house",
+     "url": "https://cluster-site.onrender.com/posts/how-openevidence-built-a-healthcare-ai-that-physicians-actually-trust/",
+     "title": "How OpenEvidence built a healthcare AI that physicians actually trust | Tenu Tech Brief",
+     "source": "cluster-site.onrender.com",
+     "date": "2026-02-25",
+     "relevance": "weak",
+     "evidence": "\u201cHow OpenEvidence built a healthcare AI that physicians actually trust | Tenu Tech Brief\u201d describes viral uptake and OpenEvidence engineering activity, but provides no direct evidence of OpenEvidence building in-house a Frontend Cloud Platform/PaaS or internal infrastructure matching Vercel\u2019s pre-configured stack. The article focuses on viral growth metrics and engineering response times, not on c",
+     "mentions_vendor": false,
+     "points": 1.05
+    },
+    {
+     "lane": "hiring_to_replace",
+     "lane_label": "Hiring to replace",
+     "url": "https://jobs.ashbyhq.com/OpenEvidence/4ca13c92-2a6f-4847-8bcd-22aa8b29cde8",
+     "title": "Software Engineer, Backend and Infrastructure @ OpenEvidence",
+     "source": "jobs.ashbyhq.com",
+     "date": null,
+     "relevance": "weak",
+     "evidence": "The page is a general job posting for a Software Engineer, Backend and Infrastructure at OpenEvidence and describes building mission-critical backend, service reliability, and data platforms, but it does not mention Vercel or explicit overlap with Vercel\u2019s pre-configured cloud infrastructure stack.",
+     "mentions_vendor": false,
+     "points": 0.56
+    }
+   ]
+  },
+  {
+   "customer": {
+    "name": "Ramp",
+    "domain": "ramp.com",
+    "evidence": "Ramp rebuilt its marketing site on Next.js and Vercel.",
+    "source": "web evidence"
+   },
+   "score": 5.11,
+   "tier": "at_risk",
+   "evidence": [
+    {
+     "lane": "in_house_build",
+     "lane_label": "Building in-house",
+     "url": "https://taeho.io/en/reading/why-and-how-we-built-our-own-background-coding-agent-inspect_18430",
+     "title": "Why and How We Built Our Own Background Coding Agent 'Inspect' | Taeho Kim",
+     "source": "taeho.io",
+     "date": "2026-02-20",
+     "relevance": "strong",
+     "evidence": "\u201cIn January 2026 we built our own background coding agent: Inspect.\u201d and \u201cThe Ramp engineering team built Inspect, an in-house coding agent equipped with the full context and tooling of a real engineer so it can validate its own work.\u201d",
+     "mentions_vendor": false,
+     "points": 3.0
+    },
+    {
+     "lane": "in_house_build",
+     "lane_label": "Building in-house",
+     "url": "https://otf-kit.dev/blog/ramp-why-we-built-our-own-background-agent",
+     "title": "Ramp: Why We Built Our Own Background Agent | OTF Blog",
+     "source": "otf-kit.dev",
+     "date": "2026-01-14",
+     "relevance": "weak",
+     "evidence": "Ramp evaluated every available AI coding tool \u2014 Claude Code, Cursor, Copilot, Devin \u2014 and used them extensively. The engineering team was already productive with these tools for interactive coding. But they saw an opportunity: unattended, overnight agent work on their specific codebase.",
+     "mentions_vendor": false,
+     "points": 0.89
+    },
+    {
+     "lane": "hiring_to_replace",
+     "lane_label": "Hiring to replace",
+     "url": "https://underprompt.com/jobs/software-engineer-production-engineering-ramp",
+     "title": "Software Engineer, Production Engineering at Ramp | Underprompt",
+     "source": "underprompt.com",
+     "date": "2026-04-27",
+     "relevance": "weak",
+     "evidence": "Production Engineers at Ramp are full software engineers who happen to specialize in infrastructure. You write production code, you own systems end-to-end, and you drive technical outcomes across the organization \u2014 not just within your team.",
+     "mentions_vendor": false,
+     "points": 0.7
+    },
+    {
+     "lane": "budget_distress",
+     "lane_label": "Budget / strategy risk",
+     "url": "https://techcrunch.com/2026/06/04/ramp-raises-750m-at-44b-valuation-as-investors-hunger-for-fintechs-with-an-ai-story/",
+     "title": "Ramp raises $750M at $44B valuation as investors hunger for fintechs with an AI story | TechCrunch",
+     "source": "techcrunch.com",
+     "date": "2026-06-04",
+     "relevance": "weak",
+     "evidence": "Ramp said its annualized revenue is currently more than $1 billion, though it said it had crossed that milestone last September (Bloomberg reports its run-rate revenue is now more than $1.5 billion).",
+     "mentions_vendor": false,
+     "points": 0.52
+    }
+   ]
+  },
+  {
+   "customer": {
+    "name": "Stably",
+    "domain": "stably.io",
+    "evidence": "Stably is featured in a Vercel customer case study.",
+    "source": "web evidence"
+   },
+   "score": 3.43,
+   "tier": "watch",
+   "evidence": [
+    {
+     "lane": "hiring_to_replace",
+     "lane_label": "Hiring to replace",
+     "url": "https://www.jointaro.com/jobs/stably/full-stack-engineer-new-grad/",
+     "title": "Full-Stack Engineer - New Grad",
+     "source": "jointaro.com",
+     "date": null,
+     "relevance": "strong",
+     "evidence": "The page is a dedicated job posting titled \"Full-Stack Engineer - New Grad\" for Stably, describing responsibilities across the entire tech stack including core AI engine, cloud execution services, and user-facing web application; explicit mention of building and maintaining cloud execution services and engaging with customers indicates overlap with integrated cloud infrastructure capabilities simi",
+     "mentions_vendor": false,
+     "points": 1.6
+    },
+    {
+     "lane": "in_house_build",
+     "lane_label": "Building in-house",
+     "url": "https://www.stably.ai/blog/cloud-browsers-scale-your-test-suite-without-the-infra-headache",
+     "title": "Stably Blog - Cloud Browsers: Predictable Browser Capacity for Enterprise QA",
+     "source": "stably.ai",
+     "date": "2026-04-02",
+     "relevance": "weak",
+     "evidence": "One common use case is coverage backfill after a team has adopted Stably but still has major gaps across legacy flows. Instead of serializing test creation work to avoid overwhelming a laptop or CI runner, teams can run many`stably create` commands in parallel and let each one use its own isolated browser session.",
+     "mentions_vendor": false,
+     "points": 1.05
+    },
+    {
+     "lane": "in_house_build",
+     "lane_label": "Building in-house",
+     "url": "https://cluster-site.onrender.com/posts/how-stably-ships-ai-testing-agents-in-hours-not-weeks/",
+     "title": "How Stably ships AI testing agents in hours, not weeks | Tenu Tech Brief",
+     "source": "cluster-site.onrender.com",
+     "date": "2026-02-22",
+     "relevance": "weak",
+     "evidence": "Stably ships AI testing agents faster with Vercel\u2019s platform, removing bottlenecks in infrastructure and enabling rapid deployment of tools within hours.",
+     "mentions_vendor": true,
+     "points": 0.52
+    },
+    {
+     "lane": "budget_distress",
+     "lane_label": "Budget / strategy risk",
+     "url": "https://www.startuphub.ai/ai-news/claude%27s-corner/2026/claudes-corner-stably-ai-yc-w2026",
+     "title": "Claude's Corner: Stably AI, AI That Writes and Heal\u2026 | StartupHub.ai",
+     "source": "startuphub.ai",
+     "date": "2026-04-01",
+     "relevance": "weak",
+     "evidence": "The page describes Stably\u2019s pricing and tech stack, mentions deployment on Vercel for frontend + API, and notes production test execution infrastructure using AWS ECS Fargate, but it does not state any budget pressure, layoffs, or strategic pivots away from frontend/cloud platforms. The only mention related to a platform is deployment mentioning Vercel as part of the architecture, not a cost-cutti",
+     "mentions_vendor": true,
+     "points": 0.26
+    }
+   ]
+  },
+  {
+   "customer": {
+    "name": "Stripe",
+    "domain": "stripe.com",
+    "evidence": "Stripe built a Black Friday microsite and other applications using Vercel.",
+    "source": "web evidence"
+   },
+   "score": 11.25,
+   "tier": "at_risk",
+   "evidence": [
+    {
+     "lane": "competitor_adoption",
+     "lane_label": "Competitor adoption",
+     "url": "https://www.netlify.com/blog/netlify-available-in-stripe-projects/",
+     "title": "Netlify is now available in Stripe Projects",
+     "source": "netlify.com",
+     "date": "2026-04-29",
+     "relevance": "strong",
+     "evidence": "Netlify is a launch and design partner for Stripe Projects, and we co-designed the integration protocol that standardizes how providers handle provisioning, plan selection, upgrades, and credential handoff.",
+     "mentions_vendor": false,
+     "points": 3.0
+    },
+    {
+     "lane": "budget_distress",
+     "lane_label": "Budget / strategy risk",
+     "url": "https://stripe.com/newsroom/news/stripe-agrees-to-acquire-openrouter",
+     "title": "Stripe agrees to acquire OpenRouter to help businesses optimize token routing and usage",
+     "source": "stripe.com",
+     "date": "2026-08-19",
+     "relevance": "strong",
+     "evidence": "\u201cStripe, the programmable financial services company, today announced that it has agreed to acquire OpenRouter, a leading AI model gateway and routing platform.\u201d (Stripe acquiring OpenRouter)",
+     "mentions_vendor": false,
+     "points": 1.5
+    },
+    {
+     "lane": "budget_distress",
+     "lane_label": "Budget / strategy risk",
+     "url": "https://www.paymentsdive.com/news/stripe-openrouter-acquisition-may-bolster-its-ai-strategy/828216/",
+     "title": "Stripe acquisition may bolster its AI strategy | Payments Dive",
+     "source": "paymentsdive.com",
+     "date": "2026-08-19",
+     "relevance": "strong",
+     "evidence": "Stripe would move squarely into the middle of how companies select and pay for artificial intelligence computing if it buys the artificial intelligence spend management firm OpenRouter.",
+     "mentions_vendor": false,
+     "points": 1.5
+    },
+    {
+     "lane": "competitor_adoption",
+     "lane_label": "Competitor adoption",
+     "url": "https://www.netlify.com/blog/2021/06/30/e-commerce-checkout-with-angular-netlify-functions-and-the-stripe-api/",
+     "title": "E-commerce Checkout with Angular, Netlify Functions & the Stripe API",
+     "source": "netlify.com",
+     "date": "2021-06-30",
+     "relevance": "strong",
+     "evidence": "The page describes implementing an e-commerce checkout using Stripe API via Netlify Functions and Stripe\u2019s own Stripe.js for opening the Stripe checkout page, explicitly discussing integrating Stripe into an Angular project and Netlify Functions.",
+     "mentions_vendor": false,
+     "points": 1.05
+    },
+    {
+     "lane": "in_house_build",
+     "lane_label": "Building in-house",
+     "url": "https://johal.in/retrospective-adopting-pulumi-3130-terraform-19-multi-cloud-iac",
+     "title": "Retrospective: Adopting Pulumi 3.130 Over Terraform 1.9 for Multi-Cloud IaC at Stripe \u2013 2 Years of Wins and Losses \u2014 johal.in",
+     "source": "johal.in",
+     "date": "2026-04-30",
+     "relevance": "weak",
+     "evidence": "In Q3 2022, Stripe\u2019s infrastructure team spent 1,400 engineering hours debugging Terraform 1.9 state conflicts across AWS, GCP, and Azure environments\u2014a 22% drag on our quarterly IaC velocity, and the single largest source of unplanned downtime for our payment processing workloads.",
+     "mentions_vendor": false,
+     "points": 1.05
+    },
+    {
+     "lane": "in_house_build",
+     "lane_label": "Building in-house",
+     "url": "https://news.lavx.hu/article/stripe-s-docdb-zero-downtime-data-movement-for-trillion-dollar-payment-processing",
+     "title": "Stripe's DocDB: Zero-Downtime Data Movement for Trillion-Dollar Payment Processing | LavX News",
+     "source": "news.lavx.hu",
+     "date": "2026-05-01",
+     "relevance": "weak",
+     "evidence": "Stripe built a zero-downtime data movement platform for DocDB (MongoDB-based) to enable horizontal scaling, version upgrades, and multi-tenant migrations without downtime, but the page describes Stripe's internal DocDB/data-movement capabilities rather than a direct overlap with a pre-configured Frontend Cloud Platform/PaaS like Vercel. It mentions in-house engineering decisions and scale, not a c",
+     "mentions_vendor": false,
+     "points": 1.05
+    },
+    {
+     "lane": "hiring_to_replace",
+     "lane_label": "Hiring to replace",
+     "url": "https://www.linkedin.com/jobs/view/staff-engineer-deployment-platform-at-stripe-4440370902",
+     "title": "Stripe hiring Staff Engineer, Deployment Platform in Seattle ...",
+     "source": "linkedin.com",
+     "date": "2026-07-31",
+     "relevance": "weak",
+     "evidence": "The posted job description discusses building Stripe's deployment platform, including deployment pipelines and orchestration, but does not mention Vercel or a pre-configured cloud infrastructure stack like Vercel's offering.",
+     "mentions_vendor": false,
+     "points": 0.7
+    },
+    {
+     "lane": "shopping_around",
+     "lane_label": "Evaluating alternatives",
+     "url": "https://designrevision.com/blog/saas-hosting-compared",
+     "title": "How to Host a SaaS Application: Vercel vs Railway vs Render (2026)",
+     "source": "designrevision.com",
+     "date": "2026-02-19",
+     "relevance": "weak",
+     "evidence": "null",
+     "mentions_vendor": false,
+     "points": 0.7
+    },
+    {
+     "lane": "shopping_around",
+     "lane_label": "Evaluating alternatives",
+     "url": "https://www.birjob.com/blog/paas-comparison-railway-render-fly-vercel-2026",
+     "title": "PaaS Comparison 2026: Railway, Render, Fly.io vs Vercel for Indie Backends | BirJob",
+     "source": "birjob.com",
+     "date": "2026-05-26",
+     "relevance": "weak",
+     "evidence": "The page discusses PaaS providers (Railway, Render, Fly.io, Vercel) and pricing, features, and comparisons, but there is no mention of Stripe conducting the evaluation. The text references Stripe only indirectly in a historical context (Heroku, Anurag Goel ex-Stripe) and does not show Stripe performing the benchmarking itself.",
+     "mentions_vendor": false,
+     "points": 0.7
+    }
+   ]
+  },
+  {
+   "customer": {
+    "name": "Sensay",
+    "domain": "sensay.com",
+    "evidence": "Sensay is featured in a Vercel customer case study.",
+    "source": "web evidence"
+   },
+   "score": 2.89,
+   "tier": "watch",
+   "evidence": [
+    {
+     "lane": "in_house_build",
+     "lane_label": "Building in-house",
+     "url": "https://blog.sensay.io/sensay-x-targon",
+     "title": "Sensay x Targon",
+     "source": "blog.sensay.io",
+     "date": "2025-09-17",
+     "relevance": "weak",
+     "evidence": "\"Sensay has officially integrated with Targon Compute, a decentralized AI cloud designed to unlock access to powerful GPUs and advanced AI tools.\"",
+     "mentions_vendor": false,
+     "points": 0.89
+    },
+    {
+     "lane": "in_house_build",
+     "lane_label": "Building in-house",
+     "url": "https://blog.sensay.io/sensay-ai-engine-v2-is-now-live",
+     "title": "Sensay AI Engine v2 is now live",
+     "source": "blog.sensay.io",
+     "date": "2025-09-04",
+     "relevance": "weak",
+     "evidence": "\u201cThe Sensay AI Engine is a powerful AI layer, accessible via API, that lets you build AI applications limited only by your imagination.\u201d",
+     "mentions_vendor": false,
+     "points": 0.89
+    },
+    {
+     "lane": "hiring_to_replace",
+     "lane_label": "Hiring to replace",
+     "url": "https://www.linkedin.com/posts/bridgesourcellc_sensay-a-company-on-a-mission-to-shape-the-activity-7377723416042168320-4xLE",
+     "title": "Sensay, a company on a mission to shape the future of AI personal chatbots. They\u2019re expanding their tech team and looking for a talented Backend Developer to help build innovative features that \u2026 | BridgeSource",
+     "source": "linkedin.com",
+     "date": "2025-09-27",
+     "relevance": "weak",
+     "evidence": "The page is a BridgeSource LinkedIn post about Sensay hiring a Backend Developer; it does not mention Vercel or pre-configured cloud infrastructure offerings.",
+     "mentions_vendor": false,
+     "points": 0.59
+    },
+    {
+     "lane": "budget_distress",
+     "lane_label": "Budget / strategy risk",
+     "url": "https://yespress.io/sensay",
+     "title": "Sensay - The Company Bottling Human Knowledge Before It Walks Out the Door",
+     "source": "yespress.io",
+     "date": "2026-07-02",
+     "relevance": "weak",
+     "evidence": "The page describes Sensay raising $3.4M via a token sale and building AI digital replicas, with timelines and features, but does not mention budget pressure, cost-cutting, layoffs, or pivot away from Frontend Cloud Platform/PaaS. The closest is discussions of fundraising and product roadmap, not cost-cutting actions.",
+     "mentions_vendor": false,
+     "points": 0.52
+    }
+   ]
+  },
+  {
+   "customer": {
+    "name": "Sonos",
+    "domain": "sonos.com",
+    "evidence": "Sonos migrated over ten properties to Vercel.",
+    "source": "web evidence"
+   },
+   "score": 3.93,
+   "tier": "watch",
+   "evidence": [
+    {
+     "lane": "budget_distress",
+     "lane_label": "Budget / strategy risk",
+     "url": "https://www.theverge.com/tech/963093/sonos-laid-off-some-of-its-veteran-product-and-design-executives",
+     "title": "Sonos laid off some of its veteran product and design executives. | The Verge",
+     "source": "theverge.com",
+     "date": "2026-07-08",
+     "relevance": "strong",
+     "evidence": "The Verge reports: \"Last month, the company cut three percent of its staff, which we now know included several veteran execs.\" and names Dana Krieger, Kate Wojogbe, and Scott Fink as laid-off executives.",
+     "mentions_vendor": false,
+     "points": 1.5
+    },
+    {
+     "lane": "budget_distress",
+     "lane_label": "Budget / strategy risk",
+     "url": "https://www.bloomberg.com/news/articles/2026-04-01/sonos-makes-marketing-cuts-as-new-cmo-reshapes-division",
+     "title": "Sonos Cuts Marketing Jobs as New CMO DeCourcy Restructures Division - Bloomberg",
+     "source": "bloomberg.com",
+     "date": "2026-04-01",
+     "relevance": "strong",
+     "evidence": "Sonos Inc. eliminated jobs on its marketing team Wednesday, with new Chief Marketing Officer Colleen DeCourcy telling employees that the division \u201chad grown into something too diffuse to move at the speed this brand needs.\u201d",
+     "mentions_vendor": false,
+     "points": 1.5
+    },
+    {
+     "lane": "hiring_to_replace",
+     "lane_label": "Hiring to replace",
+     "url": "https://builtin.com/job/devops-sre-engineer/8857406",
+     "title": "DevOps Senior Engineer - Sonos",
+     "source": "builtin.com",
+     "date": null,
+     "relevance": "weak",
+     "evidence": "\"As a DevOps/SRE Engineer, you will enhance developer experience, maintain cloud infrastructure, ensure system reliability, and implement security best practices at Sonos.\"",
+     "mentions_vendor": false,
+     "points": 0.56
+    },
+    {
+     "lane": "competitor_adoption",
+     "lane_label": "Competitor adoption",
+     "url": "https://www.heroku.com/customers/yonomi/",
+     "title": "IoT App and Cloud Service on Heroku Case Study",
+     "source": "heroku.com",
+     "date": "2016-07-18",
+     "relevance": "weak",
+     "evidence": "The page discusses Yonomi and mentions integrations with devices like Nest Thermostat, Sonos, Philips Hue, Schlage Connect, etc., but it does not show Sonos using, integrating with, or partnering with Heroku\u2019s product itself (a competitor to Vercel in PaaS). The examples illustrate routines including Sonos, but there is no evidence of Sonos using Heroku's platform. The strongest relevant line is: ",
+     "mentions_vendor": false,
+     "points": 0.37
+    }
+   ]
+  }
+ ],
+ "summary": {
+  "vendor": "Vercel",
+  "domain": "vercel.com",
+  "counts": {
+   "at_risk": 7,
+   "watch": 5,
+   "healthy": 0
+  },
+  "elapsed_s": 48.0,
+  "api_calls": 65,
+  "cost_usd": 0.713,
+  "generated_at": "2026-08-21T05:07:21.931992+00:00"
+ }
+}

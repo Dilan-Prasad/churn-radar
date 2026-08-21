@@ -1,0 +1,5 @@
+# secrets — the Exa API key lives here
+.env
+
+__pycache__/
+*.pyc

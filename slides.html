@@ -1,0 +1,207 @@
+<title>Churn Radar</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+  :root{
+    --bg:#0b0f14; --panel:#121821; --line:#1f2a37; --text:#e6edf3;
+    --muted:#8b98a5; --accent:#38bdf8;
+    --red:#ff5c5c; --amber:#f5a623; --green:#2fd07f;
+  }
+  *{box-sizing:border-box;margin:0}
+  html{scroll-snap-type:y mandatory;scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--text);
+       font:16px/1.55 "IBM Plex Sans",-apple-system,"Segoe UI",sans-serif}
+  .slide{min-height:100vh;scroll-snap-align:start;display:flex;flex-direction:column;
+         justify-content:center;padding:7vh 8vw;position:relative;border-bottom:1px solid var(--line)}
+  .eyebrow{font:500 12px/1 "IBM Plex Mono",monospace;letter-spacing:.22em;
+           text-transform:uppercase;color:var(--accent);margin-bottom:22px}
+  h1,h2{font-family:Sora,"IBM Plex Sans",sans-serif;text-wrap:balance}
+  h1{font-size:clamp(38px,5.4vw,64px);font-weight:700;line-height:1.06;letter-spacing:-.015em}
+  h2{font-size:clamp(28px,3.6vw,44px);font-weight:600;line-height:1.12;letter-spacing:-.01em;
+     max-width:22ch;margin-bottom:28px}
+  .lede{font-size:clamp(17px,1.5vw,21px);color:var(--muted);max-width:58ch;margin-top:18px}
+  .lede b,.pain b{color:var(--text);font-weight:600}
+  .pagenum{position:absolute;bottom:26px;right:8vw;font:400 12px "IBM Plex Mono",monospace;color:var(--muted)}
+  .foot{position:absolute;bottom:26px;left:8vw;font:400 12px "IBM Plex Mono",monospace;color:var(--muted)}
+
+  /* cover */
+  .cover .radar{width:52px;height:52px;border-radius:50%;border:1px solid var(--line);
+    margin-bottom:34px;position:relative;
+    background:radial-gradient(circle,transparent 0 34%,rgba(56,189,248,.12) 35% 37%,transparent 38% 64%,rgba(56,189,248,.12) 65% 67%,transparent 68%)}
+  .cover .radar::after{content:"";position:absolute;inset:0;border-radius:50%;
+    background:conic-gradient(from 0deg,rgba(56,189,248,.5),transparent 75deg);
+    animation:sweep 3.2s linear infinite}
+  @media (prefers-reduced-motion:reduce){.cover .radar::after{animation:none}}
+  @keyframes sweep{to{transform:rotate(360deg)}}
+  .board{display:flex;gap:12px;margin-top:44px;flex-wrap:wrap}
+  .tile{background:var(--panel);border:1px solid var(--line);border-radius:10px;
+        padding:14px 22px;min-width:120px}
+  .tile .n{font:600 30px/1.1 Sora,sans-serif}
+  .tile .l{font:500 10.5px "IBM Plex Mono",monospace;letter-spacing:.14em;color:var(--muted);
+           text-transform:uppercase;margin-top:4px}
+  .n.red{color:var(--red)}.n.amber{color:var(--amber)}.n.green{color:var(--green)}.n.cyan{color:var(--accent)}
+
+  /* slide 1 — persona & pain */
+  .cols{display:grid;grid-template-columns:1.05fr .95fr;gap:6vw;align-items:start}
+  @media(max-width:900px){.cols{grid-template-columns:1fr;gap:36px}}
+  .pain{color:var(--muted);font-size:clamp(16px,1.35vw,19px);max-width:52ch}
+  .pain p+p{margin-top:16px}
+  .persona{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:26px 28px}
+  .persona .who{font:600 17px Sora,sans-serif}
+  .persona .role{color:var(--muted);font-size:14px;margin:2px 0 18px}
+  .fact{display:flex;gap:14px;padding:12px 0;border-top:1px solid var(--line);font-size:14.5px}
+  .fact .k{font:500 13px "IBM Plex Mono",monospace;color:var(--accent);min-width:88px;padding-top:2px}
+  .fact .v{color:var(--muted)}
+  .fact .v b{color:var(--text);font-weight:600}
+
+  /* slide 2 — receipts */
+  .receipts{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:8px}
+  @media(max-width:900px){.receipts{grid-template-columns:1fr}}
+  .receipt{background:var(--panel);border:1px solid var(--line);border-radius:12px;
+           padding:20px;display:flex;flex-direction:column;gap:12px}
+  .receipt .src{font:500 11.5px "IBM Plex Mono",monospace;color:var(--muted)}
+  .receipt .quote{font-size:15px;line-height:1.5}
+  .receipt .quote b{color:var(--accent);font-weight:600}
+  .receipt .verdict{margin-top:auto;font:500 11px "IBM Plex Mono",monospace;letter-spacing:.1em;
+    text-transform:uppercase;padding-top:12px;border-top:1px solid var(--line)}
+  .verdict.miss{color:var(--red)}
+  .verdict.hit{color:var(--green)}
+  .kicker{margin-top:30px;color:var(--muted);max-width:64ch;font-size:clamp(15px,1.3vw,18px)}
+  .kicker b{color:var(--text)}
+
+  /* slide 3 — impact */
+  .impact{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:10px 0 34px}
+  @media(max-width:900px){.impact{grid-template-columns:1fr}}
+  .metric{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:22px 24px}
+  .metric .big{font:600 clamp(26px,2.6vw,36px)/1.1 Sora,sans-serif;color:var(--accent);
+               font-variant-numeric:tabular-nums}
+  .metric .sub{color:var(--muted);font-size:14px;margin-top:8px}
+  .metric .sub b{color:var(--text)}
+  .next{border-top:1px solid var(--line);padding-top:22px;max-width:70ch}
+  .next .nt{font:500 12px "IBM Plex Mono",monospace;letter-spacing:.18em;text-transform:uppercase;
+            color:var(--muted);margin-bottom:12px}
+  .next p{color:var(--muted);font-size:15.5px}
+  .next b{color:var(--text);font-weight:600}
+
+  .rail{position:fixed;right:18px;top:50%;transform:translateY(-50%);display:flex;
+        flex-direction:column;gap:10px;z-index:9}
+  .rail a{width:8px;height:8px;border-radius:50%;background:var(--line);display:block}
+  .rail a:hover,.rail a:focus-visible{background:var(--accent);outline:none}
+</style>
+
+<nav class="rail" aria-label="slides">
+  <a href="#s0" title="Cover"></a><a href="#s1" title="Who & pain"></a>
+  <a href="#s2" title="Why tools fail"></a><a href="#s3" title="Impact"></a>
+</nav>
+
+<section class="slide cover" id="s0">
+  <div class="radar" aria-hidden="true"></div>
+  <div class="eyebrow">Exa · FDE demo</div>
+  <h1>Churn Radar</h1>
+  <p class="lede">Point it at any B2B company. It maps their documented customers,
+  then sweeps the live web for account-specific churn signals — <b>with receipts</b>.</p>
+  <div class="board" aria-label="a real scan of exa.ai's customer base">
+    <div class="tile"><div class="n red">4</div><div class="l">At risk</div></div>
+    <div class="tile"><div class="n amber">3</div><div class="l">Watch</div></div>
+    <div class="tile"><div class="n green">3</div><div class="l">Healthy</div></div>
+    <div class="tile"><div class="n cyan">34s</div><div class="l">One live sweep</div></div>
+  </div>
+  <div class="foot">live scan of exa.ai's own customer base · 2026-08-21</div>
+  <div class="pagenum">— / 3</div>
+</section>
+
+<section class="slide" id="s1">
+  <div class="eyebrow">01 · Who &amp; pain</div>
+  <div class="cols">
+    <div>
+      <h2>Churn is public before it's on the renewal call</h2>
+      <div class="pain">
+        <p>The signals that precede a lost account sit in the open — a competitor's
+        changelog quietly shipping an integration with your customer, an engineering
+        post about an in-house replacement, a job req for the team that makes you
+        redundant, an acquirer who already has a vendor for what you sell.</p>
+        <p><b>Nobody on the CS team has time to look</b>, and the accounts nobody
+        checks are exactly the ones that surprise you at renewal.</p>
+      </div>
+    </div>
+    <div class="persona">
+      <div class="who">Head of Customer Success</div>
+      <div class="role">B2B API / infra company · owns net revenue retention</div>
+      <div class="fact"><div class="k">Tuesday AM</div>
+        <div class="v">Top-50 account review: <b>20 open tabs per account</b> — blog,
+        careers page, LinkedIn, news — skimming for trouble</div></div>
+      <div class="fact"><div class="k">~45 min</div>
+        <div class="v">per account per month of manual checking, covering only
+        the accounts someone <b>remembers</b> to check</div></div>
+      <div class="fact"><div class="k">The miss</div>
+        <div class="v">the costliest signals never mention your name — so
+        <b>no alert ever fires</b></div></div>
+    </div>
+  </div>
+  <div class="pagenum">1 / 3</div>
+</section>
+
+<section class="slide" id="s2">
+  <div class="eyebrow">02 · Why keyword tools can't see this</div>
+  <h2>The best churn evidence never contains the word churn</h2>
+  <div class="receipts">
+    <div class="receipt">
+      <div class="src">product.hubspot.com · Jun 2026</div>
+      <div class="quote">HubSpot engineering ships <b>“Vector-as-a-Service”</b> —
+      an internal retrieval platform now serving 20&nbsp;billion vectors.</div>
+      <div class="verdict miss">keyword alert: silent — never says “Exa”</div>
+    </div>
+    <div class="receipt">
+      <div class="src">tavily.com/blog · May 2026</div>
+      <div class="quote">A competitor's changelog: <b>“Connect Tavily to Devin</b>
+      through the MCP Marketplace…” — your customer, on their product surface.</div>
+      <div class="verdict miss">keyword alert: silent — wrong site, wrong words</div>
+    </div>
+    <div class="receipt">
+      <div class="src">cnbc.com · Aug 2026</div>
+      <div class="quote"><b>“Stripe agrees to acquire OpenRouter”</b> — the acquirer
+      consolidates procurement; the renewal owner changes overnight.</div>
+      <div class="verdict hit">semantic sweep: flagged, dated, cited</div>
+    </div>
+  </div>
+  <p class="kicker">These require searching by <b>meaning</b> — “this account is building
+  what we sell” — scoped by <b>domain</b> (competitors' sites only) and <b>date</b>.
+  That's Exa: neural search + <span style="font-family:'IBM Plex Mono',monospace;font-size:.92em">includeDomains</span>
+  scoping + structured summaries + findSimilar, composed into five signal lanes per account.</p>
+  <div class="pagenum">2 / 3</div>
+</section>
+
+<section class="slide" id="s3">
+  <div class="eyebrow">03 · What changes if this works</div>
+  <h2>The whole book, swept before the coffee is ready</h2>
+  <div class="impact">
+    <div class="metric"><div class="big">$0.63 · 34s</div>
+      <div class="sub">one live sweep of <b>10 accounts × 5 signal lanes</b>
+      (56 Exa calls, measured)</div></div>
+    <div class="metric"><div class="big">~$8 / sweep</div>
+      <div class="sub">a <b>200-account book</b>, nightly — replacing
+      ~19 person-weeks a year of manual tab-checking</div></div>
+    <div class="metric"><div class="big">1 account</div>
+      <div class="sub">one saved <b>$50k ARR renewal</b> pays for years of sweeps;
+      catching a Stripe-acquires-OpenRouter early changes the conversation</div></div>
+  </div>
+  <div class="next">
+    <div class="nt">Next sprint</div>
+    <p><b>Nightly diff → Slack digest</b> (“2 new signals across your book”) ·
+    <b>CRM enrichment</b> (risk tier as a Salesforce field) ·
+    <b>expansion radar</b> from the counter-signals already collected ·
+    <b>Websets</b> for the customer-discovery step.</p>
+  </div>
+  <div class="pagenum">3 / 3</div>
+</section>
+
+<script>
+  addEventListener('keydown', e => {
+    const slides = [...document.querySelectorAll('.slide')];
+    const i = Math.round(scrollY / innerHeight);
+    if (['ArrowDown','ArrowRight','PageDown',' '].includes(e.key) && i < slides.length-1) {
+      e.preventDefault(); slides[i+1].scrollIntoView();
+    } else if (['ArrowUp','ArrowLeft','PageUp'].includes(e.key) && i > 0) {
+      e.preventDefault(); slides[i-1].scrollIntoView();
+    }
+  });
+</script>
