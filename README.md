@@ -181,12 +181,13 @@ The natural production shape is a nightly sweep of the whole book with
 day-over-day *diffing* — surface only new signals, push to Slack/CRM.
 
 **ROI story for the economic buyer?**
-A CS team covering 200 accounts at 45 min/account/month is ~19 person-weeks a
-year of manual checking that still misses the quiet signals. One sweep of 200
-accounts costs about $8 in API calls and runs while the CSM gets coffee. One
-saved mid-market account (say $30–60k ARR) pays for years of sweeps; catching
-one Stripe-acquires-OpenRouter-class event a quarter early changes the renewal
-conversation entirely.
+A CS team covering 200 accounts at 45 min/account/month is ~150 hours a month —
+about 0.9 FTE — of manual checking that still misses the quiet signals. One
+sweep of 200 accounts is ~1,000 calls, roughly $11 and ten minutes (measured:
+$0.011/call, ~$0.06/account, stable across five vendor sweeps). Nightly, that's
+~$4.1k a year against $10M of ARR under watch — four basis points. One saved
+$50k account pays for twelve years; catching a your-customer-just-got-acquired
+event a quarter early changes the renewal conversation entirely.
 
 **What would you build next sprint?**
 (1) Nightly diff mode + Slack digest ("2 new signals across your book").

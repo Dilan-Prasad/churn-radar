@@ -1,0 +1,402 @@
+<title>Churn Radar Q&A</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600&family=Geist+Mono:wght@400;500&display=swap">
+<style>
+  :root{
+    --bg:#06080F; --panel:#0A0D1A; --deep:#080B14;
+    --text:#FAF9F8; --blue:#1840ED; --peri:#8FA5FF;
+    --green:#4CC38A; --amber:#E9B44C; --red:#FF6A6A;
+    --mut72:rgba(250,249,248,.72); --mut58:rgba(250,249,248,.58);
+    --mut44:rgba(250,249,248,.44); --mut30:rgba(250,249,248,.30);
+    --line:rgba(250,249,248,.10); --line2:rgba(250,249,248,.06);
+    --mono:"Geist Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+    --sans:Geist,"Helvetica Neue",Helvetica,Arial,sans-serif;
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0;
+    background:radial-gradient(1100px 560px at 82% -10%,rgba(24,64,237,.14),transparent 60%),var(--bg);
+    color:var(--text);font:400 15px/1.6 var(--sans);-webkit-font-smoothing:antialiased;
+  }
+  .sheet{max-width:920px;margin:0 auto;padding:56px 32px 120px;display:flex;flex-direction:column;gap:56px}
+  @media(max-width:640px){.sheet{padding:36px 20px 80px;gap:44px}}
+  a{color:var(--peri);text-decoration:none}
+  a:hover{text-decoration:underline}
+  :focus-visible{outline:2px solid var(--peri);outline-offset:3px;border-radius:4px}
+
+  .eyebrow{font:500 11px/1 var(--mono);letter-spacing:.2em;color:var(--peri)}
+
+  /* masthead */
+  .mast{display:flex;flex-direction:column;gap:16px}
+  .mast h1{margin:0;font-size:clamp(30px,4.6vw,44px);line-height:1.05;letter-spacing:-.032em;
+    font-weight:500;text-wrap:balance;max-width:20ch}
+  .mast p{margin:0;color:var(--mut58);max-width:66ch;font-size:16px}
+  .mast .rule{height:1px;background:var(--line);margin-top:6px}
+
+  /* numbers rail */
+  .rail{display:flex;flex-direction:column;gap:14px}
+  .rail .lab{font:500 10.5px/1 var(--mono);letter-spacing:.18em;color:var(--mut44)}
+  .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;
+    background:var(--line2);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+  @media(max-width:620px){.stats{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:380px){.stats{grid-template-columns:1fr}}
+  .stat{background:var(--panel);padding:16px 18px;display:flex;flex-direction:column;gap:6px}
+  .stat .v{font:500 21px/1 var(--mono);letter-spacing:-.02em;font-variant-numeric:tabular-nums;color:var(--text)}
+  .stat .v.acc{color:var(--peri)}
+  .stat .k{font-size:12.5px;line-height:1.45;color:var(--mut44)}
+
+  /* question blocks */
+  .q{display:flex;flex-direction:column;gap:22px;scroll-margin-top:24px}
+  .qhead{display:flex;flex-direction:column;gap:11px;padding-left:18px;border-left:2px solid var(--blue)}
+  .qhead .topic{font:500 10.5px/1 var(--mono);letter-spacing:.2em;color:var(--mut44)}
+  .qhead h2{margin:0;font-size:clamp(21px,2.6vw,27px);line-height:1.24;letter-spacing:-.02em;
+    font-weight:500;text-wrap:balance;max-width:34ch}
+  .qhead h2::before{content:"“";color:var(--mut30)}
+  .qhead h2::after{content:"”";color:var(--mut30)}
+
+  .lead{background:var(--panel);border:1px solid var(--line);border-left:2px solid var(--green);
+    border-radius:0 12px 12px 0;padding:20px 22px;display:flex;flex-direction:column;gap:10px}
+  .lead .tag{font:500 10px/1 var(--mono);letter-spacing:.18em;color:var(--green)}
+  .lead p{margin:0;font-size:17px;line-height:1.55;color:var(--text);max-width:62ch;text-wrap:pretty}
+
+  .body{display:flex;flex-direction:column;gap:16px}
+  .body h3{margin:0;font:500 10.5px/1 var(--mono);letter-spacing:.18em;color:var(--mut44)}
+  .body p{margin:0;color:var(--mut72);max-width:66ch;text-wrap:pretty}
+  .body ul{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:13px}
+  .body li{position:relative;padding-left:20px;color:var(--mut72);max-width:66ch;text-wrap:pretty}
+  .body li::before{content:"";position:absolute;left:2px;top:.62em;width:5px;height:5px;
+    border-radius:1px;background:var(--blue)}
+  .body b{color:var(--text);font-weight:500}
+  .num{font-family:var(--mono);font-variant-numeric:tabular-nums;color:var(--text)}
+
+  /* ranked list — used only where order is real */
+  ol.ranked{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:15px;counter-reset:r}
+  ol.ranked li{counter-increment:r;display:grid;grid-template-columns:26px 1fr;gap:12px;
+    color:var(--mut72);max-width:66ch;text-wrap:pretty}
+  ol.ranked li::before{content:counter(r);font:500 11px/1.75 var(--mono);color:var(--peri);
+    border:1px solid rgba(24,64,237,.42);border-radius:5px;text-align:center;height:22px}
+
+  .push{background:var(--deep);border:1px solid rgba(233,180,76,.28);border-radius:12px;
+    padding:18px 20px;display:flex;flex-direction:column;gap:10px}
+  .push .tag{font:500 10px/1 var(--mono);letter-spacing:.16em;color:var(--amber)}
+  .push .askt{font-size:14.5px;color:var(--text);font-weight:500}
+  .push p{margin:0;color:var(--mut72);max-width:64ch;text-wrap:pretty}
+
+  .dont{display:flex;gap:10px;align-items:baseline;font-size:13.5px;color:var(--mut58);max-width:66ch}
+  .dont .tag{font:500 10px/1 var(--mono);letter-spacing:.16em;color:var(--red);flex:none}
+
+  /* correction callout */
+  .fix{background:rgba(255,106,106,.06);border:1px solid rgba(255,106,106,.26);border-radius:12px;
+    padding:16px 18px;display:flex;flex-direction:column;gap:8px}
+  .fix .tag{font:500 10px/1 var(--mono);letter-spacing:.16em;color:var(--red)}
+  .fix p{margin:0;font-size:13.5px;color:var(--mut72);max-width:66ch}
+
+  /* closing */
+  .close{border-top:1px solid var(--line);padding-top:28px;display:flex;flex-direction:column;gap:16px}
+  .close h2{margin:0;font-size:19px;font-weight:500;letter-spacing:-.015em}
+  .close ul{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:12px}
+  .close li{position:relative;padding-left:20px;color:var(--mut72);max-width:66ch;text-wrap:pretty}
+  .close li::before{content:"";position:absolute;left:2px;top:.62em;width:5px;height:5px;
+    border-radius:50%;background:var(--peri)}
+</style>
+
+<div class="sheet">
+
+  <header class="mast">
+    <div class="eyebrow">EXA FDE · THE LAST TEN MINUTES</div>
+    <h1>Answers for the questions after the demo.</h1>
+    <p>Every number below is measured from real sweeps against the live Exa API — five vendors,
+    56 accounts, 309 calls, $3.46 total. Assumptions are labelled as assumptions. Say them that way.</p>
+    <div class="rule"></div>
+  </header>
+
+  <section class="rail">
+    <div class="lab">NUMBERS TO HAVE COLD</div>
+    <div class="stats">
+      <div class="stat"><span class="v acc">$0.011</span><span class="k">per Exa call, stable across all 309</span></div>
+      <div class="stat"><span class="v acc">$0.06</span><span class="k">per account, full 5-lane sweep</span></div>
+      <div class="stat"><span class="v">33s · $0.63</span><span class="k">the exa.ai demo run, 10 accounts</span></div>
+      <div class="stat"><span class="v">6×</span><span class="k">throughput headroom before rate limits bind</span></div>
+      <div class="stat"><span class="v">~$11</span><span class="k">one sweep of a 200-account book</span></div>
+      <div class="stat"><span class="v">4 bps</span><span class="k">annual cost as a share of ARR watched</span></div>
+    </div>
+  </section>
+
+  <section class="q">
+    <div class="qhead">
+      <div class="topic">SCALE</div>
+      <h2>How would this scale to 10× the data or users?</h2>
+    </div>
+
+    <div class="lead">
+      <div class="tag">LEAD WITH</div>
+      <p>Cost and latency are already linear and measured, so the first 6× is a config change, not a
+      rewrite. The interesting engineering starts after that — and it isn't more parallelism, it's
+      not asking the same question twice.</p>
+    </div>
+
+    <div class="body">
+      <h3>THE PROOF</h3>
+      <ul>
+        <li>Unit economics hold across five different vendors: <b class="num">$0.059–$0.067</b> per account,
+        <b class="num">$0.011</b> per call. I've swept 56 accounts in testing for <b class="num">$3.46</b> total.</li>
+        <li>A 200-account book is about <b class="num">1,000</b> calls — roughly <b>10 minutes</b> and
+        <b class="num">$11</b> a sweep.</li>
+        <li>Measured throughput is <b class="num">~1.6</b> calls/sec against Exa's <b class="num">10 QPS</b>
+        ceiling — I found the ceiling by hitting 429s. That's ~6× headroom before rate limits bind at all.
+        Today I stagger calls 0.13s apart under a concurrency cap of 8, with backoff-retry.</li>
+      </ul>
+    </div>
+
+    <div class="body">
+      <h3>THEN GO DEEPER — THE THREE LEVERS, IN ORDER</h3>
+      <ul>
+        <li><b>Diff mode is the real lever.</b> After the first sweep you never re-read the web: each
+        nightly run sets <span class="num">startPublishedDate</span> to the last run, so lanes return
+        only genuinely new pages and you pay extraction on those alone. Call it an estimate rather than
+        a measurement — 3–5× lower steady-state cost — and note it removes noise too, because a signal
+        you already triaged stops re-alerting.</li>
+        <li><b>Tiered cadence and a two-stage funnel.</b> Top of book daily, long tail weekly. Retrieval
+        is cheap and reading is not, so a search-only pass can gate which pages are worth paying the
+        summary extraction on.</li>
+        <li><b>Users, not data.</b> The scan path is stateless; the only shared state is an in-memory
+        rate limiter and a file cache, which become Redis and object storage behind a work queue.
+        Per-tenant keys already exist — the app takes bring-your-own-key today. The genuinely interesting
+        multi-tenant optimisation: two customers watching the same account retrieve overlapping pages,
+        so you cache the corpus per URL and re-judge per tenant against their own schema. Retrieval
+        shared, judgment private.</li>
+      </ul>
+    </div>
+
+    <div class="push">
+      <div class="tag">IF THEY PUSH</div>
+      <div class="askt">“What breaks first?”</div>
+      <p>Precision, not throughput. Ten times the accounts means ten times the absolute false positives
+      at constant precision, and a CSM forgives a miss long before they forgive noise. That's why scoring
+      is deterministic and auditable rather than a model's opinion — lane weights, recency decay, and a
+      hard requirement that the account is literally named in the page text. At 10× I'd add per-lane
+      thumbs up/down and fit the weights to each customer's feedback instead of my judgment.</p>
+    </div>
+
+    <div class="dont"><span class="tag">DON'T</span><span>Answer with “add more workers.” They're testing
+    whether you know where the cost actually is.</span></div>
+  </section>
+
+  <section class="q">
+    <div class="qhead">
+      <div class="topic">DIFFERENTIATION</div>
+      <h2>Why Exa over a keyword search API, or just scraping it themselves?</h2>
+    </div>
+
+    <div class="lead">
+      <div class="tag">LEAD WITH</div>
+      <p>Because three of my five lanes have no keyword form at all. The best find in the whole demo —
+      HubSpot's engineering post about a 20-billion-vector in-house retrieval platform — contains neither
+      the word “Exa” nor the word “churn”. There is no alert anyone could have written that catches it.</p>
+    </div>
+
+    <div class="body">
+      <h3>THE PROOF — THREE THINGS KEYWORD CAN'T DO</h3>
+      <ul>
+        <li><b>Can't ask it.</b> “An engineering post about building in-house what we sell them” is
+        meaning-shaped. Keyword search needs a string; this signal has none.</li>
+        <li><b>Can't scope it.</b> The competitor lane is one semantic query scoped with
+        <span class="num">includeDomains</span> to exactly the rival domains — and that rival set came
+        from <span class="num">findSimilar</span> with nothing but the vendor's homepage. By hand that's
+        a crawler fleet across ten sites, JS rendering, freshness SLAs, and a permanent maintenance owner.</li>
+        <li><b>Can't read it.</b> This is the half people forget. Keyword APIs return links and a human
+        still reads them. Exa returns the quoted sentence, the date, the source and a JSON verdict
+        classified against my schema in the same call — the schema is the prompt. That's what turns a
+        research chore into something a machine runs nightly.</li>
+      </ul>
+    </div>
+
+    <div class="body">
+      <h3>THEN GO DEEPER</h3>
+      <ul>
+        <li><b>Name where keyword wins</b> — it makes everything else credible: “If I needed exact-string
+        matching, an error code or a SKU or a legal entity, keyword is better and cheaper and I'd use it.
+        This problem isn't that.”</li>
+        <li><b>Build-vs-buy in one line:</b> the DIY version is a crawler team and an index; here it's
+        <span class="num">$0.011</span> a call and freshness is Exa's problem, not the customer's.</li>
+        <li><b>The credibility flex.</b> “I'd also tell a customer what I learned the hard way:
+        <span class="num">includeDomains</span> is a strong preference, not a hard filter — off-list
+        results backfill when in-domain matches run thin, so I re-enforce scope client-side. You only
+        find that by building on it, and it's the kind of thing I'd flag on day one rather than let them
+        hit in production.”</li>
+      </ul>
+    </div>
+
+    <div class="push">
+      <div class="tag">IF THEY PUSH</div>
+      <div class="askt">“Couldn't an LLM with web search just do this?”</div>
+      <p>It could do one account, interactively. It can't do 200 nightly with per-lane cost control,
+      deterministic scoring and a citation on every claim — and the moment you want that, you're building
+      exactly this, on a retrieval API. The judgment layer isn't the hard part; the scoped, fresh,
+      structured retrieval underneath it is.</p>
+    </div>
+
+    <div class="dont"><span class="tag">DON'T</span><span>Trash Google or keyword tools broadly. Name the
+    boundary instead — it reads as judgment rather than pitch.</span></div>
+  </section>
+
+  <section class="q">
+    <div class="qhead">
+      <div class="topic">ROI</div>
+      <h2>What's the ROI story for the economic buyer, not the end user?</h2>
+    </div>
+
+    <div class="lead">
+      <div class="tag">LEAD WITH</div>
+      <p>For the CSM it's time. For their boss it's net revenue retention and forecast integrity — so I'd
+      lead with insurance economics, not efficiency: the annual cost is about four basis points of the
+      ARR it's watching.</p>
+    </div>
+
+    <div class="body">
+      <h3>THE PROOF — SAY WHICH HALF IS MEASURED</h3>
+      <ul>
+        <li><b>Measured:</b> <span class="num">$0.06</span> per account per sweep;
+        <span class="num">$11</span> for a 200-account book.</li>
+        <li><b>Assumed, and say so out loud:</b> 200 accounts at $50k average ARR is
+        <span class="num">$10M</span> under watch. Nightly sweeps run <span class="num">~$4.1k</span> a
+        year — <b>0.04% of what they protect</b>. One saved account pays for twelve years.</li>
+        <li><b>The time math, stated honestly:</b> a proper manual check is ~45 minutes per account per
+        month; across 200 accounts that's <span class="num">150 hours a month</span>, about
+        <b>0.9 of a full-time person</b>.</li>
+      </ul>
+    </div>
+
+    <div class="fix">
+      <div class="tag">FIX BEFORE YOU PRESENT</div>
+      <p>The README and the slides prompt say “~19 person-weeks a year.” That's wrong — 150 hours a month
+      is ~19 person-<b>days</b> a month, or ~45 person-weeks a year (0.9 FTE). I've corrected the README;
+      correct the deck too. The right number is bigger, so the story improves — but don't get caught by a
+      panelist doing the arithmetic.</p>
+    </div>
+
+    <div class="body">
+      <h3>THEN GO DEEPER</h3>
+      <ul>
+        <li><b>Don't oversell headcount savings</b> — say the quiet part instead: “I won't claim I'm saving
+        you 0.9 of a person, because nobody is doing this work today. The value isn't cost taken out, it's
+        coverage you don't currently have — the 175 accounts nobody is assigned to watch.”</li>
+        <li><b>Speak the buyer's metric.</b> Surprise churn wrecks a renewal forecast; a signal 90 days
+        early turns a surprise into a plannable save. Forecast confidence is a board-level number, and NRR
+        is what investors index the multiple on.</li>
+        <li><b>The second product is free.</b> The counter-signals are already collected — the
+        “mentions vendor” flags — so the same sweep inverted becomes expansion detection. Same cost,
+        second revenue story.</li>
+        <li><b>Preempt the risk question.</b> Nothing here fires an action; it puts a dated, cited page in
+        front of a human. A false positive costs a CSM one click. A false negative is exactly the status quo.</li>
+      </ul>
+    </div>
+
+    <div class="push">
+      <div class="tag">IF THEY PUSH</div>
+      <div class="askt">“My team won't adopt another dashboard.”</div>
+      <p>Then don't give them one. The next build is a nightly diff into Slack and a risk field written
+      back to the CRM, so it shows up inside the renewal workflow they already run. Zero data entry, no
+      adoption curve — the product is the alert, not the app.</p>
+    </div>
+
+    <div class="dont"><span class="tag">DON'T</span><span>Lead with hours saved. Efficiency is the end
+    user's story; the buyer buys retained revenue and a forecast they can trust.</span></div>
+  </section>
+
+  <section class="q">
+    <div class="qhead">
+      <div class="topic">ROADMAP</div>
+      <h2>What would you build next if you had another sprint?</h2>
+    </div>
+
+    <div class="lead">
+      <div class="tag">LEAD WITH</div>
+      <p>One thing, and it isn't a feature — it's the delivery mechanism. A nightly diff into Slack plus a
+      risk field written back to the CRM. Today this is a tool you have to remember to open; that makes it
+      a workflow that finds you.</p>
+    </div>
+
+    <div class="body">
+      <h3>THE FOUR, RANKED — AND THE ORDER IS THE ANSWER</h3>
+      <ol class="ranked">
+        <li><b>Nightly diff → Slack digest.</b> Only what's new since the last sweep. It's the difference
+        between a demo and a product, and it's the same change as the cost lever in the scaling answer —
+        one build, two problems solved.</li>
+        <li><b>CRM write-back.</b> Risk tier and the top evidence link as a field on the account, so it
+        lands in QBR prep and the renewal forecast without anyone opening my app. This is what makes the
+        economic buyer's story real.</li>
+        <li><b>A feedback loop.</b> Thumbs up/down per evidence card, per lane, per customer — then fit the
+        lane weights to their data instead of my judgment. Right now those weights are a defensible guess;
+        after a sprint of feedback they'd be evidence.</li>
+        <li><b>Websets for discovery.</b> Replace my two-source customer cross-reference with one filtered,
+        enriched list — and it unlocks the inverse query: find me more accounts that look like my healthiest
+        ones.</li>
+      </ol>
+    </div>
+
+    <div class="body">
+      <h3>WHAT I'D DELIBERATELY NOT BUILD</h3>
+      <p>Not a scoring model. The moment a verdict stops being a transparent sum of weighted, dated evidence,
+      a CSM can't defend it to their VP — and a risk score they can't explain is one they'll ignore.
+      Auditability is the feature.</p>
+    </div>
+
+    <div class="push">
+      <div class="tag">IF THEY PUSH</div>
+      <div class="askt">“What's missing today that worries you?”</div>
+      <p>Entity resolution. Subsidiaries, rebrands and acquisitions break name matching, and my name gate is
+      deliberately strict — I'd rather miss than cry wolf. That's the first correctness work I'd fund after
+      delivery.</p>
+    </div>
+
+    <div class="dont"><span class="tag">DON'T</span><span>Recite a feature list. Naming what you'd skip, and
+    why, reads as product judgment; naming five equal priorities reads as none.</span></div>
+  </section>
+
+  <section class="q">
+    <div class="qhead">
+      <div class="topic">THE ONE THEY'LL ACTUALLY ASK</div>
+      <h2>Isn't everything red?</h2>
+    </div>
+
+    <div class="body">
+      <p>Across the five test sweeps, 52 of 56 accounts showed at least one signal and about half landed in
+      AT RISK. Someone will notice. Get there first if you can — volunteering it is far stronger than
+      defending it.</p>
+    </div>
+
+    <div class="lead">
+      <div class="tag">SAY THIS</div>
+      <p>You're right, and it's the most important thing to understand about the demo. The tiers are absolute
+      thresholds tuned on AI-native companies in the middle of an M&amp;A wave — a base rate that isn't yours.
+      In production what matters is ranking within your book, not the label: the top ten accounts to call this
+      week. That's why lane weights are editable in the UI rather than hard-coded, and why the feedback loop is
+      on the roadmap. I'd tune thresholds with you during onboarding rather than pretend my defaults transfer.</p>
+    </div>
+
+    <div class="push">
+      <div class="tag">ALSO PREP</div>
+      <div class="askt">“This only sees the public web.”</div>
+      <p>That's the point. It's the layer nobody watches, and it leads the usage decline your own telemetry
+      eventually shows. It complements the internal health score; it doesn't replace it.</p>
+    </div>
+  </section>
+
+  <section class="close">
+    <h2>How to deliver all four</h2>
+    <ul>
+      <li><b>Same shape every time:</b> one-sentence answer, then a measured number, then the depth. Panels
+      remember the first sentence and the number — everything after that is for the person taking notes.</li>
+      <li><b>Say “I measured” and “I found”, not “it can”.</b> You are the only person in the room who has run
+      this against a live API 309 times. That's the whole advantage; spend it.</li>
+      <li><b>When you don't know, name the boundary and how you'd find out.</b> The
+      <span class="num">includeDomains</span> discovery is your proof that you actually do this — it's the
+      single most credible thing you can say all day.</li>
+      <li><b>Re-run the demo cache that morning</b> and re-check the numbers on this sheet against the app's
+      summary strip, so the deck, the app and your answers all agree.</li>
+    </ul>
+  </section>
+
+</div>
