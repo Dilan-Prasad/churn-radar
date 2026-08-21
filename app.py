@@ -702,6 +702,10 @@ async def sweep_customer(exa: ExaClient, customer, lanes_for, vendor_domain, emi
         "score": score,
         "tier": tier_for(score, strongest),
         "evidence": sorted(evidence, key=lambda x: -x["points"]),
+        # the verbatim per-lane requests that swept this account — surfaced
+        # by the account API pill in the UI
+        "api": [{"lane": l["id"], "label": l["label"], "color": l.get("color"),
+                 "endpoint": "/search", "payload": l["payload"]} for l in lanes],
     }
     await emit({"type": "verdict", "data": verdict})
     return verdict

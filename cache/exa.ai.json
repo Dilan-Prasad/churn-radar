@@ -1,24 +1,19 @@
 {
  "profile": {
-  "churn_modes": [
-   "Building an in-house proprietary web-scale index and custom embedding models to handle complex semantic queries.",
-   "Switching to an alternative AI-native search API provider that offers better performance or price-to-quality ratios for specific vertical needs.",
-   "Consolidating search capabilities into integrated, all-in-one LLM platforms that include proprietary web retrieval features.",
-   "Shifting from usage-based external search APIs to self-hosted, open-source retrieval augmented generation (RAG) pipelines for closed-environment datasets."
-  ],
-  "product_category": "AI-native search API for agents and LLMs",
+  "company_name": "Exa",
+  "buyer_persona": "AI developers, enterprises building AI agents, and AI research labs needing integrated, semantic, and high-performance search capabilities for their applications.",
   "competitors": [
+   {
+    "name": "Perplexity",
+    "domain": "perplexity.ai"
+   },
    {
     "domain": "tavily.com",
     "name": "Tavily"
    },
    {
-    "domain": "jina.ai",
-    "name": "Jina AI"
-   },
-   {
-    "name": "Perplexity",
-    "domain": "perplexity.ai"
+    "name": "Jina AI",
+    "domain": "jina.ai"
    },
    {
     "name": "Brave Search API",
@@ -27,66 +22,66 @@
    {
     "domain": "serpapi.com",
     "name": "SerpAPI"
-   },
-   {
-    "name": "Exa",
-    "domain": "expa.com",
-    "via": "findSimilar"
    }
   ],
-  "company_name": "Exa",
-  "capability_phrase": "Web-scale crawling, specialized embedding model training, and high-concurrency vector database infrastructure for semantic search.",
-  "one_liner": "Exa provides an AI-native search engine and API designed to help AI agents and models perform high-quality, semantic web search and deep research.",
-  "buyer_persona": "Developers and enterprises building AI agents, chatbots, and research-oriented AI applications."
+  "capability_phrase": "web-scale search infrastructure, including custom crawlers, vector databases, and proprietary embedding models trained for semantic retrieval, alongside high-concurrency API and compute capacity to support AI agent workflows.",
+  "one_liner": "Exa provides an AI-native web search engine and API designed specifically for AI agents and large language models to perform complex, semantic research and information retrieval.",
+  "product_category": "AI search API and retrieval infrastructure",
+  "churn_modes": [
+   "Building and maintaining an in-house proprietary search index and retrieval system.",
+   "Switching to alternative AI-native search APIs that offer better cost or latency for specific use cases.",
+   "Integrating directly with large-scale search provider APIs (e.g., Google or Bing) via custom scrapers or enterprise search solutions.",
+   "Using built-in search tools provided by integrated LLM APIs (e.g., OpenAI or Anthropic)."
+  ]
  },
  "domain": "exa.ai",
  "customers": [
   {
    "name": "HubSpot",
    "domain": "hubspot.com",
-   "evidence": "Exa published a case study detailing how HubSpot uses Exa for live web intelligence in its agents.",
+   "evidence": "HubSpot features a dedicated case study on the exa.ai website detailing how it uses Exa to connect Breeze Assistant and Agents to live web intelligence.",
    "source": "web evidence"
   },
   {
    "name": "monday.com",
    "domain": "monday.com",
-   "evidence": "Exa published a case study describing how monday.com built a lead engine using Exa.",
+   "evidence": "monday.com features a dedicated case study on the exa.ai website detailing how it built an agentic lead engine with Exa.",
    "source": "web evidence"
   },
   {
    "name": "OpenRouter",
    "domain": "openrouter.ai",
-   "evidence": "Exa published a documentation page explaining how OpenRouter uses Exa to provide search to its models.",
+   "evidence": "OpenRouter features a dedicated case study on the exa.ai website detailing how it uses Exa to provide agentic web search for 400+ models.",
    "source": "web evidence"
   },
   {
    "name": "Cognition",
    "domain": "cognition.ai",
-   "evidence": "Exa published a case study on how Cognition uses Exa in its Devin products.",
+   "evidence": "Cognition features a dedicated case study on the exa.ai website detailing how it uses Exa to power web search across its agentic products.",
    "source": "web evidence"
   },
   {
    "name": "WebFX",
    "domain": "webfx.com",
-   "evidence": "Exa published a case study on how WebFX uses Exa for marketing research workflows.",
+   "evidence": "WebFX features a dedicated case study on the exa.ai website detailing how it uses Exa to scale digital marketing workflows.",
    "source": "web evidence"
   },
   {
    "name": "StackAI",
    "domain": "stackai.com",
-   "evidence": "Exa published a case study on how StackAI integrates Exa to power enterprise AI agents.",
+   "evidence": "StackAI features a dedicated case study on the exa.ai website detailing how it uses Exa to power enterprise AI agents.",
    "source": "web evidence"
   },
   {
    "name": "Obvious",
-   "domain": "obvious.com",
-   "evidence": "Exa published a case study about how Obvious uses Exa for business intelligence.",
+   "domain": "obvious.so",
+   "evidence": "Obvious features a dedicated case study on the exa.ai website detailing how it uses Exa to power market intelligence.",
    "source": "web evidence"
   },
   {
    "name": "HockeyStack",
    "domain": "hockeystack.com",
-   "evidence": "Exa published a documentation page on how HockeyStack uses Exa for people search.",
+   "evidence": "HockeyStack features a dedicated case study on the exa.ai website detailing how it uses Exa People Search to power its revenue agents.",
    "source": "web evidence"
   },
   {
@@ -101,59 +96,35 @@
    "customer": {
     "name": "HubSpot",
     "domain": "hubspot.com",
-    "evidence": "Exa published a case study detailing how HubSpot uses Exa for live web intelligence in its agents.",
+    "evidence": "HubSpot features a dedicated case study on the exa.ai website detailing how it uses Exa to connect Breeze Assistant and Agents to live web intelligence.",
     "source": "web evidence"
    },
-   "score": 9.56,
-   "tier": "at_risk",
+   "score": 3.7,
+   "tier": "watch",
    "evidence": [
     {
      "lane": "in_house_build",
      "lane_label": "BUILDING IN-HOUSE",
-     "url": "https://www.infoq.com/news/2026/07/hubspot-semantic-vector-search/",
-     "title": "How HubSpot Scaled Semantic Search to 20 Billion Vectors",
-     "source": "infoq.com",
-     "date": "2026-07-07",
-     "relevance": "strong",
-     "evidence": "HubSpot says the platform, called VaaS or Vector as a Service, sits in front of Qdrant and provides access control, embeddings generation, data versioning, and feedback collection. HubSpot says it chose Qdrant because it can run on-premises, supports features such as named vectors, hybrid search, multi-stage querying, and weighted reranking, and offers cost controls including quantisation and on-d",
+     "url": "https://product.hubspot.com/blog/building-the-ai-retrieval-infrastructure-behind-20-billion-vectors-at-hubspot?hs_amp=true",
+     "title": "Building the AI Retrieval Infrastructure Behind 20 Billion+ Vectors at HubSpot",
+     "source": "product.hubspot.com",
+     "date": "2026-06-25",
+     "relevance": "weak",
+     "evidence": "HubSpot uses the Qdrant vector database for all semantic search operations. Qdrant is an open-source vector database that can be deployed on-premises and provides an extensive API covering most modern semantic search features, such as named vectors, hybrid search, multi-stage querying, and weighted reranking.",
      "mentions_vendor": false,
-     "points": 3.0
+     "points": 1.05
     },
     {
      "lane": "in_house_build",
      "lane_label": "BUILDING IN-HOUSE",
-     "url": "https://www.linkedin.com/pulse/how-hubspot-scaled-vector-search-20-billion-vectors-developrec-lya3f",
-     "title": "How HubSpot Scaled Vector Search to 20 Billion Vectors",
-     "source": "linkedin.com",
-     "date": "2026-07-08",
-     "relevance": "strong",
-     "evidence": "HubSpot built an internal platform called VaaS, or Vector-as-a-Service. That API layer handles access control, request validation, embedding generation, data versioning and feedback collection.",
+     "url": "https://www.infoq.com/news/2026/07/hubspot-semantic-vector-search/",
+     "title": "How HubSpot Scaled Semantic Search to 20 Billion Vectors - InfoQ",
+     "source": "infoq.com",
+     "date": "2026-07-07",
+     "relevance": "weak",
+     "evidence": "\u201cThat move shifted cluster management into what HubSpot calls Translators, which reconcile the desired and actual state of the system every 60 seconds. The post says this approach now automates cluster creation and decommissioning, shard movement, and replication recovery, while also reducing operational load on the team.\u201d",
      "mentions_vendor": false,
-     "points": 3.0
-    },
-    {
-     "lane": "budget_distress",
-     "lane_label": "BUDGET / STRATEGY",
-     "url": "https://www.fool.com/earnings/call-transcripts/2026/08/12/hubspot-hubs-q2-2026-earnings-call-transcript/",
-     "title": "HubSpot (HUBS) Q2 2026 Earnings Call Transcript | The Motley Fool",
-     "source": "fool.com",
-     "date": "2026-08-13",
-     "relevance": "strong",
-     "evidence": "HubSpot executives describe increased budget sensitivity, longer deal cycles, larger buying committees, and need for C-suite/Board approvals in Q2, indicating budget pressure and strategic changes to pricing and value delivery: \"increased budget sensitivity... larger buying committees... deals require C-suite approval or Board approval... the deal cycles are longer.\"",
-     "mentions_vendor": false,
-     "points": 1.5
-    },
-    {
-     "lane": "budget_distress",
-     "lane_label": "BUDGET / STRATEGY",
-     "url": "https://www.hubspot.com/company-news/hubspots-customer-agent-and-prospecting-agent-now-you-pay-when-the-task-is-complete",
-     "title": "HubSpot's Customer Agent and Prospecting Agent: Now you pay when the task is complete",
-     "source": "hubspot.com",
-     "date": "2026-04-13",
-     "relevance": "strong",
-     "evidence": "\u201cStarting April 14, Breeze Customer Agent and Breeze Prospecting Agent move to outcome-based pricing, meaning customers only pay when the agents complete the task it\u2019s been assigned.\u201d",
-     "mentions_vendor": false,
-     "points": 1.5
+     "points": 1.05
     },
     {
      "lane": "hiring_to_replace",
@@ -163,9 +134,261 @@
      "source": "hubspot.com",
      "date": null,
      "relevance": "weak",
-     "evidence": "The page details a Principal Machine Learning Engineer role focused on AI Context, ML systems, data processing, feature generation, and deployment across HubSpot\u2019s AI platform. It does not mention Exa, web-scale crawling, specialized embedding model training, or a high-concurrency vector database infrastructure for semantic search; no explicit overlap with Exa-sell capabilities is stated.",
+     "evidence": "The page describes a Principal Machine Learning Engineer- AI Context at HubSpot focusing on AI Context, data across CRM, and ML systems, with responsibilities around model development, training, inference, and productionization, but does not mention building web-scale search infrastructure, custom crawlers, vector databases, or proprietary embedding models for semantic retrieval in relation to Exa",
      "mentions_vendor": false,
      "points": 0.56
+    },
+    {
+     "lane": "budget_distress",
+     "lane_label": "BUDGET / STRATEGY",
+     "url": "https://www.fool.com/earnings/call-transcripts/2026/08/12/hubspot-hubs-q2-2026-earnings-call-transcript/",
+     "title": "HubSpot (HUBS) Q2 2026 Earnings Call Transcript | The Motley Fool",
+     "source": "fool.com",
+     "date": "2026-08-13",
+     "relevance": "weak",
+     "evidence": "The page is a HubSpot Q2 2026 earnings call transcript; it discusses budget sensitivity, longer deal cycles, and AI adoption, but there is no mention of Exa, acquisitions, layoffs, or a pivot away from AI search/retrieval products. The most relevant line is: \u201cin Q2, we saw a shift in the demand environment with increased budget sensitivity... longer deal cycles\u201d (HubSpot).",
+     "mentions_vendor": false,
+     "points": 0.52
+    },
+    {
+     "lane": "budget_distress",
+     "lane_label": "BUDGET / STRATEGY",
+     "url": "https://www.hubspot.com/company-news/hubspots-customer-agent-and-prospecting-agent-now-you-pay-when-the-task-is-complete",
+     "title": "HubSpot's Customer Agent and Prospecting Agent: Now you pay when the task is complete",
+     "source": "hubspot.com",
+     "date": "2026-04-13",
+     "relevance": "weak",
+     "evidence": "HubSpot updates pricing on Breeze Customer Agent and Breeze Prospecting Agent to outcome-based pricing, stating: \"Starting April 14, we're updating pricing on two of our flagship Breeze agents, Customer Agent and Prospecting Agent, to better reflect the value they deliver...\"",
+     "mentions_vendor": false,
+     "points": 0.52
+    }
+   ],
+   "api": [
+    {
+     "lane": "competitor_adoption",
+     "label": "COMPETITOR ADOPTION",
+     "color": "#FF6A6A",
+     "endpoint": "/search",
+     "payload": {
+      "query": "HubSpot featured as a customer, integration, or partner",
+      "includeDomains": [
+       "perplexity.ai",
+       "tavily.com",
+       "jina.ai",
+       "brave.com",
+       "serpapi.com"
+      ],
+      "numResults": 4,
+      "contents": {
+       "highlights": {
+        "numSentences": 2,
+        "query": "HubSpot integration partner customer"
+       },
+       "summary": {
+        "query": "TASK: Scan this ENTIRE page top to bottom \u2014 including changelog entries, bullet lists, tables and footers. Does this page show the company 'HubSpot' actually USING, integrating with, or partnering with THIS website's own product (a competitor of Exa in AI search API and retrieval infrastructure)? Changelog entries, integration docs, case studies and partnership announcements count as strong. A news or editorial article that merely mentions HubSpot counts as none. A tutorial showing how to plug HubSpot's OWN product into apps built on this site (i.e. HubSpot used as a tool, not as a customer) = none. Set relevance to: 'strong' if the page is direct evidence of that, 'weak' if it is only indirect or partial evidence, 'none' if the page is not about this at all or is a mere news mention. In 'evidence' quote or tightly paraphrase the single most damning sentence, with names. Set mentions_vendor to true ONLY if the literal word 'Exa' appears in the page text itself.",
+        "schema": {
+         "type": "object",
+         "properties": {
+          "relevance": {
+           "type": "string",
+           "enum": [
+            "strong",
+            "weak",
+            "none"
+           ]
+          },
+          "evidence": {
+           "type": "string"
+          },
+          "mentions_vendor": {
+           "type": "boolean"
+          }
+         },
+         "required": [
+          "relevance",
+          "evidence",
+          "mentions_vendor"
+         ]
+        }
+       }
+      }
+     }
+    },
+    {
+     "lane": "in_house_build",
+     "label": "BUILDING IN-HOUSE",
+     "color": "#B388FF",
+     "endpoint": "/search",
+     "payload": {
+      "query": "HubSpot engineering blog building their own in-house web-scale search infrastructure, including custom crawlers, vector databases, and proprietary embedding models trained for semantic retrieval, alongside high-concurrency API and compute capacity to support AI agent workflows. instead of using a third-party AI search API and retrieval infrastructure",
+      "numResults": 4,
+      "startPublishedDate": "2025-05-28T00:00:00.000Z",
+      "contents": {
+       "highlights": {
+        "numSentences": 2,
+        "query": "HubSpot building in-house web-scale search infrastructure, including custom crawlers, vector databases, and proprietary embedding models trained for semantic retrieval, alongside high-concurrency API and compute capacity to support AI agent workflows."
+       },
+       "summary": {
+        "query": "TASK: Scan this ENTIRE page top to bottom \u2014 including changelog entries, bullet lists, tables and footers. Is this page evidence that 'HubSpot' \u2014 that specific company, not anyone else \u2014 is building or has built IN-HOUSE capability overlapping what Exa sells (web-scale search infrastructure, including custom crawlers, vector databases, and proprietary embedding models trained for semantic retrieval, alongside high-concurrency API and compute capacity to support AI agent workflows.), reducing their need for an external AI search API and retrieval infrastructure? HubSpot's own engineering blog posts, talks, or reputable coverage of HubSpot's internal systems count as strong ONLY when the system overlaps that specific capability. Internal databases, generic data platforms, or infrastructure unrelated to AI search API and retrieval infrastructure = none. Pages about OTHER companies' systems = none. Set relevance to: 'strong' if the page is direct evidence of that, 'weak' if it is only indirect or partial evidence, 'none' if the page is not about this at all or is a mere news mention. In 'evidence' quote or tightly paraphrase the single most damning sentence, with names. Set mentions_vendor to true ONLY if the literal word 'Exa' appears in the page text itself.",
+        "schema": {
+         "type": "object",
+         "properties": {
+          "relevance": {
+           "type": "string",
+           "enum": [
+            "strong",
+            "weak",
+            "none"
+           ]
+          },
+          "evidence": {
+           "type": "string"
+          },
+          "mentions_vendor": {
+           "type": "boolean"
+          }
+         },
+         "required": [
+          "relevance",
+          "evidence",
+          "mentions_vendor"
+         ]
+        }
+       }
+      }
+     }
+    },
+    {
+     "lane": "hiring_to_replace",
+     "label": "HIRING TO REPLACE",
+     "color": "#8FA5FF",
+     "endpoint": "/search",
+     "payload": {
+      "query": "HubSpot job posting hiring engineers to build web-scale search infrastructure, including custom crawlers, vector databases, and proprietary embedding models trained for semantic retrieval, alongside high-concurrency API and compute capacity to support AI agent workflows.",
+      "numResults": 4,
+      "contents": {
+       "highlights": {
+        "numSentences": 2,
+        "query": "HubSpot hiring web-scale search infrastructure, including custom crawlers, vector databases, and proprietary embedding models trained for semantic retrieval, alongside high-concurrency API and compute capacity to support AI agent workflows. engineer"
+       },
+       "summary": {
+        "query": "TASK: Scan this ENTIRE page top to bottom \u2014 including changelog entries, bullet lists, tables and footers. Is this a SPECIFIC job posting at 'HubSpot' whose stated responsibilities EXPLICITLY include building capability that overlaps what Exa sells (web-scale search infrastructure, including custom crawlers, vector databases, and proprietary embedding models trained for semantic retrieval, alongside high-concurrency API and compute capacity to support AI agent workflows.)? strong ONLY if the posting text names such responsibilities. weak if the role is adjacent (ML platform, data infrastructure) without explicit overlap. none for: general careers pages listing many roles, and generic software/product/IT/sales roles. Set relevance to: 'strong' if the page is direct evidence of that, 'weak' if it is only indirect or partial evidence, 'none' if the page is not about this at all or is a mere news mention. In 'evidence' quote or tightly paraphrase the single most damning sentence, with names. Set mentions_vendor to true ONLY if the literal word 'Exa' appears in the page text itself.",
+        "schema": {
+         "type": "object",
+         "properties": {
+          "relevance": {
+           "type": "string",
+           "enum": [
+            "strong",
+            "weak",
+            "none"
+           ]
+          },
+          "evidence": {
+           "type": "string"
+          },
+          "mentions_vendor": {
+           "type": "boolean"
+          }
+         },
+         "required": [
+          "relevance",
+          "evidence",
+          "mentions_vendor"
+         ]
+        }
+       }
+      }
+     }
+    },
+    {
+     "lane": "shopping_around",
+     "label": "EVALUATING ALTERNATIVES",
+     "color": "#E9B44C",
+     "endpoint": "/search",
+     "payload": {
+      "query": "HubSpot comparing, benchmarking, or switching between AI search API and retrieval infrastructure providers such as Perplexity, Tavily, Jina AI, Brave Search API, SerpAPI",
+      "numResults": 4,
+      "startPublishedDate": "2025-08-26T00:00:00.000Z",
+      "contents": {
+       "highlights": {
+        "numSentences": 2,
+        "query": "HubSpot comparing alternatives AI search API and retrieval infrastructure"
+       },
+       "summary": {
+        "query": "TASK: Scan this ENTIRE page top to bottom \u2014 including changelog entries, bullet lists, tables and footers. Is this page evidence that 'HubSpot' specifically is benchmarking, comparing, or publicly evaluating multiple AI search API and retrieval infrastructure providers (e.g. Perplexity, Tavily, Jina AI, Brave Search API, SerpAPI), or complaining about their current provider? The page must name 'HubSpot' as the one doing the evaluating \u2014 generic 'best tools' listicles and benchmarks that don't involve HubSpot = none. Set relevance to: 'strong' if the page is direct evidence of that, 'weak' if it is only indirect or partial evidence, 'none' if the page is not about this at all or is a mere news mention. In 'evidence' quote or tightly paraphrase the single most damning sentence, with names. Set mentions_vendor to true ONLY if the literal word 'Exa' appears in the page text itself.",
+        "schema": {
+         "type": "object",
+         "properties": {
+          "relevance": {
+           "type": "string",
+           "enum": [
+            "strong",
+            "weak",
+            "none"
+           ]
+          },
+          "evidence": {
+           "type": "string"
+          },
+          "mentions_vendor": {
+           "type": "boolean"
+          }
+         },
+         "required": [
+          "relevance",
+          "evidence",
+          "mentions_vendor"
+         ]
+        }
+       }
+      }
+     }
+    },
+    {
+     "lane": "budget_distress",
+     "label": "BUDGET / STRATEGY",
+     "color": "#9AA7BD",
+     "endpoint": "/search",
+     "payload": {
+      "query": "HubSpot layoffs, cost cutting, restructuring, acquisition, or pivot away from AI products",
+      "category": "news",
+      "numResults": 4,
+      "startPublishedDate": "2025-12-24T00:00:00.000Z",
+      "contents": {
+       "highlights": {
+        "numSentences": 2,
+        "query": "HubSpot layoffs cost cutting acquisition pivot"
+       },
+       "summary": {
+        "query": "TASK: Scan this ENTIRE page top to bottom \u2014 including changelog entries, bullet lists, tables and footers. Is this news evidence that 'HubSpot' faces budget pressure or strategy change that would cut spend on tools like Exa? BEING ACQUIRED (procurement gets consolidated by the acquirer) = strong. Major layoffs or cost-cutting programs = strong. Pivot away from the products that need a AI search API and retrieval infrastructure = strong. 'HubSpot' raising funding or 'HubSpot' itself acquiring another company = none (that is growth, not distress). Routine earnings commentary = weak. News about a different company = none. Set relevance to: 'strong' if the page is direct evidence of that, 'weak' if it is only indirect or partial evidence, 'none' if the page is not about this at all or is a mere news mention. In 'evidence' quote or tightly paraphrase the single most damning sentence, with names. Set mentions_vendor to true ONLY if the literal word 'Exa' appears in the page text itself.",
+        "schema": {
+         "type": "object",
+         "properties": {
+          "relevance": {
+           "type": "string",
+           "enum": [
+            "strong",
+            "weak",
+            "none"
+           ]
+          },
+          "evidence": {
+           "type": "string"
+          },
+          "mentions_vendor": {
+           "type": "boolean"
+          }
+         },
+         "required": [
+          "relevance",
+          "evidence",
+          "mentions_vendor"
+         ]
+        }
+       }
+      }
+     }
     }
    ]
   },
@@ -173,10 +396,10 @@
    "customer": {
     "name": "monday.com",
     "domain": "monday.com",
-    "evidence": "Exa published a case study describing how monday.com built a lead engine using Exa.",
+    "evidence": "monday.com features a dedicated case study on the exa.ai website detailing how it built an agentic lead engine with Exa.",
     "source": "web evidence"
    },
-   "score": 5.8,
+   "score": 5.66,
    "tier": "at_risk",
    "evidence": [
     {
@@ -187,7 +410,7 @@
      "source": "businessinsider.com",
      "date": "2026-07-22",
      "relevance": "strong",
-     "evidence": "The enterprise software company plans to cut 20% of its workforce, according to a Form 6-K it filed. The layoffs are meant to align the company with its \"strategic focus on the AI Work Platform,\" the disclosure said.",
+     "evidence": "The enterprise software company plans to cut 20% of its workforce, according to a Form 6-K it filed. The layoffs are meant to align the company with its 'strategic focus on the AI Work Platform,' the disclosure said.",
      "mentions_vendor": false,
      "points": 1.5
     },
@@ -199,7 +422,7 @@
      "source": "cio.com",
      "date": "2026-07-23",
      "relevance": "strong",
-     "evidence": "\"very difficult decision\" to reduce the AI work platform company\u2019s global workforce by about 20%, or 620 people.",
+     "evidence": "\u201cMonday.com co-founder and co-CEO Eran Zinman today announced the \u201cvery difficult decision\u201d to reduce the AI work platform company\u2019s global workforce by about 20%, or 620 people.\u201d",
      "mentions_vendor": false,
      "points": 1.5
     },
@@ -211,7 +434,7 @@
      "source": "engineering.monday.com",
      "date": "2026-05-19",
      "relevance": "weak",
-     "evidence": "\"The same read pipeline that serves a board load in 10 milliseconds can serve a text search, a semantic retrieval, or a RAG query with the same latency characteristics.\"",
+     "evidence": "This is the story of how monday.com moved board reads from a shared, row-oriented MySQL architecture to a purpose-built columnar serving layer. This was not a database rewrite for its own sake, but to support our most complex use cases and build the infrastructure for the foreseeable future, supporting millions and millions of items in a flexible dataset. We replaced our MySQL, Cassandra, and Redi",
      "mentions_vendor": false,
      "points": 1.05
     },
@@ -223,21 +446,249 @@
      "source": "aws.amazon.com",
      "date": "2026-07-22",
      "relevance": "weak",
-     "evidence": "The page describes Monday.com running production AI agents on Amazon Bedrock using internal harnesses and integrations (monday-agent-sdk, MPC servers, RBAC). It emphasizes that the runtime is a harness and that they keep the runtime someone else\u2019s problem, with architecture and operational playbook. It does not mention Exa or external AI-native search API, nor evidence of In-House capability speci",
+     "evidence": "\u201cAI Teammates are agentic AI on Amazon Bedrock, and few engineering organizations run them in production at the scale that monday.com does.\u201d",
      "mentions_vendor": false,
      "points": 1.05
     },
     {
      "lane": "hiring_to_replace",
      "lane_label": "HIRING TO REPLACE",
-     "url": "https://mindpal.co/jobs/77074",
-     "title": "Senior \u2022 Senior Engineering Manager (Core Retrieval Platform) \u2022 Warsaw, Poland | MindPal Jobs",
-     "source": "mindpal.co",
-     "date": "2026-06-04",
+     "url": "https://builtin.com/job/senior-software-engineer-agent-platform-data/10262918",
+     "title": "Senior Software Engineer -Agent Platform & Data - monday.com | Built In",
+     "source": "builtin.com",
+     "date": null,
      "relevance": "weak",
-     "evidence": "The page describes a Senior Engineering Manager for Core Retrieval Platform at monday.com, focusing on data retrieval, SRE concepts, Kubernetes, and AI-assisted infrastructure, but does not explicitly state building Web-scale crawling, specialized embedding model training, or a high-concurrency vector database for semantic search as responsibilities. It mentions AI tooling and infrastructure and g",
+     "evidence": "The job posting describes senior software engineer roles at monday.com with AI context layer, RAG, memory layer, and integrations, but there is no explicit mention of building web-scale search infrastructure, custom crawlers, vector databases, or proprietary embedding models for semantic retrieval. The text references AI workflows and agent platforms, not Exa-specific capabilities.",
      "mentions_vendor": false,
-     "points": 0.7
+     "points": 0.56
+    }
+   ],
+   "api": [
+    {
+     "lane": "competitor_adoption",
+     "label": "COMPETITOR ADOPTION",
+     "color": "#FF6A6A",
+     "endpoint": "/search",
+     "payload": {
+      "query": "monday.com featured as a customer, integration, or partner",
+      "includeDomains": [
+       "perplexity.ai",
+       "tavily.com",
+       "jina.ai",
+       "brave.com",
+       "serpapi.com"
+      ],
+      "numResults": 4,
+      "contents": {
+       "highlights": {
+        "numSentences": 2,
+        "query": "monday.com integration partner customer"
+       },
+       "summary": {
+        "query": "TASK: Scan this ENTIRE page top to bottom \u2014 including changelog entries, bullet lists, tables and footers. Does this page show the company 'monday.com' actually USING, integrating with, or partnering with THIS website's own product (a competitor of Exa in AI search API and retrieval infrastructure)? Changelog entries, integration docs, case studies and partnership announcements count as strong. A news or editorial article that merely mentions monday.com counts as none. A tutorial showing how to plug monday.com's OWN product into apps built on this site (i.e. monday.com used as a tool, not as a customer) = none. Set relevance to: 'strong' if the page is direct evidence of that, 'weak' if it is only indirect or partial evidence, 'none' if the page is not about this at all or is a mere news mention. In 'evidence' quote or tightly paraphrase the single most damning sentence, with names. Set mentions_vendor to true ONLY if the literal word 'Exa' appears in the page text itself.",
+        "schema": {
+         "type": "object",
+         "properties": {
+          "relevance": {
+           "type": "string",
+           "enum": [
+            "strong",
+            "weak",
+            "none"
+           ]
+          },
+          "evidence": {
+           "type": "string"
+          },
+          "mentions_vendor": {
+           "type": "boolean"
+          }
+         },
+         "required": [
+          "relevance",
+          "evidence",
+          "mentions_vendor"
+         ]
+        }
+       }
+      }
+     }
+    },
+    {
+     "lane": "in_house_build",
+     "label": "BUILDING IN-HOUSE",
+     "color": "#B388FF",
+     "endpoint": "/search",
+     "payload": {
+      "query": "monday.com engineering blog building their own in-house web-scale search infrastructure, including custom crawlers, vector databases, and proprietary embedding models trained for semantic retrieval, alongside high-concurrency API and compute capacity to support AI agent workflows. instead of using a third-party AI search API and retrieval infrastructure",
+      "numResults": 4,
+      "startPublishedDate": "2025-05-28T00:00:00.000Z",
+      "contents": {
+       "highlights": {
+        "numSentences": 2,
+        "query": "monday.com building in-house web-scale search infrastructure, including custom crawlers, vector databases, and proprietary embedding models trained for semantic retrieval, alongside high-concurrency API and compute capacity to support AI agent workflows."
+       },
+       "summary": {
+        "query": "TASK: Scan this ENTIRE page top to bottom \u2014 including changelog entries, bullet lists, tables and footers. Is this page evidence that 'monday.com' \u2014 that specific company, not anyone else \u2014 is building or has built IN-HOUSE capability overlapping what Exa sells (web-scale search infrastructure, including custom crawlers, vector databases, and proprietary embedding models trained for semantic retrieval, alongside high-concurrency API and compute capacity to support AI agent workflows.), reducing their need for an external AI search API and retrieval infrastructure? monday.com's own engineering blog posts, talks, or reputable coverage of monday.com's internal systems count as strong ONLY when the system overlaps that specific capability. Internal databases, generic data platforms, or infrastructure unrelated to AI search API and retrieval infrastructure = none. Pages about OTHER companies' systems = none. Set relevance to: 'strong' if the page is direct evidence of that, 'weak' if it is only indirect or partial evidence, 'none' if the page is not about this at all or is a mere news mention. In 'evidence' quote or tightly paraphrase the single most damning sentence, with names. Set mentions_vendor to true ONLY if the literal word 'Exa' appears in the page text itself.",
+        "schema": {
+         "type": "object",
+         "properties": {
+          "relevance": {
+           "type": "string",
+           "enum": [
+            "strong",
+            "weak",
+            "none"
+           ]
+          },
+          "evidence": {
+           "type": "string"
+          },
+          "mentions_vendor": {
+           "type": "boolean"
+          }
+         },
+         "required": [
+          "relevance",
+          "evidence",
+          "mentions_vendor"
+         ]
+        }
+       }
+      }
+     }
+    },
+    {
+     "lane": "hiring_to_replace",
+     "label": "HIRING TO REPLACE",
+     "color": "#8FA5FF",
+     "endpoint": "/search",
+     "payload": {
+      "query": "monday.com job posting hiring engineers to build web-scale search infrastructure, including custom crawlers, vector databases, and proprietary embedding models trained for semantic retrieval, alongside high-concurrency API and compute capacity to support AI agent workflows.",
+      "numResults": 4,
+      "contents": {
+       "highlights": {
+        "numSentences": 2,
+        "query": "monday.com hiring web-scale search infrastructure, including custom crawlers, vector databases, and proprietary embedding models trained for semantic retrieval, alongside high-concurrency API and compute capacity to support AI agent workflows. engineer"
+       },
+       "summary": {
+        "query": "TASK: Scan this ENTIRE page top to bottom \u2014 including changelog entries, bullet lists, tables and footers. Is this a SPECIFIC job posting at 'monday.com' whose stated responsibilities EXPLICITLY include building capability that overlaps what Exa sells (web-scale search infrastructure, including custom crawlers, vector databases, and proprietary embedding models trained for semantic retrieval, alongside high-concurrency API and compute capacity to support AI agent workflows.)? strong ONLY if the posting text names such responsibilities. weak if the role is adjacent (ML platform, data infrastructure) without explicit overlap. none for: general careers pages listing many roles, and generic software/product/IT/sales roles. Set relevance to: 'strong' if the page is direct evidence of that, 'weak' if it is only indirect or partial evidence, 'none' if the page is not about this at all or is a mere news mention. In 'evidence' quote or tightly paraphrase the single most damning sentence, with names. Set mentions_vendor to true ONLY if the literal word 'Exa' appears in the page text itself.",
+        "schema": {
+         "type": "object",
+         "properties": {
+          "relevance": {
+           "type": "string",
+           "enum": [
+            "strong",
+            "weak",
+            "none"
+           ]
+          },
+          "evidence": {
+           "type": "string"
+          },
+          "mentions_vendor": {
+           "type": "boolean"
+          }
+         },
+         "required": [
+          "relevance",
+          "evidence",
+          "mentions_vendor"
+         ]
+        }
+       }
+      }
+     }
+    },
+    {
+     "lane": "shopping_around",
+     "label": "EVALUATING ALTERNATIVES",
+     "color": "#E9B44C",
+     "endpoint": "/search",
+     "payload": {
+      "query": "monday.com comparing, benchmarking, or switching between AI search API and retrieval infrastructure providers such as Perplexity, Tavily, Jina AI, Brave Search API, SerpAPI",
+      "numResults": 4,
+      "startPublishedDate": "2025-08-26T00:00:00.000Z",
+      "contents": {
+       "highlights": {
+        "numSentences": 2,
+        "query": "monday.com comparing alternatives AI search API and retrieval infrastructure"
+       },
+       "summary": {
+        "query": "TASK: Scan this ENTIRE page top to bottom \u2014 including changelog entries, bullet lists, tables and footers. Is this page evidence that 'monday.com' specifically is benchmarking, comparing, or publicly evaluating multiple AI search API and retrieval infrastructure providers (e.g. Perplexity, Tavily, Jina AI, Brave Search API, SerpAPI), or complaining about their current provider? The page must name 'monday.com' as the one doing the evaluating \u2014 generic 'best tools' listicles and benchmarks that don't involve monday.com = none. Set relevance to: 'strong' if the page is direct evidence of that, 'weak' if it is only indirect or partial evidence, 'none' if the page is not about this at all or is a mere news mention. In 'evidence' quote or tightly paraphrase the single most damning sentence, with names. Set mentions_vendor to true ONLY if the literal word 'Exa' appears in the page text itself.",
+        "schema": {
+         "type": "object",
+         "properties": {
+          "relevance": {
+           "type": "string",
+           "enum": [
+            "strong",
+            "weak",
+            "none"
+           ]
+          },
+          "evidence": {
+           "type": "string"
+          },
+          "mentions_vendor": {
+           "type": "boolean"
+          }
+         },
+         "required": [
+          "relevance",
+          "evidence",
+          "mentions_vendor"
+         ]
+        }
+       }
+      }
+     }
+    },
+    {
+     "lane": "budget_distress",
+     "label": "BUDGET / STRATEGY",
+     "color": "#9AA7BD",
+     "endpoint": "/search",
+     "payload": {
+      "query": "monday.com layoffs, cost cutting, restructuring, acquisition, or pivot away from AI products",
+      "category": "news",
+      "numResults": 4,
+      "startPublishedDate": "2025-12-24T00:00:00.000Z",
+      "contents": {
+       "highlights": {
+        "numSentences": 2,
+        "query": "monday.com layoffs cost cutting acquisition pivot"
+       },
+       "summary": {
+        "query": "TASK: Scan this ENTIRE page top to bottom \u2014 including changelog entries, bullet lists, tables and footers. Is this news evidence that 'monday.com' faces budget pressure or strategy change that would cut spend on tools like Exa? BEING ACQUIRED (procurement gets consolidated by the acquirer) = strong. Major layoffs or cost-cutting programs = strong. Pivot away from the products that need a AI search API and retrieval infrastructure = strong. 'monday.com' raising funding or 'monday.com' itself acquiring another company = none (that is growth, not distress). Routine earnings commentary = weak. News about a different company = none. Set relevance to: 'strong' if the page is direct evidence of that, 'weak' if it is only indirect or partial evidence, 'none' if the page is not about this at all or is a mere news mention. In 'evidence' quote or tightly paraphrase the single most damning sentence, with names. Set mentions_vendor to true ONLY if the literal word 'Exa' appears in the page text itself.",
+        "schema": {
+         "type": "object",
+         "properties": {
+          "relevance": {
+           "type": "string",
+           "enum": [
+            "strong",
+            "weak",
+            "none"
+           ]
+          },
+          "evidence": {
+           "type": "string"
+          },
+          "mentions_vendor": {
+           "type": "boolean"
+          }
+         },
+         "required": [
+          "relevance",
+          "evidence",
+          "mentions_vendor"
+         ]
+        }
+       }
+      }
+     }
     }
    ]
   },
@@ -245,12 +696,24 @@
    "customer": {
     "name": "OpenRouter",
     "domain": "openrouter.ai",
-    "evidence": "Exa published a documentation page explaining how OpenRouter uses Exa to provide search to its models.",
+    "evidence": "OpenRouter features a dedicated case study on the exa.ai website detailing how it uses Exa to provide agentic web search for 400+ models.",
     "source": "web evidence"
    },
-   "score": 8.5,
+   "score": 6.7,
    "tier": "at_risk",
    "evidence": [
+    {
+     "lane": "hiring_to_replace",
+     "lane_label": "HIRING TO REPLACE",
+     "url": "https://builtin.com/job/software-engineer-platform/9149515",
+     "title": "Software Engineer, Platform - OpenRouter | Built In",
+     "source": "builtin.com",
+     "date": null,
+     "relevance": "strong",
+     "evidence": "The page is a specific job posting for a Software Engineer on the Platform team at OpenRouter, describing responsibilities to own and scale \u201cour edge and cloud infrastructure,\u201d \u201cscale and operate our data layer,\u201d and \u201cinfrastructure and operations\u201d to support millions of LLM requests, which directly relates to building and operating large-scale infrastructure and systems for LLM routing and servin",
+     "mentions_vendor": false,
+     "points": 1.6
+    },
     {
      "lane": "budget_distress",
      "lane_label": "BUDGET / STRATEGY",
@@ -259,7 +722,7 @@
      "source": "stripe.com",
      "date": "2026-08-19",
      "relevance": "strong",
-     "evidence": "\"Stripe has agreed to acquire OpenRouter, a leading AI model gateway and routing platform.\" (Stripe announces acquisition of OpenRouter)",
+     "evidence": "The page states: \"Stripe ... agreed to acquire OpenRouter, a leading AI model gateway and routing platform.\"",
      "mentions_vendor": false,
      "points": 1.5
     },
@@ -271,81 +734,261 @@
      "source": "cnbc.com",
      "date": "2026-08-19",
      "relevance": "strong",
-     "evidence": "The New York Times says the price tag is about $7.5 billion, with $1.5 billion allocated to OpenRouter's founders.",
+     "evidence": "The deal news states: \"Stripe is acquiring OpenRouter, as the fintech company expands into the artificial intelligence model market.\"",
      "mentions_vendor": false,
      "points": 1.5
     },
     {
      "lane": "in_house_build",
      "lane_label": "BUILDING IN-HOUSE",
-     "url": "https://openrouter.ai/blog/insights/every-modality-one-api/",
-     "title": "One API for Image, Video, Audio, Embeddings & Transcription \u2014 OpenRouter Blog",
+     "url": "https://openrouter.ai/blog/announcements/agentic-web-tools/",
+     "title": "Consistent Web Search and Fetch Across Every Model \u2014 OpenRouter Blog",
      "source": "openrouter.ai",
-     "date": "2026-07-16",
+     "date": "2026-05-07",
      "relevance": "weak",
-     "evidence": "\u201cOn OpenRouter, every one of those modalities runs through a single OpenAI-compatible base URL:`https://openrouter.ai/api/v1`. You set it once. After that, you change the model string and the content type.\u201d",
+     "evidence": "The page describes OpenRouter's new server tools openrouter:web_search and openrouter:web_fetch and discusses consistency across models and providers, but it does not provide direct evidence that OpenRouter builds in-house web-scale search infrastructure, custom crawlers, vector databases, or proprietary embeddings specifically for semantic retrieval. It mentions engines like Exa and Parallel and ",
      "mentions_vendor": false,
      "points": 1.05
     },
     {
      "lane": "in_house_build",
      "lane_label": "BUILDING IN-HOUSE",
-     "url": "https://www.firecrawl.dev/blog/firecrawl-search-openrouter",
-     "title": "Firecrawl /search is now available on OpenRouter",
-     "source": "firecrawl.dev",
-     "date": "2026-04-21",
-     "relevance": "weak",
-     "evidence": "\u201cFirecrawl fetches the actual pages, renders JavaScript, strips boilerplate, and converts content to clean markdown. The model receives the content of the pages themselves, not a list of titles and descriptions to guess from.\u201d",
-     "mentions_vendor": false,
-     "points": 1.05
-    },
-    {
-     "lane": "shopping_around",
-     "lane_label": "EVALUATING ALTERNATIVES",
      "url": "https://openrouter.ai/blog/announcements/web-search-benchmark/",
      "title": "Live Web Search Benchmarks: Pick the Right Engine, Depth, and Model for Your Agent \u2014 OpenRouter Blog",
      "source": "openrouter.ai",
      "date": "2026-08-12",
-     "relevance": "strong",
-     "evidence": "\"Live Web Search Benchmarks: Pick the Right Engine, Depth, and Model for Your Agent \u2014 OpenRouter Blog\" discusses OpenRouter's live leaderboards and benchmarks for web search configurations, naming engines offered by OpenRouter (Exa, Parallel, and Perplexity) and other labs' native engines, and states that Every run goes through the public OpenRouter API against production endpoints using our open ",
-     "mentions_vendor": true,
-     "points": 1.0
-    },
-    {
-     "lane": "shopping_around",
-     "lane_label": "EVALUATING ALTERNATIVES",
-     "url": "https://openrouter.ai/blog/announcements/agentic-web-tools/",
-     "title": "Consistent Web Search and Fetch Across Every Model \u2014 OpenRouter Blog",
-     "source": "openrouter.ai",
-     "date": "2026-05-07",
-     "relevance": "strong",
-     "evidence": "\u201cIntroducing`openrouter:web_search` and`openrouter:web_fetch`, two new tools that any model can call during a request. When a model decides to use one, OpenRouter executes it server-side and returns the result to the model without requiring any client-side implementation.\u201d",
-     "mentions_vendor": true,
-     "points": 1.0
-    },
+     "relevance": "weak",
+     "evidence": "\u201cEvery run goes through the public OpenRouter API against production endpoints, using our open source benchmark harness.\u201d (OpenRouter blog about live web search benchmarks)",
+     "mentions_vendor": false,
+     "points": 1.05
+    }
+   ],
+   "api": [
     {
      "lane": "competitor_adoption",
-     "lane_label": "COMPETITOR ADOPTION",
-     "url": "https://api.jina.ai/scalar",
-     "title": "Jina Search Foundation API",
-     "source": "api.jina.ai",
-     "date": null,
-     "relevance": "weak",
-     "evidence": "The page content describes Jina Search Foundation API features and model listings; it does not contain any explicit OpenRouter usage, integration, partnership, or OpenRouter branding within the text shown. The single strongest candidate would be general mentions of models and endpoints, not OpenRouter-specific integration.",
-     "mentions_vendor": false,
-     "points": 0.84
+     "label": "COMPETITOR ADOPTION",
+     "color": "#FF6A6A",
+     "endpoint": "/search",
+     "payload": {
+      "query": "OpenRouter featured as a customer, integration, or partner",
+      "includeDomains": [
+       "perplexity.ai",
+       "tavily.com",
+       "jina.ai",
+       "brave.com",
+       "serpapi.com"
+      ],
+      "numResults": 4,
+      "contents": {
+       "highlights": {
+        "numSentences": 2,
+        "query": "OpenRouter integration partner customer"
+       },
+       "summary": {
+        "query": "TASK: Scan this ENTIRE page top to bottom \u2014 including changelog entries, bullet lists, tables and footers. Does this page show the company 'OpenRouter' actually USING, integrating with, or partnering with THIS website's own product (a competitor of Exa in AI search API and retrieval infrastructure)? Changelog entries, integration docs, case studies and partnership announcements count as strong. A news or editorial article that merely mentions OpenRouter counts as none. A tutorial showing how to plug OpenRouter's OWN product into apps built on this site (i.e. OpenRouter used as a tool, not as a customer) = none. Set relevance to: 'strong' if the page is direct evidence of that, 'weak' if it is only indirect or partial evidence, 'none' if the page is not about this at all or is a mere news mention. In 'evidence' quote or tightly paraphrase the single most damning sentence, with names. Set mentions_vendor to true ONLY if the literal word 'Exa' appears in the page text itself.",
+        "schema": {
+         "type": "object",
+         "properties": {
+          "relevance": {
+           "type": "string",
+           "enum": [
+            "strong",
+            "weak",
+            "none"
+           ]
+          },
+          "evidence": {
+           "type": "string"
+          },
+          "mentions_vendor": {
+           "type": "boolean"
+          }
+         },
+         "required": [
+          "relevance",
+          "evidence",
+          "mentions_vendor"
+         ]
+        }
+       }
+      }
+     }
+    },
+    {
+     "lane": "in_house_build",
+     "label": "BUILDING IN-HOUSE",
+     "color": "#B388FF",
+     "endpoint": "/search",
+     "payload": {
+      "query": "OpenRouter engineering blog building their own in-house web-scale search infrastructure, including custom crawlers, vector databases, and proprietary embedding models trained for semantic retrieval, alongside high-concurrency API and compute capacity to support AI agent workflows. instead of using a third-party AI search API and retrieval infrastructure",
+      "numResults": 4,
+      "startPublishedDate": "2025-05-28T00:00:00.000Z",
+      "contents": {
+       "highlights": {
+        "numSentences": 2,
+        "query": "OpenRouter building in-house web-scale search infrastructure, including custom crawlers, vector databases, and proprietary embedding models trained for semantic retrieval, alongside high-concurrency API and compute capacity to support AI agent workflows."
+       },
+       "summary": {
+        "query": "TASK: Scan this ENTIRE page top to bottom \u2014 including changelog entries, bullet lists, tables and footers. Is this page evidence that 'OpenRouter' \u2014 that specific company, not anyone else \u2014 is building or has built IN-HOUSE capability overlapping what Exa sells (web-scale search infrastructure, including custom crawlers, vector databases, and proprietary embedding models trained for semantic retrieval, alongside high-concurrency API and compute capacity to support AI agent workflows.), reducing their need for an external AI search API and retrieval infrastructure? OpenRouter's own engineering blog posts, talks, or reputable coverage of OpenRouter's internal systems count as strong ONLY when the system overlaps that specific capability. Internal databases, generic data platforms, or infrastructure unrelated to AI search API and retrieval infrastructure = none. Pages about OTHER companies' systems = none. Set relevance to: 'strong' if the page is direct evidence of that, 'weak' if it is only indirect or partial evidence, 'none' if the page is not about this at all or is a mere news mention. In 'evidence' quote or tightly paraphrase the single most damning sentence, with names. Set mentions_vendor to true ONLY if the literal word 'Exa' appears in the page text itself.",
+        "schema": {
+         "type": "object",
+         "properties": {
+          "relevance": {
+           "type": "string",
+           "enum": [
+            "strong",
+            "weak",
+            "none"
+           ]
+          },
+          "evidence": {
+           "type": "string"
+          },
+          "mentions_vendor": {
+           "type": "boolean"
+          }
+         },
+         "required": [
+          "relevance",
+          "evidence",
+          "mentions_vendor"
+         ]
+        }
+       }
+      }
+     }
     },
     {
      "lane": "hiring_to_replace",
-     "lane_label": "HIRING TO REPLACE",
-     "url": "https://openrouter.ai/careers",
-     "title": "Careers at OpenRouter",
-     "source": "openrouter.ai",
-     "date": null,
-     "relevance": "weak",
-     "evidence": "The Careers page describes general OpenRouter roles and benefits but does not list a job posting that explicitly includes responsibilities such as building capability that overlaps Exa\u2019s offerings (web-scale crawling, specialized embedding model training, high-concurrency vector DB infra for semantic search). The page only says \u201cOpen Positions\u201d and talks about AI infrastructure generally.",
-     "mentions_vendor": false,
-     "points": 0.56
+     "label": "HIRING TO REPLACE",
+     "color": "#8FA5FF",
+     "endpoint": "/search",
+     "payload": {
+      "query": "OpenRouter job posting hiring engineers to build web-scale search infrastructure, including custom crawlers, vector databases, and proprietary embedding models trained for semantic retrieval, alongside high-concurrency API and compute capacity to support AI agent workflows.",
+      "numResults": 4,
+      "contents": {
+       "highlights": {
+        "numSentences": 2,
+        "query": "OpenRouter hiring web-scale search infrastructure, including custom crawlers, vector databases, and proprietary embedding models trained for semantic retrieval, alongside high-concurrency API and compute capacity to support AI agent workflows. engineer"
+       },
+       "summary": {
+        "query": "TASK: Scan this ENTIRE page top to bottom \u2014 including changelog entries, bullet lists, tables and footers. Is this a SPECIFIC job posting at 'OpenRouter' whose stated responsibilities EXPLICITLY include building capability that overlaps what Exa sells (web-scale search infrastructure, including custom crawlers, vector databases, and proprietary embedding models trained for semantic retrieval, alongside high-concurrency API and compute capacity to support AI agent workflows.)? strong ONLY if the posting text names such responsibilities. weak if the role is adjacent (ML platform, data infrastructure) without explicit overlap. none for: general careers pages listing many roles, and generic software/product/IT/sales roles. Set relevance to: 'strong' if the page is direct evidence of that, 'weak' if it is only indirect or partial evidence, 'none' if the page is not about this at all or is a mere news mention. In 'evidence' quote or tightly paraphrase the single most damning sentence, with names. Set mentions_vendor to true ONLY if the literal word 'Exa' appears in the page text itself.",
+        "schema": {
+         "type": "object",
+         "properties": {
+          "relevance": {
+           "type": "string",
+           "enum": [
+            "strong",
+            "weak",
+            "none"
+           ]
+          },
+          "evidence": {
+           "type": "string"
+          },
+          "mentions_vendor": {
+           "type": "boolean"
+          }
+         },
+         "required": [
+          "relevance",
+          "evidence",
+          "mentions_vendor"
+         ]
+        }
+       }
+      }
+     }
+    },
+    {
+     "lane": "shopping_around",
+     "label": "EVALUATING ALTERNATIVES",
+     "color": "#E9B44C",
+     "endpoint": "/search",
+     "payload": {
+      "query": "OpenRouter comparing, benchmarking, or switching between AI search API and retrieval infrastructure providers such as Perplexity, Tavily, Jina AI, Brave Search API, SerpAPI",
+      "numResults": 4,
+      "startPublishedDate": "2025-08-26T00:00:00.000Z",
+      "contents": {
+       "highlights": {
+        "numSentences": 2,
+        "query": "OpenRouter comparing alternatives AI search API and retrieval infrastructure"
+       },
+       "summary": {
+        "query": "TASK: Scan this ENTIRE page top to bottom \u2014 including changelog entries, bullet lists, tables and footers. Is this page evidence that 'OpenRouter' specifically is benchmarking, comparing, or publicly evaluating multiple AI search API and retrieval infrastructure providers (e.g. Perplexity, Tavily, Jina AI, Brave Search API, SerpAPI), or complaining about their current provider? The page must name 'OpenRouter' as the one doing the evaluating \u2014 generic 'best tools' listicles and benchmarks that don't involve OpenRouter = none. Set relevance to: 'strong' if the page is direct evidence of that, 'weak' if it is only indirect or partial evidence, 'none' if the page is not about this at all or is a mere news mention. In 'evidence' quote or tightly paraphrase the single most damning sentence, with names. Set mentions_vendor to true ONLY if the literal word 'Exa' appears in the page text itself.",
+        "schema": {
+         "type": "object",
+         "properties": {
+          "relevance": {
+           "type": "string",
+           "enum": [
+            "strong",
+            "weak",
+            "none"
+           ]
+          },
+          "evidence": {
+           "type": "string"
+          },
+          "mentions_vendor": {
+           "type": "boolean"
+          }
+         },
+         "required": [
+          "relevance",
+          "evidence",
+          "mentions_vendor"
+         ]
+        }
+       }
+      }
+     }
+    },
+    {
+     "lane": "budget_distress",
+     "label": "BUDGET / STRATEGY",
+     "color": "#9AA7BD",
+     "endpoint": "/search",
+     "payload": {
+      "query": "OpenRouter layoffs, cost cutting, restructuring, acquisition, or pivot away from AI products",
+      "category": "news",
+      "numResults": 4,
+      "startPublishedDate": "2025-12-24T00:00:00.000Z",
+      "contents": {
+       "highlights": {
+        "numSentences": 2,
+        "query": "OpenRouter layoffs cost cutting acquisition pivot"
+       },
+       "summary": {
+        "query": "TASK: Scan this ENTIRE page top to bottom \u2014 including changelog entries, bullet lists, tables and footers. Is this news evidence that 'OpenRouter' faces budget pressure or strategy change that would cut spend on tools like Exa? BEING ACQUIRED (procurement gets consolidated by the acquirer) = strong. Major layoffs or cost-cutting programs = strong. Pivot away from the products that need a AI search API and retrieval infrastructure = strong. 'OpenRouter' raising funding or 'OpenRouter' itself acquiring another company = none (that is growth, not distress). Routine earnings commentary = weak. News about a different company = none. Set relevance to: 'strong' if the page is direct evidence of that, 'weak' if it is only indirect or partial evidence, 'none' if the page is not about this at all or is a mere news mention. In 'evidence' quote or tightly paraphrase the single most damning sentence, with names. Set mentions_vendor to true ONLY if the literal word 'Exa' appears in the page text itself.",
+        "schema": {
+         "type": "object",
+         "properties": {
+          "relevance": {
+           "type": "string",
+           "enum": [
+            "strong",
+            "weak",
+            "none"
+           ]
+          },
+          "evidence": {
+           "type": "string"
+          },
+          "mentions_vendor": {
+           "type": "boolean"
+          }
+         },
+         "required": [
+          "relevance",
+          "evidence",
+          "mentions_vendor"
+         ]
+        }
+       }
+      }
+     }
     }
    ]
   },
@@ -353,24 +996,12 @@
    "customer": {
     "name": "Cognition",
     "domain": "cognition.ai",
-    "evidence": "Exa published a case study on how Cognition uses Exa in its Devin products.",
+    "evidence": "Cognition features a dedicated case study on the exa.ai website detailing how it uses Exa to power web search across its agentic products.",
     "source": "web evidence"
    },
-   "score": 4.69,
+   "score": 3.35,
    "tier": "watch",
    "evidence": [
-    {
-     "lane": "budget_distress",
-     "lane_label": "BUDGET / STRATEGY",
-     "url": "https://techcrunch.com/2026/08/19/cognition-ceo-denies-report-that-spacex-tried-to-acquire-the-startup/",
-     "title": "Cognition CEO denies report that SpaceX tried to acquire the startup | TechCrunch",
-     "source": "techcrunch.com",
-     "date": "2026-08-19",
-     "relevance": "strong",
-     "evidence": "The Bloomberg report cited by TechCrunch claims SpaceX discussed acquiring Cognition, and Cognition CEO Scott Wu stated that Cognition \u201cis not for sale,\u201d indicating potential strategic shift through acquisition talks; this aligns with potential consolidation or strategic changes, not explicit budget cuts or layoffs within Cognition itself.",
-     "mentions_vendor": false,
-     "points": 1.5
-    },
     {
      "lane": "budget_distress",
      "lane_label": "BUDGET / STRATEGY",
@@ -379,33 +1010,273 @@
      "source": "thenextweb.com",
      "date": "2026-08-19",
      "relevance": "strong",
-     "evidence": "SpaceX approached the AI coding startup Cognition about buying it, according to Bloomberg, and Cognition did not engage. Chief executive Scott Wu wrote publicly that Cognition is \u201cnot for sale and we haven\u2019t been talking.\u201d",
+     "evidence": "\u201cSpaceX approached AI coding startup Cognition about buying it, according to Bloomberg, and Cognition did not engage. Chief executive Scott Wu wrote publicly that Cognition is \u201cnot for sale and we haven\u2019t been talking.\u201d",
      "mentions_vendor": false,
      "points": 1.5
     },
     {
-     "lane": "in_house_build",
-     "lane_label": "BUILDING IN-HOUSE",
-     "url": "https://www.zenml.io/blog/llmops-in-production-another-419-case-studies-of-what-actually-works",
-     "title": "LLMOps in Production: Another 419 Case Studies of What ...",
-     "source": "zenml.io",
-     "date": "2025-12-15",
+     "lane": "hiring_to_replace",
+     "lane_label": "HIRING TO REPLACE",
+     "url": "https://jobs.ashbyhq.com/cognition/b6f96827-ce14-44f4-98fa-b1b8640858b6",
+     "title": "Research Engineer, ML Infrastructure @ Cognition",
+     "source": "jobs.ashbyhq.com",
+     "date": "2026-04-08",
      "relevance": "weak",
-     "evidence": "The page highlights Cognition's autonomous AI software engineer Devon and its use of DeepWiki and Devon Search for grounded codebase research, plus a post-training approach with reinforcement learning; it also mentions Kevin 32B achieving 91% correctness on CUDA kernel generation. It does not provide explicit evidence that Cognition builds in-house capabilities overlapping Exa's web-scale crawling",
+     "evidence": "The page is a Cognition job posting for a Research Engineer, Infrastructure. It discusses distributed training infrastructure, data pipelines, experiment orchestration, and systems to support research velocity, but there is no explicit mention of building capabilities that overlap Exa's offerings (web-scale search infrastructure, custom crawlers, vector databases, proprietary embedding models, or ",
      "mentions_vendor": false,
-     "points": 0.89
+     "points": 0.7
+    },
+    {
+     "lane": "competitor_adoption",
+     "lane_label": "COMPETITOR ADOPTION",
+     "url": "https://www.perplexity.ai/hub/blog/introducing-comet",
+     "title": "Introducing Comet: Browse at the speed of thought",
+     "source": "perplexity.ai",
+     "date": "2025-07-09",
+     "relevance": "weak",
+     "evidence": "\u201cBeginning today, Comet is available to Perplexity Max subscribers.\u201d",
+     "mentions_vendor": false,
+     "points": 0.63
+    },
+    {
+     "lane": "budget_distress",
+     "lane_label": "BUDGET / STRATEGY",
+     "url": "https://techcrunch.com/2026/08/19/cognition-ceo-denies-report-that-spacex-tried-to-acquire-the-startup/",
+     "title": "Cognition CEO denies report that SpaceX tried to acquire the startup | TechCrunch",
+     "source": "techcrunch.com",
+     "date": "2026-08-19",
+     "relevance": "weak",
+     "evidence": "\u201cBloomberg reports that the deal talks are no longer active, but that the companies are still discussing working together \u2014 potentially with Cognition using SpaceX\u2019s computing capacity, which the company is selling to other AI players like Anthropic until it needs that capacity for itself.\u201d",
+     "mentions_vendor": false,
+     "points": 0.52
+    }
+   ],
+   "api": [
+    {
+     "lane": "competitor_adoption",
+     "label": "COMPETITOR ADOPTION",
+     "color": "#FF6A6A",
+     "endpoint": "/search",
+     "payload": {
+      "query": "Cognition featured as a customer, integration, or partner",
+      "includeDomains": [
+       "perplexity.ai",
+       "tavily.com",
+       "jina.ai",
+       "brave.com",
+       "serpapi.com"
+      ],
+      "numResults": 4,
+      "contents": {
+       "highlights": {
+        "numSentences": 2,
+        "query": "Cognition integration partner customer"
+       },
+       "summary": {
+        "query": "TASK: Scan this ENTIRE page top to bottom \u2014 including changelog entries, bullet lists, tables and footers. Does this page show the company 'Cognition' actually USING, integrating with, or partnering with THIS website's own product (a competitor of Exa in AI search API and retrieval infrastructure)? Changelog entries, integration docs, case studies and partnership announcements count as strong. A news or editorial article that merely mentions Cognition counts as none. A tutorial showing how to plug Cognition's OWN product into apps built on this site (i.e. Cognition used as a tool, not as a customer) = none. Set relevance to: 'strong' if the page is direct evidence of that, 'weak' if it is only indirect or partial evidence, 'none' if the page is not about this at all or is a mere news mention. In 'evidence' quote or tightly paraphrase the single most damning sentence, with names. Set mentions_vendor to true ONLY if the literal word 'Exa' appears in the page text itself.",
+        "schema": {
+         "type": "object",
+         "properties": {
+          "relevance": {
+           "type": "string",
+           "enum": [
+            "strong",
+            "weak",
+            "none"
+           ]
+          },
+          "evidence": {
+           "type": "string"
+          },
+          "mentions_vendor": {
+           "type": "boolean"
+          }
+         },
+         "required": [
+          "relevance",
+          "evidence",
+          "mentions_vendor"
+         ]
+        }
+       }
+      }
+     }
+    },
+    {
+     "lane": "in_house_build",
+     "label": "BUILDING IN-HOUSE",
+     "color": "#B388FF",
+     "endpoint": "/search",
+     "payload": {
+      "query": "Cognition engineering blog building their own in-house web-scale search infrastructure, including custom crawlers, vector databases, and proprietary embedding models trained for semantic retrieval, alongside high-concurrency API and compute capacity to support AI agent workflows. instead of using a third-party AI search API and retrieval infrastructure",
+      "numResults": 4,
+      "startPublishedDate": "2025-05-28T00:00:00.000Z",
+      "contents": {
+       "highlights": {
+        "numSentences": 2,
+        "query": "Cognition building in-house web-scale search infrastructure, including custom crawlers, vector databases, and proprietary embedding models trained for semantic retrieval, alongside high-concurrency API and compute capacity to support AI agent workflows."
+       },
+       "summary": {
+        "query": "TASK: Scan this ENTIRE page top to bottom \u2014 including changelog entries, bullet lists, tables and footers. Is this page evidence that 'Cognition' \u2014 that specific company, not anyone else \u2014 is building or has built IN-HOUSE capability overlapping what Exa sells (web-scale search infrastructure, including custom crawlers, vector databases, and proprietary embedding models trained for semantic retrieval, alongside high-concurrency API and compute capacity to support AI agent workflows.), reducing their need for an external AI search API and retrieval infrastructure? Cognition's own engineering blog posts, talks, or reputable coverage of Cognition's internal systems count as strong ONLY when the system overlaps that specific capability. Internal databases, generic data platforms, or infrastructure unrelated to AI search API and retrieval infrastructure = none. Pages about OTHER companies' systems = none. Set relevance to: 'strong' if the page is direct evidence of that, 'weak' if it is only indirect or partial evidence, 'none' if the page is not about this at all or is a mere news mention. In 'evidence' quote or tightly paraphrase the single most damning sentence, with names. Set mentions_vendor to true ONLY if the literal word 'Exa' appears in the page text itself.",
+        "schema": {
+         "type": "object",
+         "properties": {
+          "relevance": {
+           "type": "string",
+           "enum": [
+            "strong",
+            "weak",
+            "none"
+           ]
+          },
+          "evidence": {
+           "type": "string"
+          },
+          "mentions_vendor": {
+           "type": "boolean"
+          }
+         },
+         "required": [
+          "relevance",
+          "evidence",
+          "mentions_vendor"
+         ]
+        }
+       }
+      }
+     }
     },
     {
      "lane": "hiring_to_replace",
-     "lane_label": "HIRING TO REPLACE",
-     "url": "https://jobs.ashbyhq.com/exa/1f90ebb9-0f74-4a52-822a-d0ea6acdef4f",
-     "title": "Software Engineer, Knowledge Systems @ Exa",
-     "source": "jobs.ashbyhq.com",
-     "date": null,
-     "relevance": "strong",
-     "evidence": "Exa is an applied AI lab building a search engine unlike the world has ever seen. We build massive-scale infra to crawl the entire web, train state-of-the-art embedding models to process it, and design super high performant vector databases to retrieve over it. We now power search for Cursor, Cognition, HubSpot, and over 400,000 developers and have raised $350m from Lightspeed, Benchmark, and a16z",
-     "mentions_vendor": true,
-     "points": 0.8
+     "label": "HIRING TO REPLACE",
+     "color": "#8FA5FF",
+     "endpoint": "/search",
+     "payload": {
+      "query": "Cognition job posting hiring engineers to build web-scale search infrastructure, including custom crawlers, vector databases, and proprietary embedding models trained for semantic retrieval, alongside high-concurrency API and compute capacity to support AI agent workflows.",
+      "numResults": 4,
+      "contents": {
+       "highlights": {
+        "numSentences": 2,
+        "query": "Cognition hiring web-scale search infrastructure, including custom crawlers, vector databases, and proprietary embedding models trained for semantic retrieval, alongside high-concurrency API and compute capacity to support AI agent workflows. engineer"
+       },
+       "summary": {
+        "query": "TASK: Scan this ENTIRE page top to bottom \u2014 including changelog entries, bullet lists, tables and footers. Is this a SPECIFIC job posting at 'Cognition' whose stated responsibilities EXPLICITLY include building capability that overlaps what Exa sells (web-scale search infrastructure, including custom crawlers, vector databases, and proprietary embedding models trained for semantic retrieval, alongside high-concurrency API and compute capacity to support AI agent workflows.)? strong ONLY if the posting text names such responsibilities. weak if the role is adjacent (ML platform, data infrastructure) without explicit overlap. none for: general careers pages listing many roles, and generic software/product/IT/sales roles. Set relevance to: 'strong' if the page is direct evidence of that, 'weak' if it is only indirect or partial evidence, 'none' if the page is not about this at all or is a mere news mention. In 'evidence' quote or tightly paraphrase the single most damning sentence, with names. Set mentions_vendor to true ONLY if the literal word 'Exa' appears in the page text itself.",
+        "schema": {
+         "type": "object",
+         "properties": {
+          "relevance": {
+           "type": "string",
+           "enum": [
+            "strong",
+            "weak",
+            "none"
+           ]
+          },
+          "evidence": {
+           "type": "string"
+          },
+          "mentions_vendor": {
+           "type": "boolean"
+          }
+         },
+         "required": [
+          "relevance",
+          "evidence",
+          "mentions_vendor"
+         ]
+        }
+       }
+      }
+     }
+    },
+    {
+     "lane": "shopping_around",
+     "label": "EVALUATING ALTERNATIVES",
+     "color": "#E9B44C",
+     "endpoint": "/search",
+     "payload": {
+      "query": "Cognition comparing, benchmarking, or switching between AI search API and retrieval infrastructure providers such as Perplexity, Tavily, Jina AI, Brave Search API, SerpAPI",
+      "numResults": 4,
+      "startPublishedDate": "2025-08-26T00:00:00.000Z",
+      "contents": {
+       "highlights": {
+        "numSentences": 2,
+        "query": "Cognition comparing alternatives AI search API and retrieval infrastructure"
+       },
+       "summary": {
+        "query": "TASK: Scan this ENTIRE page top to bottom \u2014 including changelog entries, bullet lists, tables and footers. Is this page evidence that 'Cognition' specifically is benchmarking, comparing, or publicly evaluating multiple AI search API and retrieval infrastructure providers (e.g. Perplexity, Tavily, Jina AI, Brave Search API, SerpAPI), or complaining about their current provider? The page must name 'Cognition' as the one doing the evaluating \u2014 generic 'best tools' listicles and benchmarks that don't involve Cognition = none. Set relevance to: 'strong' if the page is direct evidence of that, 'weak' if it is only indirect or partial evidence, 'none' if the page is not about this at all or is a mere news mention. In 'evidence' quote or tightly paraphrase the single most damning sentence, with names. Set mentions_vendor to true ONLY if the literal word 'Exa' appears in the page text itself.",
+        "schema": {
+         "type": "object",
+         "properties": {
+          "relevance": {
+           "type": "string",
+           "enum": [
+            "strong",
+            "weak",
+            "none"
+           ]
+          },
+          "evidence": {
+           "type": "string"
+          },
+          "mentions_vendor": {
+           "type": "boolean"
+          }
+         },
+         "required": [
+          "relevance",
+          "evidence",
+          "mentions_vendor"
+         ]
+        }
+       }
+      }
+     }
+    },
+    {
+     "lane": "budget_distress",
+     "label": "BUDGET / STRATEGY",
+     "color": "#9AA7BD",
+     "endpoint": "/search",
+     "payload": {
+      "query": "Cognition layoffs, cost cutting, restructuring, acquisition, or pivot away from AI products",
+      "category": "news",
+      "numResults": 4,
+      "startPublishedDate": "2025-12-24T00:00:00.000Z",
+      "contents": {
+       "highlights": {
+        "numSentences": 2,
+        "query": "Cognition layoffs cost cutting acquisition pivot"
+       },
+       "summary": {
+        "query": "TASK: Scan this ENTIRE page top to bottom \u2014 including changelog entries, bullet lists, tables and footers. Is this news evidence that 'Cognition' faces budget pressure or strategy change that would cut spend on tools like Exa? BEING ACQUIRED (procurement gets consolidated by the acquirer) = strong. Major layoffs or cost-cutting programs = strong. Pivot away from the products that need a AI search API and retrieval infrastructure = strong. 'Cognition' raising funding or 'Cognition' itself acquiring another company = none (that is growth, not distress). Routine earnings commentary = weak. News about a different company = none. Set relevance to: 'strong' if the page is direct evidence of that, 'weak' if it is only indirect or partial evidence, 'none' if the page is not about this at all or is a mere news mention. In 'evidence' quote or tightly paraphrase the single most damning sentence, with names. Set mentions_vendor to true ONLY if the literal word 'Exa' appears in the page text itself.",
+        "schema": {
+         "type": "object",
+         "properties": {
+          "relevance": {
+           "type": "string",
+           "enum": [
+            "strong",
+            "weak",
+            "none"
+           ]
+          },
+          "evidence": {
+           "type": "string"
+          },
+          "mentions_vendor": {
+           "type": "boolean"
+          }
+         },
+         "required": [
+          "relevance",
+          "evidence",
+          "mentions_vendor"
+         ]
+        }
+       }
+      }
+     }
     }
    ]
   },
@@ -413,12 +1284,24 @@
    "customer": {
     "name": "WebFX",
     "domain": "webfx.com",
-    "evidence": "Exa published a case study on how WebFX uses Exa for marketing research workflows.",
+    "evidence": "WebFX features a dedicated case study on the exa.ai website detailing how it uses Exa to scale digital marketing workflows.",
     "source": "web evidence"
    },
-   "score": 1.04,
+   "score": 1.6,
    "tier": "healthy",
    "evidence": [
+    {
+     "lane": "hiring_to_replace",
+     "lane_label": "HIRING TO REPLACE",
+     "url": "https://jobs.lever.co/webfx/497bb548-b7d7-4aff-b87b-da9dcc8fbcc8",
+     "title": "webfx.com - Jr. Back-End Software Engineer",
+     "source": "jobs.lever.co",
+     "date": null,
+     "relevance": "weak",
+     "evidence": "\"As a backend software engineer, you\u2019ll team up with others in various stacks at Nutshell. You can hone your skills alongside a frontend team that writes for both web and mobile in React + React Native, while you build the GraphQL and cloud infrastructure that powers our app. You\u2019ll work with the data we store in MySQL and Solr on AWS. And with our continuous integration and rapid development stac",
+     "mentions_vendor": false,
+     "points": 0.56
+    },
     {
      "lane": "budget_distress",
      "lane_label": "BUDGET / STRATEGY",
@@ -427,7 +1310,7 @@
      "source": "dced.pa.gov",
      "date": "2026-04-09",
      "relevance": "weak",
-     "evidence": "The page reports a $10.7 million investment from WebFX to expand its operations in Harrisburg and create 100 new tech jobs, with mentions of funding grants (PA First and WEDNetPA) and renovation of a building for training. It does not discuss budget pressure, strategy changes to cut spend on tools like Exa, or any acquisition/cost-cutting measures related to procurement. The only related action is",
+     "evidence": "\u201cThe Commonwealth is investing $900,000 to support the digital marketing agency, which will renovate the former Tracy Mansion in Harrisburg into a new training and meeting space.\u201d This page discusses a state investment in WebFX to expand operations and create 100 tech jobs, but it does not indicate budget pressure, strategy changes, or cuts to tools like Exa; it merely reports a growth investment ",
      "mentions_vendor": false,
      "points": 0.52
     },
@@ -439,9 +1322,237 @@
      "source": "theburgnews.com",
      "date": "2026-04-09",
      "relevance": "weak",
-     "evidence": "The article describes WebFX receiving state grants and expanding into additional buildings, focusing on growth and renovation rather than cost-cutting or AI tool strategy.",
+     "evidence": "The article discusses WebFX expanding into a historic mansion and purchasing another building with state grants; it does not mention budget pressure, cost-cutting, AI tools, or procurement changes. The most relevant item is expansion and hiring plans, not spending cuts or strategic pivots related to Exa or AI search infrastructure.",
      "mentions_vendor": false,
      "points": 0.52
+    }
+   ],
+   "api": [
+    {
+     "lane": "competitor_adoption",
+     "label": "COMPETITOR ADOPTION",
+     "color": "#FF6A6A",
+     "endpoint": "/search",
+     "payload": {
+      "query": "WebFX featured as a customer, integration, or partner",
+      "includeDomains": [
+       "perplexity.ai",
+       "tavily.com",
+       "jina.ai",
+       "brave.com",
+       "serpapi.com"
+      ],
+      "numResults": 4,
+      "contents": {
+       "highlights": {
+        "numSentences": 2,
+        "query": "WebFX integration partner customer"
+       },
+       "summary": {
+        "query": "TASK: Scan this ENTIRE page top to bottom \u2014 including changelog entries, bullet lists, tables and footers. Does this page show the company 'WebFX' actually USING, integrating with, or partnering with THIS website's own product (a competitor of Exa in AI search API and retrieval infrastructure)? Changelog entries, integration docs, case studies and partnership announcements count as strong. A news or editorial article that merely mentions WebFX counts as none. A tutorial showing how to plug WebFX's OWN product into apps built on this site (i.e. WebFX used as a tool, not as a customer) = none. Set relevance to: 'strong' if the page is direct evidence of that, 'weak' if it is only indirect or partial evidence, 'none' if the page is not about this at all or is a mere news mention. In 'evidence' quote or tightly paraphrase the single most damning sentence, with names. Set mentions_vendor to true ONLY if the literal word 'Exa' appears in the page text itself.",
+        "schema": {
+         "type": "object",
+         "properties": {
+          "relevance": {
+           "type": "string",
+           "enum": [
+            "strong",
+            "weak",
+            "none"
+           ]
+          },
+          "evidence": {
+           "type": "string"
+          },
+          "mentions_vendor": {
+           "type": "boolean"
+          }
+         },
+         "required": [
+          "relevance",
+          "evidence",
+          "mentions_vendor"
+         ]
+        }
+       }
+      }
+     }
+    },
+    {
+     "lane": "in_house_build",
+     "label": "BUILDING IN-HOUSE",
+     "color": "#B388FF",
+     "endpoint": "/search",
+     "payload": {
+      "query": "WebFX engineering blog building their own in-house web-scale search infrastructure, including custom crawlers, vector databases, and proprietary embedding models trained for semantic retrieval, alongside high-concurrency API and compute capacity to support AI agent workflows. instead of using a third-party AI search API and retrieval infrastructure",
+      "numResults": 4,
+      "startPublishedDate": "2025-05-28T00:00:00.000Z",
+      "contents": {
+       "highlights": {
+        "numSentences": 2,
+        "query": "WebFX building in-house web-scale search infrastructure, including custom crawlers, vector databases, and proprietary embedding models trained for semantic retrieval, alongside high-concurrency API and compute capacity to support AI agent workflows."
+       },
+       "summary": {
+        "query": "TASK: Scan this ENTIRE page top to bottom \u2014 including changelog entries, bullet lists, tables and footers. Is this page evidence that 'WebFX' \u2014 that specific company, not anyone else \u2014 is building or has built IN-HOUSE capability overlapping what Exa sells (web-scale search infrastructure, including custom crawlers, vector databases, and proprietary embedding models trained for semantic retrieval, alongside high-concurrency API and compute capacity to support AI agent workflows.), reducing their need for an external AI search API and retrieval infrastructure? WebFX's own engineering blog posts, talks, or reputable coverage of WebFX's internal systems count as strong ONLY when the system overlaps that specific capability. Internal databases, generic data platforms, or infrastructure unrelated to AI search API and retrieval infrastructure = none. Pages about OTHER companies' systems = none. Set relevance to: 'strong' if the page is direct evidence of that, 'weak' if it is only indirect or partial evidence, 'none' if the page is not about this at all or is a mere news mention. In 'evidence' quote or tightly paraphrase the single most damning sentence, with names. Set mentions_vendor to true ONLY if the literal word 'Exa' appears in the page text itself.",
+        "schema": {
+         "type": "object",
+         "properties": {
+          "relevance": {
+           "type": "string",
+           "enum": [
+            "strong",
+            "weak",
+            "none"
+           ]
+          },
+          "evidence": {
+           "type": "string"
+          },
+          "mentions_vendor": {
+           "type": "boolean"
+          }
+         },
+         "required": [
+          "relevance",
+          "evidence",
+          "mentions_vendor"
+         ]
+        }
+       }
+      }
+     }
+    },
+    {
+     "lane": "hiring_to_replace",
+     "label": "HIRING TO REPLACE",
+     "color": "#8FA5FF",
+     "endpoint": "/search",
+     "payload": {
+      "query": "WebFX job posting hiring engineers to build web-scale search infrastructure, including custom crawlers, vector databases, and proprietary embedding models trained for semantic retrieval, alongside high-concurrency API and compute capacity to support AI agent workflows.",
+      "numResults": 4,
+      "contents": {
+       "highlights": {
+        "numSentences": 2,
+        "query": "WebFX hiring web-scale search infrastructure, including custom crawlers, vector databases, and proprietary embedding models trained for semantic retrieval, alongside high-concurrency API and compute capacity to support AI agent workflows. engineer"
+       },
+       "summary": {
+        "query": "TASK: Scan this ENTIRE page top to bottom \u2014 including changelog entries, bullet lists, tables and footers. Is this a SPECIFIC job posting at 'WebFX' whose stated responsibilities EXPLICITLY include building capability that overlaps what Exa sells (web-scale search infrastructure, including custom crawlers, vector databases, and proprietary embedding models trained for semantic retrieval, alongside high-concurrency API and compute capacity to support AI agent workflows.)? strong ONLY if the posting text names such responsibilities. weak if the role is adjacent (ML platform, data infrastructure) without explicit overlap. none for: general careers pages listing many roles, and generic software/product/IT/sales roles. Set relevance to: 'strong' if the page is direct evidence of that, 'weak' if it is only indirect or partial evidence, 'none' if the page is not about this at all or is a mere news mention. In 'evidence' quote or tightly paraphrase the single most damning sentence, with names. Set mentions_vendor to true ONLY if the literal word 'Exa' appears in the page text itself.",
+        "schema": {
+         "type": "object",
+         "properties": {
+          "relevance": {
+           "type": "string",
+           "enum": [
+            "strong",
+            "weak",
+            "none"
+           ]
+          },
+          "evidence": {
+           "type": "string"
+          },
+          "mentions_vendor": {
+           "type": "boolean"
+          }
+         },
+         "required": [
+          "relevance",
+          "evidence",
+          "mentions_vendor"
+         ]
+        }
+       }
+      }
+     }
+    },
+    {
+     "lane": "shopping_around",
+     "label": "EVALUATING ALTERNATIVES",
+     "color": "#E9B44C",
+     "endpoint": "/search",
+     "payload": {
+      "query": "WebFX comparing, benchmarking, or switching between AI search API and retrieval infrastructure providers such as Perplexity, Tavily, Jina AI, Brave Search API, SerpAPI",
+      "numResults": 4,
+      "startPublishedDate": "2025-08-26T00:00:00.000Z",
+      "contents": {
+       "highlights": {
+        "numSentences": 2,
+        "query": "WebFX comparing alternatives AI search API and retrieval infrastructure"
+       },
+       "summary": {
+        "query": "TASK: Scan this ENTIRE page top to bottom \u2014 including changelog entries, bullet lists, tables and footers. Is this page evidence that 'WebFX' specifically is benchmarking, comparing, or publicly evaluating multiple AI search API and retrieval infrastructure providers (e.g. Perplexity, Tavily, Jina AI, Brave Search API, SerpAPI), or complaining about their current provider? The page must name 'WebFX' as the one doing the evaluating \u2014 generic 'best tools' listicles and benchmarks that don't involve WebFX = none. Set relevance to: 'strong' if the page is direct evidence of that, 'weak' if it is only indirect or partial evidence, 'none' if the page is not about this at all or is a mere news mention. In 'evidence' quote or tightly paraphrase the single most damning sentence, with names. Set mentions_vendor to true ONLY if the literal word 'Exa' appears in the page text itself.",
+        "schema": {
+         "type": "object",
+         "properties": {
+          "relevance": {
+           "type": "string",
+           "enum": [
+            "strong",
+            "weak",
+            "none"
+           ]
+          },
+          "evidence": {
+           "type": "string"
+          },
+          "mentions_vendor": {
+           "type": "boolean"
+          }
+         },
+         "required": [
+          "relevance",
+          "evidence",
+          "mentions_vendor"
+         ]
+        }
+       }
+      }
+     }
+    },
+    {
+     "lane": "budget_distress",
+     "label": "BUDGET / STRATEGY",
+     "color": "#9AA7BD",
+     "endpoint": "/search",
+     "payload": {
+      "query": "WebFX layoffs, cost cutting, restructuring, acquisition, or pivot away from AI products",
+      "category": "news",
+      "numResults": 4,
+      "startPublishedDate": "2025-12-24T00:00:00.000Z",
+      "contents": {
+       "highlights": {
+        "numSentences": 2,
+        "query": "WebFX layoffs cost cutting acquisition pivot"
+       },
+       "summary": {
+        "query": "TASK: Scan this ENTIRE page top to bottom \u2014 including changelog entries, bullet lists, tables and footers. Is this news evidence that 'WebFX' faces budget pressure or strategy change that would cut spend on tools like Exa? BEING ACQUIRED (procurement gets consolidated by the acquirer) = strong. Major layoffs or cost-cutting programs = strong. Pivot away from the products that need a AI search API and retrieval infrastructure = strong. 'WebFX' raising funding or 'WebFX' itself acquiring another company = none (that is growth, not distress). Routine earnings commentary = weak. News about a different company = none. Set relevance to: 'strong' if the page is direct evidence of that, 'weak' if it is only indirect or partial evidence, 'none' if the page is not about this at all or is a mere news mention. In 'evidence' quote or tightly paraphrase the single most damning sentence, with names. Set mentions_vendor to true ONLY if the literal word 'Exa' appears in the page text itself.",
+        "schema": {
+         "type": "object",
+         "properties": {
+          "relevance": {
+           "type": "string",
+           "enum": [
+            "strong",
+            "weak",
+            "none"
+           ]
+          },
+          "evidence": {
+           "type": "string"
+          },
+          "mentions_vendor": {
+           "type": "boolean"
+          }
+         },
+         "required": [
+          "relevance",
+          "evidence",
+          "mentions_vendor"
+         ]
+        }
+       }
+      }
+     }
     }
    ]
   },
@@ -449,10 +1560,10 @@
    "customer": {
     "name": "StackAI",
     "domain": "stackai.com",
-    "evidence": "Exa published a case study on how StackAI integrates Exa to power enterprise AI agents.",
+    "evidence": "StackAI features a dedicated case study on the exa.ai website detailing how it uses Exa to power enterprise AI agents.",
     "source": "web evidence"
    },
-   "score": 4.4,
+   "score": 4.05,
    "tier": "watch",
    "evidence": [
     {
@@ -463,19 +1574,7 @@
      "source": "techcrunch.com",
      "date": "2026-05-28",
      "relevance": "strong",
-     "evidence": "Asana has acquired the workflow automation company StackAI for $75 million, part of a larger effort to position itself as an AI-native workplace platform. StackAI\u2019s founders, Tony Rosinol and Bernard Aceituno, will join Asana as part of the acquisition.",
-     "mentions_vendor": false,
-     "points": 1.5
-    },
-    {
-     "lane": "budget_distress",
-     "lane_label": "BUDGET / STRATEGY",
-     "url": "https://finance.yahoo.com/sectors/technology/articles/asana-acquires-stackai-adding-cross-200300304.html",
-     "title": "Asana Acquires StackAI, Adding Cross-System Execution for Human-Agent Teams",
-     "source": "finance.yahoo.com",
-     "date": "2026-05-28",
-     "relevance": "strong",
-     "evidence": "Asana, Inc. completed the acquisition of StackAI, a no-code AI workflow platform that enables companies to design, test, deploy and govern custom AI agents and intelligent automation of business-critical workflows.",
+     "evidence": "\u201cAsana has acquired the workflow automation company StackAI for $75 million, part of a larger effort to position itself as an AI-native workplace platform.\u201d",
      "mentions_vendor": false,
      "points": 1.5
     },
@@ -487,9 +1586,21 @@
      "source": "docs.tavily.com",
      "date": null,
      "relevance": "weak",
-     "evidence": "The page discusses integrating Tavily with StackAI to enhance AI workflows with real-time web data, including setup steps and use cases, but does not show StackAI using, integrating with, or partnering with Tavily's own product in a way that proves the company StackAI is actively using Tavily or that Tavily is a partner in StackAI\u2019s own product ecosystem.",
+     "evidence": "The page describes integrating Tavily with StackAI to fetch and utilize live web content in StackAI workflows, including setup and use cases, but it does not show StackAI using Tavily's own product as a customer, partner, or integrating StackAI with Tavily as a customer. The strongest link is that Tavily can be integrated into StackAI workflows, which is an integration/tutorial context, not StackA",
      "mentions_vendor": false,
      "points": 0.84
+    },
+    {
+     "lane": "in_house_build",
+     "lane_label": "BUILDING IN-HOUSE",
+     "url": "https://www.stackai.com/blog/stackai-explained",
+     "title": "A helpful guide to StackAI's features and differentiators.",
+     "source": "stackai.com",
+     "date": "2025-07-30",
+     "relevance": "weak",
+     "evidence": "StackAI is the enterprise AI platform designed to provide infrastructure for scalable, secure, and flexible AI agents. Its visual, drag-and-drop, no-code interface empowers both technical and non-technical teams to design, launch, and govern intelligent applications. Rigorous governance features and enterprise-grade security enable safe, scalable deployments. An extensive integration network conne",
+     "mentions_vendor": false,
+     "points": 0.63
     },
     {
      "lane": "hiring_to_replace",
@@ -499,28 +1610,496 @@
      "source": "ycombinator.com",
      "date": null,
      "relevance": "weak",
-     "evidence": "The page is a StackAI job listing for a Senior AI/ML Engineer, with responsibilities around RAG, embedding, and integrating AI models, but there is no explicit mention of building capability that overlaps with Exa's offerings (web-scale crawling, specialized embedding model training, high-concurrency vector DB for semantic search).",
+     "evidence": "The page is a job posting for a Senior AI/ML Engineer at StackAI, describing responsibilities related to RAG, embedding generation, AI model integration, and building no-code AI workflows. It does not explicitly state responsibilities about building web-scale search infrastructure, custom crawlers, vector databases, proprietary embedding models trained for semantic retrieval, or high-concurrency A",
      "mentions_vendor": false,
      "points": 0.56
+    },
+    {
+     "lane": "budget_distress",
+     "lane_label": "BUDGET / STRATEGY",
+     "url": "https://siliconangle.com/2026/05/28/asana-acquires-stackai-run-ai-agent-workflows-across-enterprise-systems/",
+     "title": "Asana acquires StackAI to run AI agent workflows across enterprise systems - SiliconANGLE",
+     "source": "siliconangle.com",
+     "date": "2026-05-28",
+     "relevance": "weak",
+     "evidence": "The page describes Asana acquiring StackAI to extend its agent-driven workflows and mentions StackAI\u2019s no-code platform that integrates with enterprise apps; there is no discussion of budget pressure, cost-cutting, layoffs, or pivots away from AI search/API tools. The most relevant line is: \u201cAsana plans to use StackAI\u2019s technology to extend its own push into agent-driven work.\u201d",
+     "mentions_vendor": false,
+     "points": 0.52
+    }
+   ],
+   "api": [
+    {
+     "lane": "competitor_adoption",
+     "label": "COMPETITOR ADOPTION",
+     "color": "#FF6A6A",
+     "endpoint": "/search",
+     "payload": {
+      "query": "StackAI featured as a customer, integration, or partner",
+      "includeDomains": [
+       "perplexity.ai",
+       "tavily.com",
+       "jina.ai",
+       "brave.com",
+       "serpapi.com"
+      ],
+      "numResults": 4,
+      "contents": {
+       "highlights": {
+        "numSentences": 2,
+        "query": "StackAI integration partner customer"
+       },
+       "summary": {
+        "query": "TASK: Scan this ENTIRE page top to bottom \u2014 including changelog entries, bullet lists, tables and footers. Does this page show the company 'StackAI' actually USING, integrating with, or partnering with THIS website's own product (a competitor of Exa in AI search API and retrieval infrastructure)? Changelog entries, integration docs, case studies and partnership announcements count as strong. A news or editorial article that merely mentions StackAI counts as none. A tutorial showing how to plug StackAI's OWN product into apps built on this site (i.e. StackAI used as a tool, not as a customer) = none. Set relevance to: 'strong' if the page is direct evidence of that, 'weak' if it is only indirect or partial evidence, 'none' if the page is not about this at all or is a mere news mention. In 'evidence' quote or tightly paraphrase the single most damning sentence, with names. Set mentions_vendor to true ONLY if the literal word 'Exa' appears in the page text itself.",
+        "schema": {
+         "type": "object",
+         "properties": {
+          "relevance": {
+           "type": "string",
+           "enum": [
+            "strong",
+            "weak",
+            "none"
+           ]
+          },
+          "evidence": {
+           "type": "string"
+          },
+          "mentions_vendor": {
+           "type": "boolean"
+          }
+         },
+         "required": [
+          "relevance",
+          "evidence",
+          "mentions_vendor"
+         ]
+        }
+       }
+      }
+     }
+    },
+    {
+     "lane": "in_house_build",
+     "label": "BUILDING IN-HOUSE",
+     "color": "#B388FF",
+     "endpoint": "/search",
+     "payload": {
+      "query": "StackAI engineering blog building their own in-house web-scale search infrastructure, including custom crawlers, vector databases, and proprietary embedding models trained for semantic retrieval, alongside high-concurrency API and compute capacity to support AI agent workflows. instead of using a third-party AI search API and retrieval infrastructure",
+      "numResults": 4,
+      "startPublishedDate": "2025-05-28T00:00:00.000Z",
+      "contents": {
+       "highlights": {
+        "numSentences": 2,
+        "query": "StackAI building in-house web-scale search infrastructure, including custom crawlers, vector databases, and proprietary embedding models trained for semantic retrieval, alongside high-concurrency API and compute capacity to support AI agent workflows."
+       },
+       "summary": {
+        "query": "TASK: Scan this ENTIRE page top to bottom \u2014 including changelog entries, bullet lists, tables and footers. Is this page evidence that 'StackAI' \u2014 that specific company, not anyone else \u2014 is building or has built IN-HOUSE capability overlapping what Exa sells (web-scale search infrastructure, including custom crawlers, vector databases, and proprietary embedding models trained for semantic retrieval, alongside high-concurrency API and compute capacity to support AI agent workflows.), reducing their need for an external AI search API and retrieval infrastructure? StackAI's own engineering blog posts, talks, or reputable coverage of StackAI's internal systems count as strong ONLY when the system overlaps that specific capability. Internal databases, generic data platforms, or infrastructure unrelated to AI search API and retrieval infrastructure = none. Pages about OTHER companies' systems = none. Set relevance to: 'strong' if the page is direct evidence of that, 'weak' if it is only indirect or partial evidence, 'none' if the page is not about this at all or is a mere news mention. In 'evidence' quote or tightly paraphrase the single most damning sentence, with names. Set mentions_vendor to true ONLY if the literal word 'Exa' appears in the page text itself.",
+        "schema": {
+         "type": "object",
+         "properties": {
+          "relevance": {
+           "type": "string",
+           "enum": [
+            "strong",
+            "weak",
+            "none"
+           ]
+          },
+          "evidence": {
+           "type": "string"
+          },
+          "mentions_vendor": {
+           "type": "boolean"
+          }
+         },
+         "required": [
+          "relevance",
+          "evidence",
+          "mentions_vendor"
+         ]
+        }
+       }
+      }
+     }
+    },
+    {
+     "lane": "hiring_to_replace",
+     "label": "HIRING TO REPLACE",
+     "color": "#8FA5FF",
+     "endpoint": "/search",
+     "payload": {
+      "query": "StackAI job posting hiring engineers to build web-scale search infrastructure, including custom crawlers, vector databases, and proprietary embedding models trained for semantic retrieval, alongside high-concurrency API and compute capacity to support AI agent workflows.",
+      "numResults": 4,
+      "contents": {
+       "highlights": {
+        "numSentences": 2,
+        "query": "StackAI hiring web-scale search infrastructure, including custom crawlers, vector databases, and proprietary embedding models trained for semantic retrieval, alongside high-concurrency API and compute capacity to support AI agent workflows. engineer"
+       },
+       "summary": {
+        "query": "TASK: Scan this ENTIRE page top to bottom \u2014 including changelog entries, bullet lists, tables and footers. Is this a SPECIFIC job posting at 'StackAI' whose stated responsibilities EXPLICITLY include building capability that overlaps what Exa sells (web-scale search infrastructure, including custom crawlers, vector databases, and proprietary embedding models trained for semantic retrieval, alongside high-concurrency API and compute capacity to support AI agent workflows.)? strong ONLY if the posting text names such responsibilities. weak if the role is adjacent (ML platform, data infrastructure) without explicit overlap. none for: general careers pages listing many roles, and generic software/product/IT/sales roles. Set relevance to: 'strong' if the page is direct evidence of that, 'weak' if it is only indirect or partial evidence, 'none' if the page is not about this at all or is a mere news mention. In 'evidence' quote or tightly paraphrase the single most damning sentence, with names. Set mentions_vendor to true ONLY if the literal word 'Exa' appears in the page text itself.",
+        "schema": {
+         "type": "object",
+         "properties": {
+          "relevance": {
+           "type": "string",
+           "enum": [
+            "strong",
+            "weak",
+            "none"
+           ]
+          },
+          "evidence": {
+           "type": "string"
+          },
+          "mentions_vendor": {
+           "type": "boolean"
+          }
+         },
+         "required": [
+          "relevance",
+          "evidence",
+          "mentions_vendor"
+         ]
+        }
+       }
+      }
+     }
+    },
+    {
+     "lane": "shopping_around",
+     "label": "EVALUATING ALTERNATIVES",
+     "color": "#E9B44C",
+     "endpoint": "/search",
+     "payload": {
+      "query": "StackAI comparing, benchmarking, or switching between AI search API and retrieval infrastructure providers such as Perplexity, Tavily, Jina AI, Brave Search API, SerpAPI",
+      "numResults": 4,
+      "startPublishedDate": "2025-08-26T00:00:00.000Z",
+      "contents": {
+       "highlights": {
+        "numSentences": 2,
+        "query": "StackAI comparing alternatives AI search API and retrieval infrastructure"
+       },
+       "summary": {
+        "query": "TASK: Scan this ENTIRE page top to bottom \u2014 including changelog entries, bullet lists, tables and footers. Is this page evidence that 'StackAI' specifically is benchmarking, comparing, or publicly evaluating multiple AI search API and retrieval infrastructure providers (e.g. Perplexity, Tavily, Jina AI, Brave Search API, SerpAPI), or complaining about their current provider? The page must name 'StackAI' as the one doing the evaluating \u2014 generic 'best tools' listicles and benchmarks that don't involve StackAI = none. Set relevance to: 'strong' if the page is direct evidence of that, 'weak' if it is only indirect or partial evidence, 'none' if the page is not about this at all or is a mere news mention. In 'evidence' quote or tightly paraphrase the single most damning sentence, with names. Set mentions_vendor to true ONLY if the literal word 'Exa' appears in the page text itself.",
+        "schema": {
+         "type": "object",
+         "properties": {
+          "relevance": {
+           "type": "string",
+           "enum": [
+            "strong",
+            "weak",
+            "none"
+           ]
+          },
+          "evidence": {
+           "type": "string"
+          },
+          "mentions_vendor": {
+           "type": "boolean"
+          }
+         },
+         "required": [
+          "relevance",
+          "evidence",
+          "mentions_vendor"
+         ]
+        }
+       }
+      }
+     }
+    },
+    {
+     "lane": "budget_distress",
+     "label": "BUDGET / STRATEGY",
+     "color": "#9AA7BD",
+     "endpoint": "/search",
+     "payload": {
+      "query": "StackAI layoffs, cost cutting, restructuring, acquisition, or pivot away from AI products",
+      "category": "news",
+      "numResults": 4,
+      "startPublishedDate": "2025-12-24T00:00:00.000Z",
+      "contents": {
+       "highlights": {
+        "numSentences": 2,
+        "query": "StackAI layoffs cost cutting acquisition pivot"
+       },
+       "summary": {
+        "query": "TASK: Scan this ENTIRE page top to bottom \u2014 including changelog entries, bullet lists, tables and footers. Is this news evidence that 'StackAI' faces budget pressure or strategy change that would cut spend on tools like Exa? BEING ACQUIRED (procurement gets consolidated by the acquirer) = strong. Major layoffs or cost-cutting programs = strong. Pivot away from the products that need a AI search API and retrieval infrastructure = strong. 'StackAI' raising funding or 'StackAI' itself acquiring another company = none (that is growth, not distress). Routine earnings commentary = weak. News about a different company = none. Set relevance to: 'strong' if the page is direct evidence of that, 'weak' if it is only indirect or partial evidence, 'none' if the page is not about this at all or is a mere news mention. In 'evidence' quote or tightly paraphrase the single most damning sentence, with names. Set mentions_vendor to true ONLY if the literal word 'Exa' appears in the page text itself.",
+        "schema": {
+         "type": "object",
+         "properties": {
+          "relevance": {
+           "type": "string",
+           "enum": [
+            "strong",
+            "weak",
+            "none"
+           ]
+          },
+          "evidence": {
+           "type": "string"
+          },
+          "mentions_vendor": {
+           "type": "boolean"
+          }
+         },
+         "required": [
+          "relevance",
+          "evidence",
+          "mentions_vendor"
+         ]
+        }
+       }
+      }
+     }
     }
    ]
   },
   {
    "customer": {
     "name": "Obvious",
-    "domain": "obvious.com",
-    "evidence": "Exa published a case study about how Obvious uses Exa for business intelligence.",
+    "domain": "obvious.so",
+    "evidence": "Obvious features a dedicated case study on the exa.ai website detailing how it uses Exa to power market intelligence.",
     "source": "web evidence"
    },
    "score": 0,
    "tier": "healthy",
-   "evidence": []
+   "evidence": [],
+   "api": [
+    {
+     "lane": "competitor_adoption",
+     "label": "COMPETITOR ADOPTION",
+     "color": "#FF6A6A",
+     "endpoint": "/search",
+     "payload": {
+      "query": "Obvious featured as a customer, integration, or partner",
+      "includeDomains": [
+       "perplexity.ai",
+       "tavily.com",
+       "jina.ai",
+       "brave.com",
+       "serpapi.com"
+      ],
+      "numResults": 4,
+      "contents": {
+       "highlights": {
+        "numSentences": 2,
+        "query": "Obvious integration partner customer"
+       },
+       "summary": {
+        "query": "TASK: Scan this ENTIRE page top to bottom \u2014 including changelog entries, bullet lists, tables and footers. Does this page show the company 'Obvious' actually USING, integrating with, or partnering with THIS website's own product (a competitor of Exa in AI search API and retrieval infrastructure)? Changelog entries, integration docs, case studies and partnership announcements count as strong. A news or editorial article that merely mentions Obvious counts as none. A tutorial showing how to plug Obvious's OWN product into apps built on this site (i.e. Obvious used as a tool, not as a customer) = none. Set relevance to: 'strong' if the page is direct evidence of that, 'weak' if it is only indirect or partial evidence, 'none' if the page is not about this at all or is a mere news mention. In 'evidence' quote or tightly paraphrase the single most damning sentence, with names. Set mentions_vendor to true ONLY if the literal word 'Exa' appears in the page text itself.",
+        "schema": {
+         "type": "object",
+         "properties": {
+          "relevance": {
+           "type": "string",
+           "enum": [
+            "strong",
+            "weak",
+            "none"
+           ]
+          },
+          "evidence": {
+           "type": "string"
+          },
+          "mentions_vendor": {
+           "type": "boolean"
+          }
+         },
+         "required": [
+          "relevance",
+          "evidence",
+          "mentions_vendor"
+         ]
+        }
+       }
+      }
+     }
+    },
+    {
+     "lane": "in_house_build",
+     "label": "BUILDING IN-HOUSE",
+     "color": "#B388FF",
+     "endpoint": "/search",
+     "payload": {
+      "query": "Obvious engineering blog building their own in-house web-scale search infrastructure, including custom crawlers, vector databases, and proprietary embedding models trained for semantic retrieval, alongside high-concurrency API and compute capacity to support AI agent workflows. instead of using a third-party AI search API and retrieval infrastructure",
+      "numResults": 4,
+      "startPublishedDate": "2025-05-28T00:00:00.000Z",
+      "contents": {
+       "highlights": {
+        "numSentences": 2,
+        "query": "Obvious building in-house web-scale search infrastructure, including custom crawlers, vector databases, and proprietary embedding models trained for semantic retrieval, alongside high-concurrency API and compute capacity to support AI agent workflows."
+       },
+       "summary": {
+        "query": "TASK: Scan this ENTIRE page top to bottom \u2014 including changelog entries, bullet lists, tables and footers. Is this page evidence that 'Obvious' \u2014 that specific company, not anyone else \u2014 is building or has built IN-HOUSE capability overlapping what Exa sells (web-scale search infrastructure, including custom crawlers, vector databases, and proprietary embedding models trained for semantic retrieval, alongside high-concurrency API and compute capacity to support AI agent workflows.), reducing their need for an external AI search API and retrieval infrastructure? Obvious's own engineering blog posts, talks, or reputable coverage of Obvious's internal systems count as strong ONLY when the system overlaps that specific capability. Internal databases, generic data platforms, or infrastructure unrelated to AI search API and retrieval infrastructure = none. Pages about OTHER companies' systems = none. Set relevance to: 'strong' if the page is direct evidence of that, 'weak' if it is only indirect or partial evidence, 'none' if the page is not about this at all or is a mere news mention. In 'evidence' quote or tightly paraphrase the single most damning sentence, with names. Set mentions_vendor to true ONLY if the literal word 'Exa' appears in the page text itself.",
+        "schema": {
+         "type": "object",
+         "properties": {
+          "relevance": {
+           "type": "string",
+           "enum": [
+            "strong",
+            "weak",
+            "none"
+           ]
+          },
+          "evidence": {
+           "type": "string"
+          },
+          "mentions_vendor": {
+           "type": "boolean"
+          }
+         },
+         "required": [
+          "relevance",
+          "evidence",
+          "mentions_vendor"
+         ]
+        }
+       }
+      }
+     }
+    },
+    {
+     "lane": "hiring_to_replace",
+     "label": "HIRING TO REPLACE",
+     "color": "#8FA5FF",
+     "endpoint": "/search",
+     "payload": {
+      "query": "Obvious job posting hiring engineers to build web-scale search infrastructure, including custom crawlers, vector databases, and proprietary embedding models trained for semantic retrieval, alongside high-concurrency API and compute capacity to support AI agent workflows.",
+      "numResults": 4,
+      "contents": {
+       "highlights": {
+        "numSentences": 2,
+        "query": "Obvious hiring web-scale search infrastructure, including custom crawlers, vector databases, and proprietary embedding models trained for semantic retrieval, alongside high-concurrency API and compute capacity to support AI agent workflows. engineer"
+       },
+       "summary": {
+        "query": "TASK: Scan this ENTIRE page top to bottom \u2014 including changelog entries, bullet lists, tables and footers. Is this a SPECIFIC job posting at 'Obvious' whose stated responsibilities EXPLICITLY include building capability that overlaps what Exa sells (web-scale search infrastructure, including custom crawlers, vector databases, and proprietary embedding models trained for semantic retrieval, alongside high-concurrency API and compute capacity to support AI agent workflows.)? strong ONLY if the posting text names such responsibilities. weak if the role is adjacent (ML platform, data infrastructure) without explicit overlap. none for: general careers pages listing many roles, and generic software/product/IT/sales roles. Set relevance to: 'strong' if the page is direct evidence of that, 'weak' if it is only indirect or partial evidence, 'none' if the page is not about this at all or is a mere news mention. In 'evidence' quote or tightly paraphrase the single most damning sentence, with names. Set mentions_vendor to true ONLY if the literal word 'Exa' appears in the page text itself.",
+        "schema": {
+         "type": "object",
+         "properties": {
+          "relevance": {
+           "type": "string",
+           "enum": [
+            "strong",
+            "weak",
+            "none"
+           ]
+          },
+          "evidence": {
+           "type": "string"
+          },
+          "mentions_vendor": {
+           "type": "boolean"
+          }
+         },
+         "required": [
+          "relevance",
+          "evidence",
+          "mentions_vendor"
+         ]
+        }
+       }
+      }
+     }
+    },
+    {
+     "lane": "shopping_around",
+     "label": "EVALUATING ALTERNATIVES",
+     "color": "#E9B44C",
+     "endpoint": "/search",
+     "payload": {
+      "query": "Obvious comparing, benchmarking, or switching between AI search API and retrieval infrastructure providers such as Perplexity, Tavily, Jina AI, Brave Search API, SerpAPI",
+      "numResults": 4,
+      "startPublishedDate": "2025-08-26T00:00:00.000Z",
+      "contents": {
+       "highlights": {
+        "numSentences": 2,
+        "query": "Obvious comparing alternatives AI search API and retrieval infrastructure"
+       },
+       "summary": {
+        "query": "TASK: Scan this ENTIRE page top to bottom \u2014 including changelog entries, bullet lists, tables and footers. Is this page evidence that 'Obvious' specifically is benchmarking, comparing, or publicly evaluating multiple AI search API and retrieval infrastructure providers (e.g. Perplexity, Tavily, Jina AI, Brave Search API, SerpAPI), or complaining about their current provider? The page must name 'Obvious' as the one doing the evaluating \u2014 generic 'best tools' listicles and benchmarks that don't involve Obvious = none. Set relevance to: 'strong' if the page is direct evidence of that, 'weak' if it is only indirect or partial evidence, 'none' if the page is not about this at all or is a mere news mention. In 'evidence' quote or tightly paraphrase the single most damning sentence, with names. Set mentions_vendor to true ONLY if the literal word 'Exa' appears in the page text itself.",
+        "schema": {
+         "type": "object",
+         "properties": {
+          "relevance": {
+           "type": "string",
+           "enum": [
+            "strong",
+            "weak",
+            "none"
+           ]
+          },
+          "evidence": {
+           "type": "string"
+          },
+          "mentions_vendor": {
+           "type": "boolean"
+          }
+         },
+         "required": [
+          "relevance",
+          "evidence",
+          "mentions_vendor"
+         ]
+        }
+       }
+      }
+     }
+    },
+    {
+     "lane": "budget_distress",
+     "label": "BUDGET / STRATEGY",
+     "color": "#9AA7BD",
+     "endpoint": "/search",
+     "payload": {
+      "query": "Obvious layoffs, cost cutting, restructuring, acquisition, or pivot away from AI products",
+      "category": "news",
+      "numResults": 4,
+      "startPublishedDate": "2025-12-24T00:00:00.000Z",
+      "contents": {
+       "highlights": {
+        "numSentences": 2,
+        "query": "Obvious layoffs cost cutting acquisition pivot"
+       },
+       "summary": {
+        "query": "TASK: Scan this ENTIRE page top to bottom \u2014 including changelog entries, bullet lists, tables and footers. Is this news evidence that 'Obvious' faces budget pressure or strategy change that would cut spend on tools like Exa? BEING ACQUIRED (procurement gets consolidated by the acquirer) = strong. Major layoffs or cost-cutting programs = strong. Pivot away from the products that need a AI search API and retrieval infrastructure = strong. 'Obvious' raising funding or 'Obvious' itself acquiring another company = none (that is growth, not distress). Routine earnings commentary = weak. News about a different company = none. Set relevance to: 'strong' if the page is direct evidence of that, 'weak' if it is only indirect or partial evidence, 'none' if the page is not about this at all or is a mere news mention. In 'evidence' quote or tightly paraphrase the single most damning sentence, with names. Set mentions_vendor to true ONLY if the literal word 'Exa' appears in the page text itself.",
+        "schema": {
+         "type": "object",
+         "properties": {
+          "relevance": {
+           "type": "string",
+           "enum": [
+            "strong",
+            "weak",
+            "none"
+           ]
+          },
+          "evidence": {
+           "type": "string"
+          },
+          "mentions_vendor": {
+           "type": "boolean"
+          }
+         },
+         "required": [
+          "relevance",
+          "evidence",
+          "mentions_vendor"
+         ]
+        }
+       }
+      }
+     }
+    }
+   ]
   },
   {
    "customer": {
     "name": "HockeyStack",
     "domain": "hockeystack.com",
-    "evidence": "Exa published a documentation page on how HockeyStack uses Exa for people search.",
+    "evidence": "HockeyStack features a dedicated case study on the exa.ai website detailing how it uses Exa People Search to power its revenue agents.",
     "source": "web evidence"
    },
    "score": 3.7,
@@ -534,7 +2113,7 @@
      "source": "hockeystack.com",
      "date": "2026-06-03",
      "relevance": "weak",
-     "evidence": "\u201cClickHouse meets that standard. It is engineered for speed, cost-efficiency, and runtime computation at scale. Engineered for extreme performance, it underpins the data infrastructure of HockeyStack and many enterprises. OpenAI, Anthropic, Twilio, Uber, IBM, Cloudflare, Cisco, and more are all running on Clickhouse instead of other platforms like BigQuery \u2014 proof that it can handle the world\u2019s mo",
+     "evidence": "\u201cClickHouse meets that standard. It is engineered for speed, cost-efficiency, and runtime computation at scale. Engineered for extreme performance, it underpins the data infrastructure of HockeyStack and many enterprises.\u201d",
      "mentions_vendor": false,
      "points": 1.05
     },
@@ -546,21 +2125,33 @@
      "source": "hockeystack.com",
      "date": "2026-04-13",
      "relevance": "weak",
-     "evidence": "HockeyStack meets this moment with Atlas plus ClickHouse to deliver complete, real-time visibility, enterprise-grade governance and flexibility, and AI that moves teams from analysis to action with forward looking insights.",
+     "evidence": "CRM into an\n...\ngoverned data model\n...\nYou can ingest\n...\nHockeyStack\u2019\n...\nlet GTM and operations leaders ask questions in plain language\n...\nget explainable , forward\n...\ninsights fast.\n...\ncontrols, and shared\n...\nIngest every custom object and field across web, product, CRM, MAP, ads, intent, and your warehouse to power forward looking insights. Govern with lineage, versioned definitions, and ",
      "mentions_vendor": false,
      "points": 1.05
     },
     {
      "lane": "hiring_to_replace",
      "lane_label": "HIRING TO REPLACE",
-     "url": "https://www.hockeystack.com/careers",
-     "title": "Careers at HockeyStack",
-     "source": "hockeystack.com",
+     "url": "https://jobs.ashbyhq.com/hockeystack/d54b70ef-69a5-4a2b-ab9d-48cc22f2d5e8",
+     "title": "Team Lead Backend Engineer (Core Applications) @ HockeyStack - Jobs",
+     "source": "jobs.ashbyhq.com",
      "date": null,
      "relevance": "weak",
-     "evidence": "Careers at HockeyStack\n...\nEverybody at HockeyStack has a crucial role.\n...\nyou want to\n...\ncontributing to the 0-1 growth.We are one of the fastest growing companies in revenue tech where everyone has\n...\nvoice, influencing the product, the brand and the way we work together.\n...\nour office,\n...\ndecisions that affect the customer and\n...\nView Job Openings\n...\n## Interested? Here are some open rol",
+     "evidence": "The page describes a Backend Tech Lead role at HockeyStack focusing on APIs, GTM data, and core applications infra, with no explicit mention of Exa, web-scale search infrastructure, custom crawlers, vector databases, or proprietary embedding models for semantic retrieval.",
      "mentions_vendor": false,
      "points": 0.56
+    },
+    {
+     "lane": "budget_distress",
+     "lane_label": "BUDGET / STRATEGY",
+     "url": "https://www.prnewswire.com/news-releases/hockeystack-raises-50m-to-build-revenue-agents-for-the-enterprise-302742217.html",
+     "title": "HockeyStack Raises $50M to Build Revenue Agents for the Enterprise",
+     "source": "prnewswire.com",
+     "date": "2026-04-15",
+     "relevance": "weak",
+     "evidence": "Single most damning sentence location not directly applicable. The page announces a funding round and launch of Revenue Agents, with no mention of budget pressure, layoffs, or strategy pivots related to Exa or AI search APIs. The closest inference is general growth/expansion language, not distress indicators.",
+     "mentions_vendor": false,
+     "points": 0.52
     },
     {
      "lane": "budget_distress",
@@ -570,21 +2161,237 @@
      "source": "appsumo.com",
      "date": "2026-03-31",
      "relevance": "weak",
-     "evidence": "\"Unable to log in - are they dead?\" Can't log in and password reset emails are not being delivered. Their Zendesk support portal is completely gone.",
+     "evidence": "\"Unable to log in - are they dead?\" Can\u2019t log in and password reset emails are not being delivered. Their Zendesk support portal is completely gone.",
      "mentions_vendor": false,
      "points": 0.52
+    }
+   ],
+   "api": [
+    {
+     "lane": "competitor_adoption",
+     "label": "COMPETITOR ADOPTION",
+     "color": "#FF6A6A",
+     "endpoint": "/search",
+     "payload": {
+      "query": "HockeyStack featured as a customer, integration, or partner",
+      "includeDomains": [
+       "perplexity.ai",
+       "tavily.com",
+       "jina.ai",
+       "brave.com",
+       "serpapi.com"
+      ],
+      "numResults": 4,
+      "contents": {
+       "highlights": {
+        "numSentences": 2,
+        "query": "HockeyStack integration partner customer"
+       },
+       "summary": {
+        "query": "TASK: Scan this ENTIRE page top to bottom \u2014 including changelog entries, bullet lists, tables and footers. Does this page show the company 'HockeyStack' actually USING, integrating with, or partnering with THIS website's own product (a competitor of Exa in AI search API and retrieval infrastructure)? Changelog entries, integration docs, case studies and partnership announcements count as strong. A news or editorial article that merely mentions HockeyStack counts as none. A tutorial showing how to plug HockeyStack's OWN product into apps built on this site (i.e. HockeyStack used as a tool, not as a customer) = none. Set relevance to: 'strong' if the page is direct evidence of that, 'weak' if it is only indirect or partial evidence, 'none' if the page is not about this at all or is a mere news mention. In 'evidence' quote or tightly paraphrase the single most damning sentence, with names. Set mentions_vendor to true ONLY if the literal word 'Exa' appears in the page text itself.",
+        "schema": {
+         "type": "object",
+         "properties": {
+          "relevance": {
+           "type": "string",
+           "enum": [
+            "strong",
+            "weak",
+            "none"
+           ]
+          },
+          "evidence": {
+           "type": "string"
+          },
+          "mentions_vendor": {
+           "type": "boolean"
+          }
+         },
+         "required": [
+          "relevance",
+          "evidence",
+          "mentions_vendor"
+         ]
+        }
+       }
+      }
+     }
+    },
+    {
+     "lane": "in_house_build",
+     "label": "BUILDING IN-HOUSE",
+     "color": "#B388FF",
+     "endpoint": "/search",
+     "payload": {
+      "query": "HockeyStack engineering blog building their own in-house web-scale search infrastructure, including custom crawlers, vector databases, and proprietary embedding models trained for semantic retrieval, alongside high-concurrency API and compute capacity to support AI agent workflows. instead of using a third-party AI search API and retrieval infrastructure",
+      "numResults": 4,
+      "startPublishedDate": "2025-05-28T00:00:00.000Z",
+      "contents": {
+       "highlights": {
+        "numSentences": 2,
+        "query": "HockeyStack building in-house web-scale search infrastructure, including custom crawlers, vector databases, and proprietary embedding models trained for semantic retrieval, alongside high-concurrency API and compute capacity to support AI agent workflows."
+       },
+       "summary": {
+        "query": "TASK: Scan this ENTIRE page top to bottom \u2014 including changelog entries, bullet lists, tables and footers. Is this page evidence that 'HockeyStack' \u2014 that specific company, not anyone else \u2014 is building or has built IN-HOUSE capability overlapping what Exa sells (web-scale search infrastructure, including custom crawlers, vector databases, and proprietary embedding models trained for semantic retrieval, alongside high-concurrency API and compute capacity to support AI agent workflows.), reducing their need for an external AI search API and retrieval infrastructure? HockeyStack's own engineering blog posts, talks, or reputable coverage of HockeyStack's internal systems count as strong ONLY when the system overlaps that specific capability. Internal databases, generic data platforms, or infrastructure unrelated to AI search API and retrieval infrastructure = none. Pages about OTHER companies' systems = none. Set relevance to: 'strong' if the page is direct evidence of that, 'weak' if it is only indirect or partial evidence, 'none' if the page is not about this at all or is a mere news mention. In 'evidence' quote or tightly paraphrase the single most damning sentence, with names. Set mentions_vendor to true ONLY if the literal word 'Exa' appears in the page text itself.",
+        "schema": {
+         "type": "object",
+         "properties": {
+          "relevance": {
+           "type": "string",
+           "enum": [
+            "strong",
+            "weak",
+            "none"
+           ]
+          },
+          "evidence": {
+           "type": "string"
+          },
+          "mentions_vendor": {
+           "type": "boolean"
+          }
+         },
+         "required": [
+          "relevance",
+          "evidence",
+          "mentions_vendor"
+         ]
+        }
+       }
+      }
+     }
+    },
+    {
+     "lane": "hiring_to_replace",
+     "label": "HIRING TO REPLACE",
+     "color": "#8FA5FF",
+     "endpoint": "/search",
+     "payload": {
+      "query": "HockeyStack job posting hiring engineers to build web-scale search infrastructure, including custom crawlers, vector databases, and proprietary embedding models trained for semantic retrieval, alongside high-concurrency API and compute capacity to support AI agent workflows.",
+      "numResults": 4,
+      "contents": {
+       "highlights": {
+        "numSentences": 2,
+        "query": "HockeyStack hiring web-scale search infrastructure, including custom crawlers, vector databases, and proprietary embedding models trained for semantic retrieval, alongside high-concurrency API and compute capacity to support AI agent workflows. engineer"
+       },
+       "summary": {
+        "query": "TASK: Scan this ENTIRE page top to bottom \u2014 including changelog entries, bullet lists, tables and footers. Is this a SPECIFIC job posting at 'HockeyStack' whose stated responsibilities EXPLICITLY include building capability that overlaps what Exa sells (web-scale search infrastructure, including custom crawlers, vector databases, and proprietary embedding models trained for semantic retrieval, alongside high-concurrency API and compute capacity to support AI agent workflows.)? strong ONLY if the posting text names such responsibilities. weak if the role is adjacent (ML platform, data infrastructure) without explicit overlap. none for: general careers pages listing many roles, and generic software/product/IT/sales roles. Set relevance to: 'strong' if the page is direct evidence of that, 'weak' if it is only indirect or partial evidence, 'none' if the page is not about this at all or is a mere news mention. In 'evidence' quote or tightly paraphrase the single most damning sentence, with names. Set mentions_vendor to true ONLY if the literal word 'Exa' appears in the page text itself.",
+        "schema": {
+         "type": "object",
+         "properties": {
+          "relevance": {
+           "type": "string",
+           "enum": [
+            "strong",
+            "weak",
+            "none"
+           ]
+          },
+          "evidence": {
+           "type": "string"
+          },
+          "mentions_vendor": {
+           "type": "boolean"
+          }
+         },
+         "required": [
+          "relevance",
+          "evidence",
+          "mentions_vendor"
+         ]
+        }
+       }
+      }
+     }
+    },
+    {
+     "lane": "shopping_around",
+     "label": "EVALUATING ALTERNATIVES",
+     "color": "#E9B44C",
+     "endpoint": "/search",
+     "payload": {
+      "query": "HockeyStack comparing, benchmarking, or switching between AI search API and retrieval infrastructure providers such as Perplexity, Tavily, Jina AI, Brave Search API, SerpAPI",
+      "numResults": 4,
+      "startPublishedDate": "2025-08-26T00:00:00.000Z",
+      "contents": {
+       "highlights": {
+        "numSentences": 2,
+        "query": "HockeyStack comparing alternatives AI search API and retrieval infrastructure"
+       },
+       "summary": {
+        "query": "TASK: Scan this ENTIRE page top to bottom \u2014 including changelog entries, bullet lists, tables and footers. Is this page evidence that 'HockeyStack' specifically is benchmarking, comparing, or publicly evaluating multiple AI search API and retrieval infrastructure providers (e.g. Perplexity, Tavily, Jina AI, Brave Search API, SerpAPI), or complaining about their current provider? The page must name 'HockeyStack' as the one doing the evaluating \u2014 generic 'best tools' listicles and benchmarks that don't involve HockeyStack = none. Set relevance to: 'strong' if the page is direct evidence of that, 'weak' if it is only indirect or partial evidence, 'none' if the page is not about this at all or is a mere news mention. In 'evidence' quote or tightly paraphrase the single most damning sentence, with names. Set mentions_vendor to true ONLY if the literal word 'Exa' appears in the page text itself.",
+        "schema": {
+         "type": "object",
+         "properties": {
+          "relevance": {
+           "type": "string",
+           "enum": [
+            "strong",
+            "weak",
+            "none"
+           ]
+          },
+          "evidence": {
+           "type": "string"
+          },
+          "mentions_vendor": {
+           "type": "boolean"
+          }
+         },
+         "required": [
+          "relevance",
+          "evidence",
+          "mentions_vendor"
+         ]
+        }
+       }
+      }
+     }
     },
     {
      "lane": "budget_distress",
-     "lane_label": "BUDGET / STRATEGY",
-     "url": "https://startuply.vc/article/hockeystack-s-20-million-series-a-wires-ai-into-the-revenue-spreadsheet-kut331",
-     "title": "Startuply.vc: HockeyStack's $20 Million Series A Wires AI Into the Revenue Spreadsheet",
-     "source": "startuply.vc",
-     "date": "2026-05-03",
-     "relevance": "weak",
-     "evidence": "The page discusses HockeyStack\u2019s $20 million Series A funding and product capabilities (Revenue Agents, data unification, and AI agents like Odin and Nova), but it does not mention budget pressure, layoffs, cost-cutting, or strategic pivot away from tools requiring an AI-native search API for agents/LLMs. It frames growth and product expansion rather than distress.",
-     "mentions_vendor": false,
-     "points": 0.52
+     "label": "BUDGET / STRATEGY",
+     "color": "#9AA7BD",
+     "endpoint": "/search",
+     "payload": {
+      "query": "HockeyStack layoffs, cost cutting, restructuring, acquisition, or pivot away from AI products",
+      "category": "news",
+      "numResults": 4,
+      "startPublishedDate": "2025-12-24T00:00:00.000Z",
+      "contents": {
+       "highlights": {
+        "numSentences": 2,
+        "query": "HockeyStack layoffs cost cutting acquisition pivot"
+       },
+       "summary": {
+        "query": "TASK: Scan this ENTIRE page top to bottom \u2014 including changelog entries, bullet lists, tables and footers. Is this news evidence that 'HockeyStack' faces budget pressure or strategy change that would cut spend on tools like Exa? BEING ACQUIRED (procurement gets consolidated by the acquirer) = strong. Major layoffs or cost-cutting programs = strong. Pivot away from the products that need a AI search API and retrieval infrastructure = strong. 'HockeyStack' raising funding or 'HockeyStack' itself acquiring another company = none (that is growth, not distress). Routine earnings commentary = weak. News about a different company = none. Set relevance to: 'strong' if the page is direct evidence of that, 'weak' if it is only indirect or partial evidence, 'none' if the page is not about this at all or is a mere news mention. In 'evidence' quote or tightly paraphrase the single most damning sentence, with names. Set mentions_vendor to true ONLY if the literal word 'Exa' appears in the page text itself.",
+        "schema": {
+         "type": "object",
+         "properties": {
+          "relevance": {
+           "type": "string",
+           "enum": [
+            "strong",
+            "weak",
+            "none"
+           ]
+          },
+          "evidence": {
+           "type": "string"
+          },
+          "mentions_vendor": {
+           "type": "boolean"
+          }
+         },
+         "required": [
+          "relevance",
+          "evidence",
+          "mentions_vendor"
+         ]
+        }
+       }
+      }
+     }
     }
    ]
   },
@@ -595,7 +2402,7 @@
     "evidence": "In this role at Ecosia, I've been using Exa. Ecosia is a search engine, and we wanted to add AI functionality on top of the regular web search. The end user goes to ecosia.org and uses AI search; Exa ",
     "source": "web evidence"
    },
-   "score": 5.87,
+   "score": 7.11,
    "tier": "at_risk",
    "evidence": [
     {
@@ -606,19 +2413,31 @@
      "source": "pivot-to-ai.com",
      "date": "2026-07-03",
      "relevance": "strong",
-     "evidence": "\u201cThere\u2019s an obvious way for Ecosia to instantly double the positive impact of its AI clean power programme! They could just not do the AI.\u201d and \u201cListening to users was never this company\u2019s strong point, but now users are screaming on every platform to get rid of anything AI, yet the company does not care at all.\u201d",
+     "evidence": "\u201cThere\u2019s an obvious way for Ecosia to instantly double the positive impact of its AI clean power programme! They could just not do the AI.\u201d and related discussion about AI adoption, opt-outs, and governance concerns imply strategic tension and potential cost-cutting or reassessment of AI initiatives.",
      "mentions_vendor": false,
      "points": 1.5
     },
     {
+     "lane": "competitor_adoption",
+     "lane_label": "COMPETITOR ADOPTION",
+     "url": "https://brave.com/blog/page/12/",
+     "title": "Brave's latest news",
+     "source": "brave.com",
+     "date": "2021-03-09",
+     "relevance": "strong",
+     "evidence": "\"Ecosia, the green search engine that uses its advertising revenues to plant trees in areas affected by deforestation, is now integrated as a search engine option in Brave!\"",
+     "mentions_vendor": false,
+     "points": 1.05
+    },
+    {
      "lane": "in_house_build",
      "lane_label": "BUILDING IN-HOUSE",
-     "url": "https://blog.ecosia.org/improving-our-ai/",
-     "title": "Our AI just got even better",
+     "url": "https://blog.ecosia.org/eusp-germany-rollout/",
+     "title": "EUSP search results are now live in Germany",
      "source": "blog.ecosia.org",
-     "date": "2026-05-22",
+     "date": "2026-07-30",
      "relevance": "weak",
-     "evidence": "\"Partnering with European companies supports our mission for independent European tech that\u2019s not subject to political whims. This shift to a European provider gives us a potential pathway to self-hosting our AI in the future.\"",
+     "evidence": "\"EUSP search results are now live in Germany\" indicates Ecosia is expanding its own Europe-based search index in collaboration with Qwant, but does not provide evidence of in-house web-scale search infrastructure, custom crawlers, vector databases, or proprietary embedding models; it discusses hosting in Europe and independence/sovereignty rather than internal systems specifics.",
      "mentions_vendor": false,
      "points": 1.05
     },
@@ -630,7 +2449,7 @@
      "source": "blog.ecosia.org",
      "date": "2025-12-02",
      "relevance": "weak",
-     "evidence": "\u201cThe world\u2019s greenest AI is here\u201d and related text describe Ecosia\u2019s AI features (AI Overviews, AI Search) and their privacy, energy efficiency, and not-for-profit model, but do not mention in-house capabilities overlapping Exa\u2019s offerings (web-scale crawling, specialized embedding model training, high-concurrency vector DB for semantic search). The page discusses Eco-friendly AI features and ener",
+     "evidence": "null",
      "mentions_vendor": false,
      "points": 0.89
     },
@@ -642,45 +2461,273 @@
      "source": "brave.com",
      "date": null,
      "relevance": "weak",
-     "evidence": "The page text provided lists various company names in highlights (including Ecosia GmbH) but provides no explicit statement that Ecosia is using, integrating with, or partnering with this website's product. There is no direct quote or sentence showing Ecosia using a competitor\u2019s AI-native search API; at best it mentions Ecosia among many names. ",
+     "evidence": "The page content provided lists a set of companies and individuals (including Ecosia GmbH and Christian Kroll, CEO & Founder) under \u201cRelevant highlights,\u201d but there is no explicit statement showing Ecosia actually using, integrating with, or partnering with this website\u2019s product. The only mention is a name in a list, not a description of a collaboration or integration. A direct collaboration or u",
      "mentions_vendor": false,
      "points": 0.84
     },
     {
-     "lane": "hiring_to_replace",
-     "lane_label": "HIRING TO REPLACE",
-     "url": "https://www.linkedin.com/posts/ecosia_this-is-your-chance-to-help-shape-the-future-activity-7437502973989101568-_oM2",
-     "title": "This is your chance to help shape the future of search \ud83c\udf0d\ud83c\udf33 | Ecosia",
-     "source": "linkedin.com",
-     "date": "2026-03-11",
+     "lane": "shopping_around",
+     "lane_label": "EVALUATING ALTERNATIVES",
+     "url": "https://support.ecosia.org/article/579-search-results-providers",
+     "title": "Search Result Providers",
+     "source": "support.ecosia.org",
+     "date": "2026-08-12",
      "relevance": "weak",
-     "evidence": "The post states: \"We\u2019re hiring an Engineering Manager for our AI Search Experience team at Ecosia. You\u2019ll work closely with Doris and the team building the next chapter of Ecosia search.\" It does not explicitly mention building capability that overlaps Exa-sold offerings (web-scale crawling, specialized embedding model training, high-concurrency vector DB for semantic search).",
+     "evidence": "null",
      "mentions_vendor": false,
      "points": 0.7
     },
     {
-     "lane": "budget_distress",
-     "lane_label": "BUDGET / STRATEGY",
-     "url": "https://pasqualepillitteri.it/en/news/6133/ecosia-ai-review-green-search-engine",
-     "title": "Ecosia AI Review: Is the Green Search Engine Worth It?",
-     "source": "pasqualepillitteri.it",
-     "date": "2026-06-24",
+     "lane": "hiring_to_replace",
+     "lane_label": "HIRING TO REPLACE",
+     "url": "https://app.swooped.co/job-postings/b798a303-e6c0-47f8-b978-ee6cae513c33",
+     "title": "Swooped - Software Engineer - Backend at Ecosia",
+     "source": "app.swooped.co",
+     "date": null,
      "relevance": "weak",
-     "evidence": "\u201cThe move to Mistral did not happen overnight. When Ecosia had first experimented with a chatbot, back in 2023, it relied on OpenAI's APIs. The full migration to Mistral arrived in May 2026, a decision that carries political value too: relying on a European provider means keeping data inside the Union's regulatory perimeter and reducing dependence on U.S. giants.\u201d",
+     "evidence": "The page is a job posting for a Software Engineer - Backend at Ecosia, describing backend responsibilities and tech stack but does not mention Exa or any overlap with Exa\u2019s products (web-scale search infrastructure, custom crawlers, vector databases, proprietary embedding models, or AI agent workflows).",
      "mentions_vendor": false,
-     "points": 0.52
+     "points": 0.56
     },
     {
-     "lane": "competitor_adoption",
-     "lane_label": "COMPETITOR ADOPTION",
-     "url": "https://brave.com/category/new-products-features/page/3/",
-     "title": "New products & features",
-     "source": "brave.com",
-     "date": "2022-06-21",
+     "lane": "budget_distress",
+     "lane_label": "BUDGET / STRATEGY",
+     "url": "https://blog.ecosia.org/improving-our-ai/",
+     "title": "Our AI just got even better",
+     "source": "blog.ecosia.org",
+     "date": "2026-05-22",
      "relevance": "weak",
-     "evidence": "Ecosia, the green search engine that uses its advertising revenues to plant trees in areas affected by deforestation, is now integrated as a search engine option in Brave!",
+     "evidence": "The page discusses Ecosia's shift to a European model provider for its AI, emphasis on privacy, energy efficiency, and not-for-profit status, but does not mention budget pressure, procurement consolidation, layoffs, or cutting spend on tools like Exa.",
      "mentions_vendor": false,
-     "points": 0.37
+     "points": 0.52
+    }
+   ],
+   "api": [
+    {
+     "lane": "competitor_adoption",
+     "label": "COMPETITOR ADOPTION",
+     "color": "#FF6A6A",
+     "endpoint": "/search",
+     "payload": {
+      "query": "Ecosia featured as a customer, integration, or partner",
+      "includeDomains": [
+       "perplexity.ai",
+       "tavily.com",
+       "jina.ai",
+       "brave.com",
+       "serpapi.com"
+      ],
+      "numResults": 4,
+      "contents": {
+       "highlights": {
+        "numSentences": 2,
+        "query": "Ecosia integration partner customer"
+       },
+       "summary": {
+        "query": "TASK: Scan this ENTIRE page top to bottom \u2014 including changelog entries, bullet lists, tables and footers. Does this page show the company 'Ecosia' actually USING, integrating with, or partnering with THIS website's own product (a competitor of Exa in AI search API and retrieval infrastructure)? Changelog entries, integration docs, case studies and partnership announcements count as strong. A news or editorial article that merely mentions Ecosia counts as none. A tutorial showing how to plug Ecosia's OWN product into apps built on this site (i.e. Ecosia used as a tool, not as a customer) = none. Set relevance to: 'strong' if the page is direct evidence of that, 'weak' if it is only indirect or partial evidence, 'none' if the page is not about this at all or is a mere news mention. In 'evidence' quote or tightly paraphrase the single most damning sentence, with names. Set mentions_vendor to true ONLY if the literal word 'Exa' appears in the page text itself.",
+        "schema": {
+         "type": "object",
+         "properties": {
+          "relevance": {
+           "type": "string",
+           "enum": [
+            "strong",
+            "weak",
+            "none"
+           ]
+          },
+          "evidence": {
+           "type": "string"
+          },
+          "mentions_vendor": {
+           "type": "boolean"
+          }
+         },
+         "required": [
+          "relevance",
+          "evidence",
+          "mentions_vendor"
+         ]
+        }
+       }
+      }
+     }
+    },
+    {
+     "lane": "in_house_build",
+     "label": "BUILDING IN-HOUSE",
+     "color": "#B388FF",
+     "endpoint": "/search",
+     "payload": {
+      "query": "Ecosia engineering blog building their own in-house web-scale search infrastructure, including custom crawlers, vector databases, and proprietary embedding models trained for semantic retrieval, alongside high-concurrency API and compute capacity to support AI agent workflows. instead of using a third-party AI search API and retrieval infrastructure",
+      "numResults": 4,
+      "startPublishedDate": "2025-05-28T00:00:00.000Z",
+      "contents": {
+       "highlights": {
+        "numSentences": 2,
+        "query": "Ecosia building in-house web-scale search infrastructure, including custom crawlers, vector databases, and proprietary embedding models trained for semantic retrieval, alongside high-concurrency API and compute capacity to support AI agent workflows."
+       },
+       "summary": {
+        "query": "TASK: Scan this ENTIRE page top to bottom \u2014 including changelog entries, bullet lists, tables and footers. Is this page evidence that 'Ecosia' \u2014 that specific company, not anyone else \u2014 is building or has built IN-HOUSE capability overlapping what Exa sells (web-scale search infrastructure, including custom crawlers, vector databases, and proprietary embedding models trained for semantic retrieval, alongside high-concurrency API and compute capacity to support AI agent workflows.), reducing their need for an external AI search API and retrieval infrastructure? Ecosia's own engineering blog posts, talks, or reputable coverage of Ecosia's internal systems count as strong ONLY when the system overlaps that specific capability. Internal databases, generic data platforms, or infrastructure unrelated to AI search API and retrieval infrastructure = none. Pages about OTHER companies' systems = none. Set relevance to: 'strong' if the page is direct evidence of that, 'weak' if it is only indirect or partial evidence, 'none' if the page is not about this at all or is a mere news mention. In 'evidence' quote or tightly paraphrase the single most damning sentence, with names. Set mentions_vendor to true ONLY if the literal word 'Exa' appears in the page text itself.",
+        "schema": {
+         "type": "object",
+         "properties": {
+          "relevance": {
+           "type": "string",
+           "enum": [
+            "strong",
+            "weak",
+            "none"
+           ]
+          },
+          "evidence": {
+           "type": "string"
+          },
+          "mentions_vendor": {
+           "type": "boolean"
+          }
+         },
+         "required": [
+          "relevance",
+          "evidence",
+          "mentions_vendor"
+         ]
+        }
+       }
+      }
+     }
+    },
+    {
+     "lane": "hiring_to_replace",
+     "label": "HIRING TO REPLACE",
+     "color": "#8FA5FF",
+     "endpoint": "/search",
+     "payload": {
+      "query": "Ecosia job posting hiring engineers to build web-scale search infrastructure, including custom crawlers, vector databases, and proprietary embedding models trained for semantic retrieval, alongside high-concurrency API and compute capacity to support AI agent workflows.",
+      "numResults": 4,
+      "contents": {
+       "highlights": {
+        "numSentences": 2,
+        "query": "Ecosia hiring web-scale search infrastructure, including custom crawlers, vector databases, and proprietary embedding models trained for semantic retrieval, alongside high-concurrency API and compute capacity to support AI agent workflows. engineer"
+       },
+       "summary": {
+        "query": "TASK: Scan this ENTIRE page top to bottom \u2014 including changelog entries, bullet lists, tables and footers. Is this a SPECIFIC job posting at 'Ecosia' whose stated responsibilities EXPLICITLY include building capability that overlaps what Exa sells (web-scale search infrastructure, including custom crawlers, vector databases, and proprietary embedding models trained for semantic retrieval, alongside high-concurrency API and compute capacity to support AI agent workflows.)? strong ONLY if the posting text names such responsibilities. weak if the role is adjacent (ML platform, data infrastructure) without explicit overlap. none for: general careers pages listing many roles, and generic software/product/IT/sales roles. Set relevance to: 'strong' if the page is direct evidence of that, 'weak' if it is only indirect or partial evidence, 'none' if the page is not about this at all or is a mere news mention. In 'evidence' quote or tightly paraphrase the single most damning sentence, with names. Set mentions_vendor to true ONLY if the literal word 'Exa' appears in the page text itself.",
+        "schema": {
+         "type": "object",
+         "properties": {
+          "relevance": {
+           "type": "string",
+           "enum": [
+            "strong",
+            "weak",
+            "none"
+           ]
+          },
+          "evidence": {
+           "type": "string"
+          },
+          "mentions_vendor": {
+           "type": "boolean"
+          }
+         },
+         "required": [
+          "relevance",
+          "evidence",
+          "mentions_vendor"
+         ]
+        }
+       }
+      }
+     }
+    },
+    {
+     "lane": "shopping_around",
+     "label": "EVALUATING ALTERNATIVES",
+     "color": "#E9B44C",
+     "endpoint": "/search",
+     "payload": {
+      "query": "Ecosia comparing, benchmarking, or switching between AI search API and retrieval infrastructure providers such as Perplexity, Tavily, Jina AI, Brave Search API, SerpAPI",
+      "numResults": 4,
+      "startPublishedDate": "2025-08-26T00:00:00.000Z",
+      "contents": {
+       "highlights": {
+        "numSentences": 2,
+        "query": "Ecosia comparing alternatives AI search API and retrieval infrastructure"
+       },
+       "summary": {
+        "query": "TASK: Scan this ENTIRE page top to bottom \u2014 including changelog entries, bullet lists, tables and footers. Is this page evidence that 'Ecosia' specifically is benchmarking, comparing, or publicly evaluating multiple AI search API and retrieval infrastructure providers (e.g. Perplexity, Tavily, Jina AI, Brave Search API, SerpAPI), or complaining about their current provider? The page must name 'Ecosia' as the one doing the evaluating \u2014 generic 'best tools' listicles and benchmarks that don't involve Ecosia = none. Set relevance to: 'strong' if the page is direct evidence of that, 'weak' if it is only indirect or partial evidence, 'none' if the page is not about this at all or is a mere news mention. In 'evidence' quote or tightly paraphrase the single most damning sentence, with names. Set mentions_vendor to true ONLY if the literal word 'Exa' appears in the page text itself.",
+        "schema": {
+         "type": "object",
+         "properties": {
+          "relevance": {
+           "type": "string",
+           "enum": [
+            "strong",
+            "weak",
+            "none"
+           ]
+          },
+          "evidence": {
+           "type": "string"
+          },
+          "mentions_vendor": {
+           "type": "boolean"
+          }
+         },
+         "required": [
+          "relevance",
+          "evidence",
+          "mentions_vendor"
+         ]
+        }
+       }
+      }
+     }
+    },
+    {
+     "lane": "budget_distress",
+     "label": "BUDGET / STRATEGY",
+     "color": "#9AA7BD",
+     "endpoint": "/search",
+     "payload": {
+      "query": "Ecosia layoffs, cost cutting, restructuring, acquisition, or pivot away from AI products",
+      "category": "news",
+      "numResults": 4,
+      "startPublishedDate": "2025-12-24T00:00:00.000Z",
+      "contents": {
+       "highlights": {
+        "numSentences": 2,
+        "query": "Ecosia layoffs cost cutting acquisition pivot"
+       },
+       "summary": {
+        "query": "TASK: Scan this ENTIRE page top to bottom \u2014 including changelog entries, bullet lists, tables and footers. Is this news evidence that 'Ecosia' faces budget pressure or strategy change that would cut spend on tools like Exa? BEING ACQUIRED (procurement gets consolidated by the acquirer) = strong. Major layoffs or cost-cutting programs = strong. Pivot away from the products that need a AI search API and retrieval infrastructure = strong. 'Ecosia' raising funding or 'Ecosia' itself acquiring another company = none (that is growth, not distress). Routine earnings commentary = weak. News about a different company = none. Set relevance to: 'strong' if the page is direct evidence of that, 'weak' if it is only indirect or partial evidence, 'none' if the page is not about this at all or is a mere news mention. In 'evidence' quote or tightly paraphrase the single most damning sentence, with names. Set mentions_vendor to true ONLY if the literal word 'Exa' appears in the page text itself.",
+        "schema": {
+         "type": "object",
+         "properties": {
+          "relevance": {
+           "type": "string",
+           "enum": [
+            "strong",
+            "weak",
+            "none"
+           ]
+          },
+          "evidence": {
+           "type": "string"
+          },
+          "mentions_vendor": {
+           "type": "boolean"
+          }
+         },
+         "required": [
+          "relevance",
+          "evidence",
+          "mentions_vendor"
+         ]
+        }
+       }
+      }
+     }
     }
    ]
   }
@@ -689,14 +2736,14 @@
   "vendor": "Exa",
   "domain": "exa.ai",
   "counts": {
-   "at_risk": 4,
-   "watch": 3,
+   "at_risk": 3,
+   "watch": 4,
    "healthy": 2
   },
-  "elapsed_s": 35.5,
+  "elapsed_s": 34.5,
   "api_calls": 51,
   "cost_usd": 0.577,
-  "generated_at": "2026-08-21T07:17:22.710292+00:00"
+  "generated_at": "2026-08-21T07:26:57.160580+00:00"
  },
  "api": {
   "profile": {
@@ -772,7 +2819,7 @@
     "category": "company",
     "contents": {
      "summary": {
-      "query": "Is the company that owns this page a DIRECT competitor of Exa \u2014 i.e. do they sell AI-native search API for agents and LLMs? Give their company name.",
+      "query": "Is the company that owns this page a DIRECT competitor of Exa \u2014 i.e. do they sell AI search API and retrieval infrastructure? Give their company name.",
       "schema": {
        "type": "object",
        "properties": {
