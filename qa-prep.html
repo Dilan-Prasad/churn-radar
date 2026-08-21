@@ -132,7 +132,7 @@
       <div class="stat"><span class="v acc">$0.011</span><span class="k">per Exa call, stable across all 309</span></div>
       <div class="stat"><span class="v acc">$0.06</span><span class="k">per account, full 5-lane sweep</span></div>
       <div class="stat"><span class="v">33s · $0.63</span><span class="k">the exa.ai demo run, 10 accounts</span></div>
-      <div class="stat"><span class="v">6×</span><span class="k">throughput headroom before rate limits bind</span></div>
+      <div class="stat"><span class="v">~6</span><span class="k">concurrent sweeps one key sustains under the 10 QPS ceiling</span></div>
       <div class="stat"><span class="v">~$11</span><span class="k">one sweep of a 200-account book</span></div>
       <div class="stat"><span class="v">4 bps</span><span class="k">annual cost as a share of ARR watched</span></div>
     </div>
@@ -146,56 +146,91 @@
 
     <div class="lead">
       <div class="tag">LEAD WITH</div>
-      <p>Cost and latency are already linear and measured, so the first 6× is a config change, not a
-      rewrite. The interesting engineering starts after that — and it isn't more parallelism, it's
-      not asking the same question twice.</p>
+      <p>Name the trap first: there's no big-compute problem here — a 200-account nightly sweep is about
+      a thousand HTTP calls, a cron job and a queue. What actually binds at 10× is quota, then noise —
+      in that order — and one architectural inversion makes the whole question smaller.</p>
     </div>
 
     <div class="body">
-      <h3>THE PROOF</h3>
+      <h3>THE NUMBERS UNDERNEATH</h3>
       <ul>
-        <li>Unit economics hold across five different vendors: <b class="num">$0.059–$0.067</b> per account,
-        <b class="num">$0.011</b> per call. I've swept 56 accounts in testing for <b class="num">$3.46</b> total.</li>
-        <li>A 200-account book is about <b class="num">1,000</b> calls — roughly <b>10 minutes</b> and
-        <b class="num">$11</b> a sweep.</li>
-        <li>Measured throughput is <b class="num">~1.6</b> calls/sec against Exa's <b class="num">10 QPS</b>
-        ceiling — I found the ceiling by hitting 429s. That's ~6× headroom before rate limits bind at all.
-        Today I stagger calls 0.13s apart under a concurrency cap of 8, with backoff-retry.</li>
+        <li>Unit economics measured across five vendors: <b class="num">$0.011</b> per call,
+        <b class="num">~$0.06</b> per account, 56 accounts swept for <b class="num">$3.46</b>. One sweep
+        runs at <b class="num">~1.7</b> calls/sec; Exa's ceiling is <b class="num">10 QPS</b> per key —
+        I know because I found it with 429s.</li>
+        <li>So the concrete 10× case: a <b class="num">2,000</b>-account enterprise book is
+        <b class="num">10,000</b> calls — about <b>17 minutes at the rate limit</b> and
+        <b class="num">~$110</b> a sweep, <b class="num">~$40k</b>/year nightly against
+        <b class="num">$100M</b> of ARR watched. <b>The cost is scale-invariant at ~4 bps</b>, because
+        cost and coverage both grow with the book.</li>
       </ul>
     </div>
 
     <div class="body">
-      <h3>THEN GO DEEPER — THE THREE LEVERS, IN ORDER</h3>
+      <h3>THE TWO BINDS, IN THE ORDER THEY BIND</h3>
       <ul>
-        <li><b>Diff mode is the real lever.</b> After the first sweep you never re-read the web: each
-        nightly run sets <span class="num">startPublishedDate</span> to the last run, so lanes return
-        only genuinely new pages and you pay extraction on those alone. Call it an estimate rather than
-        a measurement — 3–5× lower steady-state cost — and note it removes noise too, because a signal
-        you already triaged stops re-alerting.</li>
-        <li><b>Tiered cadence and a two-stage funnel.</b> Top of book daily, long tail weekly. Retrieval
-        is cheap and reading is not, so a search-only pass can gate which pages are worth paying the
-        summary extraction on.</li>
-        <li><b>Users, not data.</b> The scan path is stateless; the only shared state is an in-memory
-        rate limiter and a file cache, which become Redis and object storage behind a work queue.
-        Per-tenant keys already exist — the app takes bring-your-own-key today. The genuinely interesting
-        multi-tenant optimisation: two customers watching the same account retrieve overlapping pages,
-        so you cache the corpus per URL and re-judge per tenant against their own schema. Retrieval
-        shared, judgment private.</li>
+        <li><b>Quota — and it shards by design.</b> Be honest that the ceiling is per KEY: one key
+        sustains about six concurrent sweeps, so 10× tenants breaks a shared key immediately. The answer
+        is already in the app: per-tenant bring-your-own-key means quota, billing, and usage attribution
+        all shard per customer — ten tenants, ten ceilings, and each customer's Exa spend is their own
+        clean COGS line. Above that it's a rate-tier conversation with Exa — "as the FDE, I'd be on both
+        sides of that conversation."</li>
+        <li><b>Noise — the budget that actually runs out.</b> Each account judges ~20 candidate pages;
+        200 accounts nightly is <b class="num">4,000</b> page-judgments, and even a 2% false-positive
+        rate is <b class="num">80</b> wrong alerts a night. A CSM who gets a dozen wrong reds stops
+        reading by Thursday. The controls: diff mode (below) kills repeat noise structurally, per-lane
+        thumbs up/down fits weights to the customer's feedback instead of my judgment, and only
+        strong-and-recent signals page a human — weak ones accumulate silently until they cross a
+        threshold.</li>
+      </ul>
+    </div>
+
+    <div class="body">
+      <h3>THE INVERSION — THE DEEPEST 30 SECONDS YOU CAN GIVE</h3>
+      <ul>
+        <li><b>Stop sweeping, start monitoring.</b> Every run is date-windowed to "published since last
+        run" via <span class="num">startPublishedDate</span>, so the corpus you've already judged is
+        never re-fetched. Steady-state cost stops tracking the SIZE of the book and starts tracking the
+        <b>rate of news about it</b> — which is roughly constant and small per account.</li>
+        <li><b>Shared corpus, private judgment.</b> Every vendor's book contains HubSpot and Notion, so
+        at 10× tenants retrieval de-duplicates across customers — fetch HubSpot's engineering blog once —
+        while judgment stays per-tenant: their lanes, their weights, their competitor set.
+        <b>Marginal cost per tenant falls as the platform grows.</b></li>
+        <li><b>What I'd delete, not multiply:</b> the in-memory limiter, the file cache, the 2-scan cap
+        are demo guards. Production is a work queue, a token bucket per tenant key, object storage.
+        "The scaling exercise is mostly deleting my scaffolding."</li>
+      </ul>
+    </div>
+
+    <div class="body">
+      <h3>OTHER WAYS IN — PICK BY WHO'S ASKING</h3>
+      <ul>
+        <li><b>The decomposition</b> (technical panelist): "There are three different 10×s hiding in that
+        question — accounts per customer, number of customers, sources per account — and they have
+        different answers. Let me take them in order." Then quota / corpus-sharing / lane fan-out.</li>
+        <li><b>The invariant</b> (commercial panelist): "Scale questions are usually cost questions in
+        disguise, so here's the invariant: four basis points of the ARR it watches, at any book size."</li>
+        <li><b>The inversion-first</b> (senior engineer): open with monitoring-not-sweeping and
+        cost-tracks-news-not-book-size. Highest ceiling; needs confident follow-through.</li>
+        <li><b>The what-breaks-first ladder</b> (default): "Nothing until ~6 concurrent sweeps on one
+        key; then quota, which shards per-tenant; then noise, which is the real engineering; never
+        compute — it's a thousand HTTP calls a night."</li>
       </ul>
     </div>
 
     <div class="push">
       <div class="tag">IF THEY PUSH</div>
       <div class="askt">“What breaks first?”</div>
-      <p>Precision, not throughput. Ten times the accounts means ten times the absolute false positives
-      at constant precision, and a CSM forgives a miss long before they forgive noise. That's why scoring
-      is deterministic and auditable rather than a model's opinion — lane weights, recency decay, and a
-      hard requirement that the account is literally named in the page text. At 10× I'd add per-lane
-      thumbs up/down and fit the weights to each customer's feedback instead of my judgment.</p>
+      <p>Give the ladder in one breath: nothing until about six concurrent sweeps on one key → quota,
+      which per-tenant keys shard → noise, which diff mode and the feedback loop control → and compute
+      never makes the list. Then the trust point: a CSM forgives a miss long before they forgive noise,
+      which is why every verdict stays a transparent sum of weighted, dated evidence rather than a
+      model's opinion.</p>
     </div>
 
-    <div class="dont"><span class="tag">DON'T</span><span>Answer with “add more workers.” They're testing
-    whether you know where the cost actually is.</span></div>
+    <div class="dont"><span class="tag">DON'T</span><span>Reach for Kafka and Kubernetes. Inventing heavy
+    infrastructure for a thousand nightly HTTP calls is the junior tell this question is designed to
+    catch — and don't say "6× headroom" without saying "on one key, for one tenant."</span></div>
   </section>
 
   <section class="q">
