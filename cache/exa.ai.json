@@ -1,41 +1,41 @@
 {
  "profile": {
-  "product_category": "AI-native search API for agents and LLMs",
+  "one_liner": "Exa sells an AI-native web search API and deep research tools designed specifically to provide high-quality, semantically-relevant information to AI agents and large language models.",
   "competitors": [
-   {
-    "name": "Perplexity",
-    "domain": "perplexity.ai"
-   },
    {
     "name": "Tavily",
     "domain": "tavily.com"
    },
    {
-    "name": "Jina AI",
-    "domain": "jina.ai"
+    "domain": "jina.ai",
+    "name": "Jina AI"
    },
    {
-    "domain": "brave.com/search/api",
+    "domain": "perplexity.ai",
+    "name": "Perplexity"
+   },
+   {
+    "domain": "brave.com",
     "name": "Brave Search API"
-   },
-   {
-    "domain": "parallel.ai",
-    "name": "Parallel"
    },
    {
     "domain": "serpapi.com",
     "name": "SerpAPI"
+   },
+   {
+    "domain": "parallel.ai",
+    "name": "Parallel"
    }
   ],
-  "one_liner": "Exa provides an AI-native search engine and API designed to help AI agents and large language models retrieve high-quality, structured information from the web.",
-  "capability_phrase": "web-scale search infrastructure, custom embedding and ranking models, and high-QPS vector databases specifically optimized for AI agents and complex, long-form queries",
+  "capability_phrase": "Web-scale crawling, proprietary search indexing, semantic embedding-based retrieval infrastructure, and GPU-accelerated model training for agent-optimized search.",
   "churn_modes": [
-   "Building an in-house custom web-scale search engine with proprietary indexing and embedding models",
-   "Switching to general-purpose search APIs like Google Custom Search if semantic/agent-native features are no longer required",
-   "Utilizing built-in search capabilities integrated directly into LLM provider APIs (e.g., OpenAI or Anthropic native search tools)",
-   "Using alternative search APIs such as Brave Search or other specialized AI-native retrieval providers"
+   "Building and maintaining an in-house proprietary search index and retrieval system.",
+   "Switching to alternative AI-native search APIs like Tavily or other specialized retrieval providers.",
+   "Integrating search capabilities directly provided by large LLM platforms or cloud providers.",
+   "Reducing reliance on external search by using offline/local databases or private data sets."
   ],
-  "buyer_persona": "Developers and AI companies building agents, chatbots, research tools, and enterprise AI applications.",
+  "buyer_persona": "Developers, AI companies, and enterprises building AI agents, chatbots, and research tools.",
+  "product_category": "AI-native search API and infrastructure.",
   "company_name": "Exa"
  },
  "domain": "exa.ai",
@@ -43,85 +43,61 @@
   {
    "name": "HubSpot",
    "domain": "hubspot.com",
-   "evidence": "HubSpot uses Exa to connect Breeze Assistant and Agents to live web intelligence across CRM workflows as documented in an Exa case study.",
+   "evidence": "HubSpot has a dedicated case study on the Exa website detailing how they use Exa in their Breeze Assistant and Agents.",
    "source": "web evidence"
   },
   {
    "name": "monday.com",
    "domain": "monday.com",
-   "evidence": "monday.com built an agentic lead engine using Exa, as documented in an Exa case study.",
+   "evidence": "monday.com has a dedicated case study on the Exa website explaining how they built an agentic lead engine with Exa.",
    "source": "web evidence"
   },
   {
    "name": "OpenRouter",
    "domain": "openrouter.ai",
-   "evidence": "OpenRouter uses Exa as the search engine to provide agentic web search to its models, as documented by Exa.",
+   "evidence": "OpenRouter has a dedicated case study on the Exa website describing how they use Exa to provide agentic web search to their models.",
    "source": "web evidence"
   },
   {
    "name": "Cognition",
    "domain": "cognition.ai",
-   "evidence": "Cognition uses Exa to power web search across its agentic products, including Devin, as documented in an Exa case study.",
+   "evidence": "Cognition has a dedicated case study on the Exa website stating that Exa powers all parts of Devin.",
    "source": "web evidence"
   },
   {
    "name": "WebFX",
    "domain": "webfx.com",
-   "evidence": "WebFX uses Exa to ground live LLM chats and power internal agents, as documented in an Exa case study.",
+   "evidence": "WebFX has a dedicated case study on the Exa website detailing how they use Exa to scale digital marketing workflows.",
    "source": "web evidence"
   },
   {
    "name": "StackAI",
    "domain": "stackai.com",
-   "evidence": "StackAI leverages Exa APIs to power enterprise AI agents, as documented in an Exa case study.",
+   "evidence": "StackAI has a dedicated case study on the Exa website explaining how they power enterprise AI agents with Exa.",
    "source": "web evidence"
   },
   {
    "name": "CodeRabbit",
    "domain": "coderabbit.ai",
-   "evidence": "CodeRabbit integrated Exa Search into its code review platform, as documented in an Exa case study.",
+   "evidence": "CodeRabbit has a dedicated case study on the Exa website describing how they use Exa to review PRs faster.",
    "source": "web evidence"
   },
   {
    "name": "HockeyStack",
    "domain": "hockeystack.com",
-   "evidence": "HockeyStack uses Exa to power people search inside its revenue agents, as documented by Exa.",
+   "evidence": "HockeyStack has a dedicated case study on the Exa website explaining how they use Exa for revenue agents.",
    "source": "web evidence"
-  },
-  {
-   "name": "11x",
-   "domain": "11x.co",
-   "evidence": "Official case study: AI sales automation / go-to-market; Digital GTM workforce; using Exa to find novel customer signals, enrich accounts with live web context, and power outbound research and engagem",
-   "source": "vendor case study"
   },
   {
    "name": "WhyHow AI",
    "domain": "whyhow.ai",
-   "evidence": "Official case study: Litigation intelligence: using Exa's search platform to surface early signals and identify potential litigation opportunities across the $40B industry by processing millions of pa",
-   "source": "vendor case study"
-  },
-  {
-   "name": "Obvious",
-   "domain": "obvious.com",
-   "evidence": "Official case study: Obvious uses Exa's Websets API for internal business intelligence to generate targeted cohorts of similar companies per vertical and identify the right contacts, replacing manual ",
-   "source": "vendor case study"
-  },
-  {
-   "name": "Cursor",
-   "domain": "cursor.ai",
-   "evidence": "Official case study: Exa powers search for Cursor, providing high-quality search API at various latencies as part of Exa's search engine infrastructure",
+   "evidence": "Official case study: Litigation intelligence: identifying emerging class actions and mass-tort opportunities by surfacing weak signals from open web content to enable early case detection and actionab",
    "source": "vendor case study"
   },
   {
    "name": "Ecosia",
    "domain": "ecosia.org",
-   "evidence": "In this role at Ecosia, I've been using Exa... Ecosia is a search engine, and we wanted to add AI functionality on top of the regular web search. We wanted to have AI summaries... end user goes to our",
-   "source": "web evidence"
-  },
-  {
-   "name": "BrainGrid",
-   "domain": "braingrid.ai",
-   "evidence": "The page describes BrainGrid switching from Claude web search to Exa for the BrainGrid agent and discusses the implementation and results of using Exa in BrainGrid's AI agent.",
+   "evidence": "In this role at Ecosia, I've been using Exa. Ecosia is a search engine, and we wanted to add AI functionality on top of the regular web search. We wanted to have AI summaries... we eventually ended up",
    "source": "web evidence"
   }
  ],
@@ -130,12 +106,24 @@
    "customer": {
     "name": "HubSpot",
     "domain": "hubspot.com",
-    "evidence": "HubSpot uses Exa to connect Breeze Assistant and Agents to live web intelligence across CRM workflows as documented in an Exa case study.",
+    "evidence": "HubSpot has a dedicated case study on the Exa website detailing how they use Exa in their Breeze Assistant and Agents.",
     "source": "web evidence"
    },
-   "score": 5.63,
-   "tier": "at_risk",
+   "score": 4.68,
+   "tier": "watch",
    "evidence": [
+    {
+     "lane": "budget_distress",
+     "lane_label": "Budget / strategy risk",
+     "url": "https://www.hubspot.com/company-news/hubspots-customer-agent-and-prospecting-agent-now-you-pay-when-the-task-is-complete",
+     "title": "HubSpot's Customer Agent and Prospecting Agent: Now you pay when the task is complete",
+     "source": "hubspot.com",
+     "date": "2026-04-13",
+     "relevance": "strong",
+     "evidence": "\u201cStarting April 14, Breeze Customer Agent and Breeze Prospecting Agent move to outcome-based pricing, meaning customers only pay when the agents complete the task it\u2019s been assigned.\u201d",
+     "mentions_vendor": false,
+     "points": 1.5
+    },
     {
      "lane": "in_house_build",
      "lane_label": "Building in-house",
@@ -143,34 +131,34 @@
      "title": "Building the AI Retrieval Infrastructure Behind 20 Billion+ Vectors at HubSpot",
      "source": "product.hubspot.com",
      "date": "2026-06-25",
-     "relevance": "strong",
-     "evidence": "\"The VaaS (Vector-as-a-Service) platform is currently used by 38+ teams and has more than 200 indexes that run on a fleet of 140+ clusters across 5 regions and 2 environments. We isolate clusters by product teams to minimize the blast radius from failures affecting the entire platform. Collectively, the underlying vector database stores 20+ billion vectors across different regions, with the larges",
+     "relevance": "weak",
+     "evidence": "HubSpot uses the Qdrant vector database for all semantic search operations.",
      "mentions_vendor": false,
-     "points": 3.0
+     "points": 1.05
     },
     {
-     "lane": "competitor_adoption",
-     "lane_label": "Competitor adoption",
-     "url": "https://serpapi.com/blog/building-a-sales-assistant-with-real-time-market-awareness-and-crm-insights/",
-     "title": "Building a Sales Assistant with real-time market awareness and CRM insights",
-     "source": "serpapi.com",
-     "date": "2026-01-20",
+     "lane": "in_house_build",
+     "lane_label": "Building in-house",
+     "url": "https://www.infoq.com/news/2026/07/hubspot-semantic-vector-search/",
+     "title": "How HubSpot Scaled Semantic Search to 20 Billion Vectors - InfoQ",
+     "source": "infoq.com",
+     "date": "2026-07-07",
      "relevance": "weak",
-     "evidence": "The page describes integrating HubSpot SDK and SerpApi to build a Sales Assistant, but does not show HubSpot using or partnering with this site\u2019s product; it only references HubSpot as an integration target. Damning sentence: \u201cToday, this process can be automated. By integrating OpenAI with the HubSpot CRM SDK and SerpApi, a Sales Assistant can combine internal CRM data with real-time market signa",
+     "evidence": "HubSpot describes its platform, VaaS (Vector as a Service), sitting in front of Qdrant with access control, embeddings generation, data versioning, and feedback collection, and mentions in-house deployment of Qdrant for integration with internal tracing, cost tracking, rate limiting, scaling, and security tooling. The article focuses on HubSpot's semantic search infrastructure and internal scaling",
      "mentions_vendor": false,
-     "points": 0.89
+     "points": 1.05
     },
     {
      "lane": "hiring_to_replace",
      "lane_label": "Hiring to replace",
-     "url": "https://product.hubspot.com/blog/building-the-ai-retrieval-infrastructure-behind-20-billion-vectors-at-hubspot",
-     "title": "Building the AI Retrieval Infrastructure Behind 20 Billion+ Vectors at ...",
-     "source": "product.hubspot.com",
-     "date": "2026-06-25",
+     "url": "https://www.hubspot.com/careers/jobs/8064342",
+     "title": "Principal Machine Learning Engineer- AI Context",
+     "source": "hubspot.com",
+     "date": null,
      "relevance": "weak",
-     "evidence": "HubSpot uses the Qdrant vector database for all semantic search operations. Qdrant is an open-source vector database that can be deployed on-premises and provides an extensive API covering most modern semantic search features, such as named vectors, hybrid search, multi-stage querying, and weighted reranking.",
+     "evidence": "The page describes a Principal Machine Learning Engineer- AI Context at HubSpot focusing on AI Context and building systems that help HubSpot's AI understand data across the CRM platform; it lists ML techniques and system-building responsibilities but does not mention Exa or any overlap with Exa's Web-scale crawling, proprietary search indexing, semantic embedding-based retrieval, or GPU-accelerat",
      "mentions_vendor": false,
-     "points": 0.7
+     "points": 0.56
     },
     {
      "lane": "budget_distress",
@@ -180,19 +168,7 @@
      "source": "fool.com",
      "date": "2026-08-13",
      "relevance": "weak",
-     "evidence": "\"The second factor was a shift in the demand environment in Q2 with increased budget sensitivity. Businesses want greater confidence that their investments will position them for the AI platform shift.\"",
-     "mentions_vendor": false,
-     "points": 0.52
-    },
-    {
-     "lane": "budget_distress",
-     "lane_label": "Budget / strategy risk",
-     "url": "https://www.morningstar.com/news/business-wire/20260805185463/hubspot-reports-q2-2026-results",
-     "title": "HubSpot Reports Q2 2026 Results | Morningstar",
-     "source": "morningstar.com",
-     "date": "2026-08-05",
-     "relevance": "weak",
-     "evidence": "In Q2 press release, HubSpot notes: \u201cIn Q2, we made deliberate choices to accelerate our AI transformation,\u201d said Yamini Rangan, Chief Executive Officer at HubSpot. \u201cScaling companies want real outcomes and predictable pricing when adopting AI, and we are evolving our product, pricing, and go-to-market to meet those needs. Our agents are delivering measurable outcomes for go-to-market teams, while",
+     "evidence": "The page discusses budget sensitivity, longer deal cycles, larger buying committees, and C-suite/Board approvals for HubSpot deals, with commentary on AI adoption and cost clarity, but does not mention Exa, acquisition activity, layoffs, or a pivot away from AI-native search infrastructure. The strongest signal is increased scrutiny and longer cycles affecting spend, not explicit cuts or strategic",
      "mentions_vendor": false,
      "points": 0.52
     }
@@ -202,7 +178,7 @@
    "customer": {
     "name": "monday.com",
     "domain": "monday.com",
-    "evidence": "monday.com built an agentic lead engine using Exa, as documented in an Exa case study.",
+    "evidence": "monday.com has a dedicated case study on the Exa website explaining how they built an agentic lead engine with Exa.",
     "source": "web evidence"
    },
    "score": 5.8,
@@ -216,7 +192,7 @@
      "source": "businessinsider.com",
      "date": "2026-07-22",
      "relevance": "strong",
-     "evidence": "The enterprise software company plans to cut 20% of its workforce, according to a Form 6-K it filed. The layoffs are meant to align the company with its 'strategic focus on the AI Work Platform,' the disclosure said.",
+     "evidence": "The enterprise software company plans to cut 20% of its workforce, according to a Form 6-K it filed. The layoffs are meant to align the company with its \"strategic focus on the AI Work Platform,\" the disclosure said.",
      "mentions_vendor": false,
      "points": 1.5
     },
@@ -228,7 +204,7 @@
      "source": "cio.com",
      "date": "2026-07-23",
      "relevance": "strong",
-     "evidence": "\u201cvery difficult decision\u201d to reduce the AI work platform company\u2019s global workforce by about 20%, or 620 people.",
+     "evidence": "\u201cMonday.com co-founder and co-CEO Eran Zinman today announced the \u201cvery difficult decision\u201d to reduce the AI work platform company\u2019s global workforce by about 20%, or 620 people.\u201d",
      "mentions_vendor": false,
      "points": 1.5
     },
@@ -240,7 +216,7 @@
      "source": "engineering.monday.com",
      "date": "2026-05-19",
      "relevance": "weak",
-     "evidence": "\u201cThis was not a database rewrite for its own sake, but to support our most complex use cases and build the infrastructure for the foreseeable future, supporting millions and millions of items in a flexible dataset. We replaced our MySQL, Cassandra, and Redis fleet with a single, purpose-built system powered by a DuckDB columnar engine.\u201d (describing in-house migration to a purpose-built system by m",
+     "evidence": "This is the story of how monday.com moved board reads from a shared, row-oriented MySQL architecture to a purpose-built columnar serving layer. This was not a database rewrite for its own sake, but to support our most complex use cases and build the infrastructure for the foreseeable future, supporting millions and millions of items in a flexible dataset. We replaced our MySQL, Cassandra, and Redi",
      "mentions_vendor": false,
      "points": 1.05
     },
@@ -264,7 +240,7 @@
      "source": "linkedin.com",
      "date": "2026-04-29",
      "relevance": "weak",
-     "evidence": "# AI is only as good as the context you give it. \ud83e\udde0 | Greg Rashkevitch \u00b7 LinkedIn \u00b7 2026-04-29\n\n**Greg Rashkevitch**: Senior Team Lead, AI Developer Platform at monday.com for 5 months with 19 years 9 months of total professional experience. Previous roles include Senior Team Lead, Apps Framework and Developer Platform at monday.com, Team Lead, Apps Framework at monday.com, and Senior Engineering M",
+     "evidence": "The post is a monday.com job-related message about hiring a Data Scientist / MLE for the AI Developer Platform team, mentioning deep context engineering, knowledge graphs, and agentic SDLC. It does not explicitly name or describe building capability that overlaps Exa\u2019s offerings (web-scale crawling, proprietary search indexing, semantic embedding-based retrieval infrastructure, GPU-accelerated mod",
      "mentions_vendor": false,
      "points": 0.7
     }
@@ -274,71 +250,23 @@
    "customer": {
     "name": "OpenRouter",
     "domain": "openrouter.ai",
-    "evidence": "OpenRouter uses Exa as the search engine to provide agentic web search to its models, as documented by Exa.",
+    "evidence": "OpenRouter has a dedicated case study on the Exa website describing how they use Exa to provide agentic web search to their models.",
     "source": "web evidence"
    },
-   "score": 5.83,
+   "score": 7.66,
    "tier": "at_risk",
    "evidence": [
     {
-     "lane": "budget_distress",
-     "lane_label": "Budget / strategy risk",
-     "url": "https://thenextweb.com/news/stripe-openrouter-acquisition-confirmed",
-     "title": "Stripe seals its OpenRouter deal for a reported $7.5bn or more",
-     "source": "thenextweb.com",
-     "date": "2026-08-10",
+     "lane": "shopping_around",
+     "lane_label": "Evaluating alternatives",
+     "url": "https://openrouter.ai/benchmarks",
+     "title": "AI Model Benchmarks",
+     "source": "openrouter.ai",
+     "date": "2026-08-21",
      "relevance": "strong",
-     "evidence": "The article states: \"Outside reporting has, and the numbers do not quite agree. The New York Times said Stripe is paying $7.5 billion...\" and discusses Stripe acquiring OpenRouter, implying consolidation and growth through acquisition rather than cutbacks; it notes OpenRouter will keep operating under its own name and roadmap, suggesting integration rather than budget-driven pivots or cost-cutting",
+     "evidence": "Independent, reproducible measurements of the knobs you can actually set on an OpenRouter request: models, providers, search engines, and tool budgets.",
      "mentions_vendor": false,
-     "points": 1.5
-    },
-    {
-     "lane": "in_house_build",
-     "lane_label": "Building in-house",
-     "url": "https://openrouter.ai/blog/insights/every-modality-one-api/",
-     "title": "One API for Image, Video, Audio, Embeddings & Transcription \u2014 OpenRouter Blog",
-     "source": "openrouter.ai",
-     "date": "2026-07-16",
-     "relevance": "weak",
-     "evidence": "\"On OpenRouter, every one of those modalities runs through a single OpenAI-compatible base URL:`https://openrouter.ai/api/v1`.\"",
-     "mentions_vendor": false,
-     "points": 1.05
-    },
-    {
-     "lane": "competitor_adoption",
-     "lane_label": "Competitor adoption",
-     "url": "https://docs.parallel.ai/integrations/openrouter",
-     "title": "docs.parallel.ai",
-     "source": "docs.parallel.ai",
-     "date": null,
-     "relevance": "weak",
-     "evidence": "OpenRouter's page discusses using Parallel as the web search engine in OpenRouter, including how to configure the openrouter:web_search tool and pricing for web search. It does not show OpenRouter actually using, integrating with, or partnering with Parallel\u2019s own product on this page; it only describes OpenRouter\u2019s integration with Parallel as a search engine option.",
-     "mentions_vendor": false,
-     "points": 0.84
-    },
-    {
-     "lane": "competitor_adoption",
-     "lane_label": "Competitor adoption",
-     "url": "https://parallel.ai/solutions/sales",
-     "title": "parallel.ai",
-     "source": "parallel.ai",
-     "date": null,
-     "relevance": "weak",
-     "evidence": "\"Does Parallel integrate with my CRM or GTM stack? Yes. Parallel is API-first for custom pipelines, and ships ready integrations including Attio, n8n, Google Sheets, and Snowflake.\"",
-     "mentions_vendor": false,
-     "points": 0.84
-    },
-    {
-     "lane": "hiring_to_replace",
-     "lane_label": "Hiring to replace",
-     "url": "https://openrouter.ai/careers",
-     "title": "Careers at OpenRouter",
-     "source": "openrouter.ai",
-     "date": null,
-     "relevance": "weak",
-     "evidence": "The Careers page mentions OpenRouter as a unified interface for LLMs and Open Positions but does not name or describe job postings with responsibilities that explicitly include building capability overlapping Exa's web-scale search infrastructure, custom embedding/ranking models, or high-QPS vector databases.",
-     "mentions_vendor": false,
-     "points": 0.56
+     "points": 2.0
     },
     {
      "lane": "budget_distress",
@@ -347,10 +275,22 @@
      "title": "Stripe agrees to acquire OpenRouter to help businesses optimize token routing and usage",
      "source": "stripe.com",
      "date": "2026-08-19",
-     "relevance": "weak",
-     "evidence": "The page reports that Stripe agreed to acquire OpenRouter, a platform for AI model routing, to help businesses optimize token usage and routing. It does not discuss budget pressures, cost-cutting programs, layoffs, or pivots away from AI-native search APIs. It frames the acquisition as strategic collaboration to optimize profitability, not distress. The single most damning sentence would be: \"Stri",
+     "relevance": "strong",
+     "evidence": "\u201cStripe has agreed to acquire OpenRouter\u201d and \u201cOpenRouter \u2026 routing platform\u201d \u2013 the page states that Stripe has agreed to acquire OpenRouter, a leading AI model gateway and routing platform, which constitutes acquisition/procurement consolidation by the acquirer.",
      "mentions_vendor": false,
-     "points": 0.52
+     "points": 1.5
+    },
+    {
+     "lane": "budget_distress",
+     "lane_label": "Budget / strategy risk",
+     "url": "https://techcrunch.com/2026/08/16/stripe-will-reportedly-acquire-ai-gateway-startup-openrouter-for-7b/",
+     "title": "Stripe will reportedly acquire AI gateway startup OpenRouter for $7B+ | TechCrunch",
+     "source": "techcrunch.com",
+     "date": "2026-08-16",
+     "relevance": "strong",
+     "evidence": "Bloomberg said Stripe and OpenRouter discussions led to a deal price of more than $7 billion.",
+     "mentions_vendor": false,
+     "points": 1.5
     },
     {
      "lane": "in_house_build",
@@ -360,9 +300,33 @@
      "source": "openrouter.ai",
      "date": "2026-08-12",
      "relevance": "weak",
-     "evidence": "The page discusses benchmarks and mentions that OpenRouter offers Exa, Parallel, Perplexity, and native engines, plus concepts like engines, search budgets, and tools, but it does not provide evidence that OpenRouter has built in-house web-scale search infrastructure or high-QPS vector databases to replace external AI-native search APIs; it merely analyzes and compares third-party engines and nati",
-     "mentions_vendor": true,
-     "points": 0.52
+     "evidence": "\u201cWeb search is table stakes for most LLM requests in order to overcome knowledge cutoffs. Labs and search providers are evolving fast to make search more effective and efficient, leaving all of us with a set of tricky decisions: take the native search some labs build in, or wire up a third-party engine like Exa, Parallel, or Perplexity? Is one search enough, and if not how long do I let the agent ",
+     "mentions_vendor": false,
+     "points": 1.05
+    },
+    {
+     "lane": "in_house_build",
+     "lane_label": "Building in-house",
+     "url": "https://www.firecrawl.dev/blog/firecrawl-search-openrouter",
+     "title": "Firecrawl /search is now available on OpenRouter",
+     "source": "firecrawl.dev",
+     "date": "2026-04-21",
+     "relevance": "weak",
+     "evidence": "Firecrawl is a web search engine on OpenRouter; the page describes integrating Firecrawl's web-page rendering and markdown extraction with OpenRouter, but does not indicate OpenRouter building in-house capabilities matching Exa's described stack (web-scale crawling, proprietary search indexing, semantic embeddings, GPU-accelerated model training). The page emphasizes using Firecrawl as a web searc",
+     "mentions_vendor": false,
+     "points": 1.05
+    },
+    {
+     "lane": "hiring_to_replace",
+     "lane_label": "Hiring to replace",
+     "url": "https://openrouter.ai/careers",
+     "title": "Careers at OpenRouter",
+     "source": "openrouter.ai",
+     "date": null,
+     "relevance": "weak",
+     "evidence": "null",
+     "mentions_vendor": false,
+     "points": 0.56
     }
    ]
   },
@@ -370,10 +334,10 @@
    "customer": {
     "name": "Cognition",
     "domain": "cognition.ai",
-    "evidence": "Cognition uses Exa to power web search across its agentic products, including Devin, as documented in an Exa case study.",
+    "evidence": "Cognition has a dedicated case study on the Exa website stating that Exa powers all parts of Devin.",
     "source": "web evidence"
    },
-   "score": 3.47,
+   "score": 3.77,
    "tier": "watch",
    "evidence": [
     {
@@ -384,33 +348,33 @@
      "source": "thenextweb.com",
      "date": "2026-08-19",
      "relevance": "strong",
-     "evidence": "SpaceX approached the AI coding startup Cognition about buying it, according to Bloomberg, and Cognition did not engage. Chief executive Scott Wu wrote publicly that Cognition is \u201cnot for sale and we haven\u2019t been talking.\u201d",
+     "evidence": "\"SpaceX approached AI coding startup Cognition about buying it... Cognition did not engage. Chief executive Scott Wu wrote publicly that Cognition is \u201cnot for sale and we haven\u2019t been talking.\u201d",
      "mentions_vendor": false,
      "points": 1.5
     },
     {
      "lane": "in_house_build",
      "lane_label": "Building in-house",
-     "url": "https://cognition.com/blog/swe-grep",
-     "title": "Introducing SWE-grep and SWE-grep-mini: RL for Multi-Turn, Fast Context Retrieval | Cognition",
+     "url": "https://cognition.com/blog/how-cognition-uses-devin-to-build-devin",
+     "title": "How Cognition Uses Devin to Build Devin",
      "source": "cognition.com",
-     "date": "2025-10-16",
+     "date": "2026-02-27",
      "relevance": "weak",
-     "evidence": "We trained SWE-grep and SWE-grep-mini, fast agentic models specialized in highly parallel context retrieval. They match the retrieval capabilities of frontier coding models, while taking an order of magnitude less time.",
+     "evidence": "null",
      "mentions_vendor": false,
-     "points": 0.89
+     "points": 1.05
     },
     {
      "lane": "hiring_to_replace",
      "lane_label": "Hiring to replace",
-     "url": "https://cognition.ai/careers",
-     "title": "Careers | Cognition",
-     "source": "cognition.ai",
-     "date": null,
+     "url": "https://jobs.ashbyhq.com/cognition/b6f96827-ce14-44f4-98fa-b1b8640858b6",
+     "title": "Research Engineer, ML Infrastructure @ Cognition",
+     "source": "jobs.ashbyhq.com",
+     "date": "2026-04-08",
      "relevance": "weak",
-     "evidence": "The Careers page lists many roles across General & Administrative, Research & Development, and Customer Engineering, including titles like Software Engineer, Data Engineer, Research Engineer, AI Support Engineer, and various Account Director roles. It does not contain a specific job posting that explicitly states responsibilities building capability that overlaps Exa\u2019s web-scale search infrastruct",
+     "evidence": "The page describes a Research Engineer, Infrastructure at Cognition and lists responsibilities around distributed training infrastructure, data pipelines, and scaling infrastructure, but there is no explicit mention of building capability that overlaps Exa's offerings (web-scale crawling, proprietary search indexing, semantic embedding-based retrieval infrastructure, or GPU-accelerated model train",
      "mentions_vendor": false,
-     "points": 0.56
+     "points": 0.7
     },
     {
      "lane": "budget_distress",
@@ -420,7 +384,7 @@
      "source": "techcrunch.com",
      "date": "2026-08-19",
      "relevance": "weak",
-     "evidence": "\u201cBloomberg reports that the deal talks are no longer active, but that the companies are still discussing working together \u2014 potentially with Cognition using SpaceX\u2019s computing capacity, which the company is selling to other AI players like Anthropic until it needs that capacity for itself.\u201d",
+     "evidence": "Cognition CEO Scott Wu disputed the Bloomberg report, saying Cognition \u201cis not for sale,\u201d and that the two companies haven\u2019t been in talks.",
      "mentions_vendor": false,
      "points": 0.52
     }
@@ -430,7 +394,7 @@
    "customer": {
     "name": "WebFX",
     "domain": "webfx.com",
-    "evidence": "WebFX uses Exa to ground live LLM chats and power internal agents, as documented in an Exa case study.",
+    "evidence": "WebFX has a dedicated case study on the Exa website detailing how they use Exa to scale digital marketing workflows.",
     "source": "web evidence"
    },
    "score": 1.6,
@@ -440,11 +404,11 @@
      "lane": "hiring_to_replace",
      "lane_label": "Hiring to replace",
      "url": "https://www.webfx.com/careers/",
-     "title": "Careers - WebFX",
+     "title": "Digital Marketing, Web Design & Development Jobs",
      "source": "webfx.com",
      "date": null,
      "relevance": "weak",
-     "evidence": "The page is a general WebFX career page with open positions and company initiatives; there is no explicit job posting naming responsibilities that include building web-scale search infrastructure, custom embedding/ranking models, or high-QPS vector databases for AI agents. The provided text references training programs, FXBuilds, and AI policy, but not Exa-related or specific infrastructure/ML pla",
+     "evidence": "The page is a general WebFX careers page with open positions and company initiatives; there is no explicit job posting naming responsibilities related to building Web-scale crawling, proprietary search indexing, semantic embedding-based retrieval infrastructure, or GPU-accelerated model training for agent-optimized search.",
      "mentions_vendor": false,
      "points": 0.56
     },
@@ -456,7 +420,7 @@
      "source": "dced.pa.gov",
      "date": "2026-04-09",
      "relevance": "weak",
-     "evidence": "The page discusses a $10.7 million investment from WebFX to expand operations and create 100 tech jobs in Harrisburg; it does not mention budget pressure, tool cuts, or AI-native search API strategies such as Exa. The only WebFX-related content is investment and expansion, not cost-cutting or strategic pivot away from tools.",
+     "evidence": "The page reports a $10.7 million investment from WebFX to expand operations and create 100 tech jobs in Harrisburg, with state funding of $900,000 and grants to train workers. It does not mention budget pressure, strategy changes, tool cuts, AI-native search APIs, or any procurement consolidation related to Exa. The only WebFX-related content is investment/expansion, not distress or restructuring.",
      "mentions_vendor": false,
      "points": 0.52
     },
@@ -468,7 +432,7 @@
      "source": "theburgnews.com",
      "date": "2026-04-09",
      "relevance": "weak",
-     "evidence": "The article discusses WebFX's expansion and state-supported funding for expansion into the Tracy Mansion and a second building; it does not mention budget pressure, cost-cutting, or AI-native search tools, nor any acquisition of Exa or related procurement consolidation.",
+     "evidence": "The article describes WebFX expanding into a historic mansion with state grants and purchasing another building, focusing on growth and expansion rather than cost-cutting or AI-native search strategy. A single sentence notes a large investment and expansion, but there is no mention of budget pressure, tool cuts, or pivots away from AI-native search infrastructure. The most relevant line is: \u201cThe c",
      "mentions_vendor": false,
      "points": 0.52
     }
@@ -478,10 +442,10 @@
    "customer": {
     "name": "StackAI",
     "domain": "stackai.com",
-    "evidence": "StackAI leverages Exa APIs to power enterprise AI agents, as documented in an Exa case study.",
+    "evidence": "StackAI has a dedicated case study on the Exa website explaining how they power enterprise AI agents with Exa.",
     "source": "web evidence"
    },
-   "score": 4.19,
+   "score": 4.54,
    "tier": "watch",
    "evidence": [
     {
@@ -492,7 +456,7 @@
      "source": "techcrunch.com",
      "date": "2026-05-28",
      "relevance": "strong",
-     "evidence": "\"Asana has acquired the workflow automation company StackAI for $75 million, part of a larger effort to position itself as an AI-native workplace platform.\"",
+     "evidence": "\u201cAsana has acquired the workflow automation company StackAI for $75 million, part of a larger effort to position itself as an AI-native workplace platform.\u201d",
      "mentions_vendor": false,
      "points": 1.5
     },
@@ -504,33 +468,33 @@
      "source": "finance.yahoo.com",
      "date": "2026-05-28",
      "relevance": "strong",
-     "evidence": "Asana, Inc. today announced it has completed the acquisition of StackAI, a no-code AI workflow platform that enables companies to design, test, deploy and govern custom AI agents and intelligent automation of business-critical workflows. The acquisition consolidates procurement and indicates a strategic shift toward cross-system execution for human-agent teams, likely affecting spend on related to",
+     "evidence": "The article announces Asana\u2019s acquisition of StackAI, stating StackAI \u201cis a no-code AI workflow platform that enables companies to design, test, deploy and govern custom AI agents and intelligent automation of business-critical workflows\u201d and that StackAI \u201ccontinues to operate as its own product and brand following its acquisition by Asana.\u201d This directly reflects procurement consolidation by the ",
      "mentions_vendor": false,
      "points": 1.5
     },
     {
-     "lane": "in_house_build",
-     "lane_label": "Building in-house",
-     "url": "https://www.stackai.com/blog/stackai-explained",
-     "title": "A helpful guide to StackAI's features and differentiators.",
-     "source": "stackai.com",
-     "date": "2025-07-30",
+     "lane": "competitor_adoption",
+     "lane_label": "Competitor adoption",
+     "url": "https://docs.tavily.com/documentation/integrations/stackai",
+     "title": "StackAI",
+     "source": "docs.tavily.com",
+     "date": null,
      "relevance": "weak",
-     "evidence": "The page emphasizes StackAI as an enterprise AI platform with no-code interfaces, governance, and extensive integrations, but it does not provide direct evidence that StackAI builds in-house web-scale search infrastructure, custom embedding/ranking models, or high-QPS vector databases specifically optimized for AI agents and complex, long-form queries that would overlap with Exa\u2019s offerings. It me",
+     "evidence": "Integrate Tavily with StackAI to enhance your AI workflows with real-time web data.",
      "mentions_vendor": false,
-     "points": 0.63
+     "points": 0.84
     },
     {
      "lane": "hiring_to_replace",
      "lane_label": "Hiring to replace",
-     "url": "https://www.ycombinator.com/companies/stackai/jobs/UrsFrkF-senior-ai-ml-engineer",
-     "title": "Senior AI/ML Engineer at StackAI | Y Combinator",
-     "source": "ycombinator.com",
-     "date": null,
+     "url": "https://www.linkedin.com/jobs/view/platform-engineer-apis-observability-at-stackai-4430910845",
+     "title": "StackAI hiring Platform Engineer, APIs & Observability in New York, NY",
+     "source": "linkedin.com",
+     "date": "2026-06-13",
      "relevance": "weak",
-     "evidence": "The page lists Senior AI/ML Engineer responsibilities and focuses on RAG, embeddings, and integrating AI models into products, but does not mention building web-scale search infrastructure, custom embedding/ranking models, or high-QPS vector databases or explicit overlap with Exa products.",
+     "evidence": "The page describes a StackAI Platform Engineer, APIs & Observability role focusing on building public API, observability, analytics, and developer tooling; no explicit mention of Exa or overlap with Exa's Web-scale crawling, proprietary search indexing, semantic embedding-based retrieval infrastructure, or GPU-accelerated model training.",
      "mentions_vendor": false,
-     "points": 0.56
+     "points": 0.7
     }
    ]
   },
@@ -538,47 +502,23 @@
    "customer": {
     "name": "CodeRabbit",
     "domain": "coderabbit.ai",
-    "evidence": "CodeRabbit integrated Exa Search into its code review platform, as documented in an Exa case study.",
+    "evidence": "CodeRabbit has a dedicated case study on the Exa website describing how they use Exa to review PRs faster.",
     "source": "web evidence"
    },
-   "score": 4.52,
-   "tier": "watch",
+   "score": 5.66,
+   "tier": "at_risk",
    "evidence": [
     {
-     "lane": "in_house_build",
-     "lane_label": "Building in-house",
-     "url": "https://www.lancedb.com/blog/case-study-coderabbit",
-     "title": "Case Study: How CodeRabbit Leverages LanceDB for AI ...",
-     "source": "lancedb.com",
-     "date": "2025-09-03",
+     "lane": "budget_distress",
+     "lane_label": "Budget / strategy risk",
+     "url": "https://thenextweb.com/news/coderabbit-raised-143m-to-read-the-code-ai-wrote",
+     "title": "CodeRabbit raised $143m to read the code AI wrote",
+     "source": "thenextweb.com",
+     "date": "2026-08-13",
      "relevance": "strong",
-     "evidence": "\u201cAt the core of CodeRabbit's tech stack lies LanceDB, the vector database that transforms chaotic context into real-time architectural insight.\u201d",
+     "evidence": "CodeRabbit said it had raised $143m in a round led by Atomico and Smash Capital, with post-money valuation of $1.5bn; the article frames the funding and growth plans (opening London office, doubling European headcount, expansion to Japan and Singapore) as part of scaling rather than cost-cutting; no mention of budget pressure, layoffs, or procurement consolidation with an acquirer. The page discus",
      "mentions_vendor": false,
-     "points": 2.55
-    },
-    {
-     "lane": "in_house_build",
-     "lane_label": "Building in-house",
-     "url": "https://www.learnwithparam.com/blog/architecting-coderabbit-ai-agent-at-scale",
-     "title": "CodeRabbit-style AI code-review agent at scale",
-     "source": "learnwithparam.com",
-     "date": "2025-11-23",
-     "relevance": "weak",
-     "evidence": "In Part 1, we architect the Ingestion & Context Engine. We will explore how to survive the traffic spike and how to turn raw code into \"understandable knowledge\" for an AI Agent.",
-     "mentions_vendor": false,
-     "points": 0.89
-    },
-    {
-     "lane": "hiring_to_replace",
-     "lane_label": "Hiring to replace",
-     "url": "https://orky.ai/jobs/122/",
-     "title": "Applied AI Engineer at CodeRabbit - Orky Jobs",
-     "source": "orky.ai",
-     "date": null,
-     "relevance": "weak",
-     "evidence": "The page describes an Applied Gen AI Engineer at CodeRabbit focusing on knowledge bases, RAG, agentic flows, and prompt engineering for code review and development; there is no explicit mention of building web-scale search infrastructure, custom embedding/ranking models, or high-QPS vector databases for AI agents.",
-     "mentions_vendor": false,
-     "points": 0.56
+     "points": 1.5
     },
     {
      "lane": "budget_distress",
@@ -587,10 +527,46 @@
      "title": "CodeRabbit targets AI-generated code overload with Agentic Change Management | InfoWorld",
      "source": "infoworld.com",
      "date": "2026-08-12",
-     "relevance": "weak",
-     "evidence": "The article discusses CodeRabbit expanding AI features (Triage, Change Stack, Security Agent) to manage increasing code changes and does not mention budget pressure, strategy changes to cut spend on Exa or any acquisition/layoffs. The strongest point is about product expansion and lifecycle management, not cost-cutting or procurement consolidation.",
+     "relevance": "strong",
+     "evidence": "CodeRabbit\u2019s new features have been made generally available.",
      "mentions_vendor": false,
-     "points": 0.52
+     "points": 1.5
+    },
+    {
+     "lane": "in_house_build",
+     "lane_label": "Building in-house",
+     "url": "https://theaiengineer.substack.com/p/how-coderabbit-actually-works",
+     "title": "How CodeRabbit Works: Inside Its AI Code Review Pipeline",
+     "source": "theaiengineer.substack.com",
+     "date": "2026-06-20",
+     "relevance": "weak",
+     "evidence": "\u201cA live code graph over pre-indexed RAG. The obvious approach to repo context is to chunk the code, embed it, and retrieve by similarity. CodeRabbit builds a fresh structural graph of the repo per review instead.\u201d",
+     "mentions_vendor": false,
+     "points": 1.05
+    },
+    {
+     "lane": "in_house_build",
+     "lane_label": "Building in-house",
+     "url": "https://claude.com/blog/how-coderabbit-used-claude-to-build-an-agent-orchestration-system",
+     "title": "How CodeRabbit used Claude to build an agent orchestration system | Claude by Anthropic",
+     "source": "claude.com",
+     "date": "2026-05-27",
+     "relevance": "weak",
+     "evidence": "CodeRabbit built a layer on Claude that sits between a coding request and a coding agent, producing a structured coding plan the team can review before any code gets generated.",
+     "mentions_vendor": false,
+     "points": 1.05
+    },
+    {
+     "lane": "hiring_to_replace",
+     "lane_label": "Hiring to replace",
+     "url": "https://forgeapply.com/j/senior-applied-ai-engineer-at-coderabbit-694eef48-8e31-4a85-af19-9bf420714ef8",
+     "title": "Senior Applied AI Engineer at Coderabbit ($200k \u2013 $300k) | ForgeApply",
+     "source": "forgeapply.com",
+     "date": null,
+     "relevance": "weak",
+     "evidence": "The page is a Senior Applied AI Engineer at CodeRabbit job posting; however, the explicit responsibilities listed focus on LLM-based systems, RAG, RLHF, agentic workflows, retrieval pipelines, and production deployment, with no explicit mention of Web-scale crawling, proprietary search indexing, semantic embedding-based retrieval infrastructure, or GPU-accelerated model training for agent-optimize",
+     "mentions_vendor": false,
+     "points": 0.56
     }
    ]
   },
@@ -598,23 +574,23 @@
    "customer": {
     "name": "HockeyStack",
     "domain": "hockeystack.com",
-    "evidence": "HockeyStack uses Exa to power people search inside its revenue agents, as documented by Exa.",
+    "evidence": "HockeyStack has a dedicated case study on the Exa website explaining how they use Exa for revenue agents.",
     "source": "web evidence"
    },
-   "score": 3.84,
+   "score": 4.68,
    "tier": "watch",
    "evidence": [
     {
-     "lane": "in_house_build",
-     "lane_label": "Building in-house",
-     "url": "https://theairuntime.com/p/the-brain-isnt-the-llm-how-hockeystack",
-     "title": "The Brain Isn\u2019t the LLM: How HockeyStack Built Revenue Agents",
-     "source": "theairuntime.com",
-     "date": "2026-05-12",
-     "relevance": "weak",
-     "evidence": "\u201cThe interesting architectural choice: HockeyStack\u2019s reasoning engine is not a frontier LLM. It is a proprietary ML model called the Blueprint that reverse-engineers each customer\u2019s winning sales process from their event data. The LLM sits downstream as the execution and natural language layer.\u201d",
+     "lane": "budget_distress",
+     "lane_label": "Budget / strategy risk",
+     "url": "https://www.prnewswire.com/news-releases/hockeystack-raises-50m-to-build-revenue-agents-for-the-enterprise-302742217.html",
+     "title": "HockeyStack Raises $50M to Build Revenue Agents for the Enterprise",
+     "source": "prnewswire.com",
+     "date": "2026-04-15",
+     "relevance": "strong",
+     "evidence": "The page discusses HockeyStack raising a new round of funding and launching Revenue Agents for the Enterprise, including statements about expanding product development and hiring across engineering, sales, and marketing, which indicates growth and investment rather than cost-cutting or strategic pivots away from AI-native search infrastructure.",
      "mentions_vendor": false,
-     "points": 1.05
+     "points": 1.5
     },
     {
      "lane": "in_house_build",
@@ -624,21 +600,33 @@
      "source": "hockeystack.com",
      "date": "2026-06-03",
      "relevance": "weak",
-     "evidence": "\"In this article, we\u2019ll cover why we chose ClickHouse over alternatives like BigQuery.\"",
+     "evidence": "null",
+     "mentions_vendor": false,
+     "points": 1.05
+    },
+    {
+     "lane": "in_house_build",
+     "lane_label": "Building in-house",
+     "url": "https://www.hockeystack.com/blog-posts/hockeystack-for-enterprise",
+     "title": "HockeyStack: Built for the Enterprise",
+     "source": "hockeystack.com",
+     "date": "2026-04-13",
+     "relevance": "weak",
+     "evidence": "null",
      "mentions_vendor": false,
      "points": 1.05
     },
     {
      "lane": "hiring_to_replace",
      "lane_label": "Hiring to replace",
-     "url": "https://jobs-radar.com/job/ai-engineer-at-hockeystack-6d58e1",
-     "title": "AI Engineer at HockeyStack \u00b7 JobsRadar",
-     "source": "jobs-radar.com",
-     "date": "2026-06-16",
+     "url": "https://www.builtinsf.com/job/ai-engineer/8798572",
+     "title": "AI Engineer - HockeyStack | Built In San Francisco",
+     "source": "builtinsf.com",
+     "date": null,
      "relevance": "weak",
-     "evidence": "The page describes an AI Engineer role at HockeyStack focusing on agentic AI, multi-agent systems, and backend services in Node.js, with no explicit mention of building web-scale search infrastructure, custom embedding/ranking models, or high-QPS vector databases\u2014only general AI agent/workflow orchestration for GTM teams.",
+     "evidence": "The page describes an AI Engineer at HockeyStack focusing on agentic AI features, multi-agent systems, and backend/LLM-powered workflows, but there is no explicit mention of Exa's offerings or overlap with Web-scale crawling, proprietary search indexing, semantic embedding-based retrieval infrastructure, or GPU-accelerated model training for agent-optimized search.",
      "mentions_vendor": false,
-     "points": 0.7
+     "points": 0.56
     },
     {
      "lane": "budget_distress",
@@ -648,57 +636,9 @@
      "source": "appsumo.com",
      "date": "2026-03-31",
      "relevance": "weak",
-     "evidence": "\"Unable to log in - are they dead?\" (title/heading) and comments claiming HockeyStack has disappeared and support portals gone; no direct news about budget pressure, acquisitions, or layoffs. The page discusses user concerns that HockeyStack may be dead or gone dark, implying potential distress but not confirming budget cuts or strategic shifts.",
+     "evidence": "\"Unable to log in - are they dead?\"",
      "mentions_vendor": false,
      "points": 0.52
-    },
-    {
-     "lane": "budget_distress",
-     "lane_label": "Budget / strategy risk",
-     "url": "https://startuply.vc/article/hockeystack-s-20-million-series-a-wires-ai-into-the-revenue-spreadsheet-kut331",
-     "title": "Startuply.vc: HockeyStack's $20 Million Series A Wires AI Into the Revenue Spreadsheet",
-     "source": "startuply.vc",
-     "date": "2026-05-03",
-     "relevance": "weak",
-     "evidence": "The page discusses HockeyStack's $20 million Series A funding, the platform's AI-driven revenue-operations ambitions, and growth prospects, with no mention of budget cuts, acquisitions, layoffs, or pivots away from AI-native tools. The strongest implication is growth and scaling, not distress or strategy retreat.",
-     "mentions_vendor": false,
-     "points": 0.52
-    }
-   ]
-  },
-  {
-   "customer": {
-    "name": "11x",
-    "domain": "11x.co",
-    "evidence": "Official case study: AI sales automation / go-to-market; Digital GTM workforce; using Exa to find novel customer signals, enrich accounts with live web context, and power outbound research and engagem",
-    "source": "vendor case study"
-   },
-   "score": 1.5,
-   "tier": "healthy",
-   "evidence": [
-    {
-     "lane": "in_house_build",
-     "lane_label": "Building in-house",
-     "url": "https://www.11x.ai/blog/i-showed-a16z-our-entire-agent-stack",
-     "title": "11x - I showed a16z our entire agent stack",
-     "source": "11x.ai",
-     "date": "2026-07-01",
-     "relevance": "weak",
-     "evidence": "\"So we built an agent to close it. You assign it to grade a deal by @-mentioning it in Slack. It pulls every call from Granola, every relevant Slack thread, and the full email exchange across the cycle, then generates a Notion doc and a kickoff deck for the post-sale team.\"",
-     "mentions_vendor": false,
-     "points": 1.05
-    },
-    {
-     "lane": "in_house_build",
-     "lane_label": "Building in-house",
-     "url": "https://www.zenml.io/blog/llmops-in-production-another-419-case-studies-of-what-actually-works",
-     "title": "LLMOps in Production: Another 419 Case Studies of What ...",
-     "source": "zenml.io",
-     "date": "2025-12-15",
-     "relevance": "weak",
-     "evidence": "Exa.ai- Exa.ai developed a search engine specifically for AI agents, moving beyond human-centric keyword search to semantic understanding and raw data retrieval.",
-     "mentions_vendor": true,
-     "points": 0.45
     }
    ]
   },
@@ -706,7 +646,7 @@
    "customer": {
     "name": "WhyHow AI",
     "domain": "whyhow.ai",
-    "evidence": "Official case study: Litigation intelligence: using Exa's search platform to surface early signals and identify potential litigation opportunities across the $40B industry by processing millions of pa",
+    "evidence": "Official case study: Litigation intelligence: identifying emerging class actions and mass-tort opportunities by surfacing weak signals from open web content to enable early case detection and actionab",
     "source": "vendor case study"
    },
    "score": 0.56,
@@ -720,127 +660,7 @@
      "source": "github.com",
      "date": null,
      "relevance": "weak",
-     "evidence": "null",
-     "mentions_vendor": false,
-     "points": 0.56
-    }
-   ]
-  },
-  {
-   "customer": {
-    "name": "Obvious",
-    "domain": "obvious.com",
-    "evidence": "Official case study: Obvious uses Exa's Websets API for internal business intelligence to generate targeted cohorts of similar companies per vertical and identify the right contacts, replacing manual ",
-    "source": "vendor case study"
-   },
-   "score": 0.89,
-   "tier": "healthy",
-   "evidence": [
-    {
-     "lane": "in_house_build",
-     "lane_label": "Building in-house",
-     "url": "https://www.linkedin.com/posts/joncbell_were-introducing-subagents-in-obvious-and-activity-7419076101076840448-c1PX",
-     "title": "We're introducing subagents in Obvious and it's honestly blowing my mind. | Jon Bell",
-     "source": "linkedin.com",
-     "date": "2026-01-19",
-     "relevance": "weak",
-     "evidence": "\"We're introducing subagents in Obvious and it's honestly blowing my mind.\" This post discusses adding subagents and multi-threading within Obvious's agent system, including tools for context engineering and spawning subagents. It does not provide any evidence that Obvious has built in-house capabilities overlapping Exa's web-scale search infrastructure, custom embedding/ranking models, or high-QP",
-     "mentions_vendor": false,
-     "points": 0.89
-    }
-   ]
-  },
-  {
-   "customer": {
-    "name": "Cursor",
-    "domain": "cursor.ai",
-    "evidence": "Official case study: Exa powers search for Cursor, providing high-quality search API at various latencies as part of Exa's search engine infrastructure",
-    "source": "vendor case study"
-   },
-   "score": 7.18,
-   "tier": "at_risk",
-   "evidence": [
-    {
-     "lane": "budget_distress",
-     "lane_label": "Budget / strategy risk",
-     "url": "https://techcrunch.com/2026/08/15/spacex-officially-closes-its-cursor-acquisition/",
-     "title": "SpaceX officially closes its Cursor acquisition | TechCrunch",
-     "source": "techcrunch.com",
-     "date": "2026-08-15",
-     "relevance": "strong",
-     "evidence": "Cursor said that by becoming part of SpaceX, it will have \u201caccess to the largest fleet of GPUs in the world.\u201d",
-     "mentions_vendor": false,
-     "points": 1.5
-    },
-    {
-     "lane": "budget_distress",
-     "lane_label": "Budget / strategy risk",
-     "url": "https://www.theverge.com/ai-artificial-intelligence/980274/cursor-is-officially-part-of-spacex",
-     "title": "Cursor is officially part of SpaceX. | The Verge",
-     "source": "theverge.com",
-     "date": "2026-08-14",
-     "relevance": "strong",
-     "evidence": "Cursor is officially part of SpaceX. Elon Musk\u2019s SpaceX completed its $60 billion acquisition of the AI coding tool Cursor on Friday.",
-     "mentions_vendor": false,
-     "points": 1.5
-    },
-    {
-     "lane": "in_house_build",
-     "lane_label": "Building in-house",
-     "url": "https://cursor.com/blog/fast-regex-search",
-     "title": "Fast regex search: indexing text for agent tools \u00b7 Cursor",
-     "source": "cursor.com",
-     "date": "2026-03-23",
-     "relevance": "weak",
-     "evidence": "\u201cTo ensure that memory usage in the editor remains minimal, we store our indexes in two separate files.\u201d",
-     "mentions_vendor": false,
-     "points": 1.05
-    },
-    {
-     "lane": "in_house_build",
-     "lane_label": "Building in-house",
-     "url": "https://cursor.com/blog/semsearch",
-     "title": "Improving agent with semantic search \u00b7 Cursor",
-     "source": "cursor.com",
-     "date": "2025-11-06",
-     "relevance": "weak",
-     "evidence": "\u201cOne piece that enables these results is our custom embedding model. Our approach uses agent sessions as training data: when an agent works through a task, it performs multiple searches and opens files before finding the right code.\u201d",
-     "mentions_vendor": false,
-     "points": 0.89
-    },
-    {
-     "lane": "competitor_adoption",
-     "lane_label": "Competitor adoption",
-     "url": "https://parallel.ai/integrations/cursor",
-     "title": "parallel.ai",
-     "source": "parallel.ai",
-     "date": null,
-     "relevance": "weak",
-     "evidence": "The page describes how to use Parallel with Cursor and references integration steps, marketplace and MCP installs, and setup guides, but it does not show Cursor using, integrating with, or partnering with Parallel\u2019s own product in a way that demonstrates Cursor utilizing Parallel for its own product on this site. The content is about Parallel enabling Cursor\u2019s use, not Cursor employing Cursor\u2019s ow",
-     "mentions_vendor": false,
-     "points": 0.84
-    },
-    {
-     "lane": "competitor_adoption",
-     "lane_label": "Competitor adoption",
-     "url": "https://docs.perplexity.ai/docs/getting-started/integrations/cursor",
-     "title": "docs.perplexity.ai",
-     "source": "docs.perplexity.ai",
-     "date": null,
-     "relevance": "weak",
-     "evidence": "The page discusses integrating Perplexity with Cursor, including paths to call the Perplexity API from Cursor code and using the Perplexity Docs MCP in Cursor for in-editor documentation lookup. It does not show Cursor using, integrating with, or partnering with this website's own product (a competitor of Exa). The text focuses on how to integrate Perplexity within Cursor, not Cursor being a custo",
-     "mentions_vendor": false,
-     "points": 0.84
-    },
-    {
-     "lane": "hiring_to_replace",
-     "lane_label": "Hiring to replace",
-     "url": "https://cursor.com/careers/software-engineer-agent-evaluation-and-quality",
-     "title": "Software Engineer, Agent Evaluation and Quality - Cursor",
-     "source": "cursor.com",
-     "date": null,
-     "relevance": "weak",
-     "evidence": "\u201cAs a Software Engineer on the Agent Quality team at Cursor, you\u2019ll build the measurement, evaluation, and feedback-loop infrastructure that makes the Cursor core agent reliably better over time.\u201d",
+     "evidence": "The page is a GitHub organization page for WhyHow AI with a list of repositories and basic stats; there is no job posting or explicit responsibilities related to Exa or overlapping capabilities. The provided text mentions knowledge graphs and RAG-related tooling, but contains no employment listing.",
      "mentions_vendor": false,
      "points": 0.56
     }
@@ -850,11 +670,11 @@
    "customer": {
     "name": "Ecosia",
     "domain": "ecosia.org",
-    "evidence": "In this role at Ecosia, I've been using Exa... Ecosia is a search engine, and we wanted to add AI functionality on top of the regular web search. We wanted to have AI summaries... end user goes to our",
+    "evidence": "In this role at Ecosia, I've been using Exa. Ecosia is a search engine, and we wanted to add AI functionality on top of the regular web search. We wanted to have AI summaries... we eventually ended up",
     "source": "web evidence"
    },
-   "score": 4.52,
-   "tier": "watch",
+   "score": 6.38,
+   "tier": "at_risk",
    "evidence": [
     {
      "lane": "budget_distress",
@@ -864,117 +684,81 @@
      "source": "pivot-to-ai.com",
      "date": "2026-07-03",
      "relevance": "strong",
-     "evidence": "Ecosia added an OpenAI chatbot in 2024. They called it \u201cGreen AI\u201d, which actually meant they added a greenwashed initial prompt. In December, Ecosia put in a search AI also based on OpenAI.",
+     "evidence": "\"Ecosia is a search engine that talks up its green credentials. It repackages Microsoft Bing and puts its own ads on. All the money comes from those ads.\" (page discusses Ecosia\u2019s AI and business practices, hinting at cost and strategic changes, e.g., opting-out of AI, pressure around AI usage, and governance concerns)",
+     "mentions_vendor": false,
+     "points": 1.5
+    },
+    {
+     "lane": "budget_distress",
+     "lane_label": "Budget / strategy risk",
+     "url": "https://pasqualepillitteri.it/en/news/6133/ecosia-ai-review-green-search-engine",
+     "title": "Ecosia AI Review: Is the Green Search Engine Worth It?",
+     "source": "pasqualepillitteri.it",
+     "date": "2026-06-24",
+     "relevance": "strong",
+     "evidence": "No clear sentence in the page states budget pressure or a strategy change that would cut spend on tools like Exa. The page discusses Ecosia AI, migration to Mistral, profitability reinvestment, and environmental focus, but contains no explicit reference to Exa, budget cuts, layoffs, or acquisition of another company. The strongest interpretive signal is the discussion of shifting AI infrastructure",
      "mentions_vendor": false,
      "points": 1.5
     },
     {
      "lane": "in_house_build",
      "lane_label": "Building in-house",
-     "url": "https://blog.ecosia.org/improving-our-ai/",
-     "title": "Our AI just got even better",
+     "url": "https://blog.ecosia.org/eusp-germany-rollout/",
+     "title": "EUSP search results are now live in Germany",
      "source": "blog.ecosia.org",
-     "date": "2026-05-22",
+     "date": "2026-07-30",
      "relevance": "weak",
-     "evidence": "\u201cThat\u2019s why we\u2019re now running our AI almost entirely on a European model provider.\u201d",
+     "evidence": "\u201cEUSP (European Search Perspective) is our joint venture with Qwant to build a European search index.\u201d",
      "mentions_vendor": false,
      "points": 1.05
     },
     {
      "lane": "in_house_build",
      "lane_label": "Building in-house",
-     "url": "https://enterprise.wikimedia.com/blog/ecosia-enriches-search-results-and-ai-answers/",
-     "title": "Ecosia uses Wikimedia data for knowledge panels and AI Search",
-     "source": "enterprise.wikimedia.com",
-     "date": "2026-02-16",
+     "url": "https://blog.ecosia.org/ecosia-ai/",
+     "title": "Is there a green AI alternative?",
+     "source": "blog.ecosia.org",
+     "date": "2025-12-02",
      "relevance": "weak",
-     "evidence": "\"Ecosia partnered with Wikimedia Enterprise last year to continue providing its users with knowledge from trusted sources of information, curated and maintained by a thriving community of Wikimedians.\"",
+     "evidence": "\"The world\u2019s greenest AI is here\" and excerpts describe Ecosia building a greener AI, AI Energy Score, Ecologits, AI Overviews, and AI Search. However, there is no mention of in-house capabilities overlapping Exa's specific offerings (web-scale crawling, proprietary search indexing, semantic embedding-based retrieval infrastructure, or GPU-accelerated model training for agent-optimized search). Th",
      "mentions_vendor": false,
      "points": 0.89
     },
     {
      "lane": "hiring_to_replace",
      "lane_label": "Hiring to replace",
-     "url": "https://remoteotter.com/company/ecosia/jobs/remote-software-engineer-backend_8fcd6826-e333-4a64-b36c-c345a006f728",
-     "title": "Software Engineer - Backend - Ecosia | RemoteOtter",
-     "source": "remoteotter.com",
-     "date": null,
+     "url": "https://www.linkedin.com/posts/ecosia_this-is-your-chance-to-help-shape-the-future-activity-7437502973989101568-_oM2",
+     "title": "This is your chance to help shape the future of search \ud83c\udf0d\ud83c\udf33 | Ecosia",
+     "source": "linkedin.com",
+     "date": "2026-03-11",
      "relevance": "weak",
-     "evidence": "The page text describes a Software Engineer - Backend role at Ecosia with responsibilities around building and deploying backend services, CI/CD, observability, and collaboration, but there is no explicit mention of building capabilities that overlap with Exa's web-scale search infrastructure, custom embedding/ranking models, or high-QPS vector databases. The content seems focused on general backe",
+     "evidence": "We\u2019re hiring an Engineering Manager for our AI Search Experience team at Ecosia.",
      "mentions_vendor": false,
-     "points": 0.56
+     "points": 0.7
     },
     {
-     "lane": "budget_distress",
-     "lane_label": "Budget / strategy risk",
-     "url": "https://blog.ecosia.org/eusp-germany-rollout/",
-     "title": "EUSP search results are now live in Germany",
-     "source": "blog.ecosia.org",
-     "date": "2026-07-30",
+     "lane": "competitor_adoption",
+     "lane_label": "Competitor adoption",
+     "url": "https://brave.com/blog/page/12/",
+     "title": "Brave's latest news",
+     "source": "brave.com",
+     "date": "2021-03-10",
      "relevance": "weak",
-     "evidence": "The page discusses expanding EUSP search results to Germany and building digital sovereignty with a European index (EUSP) in partnership with Qwant; it does not mention budgets, cost-cutting, layoffs, acquisitions, or moves away from AI-native search APIs.",
+     "evidence": "Ecosia, the green search engine that uses its advertising revenues to plant trees in areas affected by deforestation, is now integrated as a search engine option in Brave!",
      "mentions_vendor": false,
-     "points": 0.52
-    }
-   ]
-  },
-  {
-   "customer": {
-    "name": "BrainGrid",
-    "domain": "braingrid.ai",
-    "evidence": "The page describes BrainGrid switching from Claude web search to Exa for the BrainGrid agent and discusses the implementation and results of using Exa in BrainGrid's AI agent.",
-    "source": "web evidence"
-   },
-   "score": 1.77,
-   "tier": "healthy",
-   "evidence": [
-    {
-     "lane": "budget_distress",
-     "lane_label": "Budget / strategy risk",
-     "url": "https://noah-news.com/braingrid-proposes-structured-ai-planning-to-reduce-coding-babysitting-tax-and-e/",
-     "title": "BrainGrid proposes structured AI planning to reduce coding 'babysitting tax' and enhance software reliability | Noah Intelligence",
-     "source": "noah-news.com",
-     "date": "2026-06-16",
-     "relevance": "weak",
-     "evidence": "null",
-     "mentions_vendor": false,
-     "points": 0.52
+     "points": 0.37
     },
     {
-     "lane": "budget_distress",
-     "lane_label": "Budget / strategy risk",
-     "url": "https://www.prnewswire.com/news-releases/braingrid-raises-1m-pre-seed-led-by-menlo-ventures-to-build-the-ai-product-planner-for-non-technical-founders-302722951.html",
-     "title": "BrainGrid Raises $1M Pre-Seed Led by Menlo Ventures to Build the AI Product Planner for Non-Technical Founders",
-     "source": "prnewswire.com",
-     "date": "2026-03-24",
+     "lane": "competitor_adoption",
+     "lane_label": "Competitor adoption",
+     "url": "https://brave.com/category/new-products-features/page/3/",
+     "title": "New products & features",
+     "source": "brave.com",
+     "date": "2022-06-21",
      "relevance": "weak",
-     "evidence": "The page reports a $1M pre-seed round led by Menlo Ventures for BrainGrid, with participation from Next Tier Ventures and Brainstorm Ventures, and quotes from BrainGrid co-founders and a Menlo partner about building and planning software, but there is no mention of budget pressure, cost-cutting, pivots away from AI-native search APIs, acquisitions, or layoffs. The only explicit focus is funding an",
+     "evidence": "Ecosia, the green search engine that uses its advertising revenues to plant trees in areas affected by deforestation, is now integrated as a search engine option in Brave!",
      "mentions_vendor": false,
-     "points": 0.52
-    },
-    {
-     "lane": "hiring_to_replace",
-     "lane_label": "Hiring to replace",
-     "url": "https://www.braingrid.ai/blog/migrating-to-ai-sdk-v5",
-     "title": "Migrating to AI SDK v5: A Story of Tool Streaming, Caching, and Type Safety",
-     "source": "braingrid.ai",
-     "date": "2025-07-24",
-     "relevance": "weak",
-     "evidence": "The page is a blog post about migrating BrainGrid to AI SDK v5 and discusses tool streaming, caching, and TypeScript support, not a specific job posting or responsibilities overlapping Exa\u2019s offerings. The page does not mention Exa or explicit roles about web-scale search infrastructure, custom embedding/ranking models, or high-QPS vector databases.",
-     "mentions_vendor": false,
-     "points": 0.42
-    },
-    {
-     "lane": "in_house_build",
-     "lane_label": "Building in-house",
-     "url": "https://www.braingrid.ai/blog/switching-claude-web-search-to-exa",
-     "title": "Why we switched from Claude web search to Exa for the BrainGrid agent",
-     "source": "braingrid.ai",
-     "date": "2025-08-09",
-     "relevance": "weak",
-     "evidence": "\"But Exa isn't just unencrypted Claude search. It's built differently. The neural search understands technical queries in a way traditional search doesn't.\"",
-     "mentions_vendor": true,
-     "points": 0.31
+     "points": 0.37
     }
    ]
   }
@@ -984,13 +768,13 @@
   "domain": "exa.ai",
   "counts": {
    "at_risk": 4,
-   "watch": 5,
-   "healthy": 5
+   "watch": 4,
+   "healthy": 2
   },
-  "elapsed_s": 58.3,
-  "api_calls": 76,
-  "cost_usd": 0.852,
-  "generated_at": "2026-08-21T06:06:51.736441+00:00"
+  "elapsed_s": 35.1,
+  "api_calls": 56,
+  "cost_usd": 0.632,
+  "generated_at": "2026-08-21T06:14:12.626333+00:00"
  },
  "api": {
   "profile": {
@@ -1066,7 +850,7 @@
     "category": "company",
     "contents": {
      "summary": {
-      "query": "Is the company that owns this page a DIRECT competitor of Exa \u2014 i.e. do they sell AI-native search API for agents and LLMs? Give their company name.",
+      "query": "Is the company that owns this page a DIRECT competitor of Exa \u2014 i.e. do they sell AI-native search API and infrastructure.? Give their company name.",
       "schema": {
        "type": "object",
        "properties": {
