@@ -5,480 +5,866 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Churn Radar</title>
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📡</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root{
-    --bg:#0b0f14; --panel:#121821; --panel2:#0e141c; --line:#1f2a37;
-    --text:#e6edf3; --muted:#8b98a5; --accent:#38bdf8;
-    --red:#ff5c5c; --amber:#f5a623; --green:#2fd07f; --purple:#b388ff;
+    --bg:#06080F; --panel:#0A0D1A; --deep:#080B14; --ink:#06080F;
+    --text:#FAF9F8; --blue:#1840ED; --link:#8FA5FF;
+    --red:#FF6A6A; --amber:#E9B44C; --green:#4CC38A; --purple:#B388FF; --slate:#9AA7BD;
+    --line:rgba(250,249,248,.09); --line2:rgba(250,249,248,.06);
+    --mut70:rgba(250,249,248,.7); --mut55:rgba(250,249,248,.55); --mut42:rgba(250,249,248,.42);
+    --mut34:rgba(250,249,248,.34); --mut26:rgba(250,249,248,.26);
+    --mono:"Geist Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
   }
   *{box-sizing:border-box}
-  body{margin:0;background:var(--bg);color:var(--text);
-       font:14px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,sans-serif}
-  .wrap{max-width:1180px;margin:0 auto;padding:28px 24px 120px}
-  header{display:flex;align-items:center;gap:14px;margin-bottom:6px}
-  .radar-ico{width:38px;height:38px;border-radius:50%;position:relative;flex:none;
-    border:1px solid var(--line);
-    background:radial-gradient(circle,transparent 0 30%,rgba(56,189,248,.08) 31% 32%,transparent 33% 62%,rgba(56,189,248,.08) 63% 64%,transparent 65%);}
-  .radar-ico::after{content:"";position:absolute;inset:0;border-radius:50%;
-    background:conic-gradient(from 0deg,rgba(56,189,248,.55),transparent 70deg);
-    animation:spin 2.4s linear infinite paused}
-  .scanning .radar-ico::after{animation-play-state:running}
-  @keyframes spin{to{transform:rotate(360deg)}}
-  h1{font-size:22px;margin:0;letter-spacing:.04em}
-  h1 b{color:var(--accent);font-weight:700}
-  .tag{color:var(--muted);margin:0 0 22px 52px;font-size:13px}
-  .controls{display:flex;gap:10px;flex-wrap:wrap;align-items:center;
-    background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px}
-  .controls input[type=text]{flex:1;min-width:240px;background:var(--panel2);color:var(--text);
-    border:1px solid var(--line);border-radius:8px;padding:10px 12px;font-size:15px}
-  .controls input[type=text]:focus{outline:none;border-color:var(--accent)}
-  .controls input.fullrow{flex-basis:100%;font-size:13px}
-  .controls label{color:var(--muted);font-size:12px;display:flex;align-items:center;gap:8px}
-  .controls input[type=range]{accent-color:var(--accent);width:110px}
-  button{background:var(--accent);color:#06222f;border:0;border-radius:8px;
-    padding:10px 20px;font-size:14px;font-weight:700;cursor:pointer}
-  button:hover{filter:brightness(1.1)}
-  button:disabled{opacity:.45;cursor:default}
-  button.ghost{background:transparent;color:var(--accent);border:1px solid var(--accent)}
-  button.subtle{background:transparent;color:var(--muted);border:1px solid var(--line);font-weight:600}
-  button.subtle.haskey{color:var(--accent);border-color:rgba(56,189,248,.5)}
-  .keypanel{display:none;background:var(--panel);border:1px solid var(--line);border-radius:12px;
-    padding:14px;margin-top:10px;flex-wrap:wrap;gap:10px;align-items:center}
-  .keypanel.open{display:flex}
-  .keypanel input{flex:1;min-width:260px;background:var(--panel2);color:var(--text);
-    border:1px solid var(--line);border-radius:8px;padding:9px 12px;
-    font:13px ui-monospace,SFMono-Regular,Menlo,monospace}
-  .keypanel input:focus{outline:none;border-color:var(--accent)}
-  .keymsg{font-size:12.5px;min-width:140px}
-  .keymsg.ok{color:var(--green)} .keymsg.bad{color:var(--red)}
-  .keyhint{flex-basis:100%;color:var(--muted);font-size:11.5px}
-  .status{margin:14px 2px;color:var(--accent);font-size:13px;min-height:20px;
-    font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
-  .status .dim{color:var(--muted)}
-  .banner{border-radius:10px;padding:12px 16px;margin:12px 0;font-size:13px;display:none}
-  .banner.err{background:rgba(255,92,92,.1);border:1px solid rgba(255,92,92,.4);color:#ffb4b4}
-  .banner.warn{background:rgba(245,166,35,.08);border:1px solid rgba(245,166,35,.35);color:#ffd48a}
-  .banner.info{background:rgba(56,189,248,.08);border:1px solid rgba(56,189,248,.3);color:#a5dcf5}
+  body{margin:0;background:radial-gradient(1200px 620px at 76% -8%,rgba(24,64,237,.16),transparent 62%),var(--bg);
+       color:var(--text);font:400 14px/1.55 Geist,"Helvetica Neue",Helvetica,Arial,sans-serif;
+       -webkit-font-smoothing:antialiased;padding-bottom:96px}
+  a{color:var(--link);text-decoration:none}
+  a:hover{color:#B8C6FF;text-decoration:underline}
+  input,button{font-family:inherit}
+  ::selection{background:rgba(24,64,237,.45)}
+  *{scrollbar-width:thin;scrollbar-color:rgba(250,249,248,.2) transparent}
+  ::-webkit-scrollbar{width:10px;height:10px}
+  ::-webkit-scrollbar-track,::-webkit-scrollbar-corner{background:transparent}
+  ::-webkit-scrollbar-thumb{background:rgba(250,249,248,.16);background-clip:content-box;border:2px solid transparent;border-radius:6px}
+  @keyframes sweep{to{transform:rotate(360deg)}}
+  @keyframes breathe{50%{opacity:.35}}
+  @keyframes scanline{0%{transform:translateY(0);opacity:0}12%{opacity:1}88%{opacity:1}100%{transform:translateY(var(--h,420px));opacity:0}}
+  @media (prefers-reduced-motion:reduce){
+    .radar::after{animation:none !important}
+    .scanline{display:none !important}
+    .breathe{animation:none !important;opacity:.6}
+  }
+  .wrap{max-width:1240px;margin:0 auto;padding:0 40px}
 
-  .grid2{display:grid;grid-template-columns:1.15fr .85fr;gap:14px;margin-top:14px}
-  @media(max-width:880px){.grid2{grid-template-columns:1fr}}
-  .panel{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:16px;display:none}
-  .panel h2{margin:0 0 4px;font-size:15px}
-  .apipill{display:none;background:rgba(56,189,248,.08);color:var(--accent);
-    border:1px solid rgba(56,189,248,.4);border-radius:999px;padding:3px 11px;
-    font:500 11px ui-monospace,SFMono-Regular,Menlo,monospace;cursor:pointer;
-    margin:0 0 10px;letter-spacing:.02em}
-  .apipill:hover{background:rgba(56,189,248,.16);filter:none}
-  .modal-wrap{position:fixed;inset:0;background:rgba(4,8,12,.78);z-index:20;
-    display:none;align-items:center;justify-content:center;padding:24px}
-  .modal-wrap.open{display:flex}
-  .modal{background:var(--panel);border:1px solid var(--line);border-radius:14px;
-    max-width:820px;width:100%;max-height:84vh;display:flex;flex-direction:column}
-  .modal .mhead{display:flex;align-items:center;gap:12px;padding:16px 20px;
-    border-bottom:1px solid var(--line)}
-  .modal .mhead .ep{font:600 14px ui-monospace,Menlo,monospace;color:var(--accent)}
-  .modal .mhead .what{color:var(--muted);font-size:12.5px}
-  .modal .mhead button{margin-left:auto;padding:6px 14px;font-size:12px}
-  .modal .mhead .x{background:transparent;color:var(--muted);border:1px solid var(--line);
-    padding:6px 11px}
-  .modal pre{margin:0;padding:18px 20px;overflow:auto;font:12px/1.55 ui-monospace,Menlo,monospace;
-    color:#c9d4de;white-space:pre}
-  .modal pre .hdr{color:var(--muted)}
-  .modal .mfoot{padding:10px 20px;border-top:1px solid var(--line);color:var(--muted);
-    font-size:11.5px}
-  .panel .sub{color:var(--muted);font-size:12.5px;margin:0 0 10px}
-  .chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
-  .chip{background:var(--panel2);border:1px solid var(--line);color:var(--muted);
-    border-radius:999px;padding:3px 10px;font-size:11.5px}
-  .chip.cat{color:var(--accent);border-color:rgba(56,189,248,.4)}
-  .modes{margin:8px 0 0;padding-left:18px;color:var(--muted);font-size:12.5px}
-  .modes li{margin:3px 0}
-  .modes b{color:var(--text);font-weight:600}
+  /* header */
+  .top{display:flex;align-items:center;gap:14px;padding:26px 0 22px;border-bottom:1px solid rgba(250,249,248,.07)}
+  .radar{width:30px;height:30px;border-radius:50%;position:relative;flex:none;border:1px solid rgba(250,249,248,.14);
+    background:radial-gradient(circle,transparent 0 34%,rgba(143,165,255,.16) 35% 36%,transparent 37% 66%,rgba(143,165,255,.16) 67% 68%,transparent 69%)}
+  .radar::after{content:"";position:absolute;inset:-1px;border-radius:50%;
+    background:conic-gradient(from 0deg,rgba(24,64,237,.9),rgba(24,64,237,0) 74deg);
+    animation:sweep 2.2s linear infinite;animation-play-state:paused}
+  body.running .radar::after{animation-play-state:running}
+  .wordmark{font-size:15px;font-weight:500;letter-spacing:.14em}
+  .poweredby{margin-left:auto;display:flex;align-items:center;gap:7px;font-size:12.5px;color:var(--mut55);
+    border:1px solid rgba(250,249,248,.11);border-radius:999px;padding:6px 12px;transition:color .2s,border-color .2s}
+  .poweredby:hover{color:var(--link);border-color:rgba(24,64,237,.55);text-decoration:none}
+  .poweredby .dot{width:6px;height:6px;border-radius:50%;background:var(--blue);box-shadow:0 0 0 3px rgba(24,64,237,.22)}
+  .poweredby .arr{color:rgba(250,249,248,.32)}
 
-  .scorebar{display:none;gap:12px;margin:16px 0 4px;flex-wrap:wrap;align-items:center}
-  .stat{background:var(--panel);border:1px solid var(--line);border-radius:10px;
-    padding:8px 16px;text-align:center;min-width:92px}
-  .stat .n{font-size:20px;font-weight:800}
-  .stat .l{font-size:10.5px;letter-spacing:.08em;color:var(--muted);text-transform:uppercase}
-  .n.red{color:var(--red)}.n.amber{color:var(--amber)}.n.green{color:var(--green)}
-  .meta{color:var(--muted);font-size:12px;margin-left:auto;font-family:ui-monospace,Menlo,monospace}
+  /* hero */
+  .hero{padding:60px 0 40px}
+  .eyebrow{font:500 11px/1 var(--mono);letter-spacing:.18em;color:var(--link);margin-bottom:24px}
+  h1{font-size:clamp(40px,5vw,68px);line-height:1.02;letter-spacing:-.038em;font-weight:500;margin:0 0 22px;max-width:22ch;text-wrap:pretty}
+  .lede{font-size:17px;line-height:1.5;color:rgba(250,249,248,.62);margin:0;max-width:82ch;text-wrap:pretty}
 
-  .cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:12px;margin-top:14px}
-  .card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px;
-    transition:border-color .3s}
-  .card.at_risk{border-color:rgba(255,92,92,.55)}
-  .card.watch{border-color:rgba(245,166,35,.45)}
-  .card .head{display:flex;align-items:center;gap:10px}
-  .card img{width:22px;height:22px;border-radius:5px;background:#fff2}
-  .card .nm{font-weight:700;font-size:14.5px}
-  .card .dm{color:var(--muted);font-size:11.5px;font-family:ui-monospace,Menlo,monospace}
-  .badge{margin-left:auto;font-size:10.5px;font-weight:800;letter-spacing:.06em;
-    border-radius:6px;padding:3px 9px;flex:none}
-  .badge.at_risk{background:rgba(255,92,92,.14);color:var(--red);border:1px solid rgba(255,92,92,.5)}
-  .badge.watch{background:rgba(245,166,35,.12);color:var(--amber);border:1px solid rgba(245,166,35,.45)}
-  .badge.healthy{background:rgba(47,208,127,.1);color:var(--green);border:1px solid rgba(47,208,127,.4)}
-  .badge.scanning{background:var(--panel2);color:var(--muted);border:1px solid var(--line);
-    animation:pulse 1.2s ease-in-out infinite}
-  @keyframes pulse{50%{opacity:.4}}
-  .why{color:var(--muted);font-size:12px;margin:8px 0 0;font-style:italic}
-  .ev{border-top:1px solid var(--line);margin-top:10px;padding-top:9px}
-  .ev .top{display:flex;gap:6px;align-items:center;flex-wrap:wrap;font-size:11px;color:var(--muted)}
-  .lane{border-radius:5px;padding:2px 7px;font-size:10px;font-weight:700;letter-spacing:.04em}
-  .lane.competitor_adoption{background:rgba(255,92,92,.13);color:var(--red)}
-  .lane.in_house_build{background:rgba(179,136,255,.13);color:var(--purple)}
-  .lane.hiring_to_replace{background:rgba(56,189,248,.12);color:var(--accent)}
-  .lane.shopping_around{background:rgba(245,166,35,.12);color:var(--amber)}
-  .lane.budget_distress{background:rgba(139,152,165,.15);color:var(--muted)}
-  .flag{background:rgba(47,208,127,.1);color:var(--green);border-radius:5px;padding:2px 7px;
-    font-size:10px;font-weight:700;cursor:help}
-  .ev .txt{font-size:12.5px;margin:5px 0 2px;color:#c9d4de}
-  .ev a{color:var(--accent);text-decoration:none;font-size:11.5px;word-break:break-all}
-  .ev a:hover{text-decoration:underline}
-  .quiet{color:var(--muted);font-size:12.5px;margin-top:10px;border-top:1px solid var(--line);padding-top:9px}
+  /* controls grid */
+  .controls{display:grid;grid-template-columns:.95fr 1.05fr;gap:22px;padding:0 0 4px;align-items:stretch}
+  @media(max-width:980px){.controls{grid-template-columns:1fr}}
+  .card{border:1px solid rgba(250,249,248,.1);border-radius:14px;background:var(--panel)}
+  .sweepcard{padding:26px;display:flex;flex-direction:column;gap:20px}
+  .cardlabel{font:500 10.5px/1 var(--mono);letter-spacing:.16em;color:var(--mut42)}
+  .fieldlabel{font:400 10.5px/1 var(--mono);letter-spacing:.12em;color:rgba(250,249,248,.4)}
+  .fieldrow{display:flex;align-items:center;gap:10px;margin-bottom:9px}
+  .exchips{margin-left:auto;display:flex;gap:6px}
+  .exchip{background:transparent;border:1px solid rgba(250,249,248,.11);color:var(--mut42);border-radius:999px;
+    padding:4px 9px;font:400 10.5px/1 var(--mono);cursor:pointer;transition:color .2s,border-color .2s}
+  .exchip:hover{color:var(--link);border-color:rgba(24,64,237,.55)}
+  .urlwrap{position:relative}
+  .urlwrap .scheme{position:absolute;left:16px;top:50%;transform:translateY(-50%);pointer-events:none;
+    font:400 17px/1 var(--mono);color:rgba(250,249,248,.24)}
+  #url{width:100%;background:var(--ink);color:var(--text);border:1px solid rgba(250,249,248,.14);border-radius:9px;
+    padding:14px 15px 14px 97px;font:400 17px/1.2 var(--mono);letter-spacing:-.01em;outline:none}
+  #url:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(24,64,237,.2)}
+  #custlist{width:100%;background:var(--ink);color:var(--text);border:1px solid rgba(250,249,248,.12);border-radius:9px;
+    padding:12px 15px;font-size:13.5px;outline:none}
+  #custlist:focus{border-color:var(--blue)}
+  .hint{margin-top:8px;font-size:12px;line-height:1.5;color:rgba(250,249,248,.36)}
+  .optional{font-size:11.5px;color:rgba(250,249,248,.28)}
+  .sliderrow{display:flex;align-items:center;gap:12px}
+  .sliderrow .lbl{font:400 11.5px/1 var(--mono);letter-spacing:.08em;color:var(--mut42);white-space:nowrap}
+  .sliderrow input{flex:1;accent-color:var(--blue);height:4px}
+  .sliderrow .val{font:500 14px/1 var(--mono);min-width:22px;text-align:right}
+  .scanrow{display:flex;gap:10px}
+  #goBtn{flex:1;background:var(--blue);color:#fff;border:0;border-radius:9px;padding:13px 22px;font-size:14px;
+    font-weight:500;letter-spacing:.01em;white-space:nowrap;cursor:pointer;transition:filter .2s}
+  #goBtn:hover{filter:brightness(1.14)}
+  #goBtn:disabled{opacity:.5;cursor:default;filter:none}
+  #keyBtn{background:transparent;color:var(--mut55);border:1px solid rgba(250,249,248,.14);border-radius:9px;
+    padding:13px 18px;font-size:13.5px;white-space:nowrap;cursor:pointer}
+  #keyBtn.haskey{color:var(--link);border-color:rgba(24,64,237,.5)}
+  .keypanel{display:none;padding-top:20px;border-top:1px solid var(--line)}
+  .keypanel.open{display:block}
+  .keyrow{display:flex;gap:8px;flex-wrap:wrap}
+  #keyInput{flex:1;min-width:180px;background:var(--ink);color:var(--text);border:1px solid rgba(250,249,248,.14);
+    border-radius:8px;padding:10px 12px;font:400 12.5px/1.2 var(--mono);outline:none}
+  #keyInput:focus{border-color:var(--blue)}
+  .keybtn{background:rgba(24,64,237,.16);color:var(--link);border:1px solid rgba(24,64,237,.5);border-radius:8px;
+    padding:10px 14px;font-size:12.5px;cursor:pointer;white-space:nowrap}
+  .keybtn.ghost{background:transparent;color:var(--mut42);border-color:rgba(250,249,248,.14)}
+  #keyMsg{margin-top:10px;font-size:12px;color:rgba(250,249,248,.5)}
+  #keyMsg.ok{color:var(--green)} #keyMsg.bad{color:var(--red)}
+  .keyhint{margin-top:6px;font-size:11.5px;line-height:1.5;color:var(--mut34)}
+  .runcost{padding-top:20px;border-top:1px solid rgba(250,249,248,.08);font:400 11.5px/1.6 var(--mono);color:rgba(250,249,248,.32)}
 
-  .console-toggle{position:fixed;bottom:0;left:0;right:0;background:var(--panel2);
-    border-top:1px solid var(--line);padding:7px 24px;font-family:ui-monospace,Menlo,monospace;
-    font-size:11.5px;color:var(--muted);cursor:pointer;display:flex;gap:16px;z-index:5}
-  .console-toggle:hover{color:var(--text)}
-  .console-toggle .k{color:var(--accent)}
-  .console{position:fixed;bottom:34px;left:0;right:0;height:230px;overflow-y:auto;
-    background:#070b10;border-top:1px solid var(--line);padding:10px 24px;display:none;z-index:5;
-    font-family:ui-monospace,Menlo,monospace;font-size:11px;color:#9fb0be}
-  .console div{white-space:nowrap}
-  .console .ep{color:var(--accent)} .console .err{color:var(--red)} .console .c{color:var(--green)}
+  /* signal editor */
+  .sigcard{overflow:hidden;background:linear-gradient(180deg,rgba(24,64,237,.09),rgba(24,64,237,0));display:flex;flex-direction:column}
+  .sighead{display:flex;align-items:baseline;gap:12px;padding:22px 22px 14px}
+  .sighead .sum{margin-left:auto;font:400 10.5px/1 var(--mono);color:var(--mut26)}
+  .sigrow{display:grid;grid-template-columns:13px 1fr auto 24px;align-items:start;gap:10px;
+    padding:11px 18px 11px 22px;border-top:1px solid var(--line2)}
+  .sigswatch{width:11px;height:11px;margin-top:7px;padding:0;border:0;border-radius:2px;cursor:pointer}
+  .siglabel{width:100%;margin-left:-7px;background:transparent;border:1px solid transparent;border-radius:5px;
+    padding:3px 7px;font:500 10.5px/1.5 var(--mono);letter-spacing:.1em;outline:none;transition:border-color .2s}
+  .siglabel:hover{border-color:rgba(250,249,248,.16)}
+  .siglabel:focus{border-color:var(--blue);background:var(--ink)}
+  .sigdesc{width:100%;margin:1px 0 0 -7px;background:transparent;border:1px solid transparent;border-radius:5px;
+    padding:3px 7px;font-size:13px;line-height:1.45;color:rgba(250,249,248,.6);outline:none;transition:border-color .2s}
+  .sigdesc:hover{border-color:rgba(250,249,248,.16)}
+  .sigdesc:focus{border-color:var(--blue);background:var(--ink);color:var(--text)}
+  .stepper{display:flex;align-items:center;gap:1px;margin-top:4px}
+  .stepper button{width:20px;height:20px;padding:0;background:transparent;border:1px solid rgba(250,249,248,.1);
+    color:rgba(250,249,248,.45);font-size:12px;line-height:1;cursor:pointer;transition:color .2s,border-color .2s}
+  .stepper button:hover{color:var(--text);border-color:rgba(250,249,248,.3)}
+  .stepper .dn{border-radius:5px 0 0 5px}.stepper .up{border-radius:0 5px 5px 0}
+  .stepper .w{min-width:34px;text-align:center;font:400 11.5px/20px var(--mono);color:rgba(250,249,248,.62)}
+  .sigx{width:22px;height:22px;margin-top:3px;padding:0;background:transparent;border:1px solid transparent;
+    border-radius:5px;color:rgba(250,249,248,.28);font-size:11px;line-height:1;cursor:pointer;transition:color .2s,border-color .2s}
+  .sigx:hover{color:var(--red);border-color:rgba(255,106,106,.4)}
+  .sigfoot{display:flex;align-items:center;gap:10px;padding:12px 18px 12px 22px;border-top:1px solid var(--line2)}
+  .addsig{background:rgba(24,64,237,.14);color:var(--link);border:1px dashed rgba(24,64,237,.5);border-radius:6px;
+    padding:7px 12px;font:400 11px/1 var(--mono);letter-spacing:.06em;cursor:pointer;transition:background .2s}
+  .addsig:hover{background:rgba(24,64,237,.26)}
+  .resetsig{margin-left:auto;background:transparent;color:rgba(250,249,248,.32);border:0;padding:7px 2px;
+    font:400 11px/1 var(--mono);letter-spacing:.06em;cursor:pointer;transition:color .2s}
+  .resetsig:hover{color:var(--mut70)}
+  .signote{padding:15px 24px;border-top:1px solid var(--line);background:rgba(6,8,15,.45);
+    font-size:12.5px;line-height:1.5;color:rgba(250,249,248,.45)}
+
+  /* profile + competitive */
+  .panels{display:grid;grid-template-columns:1.15fr .85fr;gap:18px;padding:40px 0 0}
+  @media(max-width:980px){.panels{grid-template-columns:1fr}}
+  .panel{position:relative;border:1px solid var(--line);border-radius:12px;background:var(--panel);padding:22px 24px;display:none}
+  .panel h3{margin:0 0 6px;font-size:17px;font-weight:500;letter-spacing:-.015em}
+  .panel .pl{margin:0 0 14px;font-size:13px;line-height:1.55;color:var(--mut55);max-width:64ch}
+  .apipill{position:absolute;top:18px;right:18px;background:rgba(24,64,237,.12);color:var(--link);
+    border:1px solid rgba(24,64,237,.42);border-radius:999px;padding:5px 12px;
+    font:400 11px/1 var(--mono);letter-spacing:.08em;cursor:pointer}
+  .apipill:hover{background:rgba(24,64,237,.22)}
+  .chips{display:flex;flex-wrap:wrap;gap:7px}
+  .chip{border:1px solid rgba(250,249,248,.12);color:var(--mut70);border-radius:999px;padding:4px 11px;font-size:11.5px}
+  .chip.cat{border-color:rgba(24,64,237,.42);color:var(--link)}
+  .chip.dim{color:rgba(250,249,248,.45)}
+  .chip .cd{font:400 10.5px/1 var(--mono);color:var(--mut34)}
+  .modehead{margin:20px 0 9px;font:400 10.5px/1 var(--mono);letter-spacing:.14em;color:rgba(250,249,248,.38)}
+  .mode{display:grid;grid-template-columns:18px 1fr;gap:8px;font-size:13px;line-height:1.5;color:rgba(250,249,248,.6);margin-bottom:8px}
+  .mode .n{color:rgba(24,64,237,.9);font:400 11px/1.7 var(--mono)}
+
+  /* scoreboard strip */
+  .strip{display:flex;align-items:flex-end;gap:40px;margin-top:44px;padding:0 0 20px;
+    border-bottom:1px solid rgba(250,249,248,.07);flex-wrap:wrap}
+  .strip .status{flex:1;min-width:260px}
+  #statusText{font:400 12.5px/1.4 var(--mono);color:var(--link);min-height:17px}
+  #statusSub{margin-top:6px;font-size:12.5px;color:rgba(250,249,248,.38);min-height:17px}
+  #warnLine{margin-top:6px;font-size:12px;color:var(--amber);display:none}
+  .tally{display:flex;gap:34px;align-items:flex-end}
+  .tally .n{font:500 34px/1 var(--mono);letter-spacing:-.03em;transition:color .3s}
+  .tally .l{margin-top:7px;font:400 10px/1 var(--mono);letter-spacing:.14em;color:rgba(250,249,248,.4)}
+  .tally>div{text-align:right}
+  .meta{text-align:right;padding-left:20px;border-left:1px solid var(--line);
+    font:400 12.5px/1.5 var(--mono);color:rgba(250,249,248,.5);white-space:pre-line}
+
+  /* risk board */
+  .boardsec{padding:26px 0 0}
+  .boardhead{display:flex;align-items:flex-end;gap:28px;flex-wrap:wrap;margin-bottom:20px}
+  .boardhead h2{font-size:26px;font-weight:500;letter-spacing:-.02em;margin:0 0 7px}
+  .boardhead p{margin:0;font-size:13.5px;color:rgba(250,249,248,.48);max-width:56ch}
+  .legend{margin-left:auto;display:flex;gap:14px;flex-wrap:wrap}
+  .legend span{display:flex;align-items:center;gap:7px;font:400 11px/1 var(--mono);letter-spacing:.06em;color:var(--mut42)}
+  .legend .sw{width:9px;height:9px;border-radius:2px}
+  .board{position:relative;border:1px solid var(--line);border-radius:12px;overflow:hidden;background:var(--deep)}
+  .scanline{position:absolute;left:0;right:0;top:0;height:2px;z-index:2;pointer-events:none;display:none;
+    background:linear-gradient(90deg,transparent,rgba(24,64,237,.85),transparent);
+    animation:scanline 2.4s cubic-bezier(.4,0,.6,1) infinite}
+  body.running .scanline{display:block}
+  .brow{display:grid;align-items:center;padding:0 18px}
+  .bhead{height:44px;border-bottom:1px solid var(--line);background:var(--panel)}
+  .bhead .h{font:400 10px/1 var(--mono);letter-spacing:.14em;color:rgba(250,249,248,.35)}
+  .bhead .h.c{text-align:center;letter-spacing:.1em}
+  .bhead .h.r{text-align:right}
+  .acctrow{height:56px;border-bottom:1px solid rgba(250,249,248,.055);cursor:pointer;transition:background .25s}
+  .acctrow:hover{background:rgba(250,249,248,.035) !important}
+  .acct{display:flex;align-items:center;gap:11px;min-width:0}
+  .fav{width:20px;height:20px;border-radius:4px;flex:none;background-color:rgba(250,249,248,.07);background-size:cover}
+  .acct .nm{font-size:13.5px;font-weight:500;letter-spacing:-.008em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .acct .dm{font:400 11px/1.3 var(--mono);color:var(--mut34);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .cell{margin:0 5px;height:26px;border-radius:5px;display:flex;align-items:center;justify-content:center;
+    border:1px solid transparent;font:500 11px/1 var(--mono);transition:background .4s,border-color .4s}
+  .verdictcol{text-align:right}
+  .badge{display:inline-flex;align-items:center;gap:8px;font:500 10.5px/1 var(--mono);letter-spacing:.1em;
+    padding:6px 10px;border-radius:6px;border:1px solid rgba(250,249,248,.1);
+    background:rgba(250,249,248,.05);color:rgba(250,249,248,.4)}
+  .empty{padding:48px 24px;text-align:center;font-size:13px;color:var(--mut34)}
+
+  /* detail */
+  .detail{margin-top:26px;border:1px solid var(--line);border-radius:12px;background:var(--panel);overflow:hidden;display:none}
+  .dethead{padding:22px 24px;border-bottom:1px solid rgba(250,249,248,.08);display:flex;align-items:flex-start;gap:16px;flex-wrap:wrap}
+  .dethead .left{flex:1;min-width:260px}
+  .dethead .idrow{display:flex;align-items:center;gap:11px}
+  .dethead .fav{width:22px;height:22px;border-radius:5px}
+  .dethead h3{margin:0;font-size:19px;font-weight:500;letter-spacing:-.015em}
+  .dethead .why{margin:11px 0 0;font-size:13px;line-height:1.5;color:rgba(250,249,248,.5);max-width:74ch}
+  .dethead .cnt{font:400 11.5px/1.6 var(--mono);color:var(--mut34);text-align:right}
+  .evrow{display:grid;grid-template-columns:214px 1fr;gap:26px;padding:20px 24px;border-bottom:1px solid rgba(250,249,248,.055)}
+  @media(max-width:760px){.evrow{grid-template-columns:1fr;gap:10px}}
+  .lanechip{display:inline-block;font:500 10px/1 var(--mono);letter-spacing:.1em;padding:5px 9px;border-radius:5px}
+  .evmeta{margin-top:11px;font:400 11.5px/1.7 var(--mono);color:rgba(250,249,248,.38)}
+  .vflag{margin-top:9px;display:inline-block;font:500 10px/1.4 var(--mono);letter-spacing:.06em;padding:5px 8px;
+    border-radius:5px;background:rgba(76,195,138,.1);color:var(--green);border:1px solid rgba(76,195,138,.3);cursor:help}
+  .evtxt{margin:0 0 9px;font-size:14px;line-height:1.55;color:rgba(250,249,248,.82);text-wrap:pretty}
+  .evlink{font-size:12.5px;word-break:break-word}
+  .quiet{padding:24px;font-size:13.5px;line-height:1.6;color:rgba(250,249,248,.45);max-width:70ch}
+
+  .foot{padding:44px 0 0;display:flex;align-items:center;gap:10px;font-size:12.5px;color:rgba(250,249,248,.3)}
+  .foot .dot{width:6px;height:6px;border-radius:50%;background:var(--blue)}
+
+  /* API modal */
+  .mwrap{position:fixed;inset:0;background:rgba(3,5,10,.82);z-index:20;display:none;align-items:center;justify-content:center;padding:28px}
+  .mwrap.open{display:flex}
+  .modal{background:var(--panel);border:1px solid rgba(250,249,248,.13);border-radius:16px;max-width:800px;width:100%;
+    max-height:86vh;display:flex;flex-direction:column;box-shadow:0 40px 90px -20px rgba(0,0,0,.8)}
+  .mhead{display:flex;align-items:flex-start;gap:20px;padding:24px 26px 20px}
+  .mhead .eyeb{font:400 10px/1 var(--mono);letter-spacing:.18em;color:var(--mut34);margin-bottom:12px}
+  .mhead .reqline{display:flex;align-items:baseline;gap:9px;flex-wrap:wrap}
+  .mhead .method{font:500 10.5px/1 var(--mono);letter-spacing:.1em;color:#fff;background:var(--blue);border-radius:4px;padding:5px 7px}
+  .mhead .host{font:400 16px/1.2 var(--mono);letter-spacing:-.01em;color:rgba(250,249,248,.4)}
+  .mhead .host b{color:var(--text);font-weight:400}
+  .mhead .what{margin:12px 0 0;font-size:13px;line-height:1.5;color:rgba(250,249,248,.5);max-width:60ch}
+  .mclose{flex:none;width:30px;height:30px;background:transparent;color:rgba(250,249,248,.4);
+    border:1px solid rgba(250,249,248,.12);border-radius:8px;font-size:12px;line-height:1;cursor:pointer;transition:color .2s,border-color .2s}
+  .mclose:hover{color:var(--text);border-color:rgba(250,249,248,.3)}
+  .mbar{margin:0 26px;display:flex;align-items:center;gap:10px;padding:9px 14px;border:1px solid rgba(250,249,248,.08);
+    border-bottom:0;border-radius:10px 10px 0 0;background:var(--ink);font:400 11px/1 var(--mono);color:rgba(250,249,248,.32)}
+  .mbar .sep{color:rgba(250,249,248,.16)}
+  .mcopy{margin-left:auto;background:transparent;color:var(--link);border:1px solid rgba(24,64,237,.42);border-radius:6px;
+    padding:5px 10px;font:400 10.5px/1 var(--mono);letter-spacing:.06em;cursor:pointer;white-space:nowrap;transition:background .2s}
+  .mcopy:hover{background:rgba(24,64,237,.18)}
+  #mBody{margin:0 26px;padding:18px 20px;overflow:auto;border:1px solid rgba(250,249,248,.08);border-radius:0 0 10px 10px;
+    background:var(--ink);font:400 12px/1.75 var(--mono);color:rgba(250,249,248,.72);white-space:pre;tab-size:2}
+  .mfoot{padding:18px 26px 22px;display:flex;align-items:center;gap:12px;font-size:12px;line-height:1.5;color:var(--mut34)}
+  .mfoot .esc{margin-left:auto;font:400 10.5px/1 var(--mono);letter-spacing:.08em;color:var(--mut26);white-space:nowrap}
+
+  /* console */
+  .console{position:fixed;bottom:36px;left:0;right:0;height:224px;overflow-y:auto;background:#04060C;
+    border-top:1px solid rgba(250,249,248,.1);padding:12px 40px 14px;z-index:5;display:none;
+    font:400 11.5px/1.85 var(--mono);color:var(--mut55)}
+  .console.open{display:block}
+  .console div{white-space:nowrap;display:flex;gap:12px}
+  .console .ep{color:var(--link)} .console .tgt{color:rgba(250,249,248,.3)}
+  .console .cost{margin-left:auto;color:var(--green)} .console .err{margin-left:auto;color:var(--red)}
+  .drawer{position:fixed;bottom:0;left:0;right:0;background:var(--panel);border-top:1px solid rgba(250,249,248,.1);
+    padding:10px 40px;font:400 11.5px/1.3 var(--mono);color:var(--mut42);cursor:pointer;display:flex;gap:18px;
+    align-items:center;z-index:6}
+  .drawer:hover{color:var(--mut70)}
+  .drawer .hl{color:var(--link)}
+  .drawer .stats{margin-left:auto}
 </style>
 </head>
 <body>
 <div class="wrap">
-  <header>
-    <div class="radar-ico"></div>
-    <h1>CHURN <b>RADAR</b></h1>
-  </header>
-  <p class="tag">Point it at any B2B company → it maps their documented customers and sweeps the live web for account-specific churn signals. Powered by Exa.</p>
+
+  <div class="top">
+    <div class="radar" aria-hidden="true"></div>
+    <div class="wordmark">CHURN RADAR</div>
+    <a class="poweredby" href="https://docs.exa.ai" target="_blank" rel="noopener" title="Read the Exa API docs">
+      <span class="dot"></span>Powered by Exa<span class="arr">↗</span></a>
+  </div>
+
+  <div class="hero">
+    <div class="eyebrow">CHURN RADAR FOR CS TEAMS</div>
+    <h1>Spot the churn your team would never think to search for.</h1>
+    <p class="lede">Your whole book, swept in under a minute. Churn Radar reads your accounts' engineering blogs,
+    careers pages, competitors' changelogs and the news — one lane per churn signal — and hands you a ranked
+    risk board with the receipts attached.</p>
+  </div>
 
   <div class="controls">
-    <input id="url" type="text" placeholder="Company domain — e.g. exa.ai" value="exa.ai"
-           onkeydown="if(event.key==='Enter')scan('live')">
-    <label>accounts <input id="maxc" type="range" min="5" max="20" value="15"
-           oninput="document.getElementById('maxcv').textContent=this.value">
-           <span id="maxcv">15</span></label>
-    <button id="goBtn" onclick="scan('live')">Scan live</button>
-    <button id="keyBtn" class="subtle" onclick="toggleKeyPanel()" title="Use your own Exa API key for live scans">🔑 API key</button>
-    <input id="custlist" type="text" class="fullrow"
-           placeholder="Optional — sweep your own accounts instead: comma-separated company names or domains"
-           onkeydown="if(event.key==='Enter')scan('live')">
+    <div class="card sweepcard">
+      <div class="cardlabel">RUN A SWEEP</div>
+      <div>
+        <div class="fieldrow">
+          <span class="fieldlabel">VENDOR DOMAIN</span>
+          <div class="exchips">
+            <button class="exchip" onclick="pickExample('exa.ai')">exa.ai</button>
+            <button class="exchip" onclick="pickExample('vercel.com')">vercel.com</button>
+            <button class="exchip" onclick="pickExample('cursor.com')">cursor.com</button>
+          </div>
+        </div>
+        <div class="urlwrap">
+          <span class="scheme">https://</span>
+          <input id="url" type="text" placeholder="exa.ai" value="exa.ai"
+                 onkeydown="if(event.key==='Enter')scan('live')">
+        </div>
+      </div>
+      <div>
+        <div class="fieldrow" style="margin-bottom:9px">
+          <span class="fieldlabel">YOUR ACCOUNTS</span><span class="optional">optional</span>
+        </div>
+        <input id="custlist" type="text" placeholder="HubSpot, monday.com, openrouter.ai"
+               onkeydown="if(event.key==='Enter')scan('live')">
+        <div class="hint">Paste the accounts you actually own. Leave it empty and we'll map the vendor's
+        publicly documented customers for you.</div>
+      </div>
+      <div class="sliderrow">
+        <span class="lbl">ACCOUNTS</span>
+        <input id="maxc" type="range" min="5" max="20" value="15"
+               oninput="document.getElementById('maxcv').textContent=this.value">
+        <span class="val" id="maxcv">15</span>
+      </div>
+      <div class="scanrow">
+        <button id="goBtn" onclick="scan('live')">Scan live</button>
+        <button id="keyBtn" onclick="toggleKeyPanel()" title="Use your own Exa API key for live scans">API key</button>
+      </div>
+      <div class="keypanel" id="keyPanel">
+        <div class="keyrow">
+          <input id="keyInput" type="password" placeholder="Your Exa API key" autocomplete="off"
+                 onkeydown="if(event.key==='Enter')saveKey()">
+          <button class="keybtn" onclick="saveKey()">Save &amp; test</button>
+          <button class="keybtn ghost" onclick="clearKey()">Clear</button>
+        </div>
+        <div id="keyMsg"></div>
+        <div class="keyhint">Stored in this browser only, sent only with your live scans, never logged.
+        With your own key the demo's hourly budget doesn't apply.</div>
+      </div>
+      <div class="runcost">Typical run · 15 accounts · ~50 Exa calls · ~40s · ~$0.55</div>
+    </div>
+
+    <div class="card sigcard">
+      <div class="sighead">
+        <span class="cardlabel">WHAT COUNTS AS A SIGNAL</span>
+        <span class="sum" id="sigSummary"></span>
+      </div>
+      <div style="flex:1" id="sigList"></div>
+      <div class="signote">Each hit scores lane weight × strength × recency, and an account's score is the sum
+      of its hits. The account has to be named in the page text, and red requires one strong recent signal.
+      A pile of weak ones only reaches watch.</div>
+    </div>
   </div>
 
-  <div class="keypanel" id="keyPanel">
-    <input id="keyInput" type="password" placeholder="Your Exa API key" autocomplete="off"
-           onkeydown="if(event.key==='Enter')saveKey()">
-    <button onclick="saveKey()">Save &amp; test</button>
-    <button class="ghost" onclick="clearKey()">Clear</button>
-    <span class="keymsg" id="keyMsg"></span>
-    <div class="keyhint">Stored only in this browser and sent only with your live scans — never logged.
-    With your own key the demo's hourly scan budget doesn't apply. Get a key at dashboard.exa.ai.</div>
-  </div>
-
-  <div class="status" id="status"></div>
-  <div class="banner err" id="err"></div>
-  <div class="banner warn" id="warn"></div>
-  <div class="banner info" id="info"></div>
-
-  <div class="grid2">
+  <div class="panels">
     <div class="panel" id="profilePanel">
-      <button class="apipill" id="apiPillProfile" onclick="showApi('profile')"
-              title="See the exact Exa API call that produced this panel">{ } POST /answer</button>
-      <h2 id="pName"></h2>
-      <p class="sub" id="pLine"></p>
+      <button class="apipill" onclick="showApi('profile')" title="See the exact Exa API call that produced this panel · POST /answer">API</button>
+      <h3 id="pName"></h3>
+      <p class="pl" id="pLine"></p>
       <div class="chips" id="pChips"></div>
-      <p class="sub" style="margin:12px 0 0"><b style="color:var(--text)">What churn looks like for them:</b></p>
-      <ul class="modes" id="pModes"></ul>
+      <div class="modehead">WHAT CHURN LOOKS LIKE HERE</div>
+      <div id="pModes"></div>
     </div>
     <div class="panel" id="compPanel">
-      <button class="apipill" id="apiPillComp" onclick="showApi('competitors')"
-              title="See the exact Exa API call that produced this panel">{ } POST /findSimilar</button>
-      <h2>Competitive set</h2>
-      <p class="sub">Who we watch for this vendor's customers showing up somewhere else. ✦ = discovered by Exa findSimilar.</p>
+      <button class="apipill" onclick="showApi('competitors')" title="See the exact Exa API call that produced this panel · POST /findSimilar">API</button>
+      <h3>Competitive set</h3>
+      <p class="pl">The domains we watch for this vendor's customers turning up somewhere else. ✦ = discovered by findSimilar.</p>
       <div class="chips" id="pComps"></div>
     </div>
   </div>
 
-  <div class="scorebar" id="scorebar">
-    <div class="stat"><div class="n red" id="nRisk">0</div><div class="l">At risk</div></div>
-    <div class="stat"><div class="n amber" id="nWatch">0</div><div class="l">Watch</div></div>
-    <div class="stat"><div class="n green" id="nOk">0</div><div class="l">Healthy</div></div>
-    <div class="meta" id="runMeta"></div>
+  <div class="strip">
+    <div class="status">
+      <div id="statusText"></div>
+      <div id="statusSub">Point it at a vendor and hit Scan live — or sweep your own account list.</div>
+      <div id="warnLine"></div>
+    </div>
+    <div class="tally">
+      <div><div class="n" style="color:var(--red)" id="nRisk">0</div><div class="l">AT RISK</div></div>
+      <div><div class="n" style="color:var(--amber)" id="nWatch">0</div><div class="l">WATCH</div></div>
+      <div><div class="n" style="color:var(--green)" id="nOk">0</div><div class="l">HEALTHY</div></div>
+      <div class="meta" id="runMeta"></div>
+    </div>
   </div>
 
-  <div class="cards" id="cards"></div>
+  <div class="boardsec">
+    <div class="boardhead">
+      <div>
+        <h2>Account risk board</h2>
+        <p>Semantic lanes swept per account. A cell lights up only when dated evidence names the customer.
+        Intensity is the score it contributed.</p>
+      </div>
+      <div class="legend" id="legend"></div>
+    </div>
+    <div class="board" id="board">
+      <div class="scanline"></div>
+      <div class="brow bhead" id="boardHead" style="display:none"></div>
+      <div id="rows"></div>
+      <div class="empty" id="boardEmpty">No sweep yet — the board fills in live, lane by lane, as signals land.</div>
+    </div>
+    <div class="detail" id="detail"></div>
+  </div>
+
+  <div class="foot">
+    <span class="dot"></span>
+    <span>Every lane is an Exa semantic search. Every verdict traces to a dated URL.</span>
+  </div>
 </div>
 
-<div class="modal-wrap" id="modalWrap" onclick="if(event.target===this)closeApi()">
+<div class="mwrap" id="modalWrap" onclick="if(event.target===this)closeApi()">
   <div class="modal" role="dialog" aria-modal="true" aria-label="Exa API call">
     <div class="mhead">
-      <span class="ep" id="mEndpoint"></span>
-      <span class="what" id="mWhat"></span>
-      <button onclick="copyCurl()" id="mCopy">copy as curl</button>
-      <button class="x" onclick="closeApi()">✕</button>
+      <div style="flex:1;min-width:0">
+        <div class="eyeb">THE REQUEST THIS PANEL CAME FROM</div>
+        <div class="reqline">
+          <span class="method">POST</span>
+          <span class="host">https://api.exa.ai<b id="mPath"></b></span>
+        </div>
+        <p class="what" id="mWhat"></p>
+      </div>
+      <button class="mclose" onclick="closeApi()">✕</button>
+    </div>
+    <div class="mbar">
+      <span>x-api-key: ••••••••</span><span class="sep">|</span><span>content-type: application/json</span>
+      <button class="mcopy" id="mCopy" onclick="copyCurl()">copy as curl</button>
     </div>
     <pre id="mBody"></pre>
-    <div class="mfoot">This is the verbatim request this page sent to the Exa API — the schema doubles
-    as the prompt: Exa searches, reads, and returns JSON in exactly this shape.</div>
+    <div class="mfoot">
+      <span style="flex:1;max-width:62ch">The schema doubles as the prompt. Exa searches, reads, and returns JSON in exactly this shape.</span>
+      <span class="esc">ESC TO CLOSE</span>
+    </div>
   </div>
 </div>
 
 <div class="console" id="console"></div>
-<div class="console-toggle" onclick="toggleConsole()">
-  <span>▲ <span class="k">under the hood</span> — live Exa API calls</span>
-  <span id="callStats"></span>
+<div class="drawer" onclick="toggleConsole()">
+  <span><span id="drawerCaret">▲</span> <span class="hl">under the hood</span> · every Exa call, as it happens</span>
+  <span class="stats" id="callStats"></span>
 </div>
 
 <script>
 const $ = id => document.getElementById(id);
-let ctrl = null, cardsByDomain = {}, counts = {at_risk:0, watch:0, healthy:0};
-let callN = 0, costT = 0, consoleOpen = false;
-let apiCalls = null, currentApi = null;
+const esc = s => { const d = document.createElement('div'); d.textContent = s ?? ''; return d.innerHTML; };
+const fav = dom => `https://www.google.com/s2/favicons?domain=${encodeURIComponent(dom)}&sz=64`;
+const hexRgb = h => { const n = parseInt(h.slice(1), 16); return `${n>>16&255},${n>>8&255},${n&255}`; };
 
-// ---- "show me the API call" modal ----
-const API_WHAT = {
-  profile: 'this one call produced the vendor profile panel',
-  competitors: 'this call proposed the competitor candidates (each vetted by the schema summary)'
+const TIERS = {
+  at_risk: { bg: 'rgba(255,106,106,.13)', color: '#FF6A6A', border: 'rgba(255,106,106,.42)', label: 'AT RISK', rowBg: 'rgba(255,106,106,.035)' },
+  watch:   { bg: 'rgba(233,180,76,.12)',  color: '#E9B44C', border: 'rgba(233,180,76,.38)',  label: 'WATCH',   rowBg: 'transparent' },
+  healthy: { bg: 'rgba(76,195,138,.1)',   color: '#4CC38A', border: 'rgba(76,195,138,.32)',  label: 'HEALTHY', rowBg: 'transparent' }
 };
-function showApi(kind){
-  const c = apiCalls && apiCalls[kind];
-  if(!c) return;
-  currentApi = c;
-  $('mEndpoint').textContent = 'POST https://api.exa.ai' + c.endpoint;
-  $('mWhat').textContent = API_WHAT[kind] || '';
-  $('mBody').innerHTML = '<span class="hdr">x-api-key: ••••••••  ·  Content-Type: application/json</span>\n\n'
-    + esc(JSON.stringify(c.payload, null, 2));
-  $('mCopy').textContent = 'copy as curl';
-  $('modalWrap').classList.add('open');
-}
-function closeApi(){ $('modalWrap').classList.remove('open'); }
-addEventListener('keydown', e => { if(e.key === 'Escape') closeApi(); });
-async function copyCurl(){
-  if(!currentApi) return;
-  const body = JSON.stringify(currentApi.payload, null, 2).replace(/'/g, "'\\''");
-  const cmd = `curl -s https://api.exa.ai${currentApi.endpoint} \\\n  -H "x-api-key: $EXA_API_KEY" \\\n  -H "Content-Type: application/json" \\\n  -d '${body}'`;
-  try{ await navigator.clipboard.writeText(cmd); $('mCopy').textContent = 'copied ✓'; }
-  catch(e){ $('mCopy').textContent = 'copy failed'; }
-}
+const PALETTE = ['#FF6A6A', '#B388FF', '#8FA5FF', '#E9B44C', '#9AA7BD', '#4CC38A'];
+// mirror of the server's DEFAULT_SIGNALS — the server is the authority
+const DEFAULT_SIGNALS = [
+  { id: 'competitor_adoption', label: 'COMPETITOR ADOPTION', color: '#FF6A6A', weight: 3,
+    desc: "Your account named on a competitor's changelog, integration docs or case study." },
+  { id: 'in_house_build', label: 'BUILDING IN-HOUSE', color: '#B388FF', weight: 3,
+    desc: 'An engineering blog or talk about building the capability you sell them.' },
+  { id: 'hiring_to_replace', label: 'HIRING TO REPLACE', color: '#8FA5FF', weight: 2,
+    desc: 'A job posting whose responsibilities overlap your product.' },
+  { id: 'shopping_around', label: 'EVALUATING ALTERNATIVES', color: '#E9B44C', weight: 2,
+    desc: 'Benchmarks or comparisons of providers in your category.' },
+  { id: 'budget_distress', label: 'BUDGET / STRATEGY', color: '#9AA7BD', weight: 1.5,
+    desc: 'Layoffs, cost cuts, an acquisition or a pivot, inside an eight-month news window.' }
+];
 
-// ---- bring-your-own-key (kept in this browser only) ----
-function getKey(){ try{ return localStorage.getItem('exa_api_key') || '' }catch(e){ return '' } }
-function setStoredKey(v){ try{ v ? localStorage.setItem('exa_api_key', v)
-                                 : localStorage.removeItem('exa_api_key') }catch(e){} }
+// ------------------------------------------------------------- state
+let ctrl = null, lanes = [], laneById = {}, rows = new Map(), rowOrder = [];
+let counts = { at_risk: 0, watch: 0, healthy: 0 };
+let selected = null, apiCalls = null, currentApi = null;
+let callN = 0, costT = 0;
+
+// ------------------------------------------------------------- storage
+function lsGet(k){ try { return localStorage.getItem(k); } catch(e){ return null; } }
+function lsSet(k, v){ try { v === null ? localStorage.removeItem(k) : localStorage.setItem(k, v); } catch(e){} }
+
+// ------------------------------------------------------------- signal editor
+let signals;
+try { signals = JSON.parse(lsGet('churn_signals_v1')) || null; } catch(e){ signals = null; }
+if (!Array.isArray(signals) || !signals.length) signals = DEFAULT_SIGNALS.map(s => ({...s}));
+
+function persistSignals(){ lsSet('churn_signals_v1', JSON.stringify(signals)); renderSignals(); }
+function sigLabel(i, v){ signals[i].label = v.slice(0, 40); persistSignals(); }
+function sigDesc(i, v){ signals[i].desc = v.slice(0, 240); persistSignals(); }
+function sigWeight(i, d){ signals[i].weight = Math.min(5, Math.max(.5, Math.round((signals[i].weight + d) * 10) / 10)); persistSignals(); }
+function sigColor(i){ signals[i].color = PALETTE[(PALETTE.indexOf(signals[i].color) + 1) % PALETTE.length]; persistSignals(); }
+function sigRemove(i){ signals.splice(i, 1); persistSignals(); }
+function sigAdd(){
+  if (signals.length >= 8) return;
+  signals.push({ label: 'NEW SIGNAL', desc: 'Describe what qualifies as evidence for this lane.',
+                 color: PALETTE[signals.length % PALETTE.length], weight: 1 });
+  persistSignals();
+}
+function sigReset(){ signals = DEFAULT_SIGNALS.map(s => ({...s})); lsSet('churn_signals_v1', null); renderSignals(); }
+
+function renderSignals(){
+  $('sigSummary').textContent = signals.length + ' lanes swept per account';
+  $('sigList').innerHTML = signals.map((s, i) => `
+    <div class="sigrow">
+      <button class="sigswatch" style="background:${esc(s.color)}" title="Cycle the lane colour" onclick="sigColor(${i})"></button>
+      <div style="min-width:0">
+        <input class="siglabel" style="color:${esc(s.color)}" value="${esc(s.label)}" aria-label="Signal name"
+               onchange="sigLabel(${i}, this.value)">
+        <input class="sigdesc" value="${esc(s.desc)}" aria-label="What qualifies"
+               onchange="sigDesc(${i}, this.value)">
+      </div>
+      <div class="stepper">
+        <button class="dn" title="Lower the weight" onclick="sigWeight(${i}, -0.5)">−</button>
+        <span class="w">×${s.weight}</span>
+        <button class="up" title="Raise the weight" onclick="sigWeight(${i}, 0.5)">+</button>
+      </div>
+      <button class="sigx" title="Remove this signal" onclick="sigRemove(${i})">✕</button>
+    </div>`).join('') + `
+    <div class="sigfoot">
+      <button class="addsig" onclick="sigAdd()">+ ADD SIGNAL</button>
+      <button class="resetsig" onclick="sigReset()">RESET</button>
+    </div>`;
+}
+renderSignals();
+
+// ------------------------------------------------------------- BYOK
+function getKey(){ return lsGet('exa_api_key') || ''; }
 function updateKeyBtn(){
   const has = !!getKey();
-  $('keyBtn').textContent = has ? '🔑 your key' : '🔑 API key';
+  $('keyBtn').textContent = has ? 'Your key' : 'API key';
   $('keyBtn').classList.toggle('haskey', has);
 }
 function toggleKeyPanel(){
   $('keyPanel').classList.toggle('open');
-  if($('keyPanel').classList.contains('open')){ $('keyInput').value = getKey(); $('keyInput').focus(); }
+  if ($('keyPanel').classList.contains('open')){ $('keyInput').value = getKey(); $('keyInput').focus(); }
 }
 async function saveKey(){
-  const k = $('keyInput').value.trim();
-  const msg = $('keyMsg');
-  if(!k){ msg.textContent = 'Paste a key first.'; msg.className = 'keymsg bad'; return; }
-  setStoredKey(k); updateKeyBtn();
-  msg.textContent = 'testing…'; msg.className = 'keymsg';
-  try{
-    const r = await (await fetch('/api/key/check', {method:'POST',
-      headers:{'Content-Type':'application/json'}, body: JSON.stringify({key:k})})).json();
-    msg.textContent = r.ok ? '✓ key works — live scans now use it' : '✗ ' + r.error;
-    msg.className = 'keymsg ' + (r.ok ? 'ok' : 'bad');
-  }catch(e){ msg.textContent = 'saved (test failed to reach server)'; msg.className = 'keymsg'; }
+  const k = $('keyInput').value.trim(), msg = $('keyMsg');
+  if (!k){ msg.textContent = 'Paste a key first.'; msg.className = 'bad'; msg.id = 'keyMsg'; return; }
+  lsSet('exa_api_key', k); updateKeyBtn();
+  msg.textContent = 'testing…'; msg.className = '';
+  try {
+    const r = await (await fetch('/api/key/check', { method: 'POST',
+      headers: {'Content-Type': 'application/json'}, body: JSON.stringify({ key: k }) })).json();
+    msg.textContent = r.ok ? '✓ key works. Live scans will use it.' : '✗ ' + r.error;
+    msg.className = r.ok ? 'ok' : 'bad';
+  } catch(e){ msg.textContent = 'saved (test failed to reach server)'; msg.className = ''; }
 }
 function clearKey(){
-  setStoredKey(''); $('keyInput').value = '';
-  $('keyMsg').textContent = 'cleared — live scans use the demo key';
-  $('keyMsg').className = 'keymsg'; updateKeyBtn();
+  lsSet('exa_api_key', null); $('keyInput').value = '';
+  $('keyMsg').textContent = 'Cleared. Live scans use the demo key.'; $('keyMsg').className = '';
+  updateKeyBtn();
+}
+updateKeyBtn();
+
+// ------------------------------------------------------------- API modal
+const API_WHAT = {
+  profile: 'This one call produced the whole vendor profile — category, buyer, churn modes, competitors.',
+  competitors: 'This call proposed the competitor candidates, each vetted by a schema summary before joining the sweep.'
+};
+const JCOL = { key: '#8FA5FF', str: '#C9D2E8', num: '#E9B44C', kw: '#B388FF', punc: 'rgba(250,249,248,.26)', plain: 'rgba(250,249,248,.72)' };
+function tokenizeJson(src){
+  const re = /("(?:\\.|[^"\\])*")(\s*:)?|(-?\d+(?:\.\d+)?)|\b(true|false|null)\b|([{}\[\],])/g;
+  let out = '', last = 0, m;
+  const span = (s, c) => `<span style="color:${c}">${esc(s)}</span>`;
+  while ((m = re.exec(src))){
+    if (m.index > last) out += span(src.slice(last, m.index), JCOL.plain);
+    if (m[1] !== undefined){ out += span(m[1], m[2] ? JCOL.key : JCOL.str); if (m[2]) out += span(m[2], JCOL.punc); }
+    else if (m[3] !== undefined) out += span(m[3], JCOL.num);
+    else if (m[4] !== undefined) out += span(m[4], JCOL.kw);
+    else out += span(m[5], JCOL.punc);
+    last = re.lastIndex;
+  }
+  if (last < src.length) out += span(src.slice(last), JCOL.plain);
+  return out;
+}
+function showApi(kind){
+  const c = apiCalls && apiCalls[kind];
+  if (!c) return;
+  currentApi = c;
+  $('mPath').textContent = c.endpoint;
+  $('mWhat').textContent = API_WHAT[kind] || '';
+  $('mBody').innerHTML = tokenizeJson(JSON.stringify(c.payload, null, 2));
+  $('mCopy').textContent = 'copy as curl';
+  $('modalWrap').classList.add('open');
+}
+function closeApi(){ $('modalWrap').classList.remove('open'); }
+addEventListener('keydown', e => { if (e.key === 'Escape') closeApi(); });
+async function copyCurl(){
+  if (!currentApi) return;
+  const body = JSON.stringify(currentApi.payload, null, 2).replace(/'/g, "'\\''");
+  const cmd = `curl -s https://api.exa.ai${currentApi.endpoint} \\\n  -H "x-api-key: $EXA_API_KEY" \\\n  -H "Content-Type: application/json" \\\n  -d '${body}'`;
+  try { await navigator.clipboard.writeText(cmd); $('mCopy').textContent = 'copied ✓'; }
+  catch(e){ $('mCopy').textContent = 'copy failed'; }
 }
 
-// ---- SSE over fetch, so the key travels as a header, never in the URL ----
-async function streamScan(url, onEvent, signal){
-  const headers = {};
-  if(getKey()) headers['X-Exa-Key'] = getKey();
-  const resp = await fetch(url, {headers, signal});
+// ------------------------------------------------------------- console
+let consoleOpen = false;
+function toggleConsole(){
+  consoleOpen = !consoleOpen;
+  $('console').classList.toggle('open', consoleOpen);
+  $('drawerCaret').textContent = consoleOpen ? '▼' : '▲';
+}
+function logCall(ev){
+  callN++; costT += (ev.cost || 0);
+  $('callStats').textContent = `${callN} calls · $${costT.toFixed(3)}`;
+  const [laneId, target] = (ev.tag || '').includes(':') ? ev.tag.split(/:(.+)/) : [null, ev.tag];
+  const laneColor = laneId && laneById[laneId] ? laneById[laneId].color : 'rgba(250,249,248,.55)';
+  const line = document.createElement('div');
+  line.innerHTML = `<span class="ep">POST ${esc(ev.endpoint)}</span>`
+    + `<span style="color:${laneColor}">${esc(laneId || ev.tag || '')}</span>`
+    + `<span class="tgt">${esc(target || '')}</span>`
+    + (ev.error ? `<span class="err">✗ ${esc(ev.error)}</span>`
+                : `<span class="cost">$${(ev.cost || 0).toFixed(4)}</span>`);
+  const c = $('console'); c.appendChild(line); c.scrollTop = c.scrollHeight;
+}
+
+// ------------------------------------------------------------- board
+function gridCols(){ return `minmax(210px,1.5fr) repeat(${lanes.length || 5},minmax(78px,1fr)) 132px`; }
+
+function renderLanesChrome(){
+  laneById = {};
+  lanes.forEach(l => { l.rgb = hexRgb(l.color); laneById[l.id] = l; });
+  $('legend').innerHTML = lanes.map(l =>
+    `<span><span class="sw" style="background:${esc(l.color)}"></span>${esc(l.short)}</span>`).join('');
+  const head = $('boardHead');
+  head.style.display = 'grid';
+  head.style.gridTemplateColumns = gridCols();
+  head.innerHTML = `<div class="h">ACCOUNT</div>`
+    + lanes.map(l => `<div class="h c">${esc(l.short)}</div>`).join('')
+    + `<div class="h r">VERDICT</div>`;
+}
+
+function newRow(customer){
+  const el = document.createElement('div');
+  el.className = 'brow acctrow';
+  el.style.gridTemplateColumns = gridCols();
+  el.onclick = () => { selected = customer.domain; refreshSelection(); };
+  const row = { customer, el, cells: {}, evidence: [], resolved: false, tier: null, score: 0 };
+  rows.set(customer.domain, row);
+  rowOrder.push(customer.domain);
+  paintRow(row);
+  $('rows').appendChild(el);
+  return row;
+}
+
+function cellHtml(row, lane){
+  const g = row.cells[lane.id];
+  if (!g || !g.n){
+    if (!row.resolved) return `<div class="cell breathe" style="background:rgba(250,249,248,.045);color:transparent;animation:breathe 1.5s ease-in-out infinite">·</div>`;
+    return `<div class="cell" style="background:rgba(250,249,248,.028);color:rgba(250,249,248,.18)">·</div>`;
+  }
+  const a = 0.12 + Math.min(g.pts, 3.2) / 3.2 * 0.5;
+  const border = g.strong ? `rgba(${lane.rgb},.75)` : 'transparent';
+  return `<div class="cell" style="background:rgba(${lane.rgb},${a.toFixed(3)});border-color:${border};color:${lane.color}">${g.pts.toFixed(1)}</div>`;
+}
+
+function paintRow(row){
+  const t = row.resolved ? TIERS[row.tier] : null;
+  const isSel = selected === row.customer.domain;
+  row.el.style.background = isSel ? 'rgba(24,64,237,.1)' : (t ? t.rowBg : 'transparent');
+  row.el.style.boxShadow = isSel ? 'inset 2px 0 0 #1840ED' : 'none';
+  const badge = t
+    ? `<span class="badge" style="background:${t.bg};color:${t.color};border-color:${t.border}">${t.label}&nbsp;&nbsp;${row.score.toFixed(2)}</span>`
+    : `<span class="badge breathe" style="animation:breathe 1.4s ease-in-out infinite">SWEEPING</span>`;
+  row.el.innerHTML = `
+    <div class="acct">
+      <span class="fav" style="background-image:url('${fav(row.customer.domain)}');opacity:${row.resolved ? 1 : .35}"></span>
+      <div style="min-width:0">
+        <div class="nm">${esc(row.customer.name)}</div>
+        <div class="dm">${esc(row.customer.domain)}</div>
+      </div>
+    </div>`
+    + lanes.map(l => cellHtml(row, l)).join('')
+    + `<div class="verdictcol">${badge}</div>`;
+}
+
+function applySignal(ev){
+  const row = rows.get(ev.domain);
+  if (!row) return;
+  const g = row.cells[ev.lane] = row.cells[ev.lane] || { n: 0, pts: 0, strong: false };
+  for (const e of ev.evidence){
+    g.n++; g.pts += e.points || 0;
+    if (e.relevance === 'strong') g.strong = true;
+    row.evidence.push(e);
+  }
+  paintRow(row);
+  if (selected === ev.domain) renderDetail(row);
+}
+
+function applyVerdict(v){
+  const row = rows.get(v.customer.domain) || newRow(v.customer);
+  row.resolved = true; row.tier = v.tier; row.score = v.score;
+  row.evidence = v.evidence;
+  row.cells = {};
+  for (const e of v.evidence){
+    const g = row.cells[e.lane] = row.cells[e.lane] || { n: 0, pts: 0, strong: false };
+    g.n++; g.pts += e.points || 0;
+    if (e.relevance === 'strong') g.strong = true;
+  }
+  counts[v.tier]++;
+  $('nRisk').textContent = counts.at_risk; $('nWatch').textContent = counts.watch; $('nOk').textContent = counts.healthy;
+  paintRow(row);
+  if (selected === v.customer.domain) renderDetail(row);
+}
+
+function sortBoard(){
+  const order = [...rows.values()].sort((a, b) => b.score - a.score);
+  order.forEach(r => $('rows').appendChild(r.el));
+  if (!selected && order.length){ selected = order[0].customer.domain; }
+  refreshSelection();
+}
+
+function refreshSelection(){
+  rows.forEach(r => paintRow(r));
+  const row = selected && rows.get(selected);
+  if (row && row.resolved) renderDetail(row);
+  else $('detail').style.display = 'none';
+}
+
+function renderDetail(row){
+  const t = TIERS[row.tier] || {};
+  const evid = [...row.evidence].sort((a, b) => (b.points || 0) - (a.points || 0));
+  const evHtml = evid.map(e => {
+    const l = laneById[e.lane] || { rgb: '154,167,189', color: '#9AA7BD', label: e.lane_label || e.lane };
+    return `
+    <div class="evrow">
+      <div>
+        <span class="lanechip" style="background:rgba(${l.rgb},.14);color:${l.color}">${esc((l.label || '').toUpperCase())}</span>
+        <div class="evmeta">${esc([e.date || 'undated', e.source, '+' + e.points].join('  ·  '))}</div>
+        ${e.mentions_vendor ? `<div class="vflag" title="This page mentions the vendor itself, so it may describe an integration powered BY the vendor rather than a replacement. Verify before acting.">MENTIONS VENDOR — VERIFY</div>` : ''}
+      </div>
+      <div>
+        <p class="evtxt">${esc(e.evidence)}</p>
+        <a class="evlink" href="${esc(e.url)}" target="_blank" rel="noopener">${esc(e.title)} ↗</a>
+      </div>
+    </div>`;
+  }).join('');
+  $('detail').innerHTML = `
+    <div class="dethead">
+      <div class="left">
+        <div class="idrow">
+          <span class="fav" style="background-image:url('${fav(row.customer.domain)}')"></span>
+          <h3>${esc(row.customer.name)}</h3>
+          <span class="badge" style="background:${t.bg};color:${t.color};border-color:${t.border}">${t.label}&nbsp;&nbsp;${row.score.toFixed(2)}</span>
+        </div>
+        <p class="why">${esc(row.customer.evidence)}</p>
+      </div>
+      <div class="cnt">${evid.length ? evid.length + ' dated signals' : 'no signals'}</div>
+    </div>
+    ${evid.length ? evHtml : `<div class="quiet">No churn signals across all lanes. Quiet is good news, but it is absence of evidence, not proof of loyalty.</div>`}`;
+  $('detail').style.display = 'block';
+}
+
+// ------------------------------------------------------------- scan
+function pickExample(dom){ $('url').value = dom; }
+
+function setStatus(text, sub, color){
+  $('statusText').textContent = text; $('statusText').style.color = color || 'var(--link)';
+  $('statusSub').textContent = sub || '';
+}
+
+function reset(){
+  rows = new Map(); rowOrder = []; counts = { at_risk: 0, watch: 0, healthy: 0 };
+  selected = null; apiCalls = null; currentApi = null; callN = 0; costT = 0;
+  lanes = []; laneById = {};
+  closeApi();
+  $('rows').innerHTML = ''; $('console').innerHTML = ''; $('callStats').textContent = '';
+  $('boardHead').style.display = 'none'; $('boardEmpty').style.display = 'block';
+  $('detail').style.display = 'none';
+  $('legend').innerHTML = ''; $('pChips').innerHTML = ''; $('pModes').innerHTML = ''; $('pComps').innerHTML = '';
+  $('profilePanel').style.display = 'none'; $('compPanel').style.display = 'none';
+  $('nRisk').textContent = $('nWatch').textContent = $('nOk').textContent = '0';
+  $('runMeta').textContent = ''; $('warnLine').style.display = 'none';
+}
+
+async function streamScan(payload, onEvent, signal){
+  const headers = { 'Content-Type': 'application/json' };
+  if (getKey()) headers['X-Exa-Key'] = getKey();
+  const resp = await fetch('/api/scan', { method: 'POST', headers, body: JSON.stringify(payload), signal });
   const reader = resp.body.getReader();
   const dec = new TextDecoder();
   let buf = '';
-  for(;;){
-    const {done, value} = await reader.read();
-    if(done) break;
-    buf += dec.decode(value, {stream:true});
+  for (;;){
+    const { done, value } = await reader.read();
+    if (done) break;
+    buf += dec.decode(value, { stream: true });
     let i;
-    while((i = buf.indexOf('\n\n')) >= 0){
+    while ((i = buf.indexOf('\n\n')) >= 0){
       const chunk = buf.slice(0, i); buf = buf.slice(i + 2);
-      for(const line of chunk.split('\n'))
-        if(line.startsWith('data: ')) onEvent(JSON.parse(line.slice(6)));
+      for (const line of chunk.split('\n'))
+        if (line.startsWith('data: ')) onEvent(JSON.parse(line.slice(6)));
     }
   }
 }
 
-const LANE_NAMES = {
-  competitor_adoption:"COMPETITOR ADOPTION", in_house_build:"BUILDING IN-HOUSE",
-  hiring_to_replace:"HIRING TO REPLACE", shopping_around:"EVALUATING ALTERNATIVES",
-  budget_distress:"BUDGET / STRATEGY"};
-
-function esc(s){const d=document.createElement('div');d.textContent=s??'';return d.innerHTML}
-function fav(dom){return `https://www.google.com/s2/favicons?domain=${encodeURIComponent(dom)}&sz=64`}
-
-function toggleConsole(){consoleOpen=!consoleOpen;$('console').style.display=consoleOpen?'block':'none'}
-
-updateKeyBtn();
-
-// deep link: /?url=exa.ai&auto=live|cached[&customers=a,b] starts a scan on load
-const qp = new URLSearchParams(location.search);
-if(qp.get('url')) $('url').value = qp.get('url');
-if(qp.get('customers')) $('custlist').value = qp.get('customers');
-if(qp.get('auto')) window.addEventListener('load', ()=>scan(qp.get('auto')==='cached'?'cached':'live'));
-
-function reset(){
-  cardsByDomain={}; counts={at_risk:0,watch:0,healthy:0}; callN=0; costT=0;
-  apiCalls=null; currentApi=null; closeApi();
-  $('apiPillProfile').style.display='none'; $('apiPillComp').style.display='none';
-  $('cards').innerHTML=''; $('pChips').innerHTML=''; $('pModes').innerHTML=''; $('pComps').innerHTML='';
-  $('console').innerHTML='';
-  ['err','warn','info'].forEach(i=>{$(i).style.display='none'});
-  ['profilePanel','compPanel'].forEach(i=>{$(i).style.display='none'});
-  $('scorebar').style.display='none';
-  $('nRisk').textContent=$('nWatch').textContent=$('nOk').textContent='0';
-  $('runMeta').textContent=''; $('callStats').textContent='';
-}
-
 function scan(mode){
-  if(ctrl) ctrl.abort();
+  if (ctrl) ctrl.abort();
   reset();
-  document.body.classList.add('scanning');
-  $('goBtn').disabled=true;
-  const url = encodeURIComponent($('url').value.trim());
-  const maxc = $('maxc').value;
-  const cust = encodeURIComponent($('custlist').value.trim());
-  $('status').textContent = mode==='cached' ? '↺ replaying cached run…' : '⟲ starting scan…';
+  document.body.classList.add('running');
+  $('goBtn').disabled = true; $('goBtn').textContent = 'Sweeping…';
+  setStatus(mode === 'cached' ? '↺ replaying cached run…' : '⟲ starting sweep…', '');
   const my = new AbortController(); ctrl = my;
-  streamScan(`/api/scan?url=${url}&max_customers=${maxc}&mode=${mode}&customers=${cust}`, handle, my.signal)
-    .catch(()=>{})
-    .finally(()=>{ if(ctrl===my) finish(); });
+  streamScan({
+    url: $('url').value.trim(),
+    max_customers: +$('maxc').value,
+    mode,
+    customers: $('custlist').value.trim(),
+    signals
+  }, handle, my.signal)
+    .catch(() => {})
+    .finally(() => { if (ctrl === my) finish(); });
 }
 
 function finish(){
   ctrl = null;
-  document.body.classList.remove('scanning');
-  $('goBtn').disabled=false;
+  document.body.classList.remove('running');
+  $('goBtn').disabled = false; $('goBtn').textContent = 'Scan live';
+  rows.forEach(r => paintRow(r));
 }
 
 function handle(ev){
-  if(ev.type==='phase'){ $('status').innerHTML = '⟲ ' + esc(ev.label); }
-
-  else if(ev.type==='replay'){
-    $('info').textContent = `Replaying cached run from ${ (ev.generated_at||'').replace('T',' ').slice(0,16) } UTC — no API calls being made. Re-run live for fresh verdicts.`;
-    $('info').style.display='block';
-  }
-
-  else if(ev.type==='call'){
-    callN++; costT += (ev.cost||0);
-    $('callStats').textContent = `${callN} calls · $${costT.toFixed(3)}`;
-    const line = document.createElement('div');
-    line.innerHTML = ev.error
-      ? `<span class="ep">POST ${esc(ev.endpoint)}</span> ${esc(ev.tag)} <span class="err">✗ ${esc(ev.error)}</span>`
-      : `<span class="ep">POST ${esc(ev.endpoint)}</span> ${esc(ev.tag)} · ${ev.ms}ms · <span class="c">$${(ev.cost||0).toFixed(4)}</span>`;
-    const c = $('console'); c.appendChild(line); c.scrollTop = c.scrollHeight;
-  }
-
-  else if(ev.type==='profile'){
+  if (ev.type === 'phase') setStatus('⟲ ' + ev.label, '');
+  else if (ev.type === 'replay')
+    setStatus('↺ replaying cached run', `Cached run from ${(ev.generated_at || '').replace('T',' ').slice(0,16)} UTC — no API calls being made. Hit Scan live for fresh verdicts.`);
+  else if (ev.type === 'call') logCall(ev);
+  else if (ev.type === 'lanes'){ lanes = ev.data; renderLanesChrome(); }
+  else if (ev.type === 'profile'){
     const p = ev.data;
     apiCalls = ev.api || null;
-    $('apiPillProfile').style.display = apiCalls?.profile ? 'inline-block' : 'none';
-    $('apiPillComp').style.display = apiCalls?.competitors ? 'inline-block' : 'none';
     $('pName').textContent = p.company_name;
     $('pLine').textContent = p.one_liner;
-    $('pChips').innerHTML = `<span class="chip cat">${esc(p.product_category)}</span>` +
-      (p.buyer_persona?`<span class="chip">buyer: ${esc(p.buyer_persona)}</span>`:'');
-    $('pModes').innerHTML = (p.churn_modes||[]).map(m=>`<li>${esc(m)}</li>`).join('');
-    $('pComps').innerHTML = (p.competitors||[]).map(c=>
-      `<span class="chip">${c.via?'✦ ':''}${esc(c.name)} <span style="opacity:.55">${esc(c.domain||'')}</span></span>`).join('');
-    $('profilePanel').style.display='block';
-    $('compPanel').style.display='block';
+    $('pChips').innerHTML = `<span class="chip cat">${esc(p.product_category)}</span>`
+      + (p.buyer_persona ? `<span class="chip dim">buyer: ${esc(p.buyer_persona)}</span>` : '');
+    $('pModes').innerHTML = (p.churn_modes || []).map((m, i) =>
+      `<div class="mode"><span class="n">${String(i+1).padStart(2,'0')}</span><span>${esc(m)}</span></div>`).join('');
+    $('pComps').innerHTML = (p.competitors || []).map(c =>
+      `<span class="chip">${c.via ? '✦ ' : ''}${esc(c.name)} <span class="cd">${esc(c.domain || '')}</span></span>`).join('');
+    $('profilePanel').style.display = 'block';
+    $('compPanel').style.display = 'block';
+    document.querySelectorAll('.apipill').forEach(b => b.style.display = apiCalls ? 'block' : 'none');
   }
-
-  else if(ev.type==='customers'){
-    $('scorebar').style.display='flex';
-    for(const c of ev.data){
-      const el = document.createElement('div');
-      el.className='card'; el.id='card-'+c.domain;
-      el.innerHTML = `
-        <div class="head">
-          <img src="${fav(c.domain)}" onerror="this.style.visibility='hidden'">
-          <div><div class="nm">${esc(c.name)}</div><div class="dm">${esc(c.domain)}</div></div>
-          <span class="badge scanning">SCANNING</span>
-        </div>
-        <p class="why">${esc(c.evidence)}</p>`;
-      $('cards').appendChild(el);
-      cardsByDomain[c.domain]=el;
-    }
+  else if (ev.type === 'customers'){
+    $('boardEmpty').style.display = 'none';
+    if (!lanes.length){ lanes = DEFAULT_SIGNALS.map(s => ({ id: s.id, label: s.label, short: s.label.split(' ')[0], color: s.color })); renderLanesChrome(); }
+    ev.data.forEach(c => newRow(c));
   }
-
-  else if(ev.type==='verdict'){ renderVerdict(ev.data); }
-
-  else if(ev.type==='warning'){ $('warn').textContent=ev.message; $('warn').style.display='block'; }
-
-  else if(ev.type==='error'){ $('err').textContent=ev.message; $('err').style.display='block';
-    $('status').textContent=''; finish(); }
-
-  else if(ev.type==='done'){
+  else if (ev.type === 'signal') applySignal(ev);
+  else if (ev.type === 'verdict') applyVerdict(ev.data);
+  else if (ev.type === 'warning'){ $('warnLine').textContent = '⚠ ' + ev.message; $('warnLine').style.display = 'block'; }
+  else if (ev.type === 'error'){ setStatus('✕ ' + ev.message, '', 'var(--red)'); finish(); }
+  else if (ev.type === 'done'){
     const s = ev.data;
-    $('status').innerHTML = `✓ swept <b>${s.counts.at_risk+s.counts.watch+s.counts.healthy}</b> accounts of ${esc(s.vendor)} <span class="dim">in ${s.elapsed_s}s</span>`;
-    if(s.api_calls) $('runMeta').textContent = `${s.api_calls} Exa calls · $${(s.cost_usd).toFixed(2)} · ${s.elapsed_s}s`;
-    else $('runMeta').textContent = `cached · originally ${ (s.generated_at||'').slice(0,10) }`;
+    const total = s.counts.at_risk + s.counts.watch + s.counts.healthy;
+    setStatus(`✓ swept ${total} accounts of ${s.vendor} in ${s.elapsed_s}s`,
+              s.api_calls ? '' : `Cached replay of the run from ${(s.generated_at || '').slice(0,10)}. Hit Scan live to sweep again.`,
+              'var(--green)');
+    $('runMeta').textContent = s.api_calls
+      ? `${s.api_calls} Exa calls\n$${s.cost_usd.toFixed(2)} · ${s.elapsed_s}s`
+      : `cached replay\n${(s.generated_at || '').slice(0,10)}`;
+    sortBoard();
     finish();
   }
 }
 
-const TIER_LABEL = {at_risk:'AT RISK', watch:'WATCH', healthy:'HEALTHY'};
-
-function renderVerdict(v){
-  const el = cardsByDomain[v.customer.domain];
-  if(!el) return;
-  counts[v.tier]++;
-  $('nRisk').textContent=counts.at_risk; $('nWatch').textContent=counts.watch; $('nOk').textContent=counts.healthy;
-  el.className = 'card '+v.tier;
-  const evHtml = v.evidence.map(e=>`
-    <div class="ev">
-      <div class="top">
-        <span class="lane ${e.lane}">${LANE_NAMES[e.lane]||e.lane}</span>
-        ${e.date?`<span>${e.date}</span>`:''}
-        <span>${esc(e.source)}</span>
-        <span>+${e.points}</span>
-        ${e.mentions_vendor?`<span class="flag" title="This page mentions the vendor itself — it may describe an integration powered BY the vendor rather than a replacement. Verify before acting.">⚡ mentions vendor — verify</span>`:''}
-      </div>
-      <div class="txt">${esc(e.evidence)}</div>
-      <a href="${esc(e.url)}" target="_blank" rel="noopener">${esc(e.title)}</a>
-    </div>`).join('');
-  const quiet = `<div class="quiet">No churn signals across 5 lanes (competitor adoption, in-house build, hiring, alternatives, budget). Quiet is good news — absence of evidence, not proof of loyalty.</div>`;
-  el.innerHTML = `
-    <div class="head">
-      <img src="${fav(v.customer.domain)}" onerror="this.style.visibility='hidden'">
-      <div><div class="nm">${esc(v.customer.name)}</div><div class="dm">${esc(v.customer.domain)}</div></div>
-      <span class="badge ${v.tier}">${TIER_LABEL[v.tier]} · ${v.score}</span>
-    </div>
-    <p class="why">${esc(v.customer.evidence)}</p>
-    ${v.evidence.length ? evHtml : quiet}`;
-  // keep the board sorted riskiest-first as verdicts stream in
-  const order = {at_risk:0, watch:1, healthy:2};
-  const all = Object.values(cardsByDomain);
-  all.sort((a,b)=>{
-    const ta=a.className.split(' ')[1]||'zscanning', tb=b.className.split(' ')[1]||'zscanning';
-    const oa=order[ta]??1.5, ob=order[tb]??1.5;
-    if(oa!==ob) return oa-ob;
-    const sa=parseFloat((a.querySelector('.badge')?.textContent.split('·')[1])||0);
-    const sb=parseFloat((b.querySelector('.badge')?.textContent.split('·')[1])||0);
-    return sb-sa;
-  });
-  const parent=$('cards'); all.forEach(c=>parent.appendChild(c));
-}
+// deep link: /?url=exa.ai&auto=live|cached[&customers=a,b]
+const qp = new URLSearchParams(location.search);
+if (qp.get('url')) $('url').value = qp.get('url');
+if (qp.get('customers')) $('custlist').value = qp.get('customers');
+if (qp.get('auto')) addEventListener('load', () => scan(qp.get('auto') === 'cached' ? 'cached' : 'live'));
 </script>
 </body>
 </html>

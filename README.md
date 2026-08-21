@@ -52,10 +52,20 @@ output: a live account-risk board — AT RISK / WATCH / HEALTHY per customer,
 | 3. Map the customer base | `/answer` + `/search` (scoped to the vendor's site, schema summaries) | Cross-references publicly documented customers: official case studies on the vendor's own domain + press/engineering-blog evidence from the open web. Only documented customers make the board. |
 | 4. Sweep 5 signal lanes per account | `/search` with semantic queries, `includeDomains`, `category`, date windows, `highlights` + schema `summary` in one call | The core. Five lanes, phrased from the step-1 profile (see below). |
 
-### The five churn-signal lanes
+### The churn-signal lanes — editable in the UI
 
-Every lane is a *semantic* query generated from the vendor profile — this is why
-the signals stay hyper-relevant to whatever vendor you type in:
+Lanes are user-configurable ("What counts as a signal"): rename, reweight,
+recolor, remove, or add lanes without touching code. A builtin lane keeps its
+hand-tuned Exa query while its description is untouched; edit the description
+(or add a new lane) and the sweep builds a generic semantic query from your
+words — a typed "SECURITY INCIDENTS: a breach or CVE affecting this company"
+lane finds real incident reports on its first run. The risk board is a live
+account × lane matrix: cells light up as each lane's evidence lands, and the
+verdict badge drops when the account completes.
+
+The five default lanes, each a *semantic* query generated from the vendor
+profile — this is why the signals stay hyper-relevant to whatever vendor you
+type in:
 
 1. **Competitor adoption** (weight 3) — the customer's name appearing on a
    competitor's product surface: changelogs, integration docs, case studies.

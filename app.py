@@ -310,9 +310,67 @@ def web_mentions_summary(vendor_name):
     }
 
 
-def lane_definitions(profile: dict, competitor_domains: list[str]):
-    """The five churn-signal lanes, phrased from the vendor profile so every
-    query is specific to what THIS vendor sells."""
+# The default signal lanes. The UI lets the user relabel, reweight, redescribe,
+# remove, and add lanes; a builtin lane keeps its hand-tuned Exa query as long
+# as its description is untouched — edit the description and the lane switches
+# to a generic query built from your words.
+DEFAULT_SIGNALS = [
+    {"id": "competitor_adoption", "label": "COMPETITOR ADOPTION", "short": "COMPETITOR",
+     "color": "#FF6A6A", "weight": 3.0,
+     "desc": "Your account named on a competitor's changelog, integration docs or case study."},
+    {"id": "in_house_build", "label": "BUILDING IN-HOUSE", "short": "IN-HOUSE",
+     "color": "#B388FF", "weight": 3.0,
+     "desc": "An engineering blog or talk about building the capability you sell them."},
+    {"id": "hiring_to_replace", "label": "HIRING TO REPLACE", "short": "HIRING",
+     "color": "#8FA5FF", "weight": 2.0,
+     "desc": "A job posting whose responsibilities overlap your product."},
+    {"id": "shopping_around", "label": "EVALUATING ALTERNATIVES", "short": "ALTERNATIVES",
+     "color": "#E9B44C", "weight": 2.0,
+     "desc": "Benchmarks or comparisons of providers in your category."},
+    {"id": "budget_distress", "label": "BUDGET / STRATEGY", "short": "BUDGET",
+     "color": "#9AA7BD", "weight": 1.5,
+     "desc": "Layoffs, cost cuts, an acquisition or a pivot, inside an eight-month news window."},
+]
+DEFAULT_DESCS = {s["id"]: s["desc"] for s in DEFAULT_SIGNALS}
+CANON_SHORTS = {s["label"]: s["short"] for s in DEFAULT_SIGNALS}
+HEX_COLOR_RE = re.compile(r"^#[0-9a-fA-F]{6}$")
+
+
+def parse_signals(raw):
+    """Sanitize the signal-lane config sent by the UI. Returns (signals,
+    is_default). None or garbage → the default set."""
+    if not isinstance(raw, list) or not raw:
+        return [dict(s) for s in DEFAULT_SIGNALS], True
+    out = []
+    for i, s in enumerate(raw[:8]):
+        if not isinstance(s, dict):
+            continue
+        label = re.sub(r"\s+", " ", str(s.get("label", ""))).strip()[:40] or f"SIGNAL {i + 1}"
+        desc = re.sub(r"\s+", " ", str(s.get("desc", ""))).strip()[:240]
+        try:
+            weight = min(5.0, max(0.5, float(s.get("weight", 1))))
+        except (TypeError, ValueError):
+            weight = 1.0
+        color = str(s.get("color", "")) if HEX_COLOR_RE.match(str(s.get("color", ""))) else "#8FA5FF"
+        sid = s.get("id") if s.get("id") in DEFAULT_DESCS else None
+        derived = re.sub(r"[^A-Za-z0-9/+ -]", "", label).upper().split()
+        short = CANON_SHORTS.get(label) or (derived[0] if derived else f"LANE{i + 1}")[:12]
+        out.append({"id": sid, "label": label, "desc": desc, "weight": weight,
+                    "color": color, "short": short})
+    if not out:
+        return [dict(s) for s in DEFAULT_SIGNALS], True
+    is_default = len(out) == len(DEFAULT_SIGNALS) and all(
+        a["id"] == b["id"] and a["desc"] == b["desc"]
+        and a["weight"] == b["weight"] and a["label"] == b["label"]
+        for a, b in zip(out, DEFAULT_SIGNALS))
+    return out, is_default
+
+
+def lane_definitions(profile: dict, competitor_domains: list[str], signals: list[dict]):
+    """Build the signal lanes from the user's config. Builtin lanes keep their
+    hand-tuned queries phrased from the vendor profile; edited or added lanes
+    get a generic semantic query built from the lane's description. Returns
+    (lanes_for, lanes_meta)."""
     cname = profile["company_name"]
     cat = profile["product_category"]
     cap = profile["capability_phrase"]
@@ -341,9 +399,22 @@ def lane_definitions(profile: dict, competitor_domains: list[str]):
             },
         }
 
+    # resolve final lane ids once: a builtin id survives only while its
+    # description is untouched — edited descriptions get a custom id so the
+    # builtin-specific judging rules (funding guard, changelog override)
+    # don't misfire on criteria they weren't written for
+    for i, sig in enumerate(signals):
+        if sig.get("id") and sig["desc"] == DEFAULT_DESCS[sig["id"]]:
+            sig["_lane"] = sig["id"]
+        else:
+            slug = re.sub(r"[^a-z0-9]+", "_", sig["label"].lower()).strip("_")[:24]
+            sig["_lane"] = f"custom_{i}_{slug or 'lane'}"
+    lanes_meta = [{"id": s["_lane"], "label": s["label"], "short": s["short"],
+                   "color": s["color"], "weight": s["weight"]} for s in signals]
+
     def lanes_for(customer):
         n = customer["name"]
-        return [
+        builtin = [
             {
                 "id": "competitor_adoption",
                 "label": "Competitor adoption",
@@ -453,8 +524,37 @@ def lane_definitions(profile: dict, competitor_domains: list[str]):
                 },
             },
         ]
+        by_id = {b["id"]: b for b in builtin}
+        lanes = []
+        for sig in signals:
+            if sig["_lane"] in by_id:
+                lane = dict(by_id[sig["_lane"]])
+            else:
+                d = sig["desc"] or sig["label"].title()
+                lane = {
+                    "id": sig["_lane"],
+                    "payload": {
+                        "query": f"{n}: {d}",
+                        "numResults": LANE_RESULTS,
+                        "contents": {
+                            "highlights": {"numSentences": 2, "query": f"{n} {d[:80]}"},
+                            "summary": summary_for(
+                                f"Is this page direct evidence of the following churn-risk "
+                                f"signal for '{n}' (a customer of {cname}): \"{d}\"? strong = "
+                                f"direct evidence of exactly that, about {n} specifically; "
+                                f"weak = indirect or partial; none = unrelated, about a "
+                                f"different company, or a mere passing mention."),
+                        },
+                    },
+                }
+            lane["label"] = sig["label"]
+            lane["color"] = sig["color"]
+            lane["weight"] = sig["weight"]
+            lane["max_evidence"] = 1 if lane["id"] == "hiring_to_replace" else 2
+            lanes.append(lane)
+        return lanes
 
-    return lanes_for
+    return lanes_for, lanes_meta
 
 
 PRODUCT_PATH_RE = re.compile(r"/(changelog|integrations?|partners?|customers?|case-stud|docs|blog)", re.I)
@@ -550,9 +650,6 @@ def judge_result(r: dict, lane: dict, tokens, customer: dict):
     }
 
 
-MAX_EVIDENCE_PER_LANE = {"hiring_to_replace": 1}   # hiring is noisy; default 2
-
-
 def tier_for(score: float, strongest: float):
     # red requires real weight AND at least one strong, recent signal —
     # a pile of weak signals can only ever reach 'watch'
@@ -565,41 +662,46 @@ def tier_for(score: float, strongest: float):
 
 async def sweep_customer(exa: ExaClient, customer, lanes_for, vendor_domain, emit):
     tokens = name_tokens(customer["name"])
-    evidence, seen_urls = [], set()
     lanes = lanes_for(customer)
-    results = await asyncio.gather(*[
-        exa.post("/search", lane["payload"], f"{lane['id']}:{customer['name']}")
-        for lane in lanes
-    ])
-    for lane, data in zip(lanes, results):
-        if not data:
-            continue
-        strict = lane.get("strict_domains")
-        for r in data.get("results", []):
-            url = r.get("url", "")
-            dom = result_domain(url)
-            if not url or url in seen_urls or dom.endswith(vendor_domain):
-                continue  # vendor's own pages are never churn evidence
-            if strict and not any(dom == d or dom.endswith("." + d) for d in strict):
-                continue  # enforce includeDomains scope ourselves
-            item = judge_result(r, lane, tokens, customer)
-            if item:
-                seen_urls.add(url)
-                evidence.append(item)
-    # keep only the strongest evidence per lane so one noisy lane can't
-    # dominate the verdict
-    by_lane = {}
-    for e in sorted(evidence, key=lambda x: -x["points"]):
-        by_lane.setdefault(e["lane"], []).append(e)
-    kept = [e for lane_id, lst in by_lane.items()
-            for e in lst[:MAX_EVIDENCE_PER_LANE.get(lane_id, 2)]]
-    score = round(sum(e["points"] for e in kept), 2)
-    strongest = max((e["points"] for e in kept), default=0.0)
+    seen_urls: set = set()
+
+    async def run_lane(lane):
+        data = await exa.post("/search", lane["payload"], f"{lane['id']}:{customer['name']}")
+        kept = []
+        if data:
+            strict = lane.get("strict_domains")
+            for r in data.get("results", []):
+                url = r.get("url", "")
+                dom = result_domain(url)
+                if not url or url in seen_urls or dom.endswith(vendor_domain):
+                    continue  # vendor's own pages are never churn evidence
+                if strict and not any(dom == d or dom.endswith("." + d) for d in strict):
+                    continue  # enforce includeDomains scope ourselves
+                item = judge_result(r, lane, tokens, customer)
+                if item:
+                    seen_urls.add(url)
+                    kept.append(item)
+        # keep only the strongest evidence per lane so one noisy lane can't
+        # dominate the verdict
+        kept.sort(key=lambda x: -x["points"])
+        return lane, kept[:lane.get("max_evidence", 2)]
+
+    # lanes stream independently — the board lights up cell by cell as each
+    # lane's evidence lands, instead of waiting for the whole account
+    evidence, done = [], 0
+    for fut in asyncio.as_completed([run_lane(lane) for lane in lanes]):
+        lane, kept = await fut
+        done += 1
+        evidence.extend(kept)
+        await emit({"type": "signal", "domain": customer["domain"], "lane": lane["id"],
+                    "evidence": kept, "lanes_done": done, "lanes_total": len(lanes)})
+    score = round(sum(e["points"] for e in evidence), 2)
+    strongest = max((e["points"] for e in evidence), default=0.0)
     verdict = {
         "customer": customer,
         "score": score,
         "tier": tier_for(score, strongest),
-        "evidence": sorted(kept, key=lambda x: -x["points"]),
+        "evidence": sorted(evidence, key=lambda x: -x["points"]),
     }
     await emit({"type": "verdict", "data": verdict})
     return verdict
@@ -622,7 +724,8 @@ RESOLVE_SCHEMA = {
 
 
 async def run_pipeline(domain: str, max_customers: int, emit, api_key: str | None = None,
-                       custom_customers: str | None = None):
+                       custom_customers: str | None = None, signals: list[dict] | None = None):
+    signals = signals or [dict(s) for s in DEFAULT_SIGNALS]
     exa = ExaClient(emit, api_key=api_key)
     t0 = time.monotonic()
     try:
@@ -834,10 +937,11 @@ async def run_pipeline(domain: str, max_customers: int, emit, api_key: str | Non
         await emit({"type": "customers", "data": customers})
 
         # ---- phase 3: signal sweep -----------------------------------------
+        lanes_for, lanes_meta = lane_definitions(profile, competitor_domains, signals)
+        await emit({"type": "lanes", "data": lanes_meta})
         await emit({"type": "phase", "phase": "sweep",
-                    "label": f"Sweeping {len(customers)} accounts × 5 churn-signal lanes "
-                             f"({len(customers) * 5} semantic searches)…"})
-        lanes_for = lane_definitions(profile, competitor_domains)
+                    "label": f"Sweeping {len(customers)} accounts × {len(lanes_meta)} signal lanes "
+                             f"({len(customers) * len(lanes_meta)} semantic searches)…"})
         verdicts = await asyncio.gather(*[
             sweep_customer(exa, c, lanes_for, domain, emit) for c in customers
         ])
@@ -853,7 +957,8 @@ async def run_pipeline(domain: str, max_customers: int, emit, api_key: str | Non
         }
         await emit({"type": "done", "data": summary})
         return {"profile": profile, "domain": domain, "customers": customers,
-                "verdicts": verdicts, "summary": summary, "api": api_calls}
+                "verdicts": verdicts, "summary": summary, "api": api_calls,
+                "lanes": lanes_meta}
     finally:
         await exa.close()
 
@@ -920,10 +1025,32 @@ def sse(event: dict):
 
 
 @app.get("/api/scan")
-async def scan(request: Request, url: str, max_customers: int = 15, mode: str = "live",
-               customers: str = ""):
+async def scan_get(request: Request, url: str, max_customers: int = 15, mode: str = "live",
+                   customers: str = ""):
+    # GET kept for deep links (?url=exa.ai&auto=cached); always default lanes
+    return await scan_impl(request, url, max_customers, mode, customers, None)
+
+
+@app.post("/api/scan")
+async def scan_post(request: Request):
+    try:
+        body = await request.json()
+    except (json.JSONDecodeError, ValueError):
+        body = {}
+    try:
+        max_customers = int(body.get("max_customers", 15))
+    except (TypeError, ValueError):
+        max_customers = 15
+    return await scan_impl(request, str(body.get("url", "")), max_customers,
+                           str(body.get("mode", "live")), str(body.get("customers", "")),
+                           body.get("signals"))
+
+
+async def scan_impl(request: Request, url: str, max_customers: int, mode: str,
+                    customers: str, signals_raw):
     domain = normalize_domain(url)
     custom_list = customers.strip()[:2000] or None
+    signals, signals_default = parse_signals(signals_raw)
 
     user_key = (request.headers.get("x-exa-key") or "").strip()[:120] or None
 
@@ -944,9 +1071,12 @@ async def scan(request: Request, url: str, max_customers: int = 15, mode: str = 
                 yield sse({"type": "error", "message": f"No cached run for {domain} yet — run it live once first."})
                 return
             run = json.loads(cache_file.read_text())
+            default_meta = [{"id": s["id"], "label": s["label"], "short": s["short"],
+                             "color": s["color"], "weight": s["weight"]} for s in DEFAULT_SIGNALS]
             yield sse({"type": "replay", "generated_at": run["summary"]["generated_at"]})
             yield sse({"type": "profile", "data": run["profile"], "domain": run["domain"],
                        "api": run.get("api")})
+            yield sse({"type": "lanes", "data": run.get("lanes") or default_meta})
             yield sse({"type": "customers", "data": run["customers"]})
             for v in run["verdicts"]:
                 yield sse({"type": "verdict", "data": v})
@@ -969,7 +1099,7 @@ async def scan(request: Request, url: str, max_customers: int = 15, mode: str = 
         _active_scans += 1
         task = asyncio.create_task(
             run_pipeline(domain, max(5, min(20, max_customers)), emit,
-                         api_key=user_key, custom_customers=custom_list))
+                         api_key=user_key, custom_customers=custom_list, signals=signals))
         run = None
         try:
             while True:
@@ -991,9 +1121,9 @@ async def scan(request: Request, url: str, max_customers: int = 15, mode: str = 
             return
         finally:
             _active_scans -= 1
-        # custom-list runs are personal slices — don't let them overwrite the
-        # cached full-discovery run for the domain
-        if run and not custom_list:
+        # custom-list and custom-lane runs are personal slices — don't let them
+        # overwrite the cached full-discovery run for the domain
+        if run and not custom_list and signals_default:
             cache_file.write_text(json.dumps(run, indent=1))
 
     return StreamingResponse(stream(), media_type="text/event-stream",
