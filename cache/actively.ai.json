@@ -1,0 +1,652 @@
+{
+ "profile": {
+  "product_category": "B2B enterprise sales intelligence and account prioritization platform",
+  "one_liner": "Actively AI provides an intelligence-led revenue platform that deploys autonomous AI agents to research, prioritize, and recommend next-best-actions for individual sales accounts.",
+  "buyer_persona": "GTM leaders, revenue operations (RevOps) teams, sales leaders, and account executives at enterprise organizations.",
+  "capability_phrase": "a custom-built AI-based account-prioritization and reasoning engine that integrates with CRM and call data to identify target accounts and suggest next-best-actions.",
+  "competitors": [
+   {
+    "name": "HockeyStack",
+    "domain": "hockeystack.com"
+   },
+   {
+    "domain": "dreamdata.io",
+    "name": "Dreamdata"
+   },
+   {
+    "domain": "revsure.ai",
+    "name": "RevSure.AI"
+   },
+   {
+    "name": "Punchcard",
+    "domain": "punchcard.com"
+   },
+   {
+    "domain": "tektonic.ai",
+    "name": "Tektonic AI"
+   },
+   {
+    "domain": "collectivei.com",
+    "name": "Collective[i]"
+   },
+   {
+    "name": "Actively AI",
+    "domain": "activatedscale.com",
+    "via": "findSimilar"
+   }
+  ],
+  "company_name": "Actively AI",
+  "churn_modes": [
+   "The sales team falls below 50 reps or lacks sufficient historical CRM data for the AI models to learn effectively.",
+   "The company shifts its strategy to require integrated contact enrichment, automated outreach, and real-time external signal tracking in a single platform.",
+   "The enterprise chooses to consolidate their GTM stack by adopting CRM-native AI agent features from incumbents like Salesforce.",
+   "The organization finds that the ROI does not justify the high cost and multi-week enterprise onboarding process compared to lighter-weight alternatives."
+  ]
+ },
+ "domain": "actively.ai",
+ "customers": [
+  {
+   "name": "Ramp",
+   "domain": "ramp.com",
+   "evidence": "Ramp is a featured customer with a dedicated case study on the Actively AI website detailing revenue results.",
+   "source": "web evidence"
+  },
+  {
+   "name": "Ironclad",
+   "domain": "ironcladapp.com",
+   "evidence": "Ironclad is a featured customer with a dedicated case study on the Actively AI website.",
+   "source": "web evidence"
+  },
+  {
+   "name": "Samsara",
+   "domain": "samsara.com",
+   "evidence": "Samsara is a featured customer with a dedicated case study on the Actively AI website.",
+   "source": "web evidence"
+  },
+  {
+   "name": "Verkada",
+   "domain": "verkada.com",
+   "evidence": "Verkada is a featured customer with a dedicated case study on the Actively AI website and third-party platforms.",
+   "source": "web evidence"
+  },
+  {
+   "name": "Justworks",
+   "domain": "justworks.com",
+   "evidence": "Justworks is listed as a customer on the Actively AI website and mentioned in official press coverage by Bain Capital Ventures.",
+   "source": "web evidence"
+  },
+  {
+   "name": "Greenhouse",
+   "domain": "greenhouse.io",
+   "evidence": "Greenhouse is documented as a customer on the Actively AI website with a testimonial from their Chief Revenue Officer.",
+   "source": "web evidence"
+  },
+  {
+   "name": "Navan",
+   "domain": "navan.com",
+   "evidence": "Navan is cited as a customer in official press coverage by Bain Capital Ventures.",
+   "source": "web evidence"
+  },
+  {
+   "name": "Attentive",
+   "domain": "attentivemobile.com",
+   "evidence": "Attentive is cited as a customer in official press coverage by Bain Capital Ventures.",
+   "source": "web evidence"
+  }
+ ],
+ "verdicts": [
+  {
+   "customer": {
+    "name": "Ramp",
+    "domain": "ramp.com",
+    "evidence": "Ramp is a featured customer with a dedicated case study on the Actively AI website detailing revenue results.",
+    "source": "web evidence"
+   },
+   "score": 5.13,
+   "tier": "at_risk",
+   "evidence": [
+    {
+     "lane": "in_house_build",
+     "lane_label": "Building in-house",
+     "url": "https://www.linkedin.com/pulse/why-ramp-shut-down-ai-sdr-program-what-built-instead-elric-legloire-rz36c",
+     "title": "Why Ramp Shut Down their AI SDR Program (& what they built instead)",
+     "source": "linkedin.com",
+     "date": "2026-08-05",
+     "relevance": "strong",
+     "evidence": "Ramp shut down the program, merged the funnels, and reinvested the Growth Engineering team across the full GTM organization.",
+     "mentions_vendor": false,
+     "points": 3.0
+    },
+    {
+     "lane": "in_house_build",
+     "lane_label": "Building in-house",
+     "url": "https://newsletter.outbound.kitchen/p/why-ramp-shut-down-their-ai-sdr-program",
+     "title": "Why Ramp Shut Down their AI SDR Program",
+     "source": "newsletter.outbound.kitchen",
+     "date": "2026-08-02",
+     "relevance": "weak",
+     "evidence": "Ramp shut down the AI SDR program and expanded the infrastructure behind it into Ramp Revenue and an internal Model Context Protocol (MCP) layer called Growth MCP.",
+     "mentions_vendor": false,
+     "points": 1.05
+    },
+    {
+     "lane": "hiring_to_replace",
+     "lane_label": "Hiring to replace",
+     "url": "https://jobs.ashbyhq.com/Ramp/1540a41f-d88f-4c89-9b08-5b9fade1ee81",
+     "title": "Software Engineer, Frontend, Ramp Revenue @ Ramp",
+     "source": "jobs.ashbyhq.com",
+     "date": null,
+     "relevance": "weak",
+     "evidence": "The page describes a frontend-focused Ramp Revenue role building AI-native revenue products and interfaces, but does not state explicit overlap with Actively AI's target capability (custom AI-based account-prioritization and reasoning engine).",
+     "mentions_vendor": false,
+     "points": 0.56
+    },
+    {
+     "lane": "budget_distress",
+     "lane_label": "Budget / strategy risk",
+     "url": "https://techcrunch.com/2026/06/04/ramp-raises-750m-at-44b-valuation-as-investors-hunger-for-fintechs-with-an-ai-story/",
+     "title": "Ramp raises $750M at $44B valuation as investors hunger for fintechs with an AI story | TechCrunch",
+     "source": "techcrunch.com",
+     "date": "2026-06-04",
+     "relevance": "weak",
+     "evidence": "Ramp has now raised more than $3 billion in total.",
+     "mentions_vendor": false,
+     "points": 0.52
+    }
+   ]
+  },
+  {
+   "customer": {
+    "name": "Ironclad",
+    "domain": "ironcladapp.com",
+    "evidence": "Ironclad is a featured customer with a dedicated case study on the Actively AI website.",
+    "source": "web evidence"
+   },
+   "score": 4.89,
+   "tier": "watch",
+   "evidence": [
+    {
+     "lane": "budget_distress",
+     "lane_label": "Budget / strategy risk",
+     "url": "https://www.ainvest.com/news/ironclad-200m-arr-leap-masks-dangerous-openai-dependency-agentic-ai-threatens-moat-2604/",
+     "title": "Ironclad's $200M ARR Leap Masks a Dangerous OpenAI Dependency as Agentic AI Threatens Its Moat",
+     "source": "ainvest.com",
+     "date": "2026-04-24",
+     "relevance": "strong",
+     "evidence": "\"The most existential threat is the broader AI copilot trend, which has repeatedly declared the contract lifecycle management (CLM) category dead.\"",
+     "mentions_vendor": false,
+     "points": 1.5
+    },
+    {
+     "lane": "in_house_build",
+     "lane_label": "Building in-house",
+     "url": "https://www.linkedin.com/posts/anderskrohn_ironclads-ai-gtm-motion-now-runs-on-kernel-activity-7477752819303931904-Qib0",
+     "title": "Ironclad's AI GTM motion now runs on Kernel. | Anders Krohn",
+     "source": "linkedin.com",
+     "date": "2026-06-30",
+     "relevance": "weak",
+     "evidence": "\"Ironclad's AI GTM motion now runs on Kernel. Ironclad's GTM Systems team is at the frontier of their industry. They\u2019re taking on an ambitious project, building a data foundation accurate enough to power agentic AI solutions at scale.\"",
+     "mentions_vendor": false,
+     "points": 1.05
+    },
+    {
+     "lane": "in_house_build",
+     "lane_label": "Building in-house",
+     "url": "https://www.contextwindows.ai/case-study/ironclad-sales-pipeline-management",
+     "title": "AI Case Study: Sales pipeline management at Ironclad | Context Windows",
+     "source": "contextwindows.ai",
+     "date": "2025-09-02",
+     "relevance": "weak",
+     "evidence": "\u201cRapid scaling obscured pipeline health. AI now ranks deals by real-time engagement and instantly summarizes account history.\u201d",
+     "mentions_vendor": false,
+     "points": 0.89
+    },
+    {
+     "lane": "budget_distress",
+     "lane_label": "Budget / strategy risk",
+     "url": "https://nexchron.com/legal/openai-legal-vertical-ironclad-boehmig-2026",
+     "title": "OpenAI Enters Legal Tech, Hires Ironclad Founder",
+     "source": "nexchron.com",
+     "date": "2026-06-03",
+     "relevance": "strong",
+     "evidence": "OpenAI moved directly into legal technology on June 2, 2026 by hiring Jason Boehmig \u2014 the founder of Ironclad, one of the leading contract lifecycle management (CLM) platforms serving corporate legal departments. The hire signals that OpenAI is shifting from being a foundation model provider toward building vertical AI products for specific industries, and it sent an immediate signal through the l",
+     "mentions_vendor": true,
+     "points": 0.75
+    },
+    {
+     "lane": "hiring_to_replace",
+     "lane_label": "Hiring to replace",
+     "url": "https://revopscareers.com/job/ironclad-gtm-engineer-marketing-san-francisco-california-united-states/",
+     "title": "GTM Engineer, Marketing - RevOps Careers",
+     "source": "revopscareers.com",
+     "date": "2026-04-18",
+     "relevance": "weak",
+     "evidence": "Ironclad is looking for an AI-native builder to join the GTM AI & Systems team as a dedicated partner to Marketing & Strategy. This role exists for one reason: to replace manual marketing work with intelligent, autonomous systems that directly accelerate pipeline, revenue, and company growth.",
+     "mentions_vendor": false,
+     "points": 0.7
+    }
+   ]
+  },
+  {
+   "customer": {
+    "name": "Samsara",
+    "domain": "samsara.com",
+    "evidence": "Samsara is a featured customer with a dedicated case study on the Actively AI website.",
+    "source": "web evidence"
+   },
+   "score": 5.5,
+   "tier": "at_risk",
+   "evidence": [
+    {
+     "lane": "in_house_build",
+     "lane_label": "Building in-house",
+     "url": "https://www.linkedin.com/posts/muhammad-abubakar-ds_enterpriseai-salesenablement-aiimplementation-activity-7480152348611366912-VkB9",
+     "title": "Samsara's AI Boosts Sales Attainment 16% with Account- ...",
+     "source": "linkedin.com",
+     "date": null,
+     "relevance": "strong",
+     "evidence": "\u201cSamsara fixed that by fine-tuning an internal model on its own product docs, customer data, and Salesforce records, then handing it to the sales org as \"Samsara GPT.\" Reps ask it questions the way they'd ask a teammate who already knows the account.",
+     "mentions_vendor": false,
+     "points": 2.4
+    },
+    {
+     "lane": "in_house_build",
+     "lane_label": "Building in-house",
+     "url": "https://syncgtm.com/blog/actively-ai-review-2026",
+     "title": "Actively AI Review 2026: Pricing, Data Coverage & Comparison | SyncGTM",
+     "source": "syncgtm.com",
+     "date": "2026-06-18",
+     "relevance": "strong",
+     "evidence": "Actively AI is an enterprise B2B sales intelligence platform that uses per-account AI agents to prioritize which accounts your reps should work next. Founded in 2022 by Stanford AI researchers and backed by $45M from Bain Capital Ventures and First Round Capital, it serves enterprise GTM teams at companies like Ramp and Samsara.",
+     "mentions_vendor": true,
+     "points": 1.5
+    },
+    {
+     "lane": "hiring_to_replace",
+     "lane_label": "Hiring to replace",
+     "url": "https://www.samsara.com/company/careers/roles/8022378?gh_jid=8022378",
+     "title": "Senior Pipeline Programs Manager - Remote - US",
+     "source": "samsara.com",
+     "date": null,
+     "relevance": "weak",
+     "evidence": "The page describes a Senior Pipeline Programs Manager role focusing on pipeline strategy, cross-functional alignment, and program execution. It mentions \u201cBuild for Scale with AI\u201d and AI-powered tools, but does not explicitly name or describe any capability that overlaps with an Actively AI-specified product (custom-built AI-based account-prioritization and reasoning engine) nor mentions Actively A",
+     "mentions_vendor": false,
+     "points": 0.56
+    },
+    {
+     "lane": "budget_distress",
+     "lane_label": "Budget / strategy risk",
+     "url": "https://www.fool.com/earnings/call-transcripts/2026/06/05/samsara-iot-q1-2027-earnings-transcript/",
+     "title": "Samsara (IOT) Q1 2027 Earnings Transcript | The Motley Fool",
+     "source": "fool.com",
+     "date": "2026-06-05",
+     "relevance": "weak",
+     "evidence": "Dominic Phillips: Yes, sure. So we are spending more money on AI and cloud really to drive more products and features. We expect to be able to offset some of those added costs with other COGS-related optimizations as well as OpEx reallocation in the form of go-to-market R&D and primarily in G&A. G&A had 5 percentage points of year-over-year improvement. So we're able to deploy some of that into CO",
+     "mentions_vendor": false,
+     "points": 0.52
+    },
+    {
+     "lane": "budget_distress",
+     "lane_label": "Budget / strategy risk",
+     "url": "https://www.fool.com/earnings/call-transcripts/2026/03/05/samsara-iot-q4-2026-earnings-call-transcript/",
+     "title": "Samsara (IOT) Q4 2026 Earnings Call Transcript | The Motley Fool",
+     "source": "fool.com",
+     "date": "2026-03-05",
+     "relevance": "weak",
+     "evidence": "The page is an earnings call transcript for Samsara Q4 2026, discussing product adoption, net retention, and emerging products, including mentions of expanding offerings and strategic investments; it does not discuss budget cuts, acquisitions, layoffs, or pivots away from B2B intelligence tools like Actively AI. A single sentence touches on future investments and product sales specialists but no d",
+     "mentions_vendor": false,
+     "points": 0.52
+    }
+   ]
+  },
+  {
+   "customer": {
+    "name": "Verkada",
+    "domain": "verkada.com",
+    "evidence": "Verkada is a featured customer with a dedicated case study on the Actively AI website and third-party platforms.",
+    "source": "web evidence"
+   },
+   "score": 3.7,
+   "tier": "watch",
+   "evidence": [
+    {
+     "lane": "in_house_build",
+     "lane_label": "Building in-house",
+     "url": "https://thegtme.com/p/how-first-party-signals-become-your",
+     "title": "How First-Party Signals Become Your GTM Moat",
+     "source": "thegtme.com",
+     "date": "2026-07-27",
+     "relevance": "weak",
+     "evidence": "\"Verkada puts Clay at the center of this orchestration. That includes call transcripts from Clari, CRM data from Salesforce, and raw email replies flowing in. Clay enriches, reasons, and routes each lead to the right sequence in Outreach.\"",
+     "mentions_vendor": false,
+     "points": 1.05
+    },
+    {
+     "lane": "in_house_build",
+     "lane_label": "Building in-house",
+     "url": "https://www.contextwindows.ai/case-study/verkada-sales-prospecting",
+     "title": "AI Case Study: Sales prospecting at Verkada | Context Windows",
+     "source": "contextwindows.ai",
+     "date": "2026-02-19",
+     "relevance": "weak",
+     "evidence": "US tools caused 15% email bounce rates. AI now validates contacts via 150+ regional sources, doubling outbound reply rates.",
+     "mentions_vendor": false,
+     "points": 1.05
+    },
+    {
+     "lane": "hiring_to_replace",
+     "lane_label": "Hiring to replace",
+     "url": "https://www.builtinsf.com/job/gtm-engineer/8233500",
+     "title": "GTM Engineer - Verkada Inc | Built In San Francisco",
+     "source": "builtinsf.com",
+     "date": null,
+     "relevance": "weak",
+     "evidence": "The page describes a GTM Engineer role at Verkada focused on growth engineering, GTM systems, and marketing technology infrastructure, with no explicit mention of building an AI-based account-prioritization and reasoning engine or Actively AI.",
+     "mentions_vendor": false,
+     "points": 0.56
+    },
+    {
+     "lane": "budget_distress",
+     "lane_label": "Budget / strategy risk",
+     "url": "https://ipvm.com/reports/rev-book",
+     "title": "Verkada's IPO Spin Confuses Own Employees On Revenue Vs Bookings",
+     "source": "ipvm.com",
+     "date": "2026-06-02",
+     "relevance": "weak",
+     "evidence": "Verkada's IPO Spin Confuses Own Employees On Revenue Vs Bookings",
+     "mentions_vendor": false,
+     "points": 0.52
+    },
+    {
+     "lane": "budget_distress",
+     "lane_label": "Budget / strategy risk",
+     "url": "https://www.benzinga.com/markets/private-markets/26/05/52573257/exclusive-inside-verkada-ai-push-to-reinvent-physical-security",
+     "title": "EXCLUSIVE: Inside Verkada's AI Push To Reinvent Physical Security  - Benzinga",
+     "source": "benzinga.com",
+     "date": "2026-05-14",
+     "relevance": "weak",
+     "evidence": "The article discusses Verkada's AI push to reinvent physical security, growth metrics, and strategic positioning but does not mention budget pressures, cost-cutting, layoffs, acquisitions, or a pivot away from products requiring B2B intelligence platforms. The strongest implication is a strategic expansion into AI-enabled physical security rather than a distress signal.",
+     "mentions_vendor": false,
+     "points": 0.52
+    }
+   ]
+  },
+  {
+   "customer": {
+    "name": "Justworks",
+    "domain": "justworks.com",
+    "evidence": "Justworks is listed as a customer on the Actively AI website and mentioned in official press coverage by Bain Capital Ventures.",
+    "source": "web evidence"
+   },
+   "score": 3.7,
+   "tier": "watch",
+   "evidence": [
+    {
+     "lane": "in_house_build",
+     "lane_label": "Building in-house",
+     "url": "https://www.justworks.com/tech-blog/ask-mo-how-we-built-a-knowledge-graph-that-lets-engineers-query-40-services-in-plain-english",
+     "title": "Ask-Mo How We Built a Knowledge Graph That Lets Engineers Query in Plain English - Justworks",
+     "source": "justworks.com",
+     "date": "2026-06-05",
+     "relevance": "weak",
+     "evidence": "\"We decided to build an AI tool that holds the full mental model. It reads every codebase, discovers how services connect, and lets engineers interrogate the material.\"",
+     "mentions_vendor": false,
+     "points": 1.05
+    },
+    {
+     "lane": "in_house_build",
+     "lane_label": "Building in-house",
+     "url": "https://www.justworks.com/tech-blog/boring-is-beautiful",
+     "title": "Boring is Beautiful - Justworks",
+     "source": "justworks.com",
+     "date": "2026-05-07",
+     "relevance": "weak",
+     "evidence": "\"We built an OLAP-style engine on top of MySQL because it was the fastest path to something dependable, even if it was not the architecture a clean-sheet design would produce.\"",
+     "mentions_vendor": false,
+     "points": 1.05
+    },
+    {
+     "lane": "hiring_to_replace",
+     "lane_label": "Hiring to replace",
+     "url": "https://builtin.com/job/gtm-engineer/9435080",
+     "title": "GTM Engineer - Justworks | Built In",
+     "source": "builtin.com",
+     "date": null,
+     "relevance": "weak",
+     "evidence": "The page describes a GTM Engineer role at Justworks focusing on GTM data stack, API integration, LLM-powered workflows, and data pipelines, but it does not mention Actively AI or a direct overlap with an Actively AI-derived capability like an AI-based account-prioritization and reasoning engine tied to CRM/call data.",
+     "mentions_vendor": false,
+     "points": 0.56
+    },
+    {
+     "lane": "budget_distress",
+     "lane_label": "Budget / strategy risk",
+     "url": "https://www.justworks.com/tech-blog/ai-native-building-then-and-now",
+     "title": "AI Native Building Then, and Now - Justworks",
+     "source": "justworks.com",
+     "date": "2026-05-27",
+     "relevance": "weak",
+     "evidence": "The page discusses Justworks\u2019 internal AI-native tooling, adoption, and MVP development (e.g., \u201cJustworks Current\u201d and an MVP/beta rollout) as part of product and AI fluency efforts, but does not mention budget cuts, major layoffs, acquisitions, or a strategic pivot away from tools like Actively AI. The content focuses on AI product-building velocity and internal tooling rather than cost-cutting o",
+     "mentions_vendor": false,
+     "points": 0.52
+    },
+    {
+     "lane": "budget_distress",
+     "lane_label": "Budget / strategy risk",
+     "url": "https://www.justworks.com/product-updates/mcp-product-update",
+     "title": "Introducing Justworks MCP: Your HR Data, Right Inside Claude and ChatGPT - Justworks",
+     "source": "justworks.com",
+     "date": "2026-07-15",
+     "relevance": "weak",
+     "evidence": "The page describes a new product feature called Justworks MCP that connects Justworks data to Claude/ChatGPT for live AI-assisted HR data access; it does not discuss budget pressure, cost-cutting, acquisitions, funding, or layoffs. There is no mention of Actively AI or related procurement changes.",
+     "mentions_vendor": false,
+     "points": 0.52
+    }
+   ]
+  },
+  {
+   "customer": {
+    "name": "Greenhouse",
+    "domain": "greenhouse.io",
+    "evidence": "Greenhouse is documented as a customer on the Actively AI website with a testimonial from their Chief Revenue Officer.",
+    "source": "web evidence"
+   },
+   "score": 4.4,
+   "tier": "watch",
+   "evidence": [
+    {
+     "lane": "budget_distress",
+     "lane_label": "Budget / strategy risk",
+     "url": "https://www.greenhouse.com/newsroom/greenhouse-completes-acquisition-of-ezra-ai-labs-bringing-conversational-ai-to-the-hiring-process",
+     "title": "Greenhouse Completes Acquisition of Ezra AI Labs, Bringing Conversational AI to the Hiring Process",
+     "source": "greenhouse.com",
+     "date": "2026-05-27",
+     "relevance": "strong",
+     "evidence": "Ezra AI Labs acquisition by Greenhouse (Ezra founder Ophir Samson joining Greenhouse as Head of Voice AI) indicates consolidation under Greenhouse and potential strategic shift to integrate voice AI across Greenhouse platform; the press release states the deal marks the start of a different kind of AI in hiring and Ezra remains available as a standalone product, with Ezra being brought under Green",
+     "mentions_vendor": false,
+     "points": 1.5
+    },
+    {
+     "lane": "budget_distress",
+     "lane_label": "Budget / strategy risk",
+     "url": "https://www.greenhouse.com/newsroom/greenhouse-has-entered-into-a-definitive-agreement-to-acquire-ezra-ai-labs",
+     "title": "Greenhouse Has Entered into a Definitive Agreement to Acquire Ezra AI Labs, Bringing Conversational AI to the Hiring Process",
+     "source": "greenhouse.com",
+     "date": "2026-05-05",
+     "relevance": "strong",
+     "evidence": "Greenhouse has entered into a definitive agreement to acquire Ezra AI Labs, a voice AI interviewer, with the acquisition expected to close this quarter and Ezra remaining available as a standalone offering before deeper integration.",
+     "mentions_vendor": false,
+     "points": 1.5
+    },
+    {
+     "lane": "competitor_adoption",
+     "lane_label": "Competitor adoption",
+     "url": "https://www.activatedscale.com/blog/saas-recruitment-strategies-platforms",
+     "title": "Recruitment SaaS: Strategies, Platforms, & Top Hiring Firms",
+     "source": "activatedscale.com",
+     "date": null,
+     "relevance": "weak",
+     "evidence": "The page discusses Recruitment SaaS platforms and includes a section on Activated Scale, a sales talent marketplace, but there is no explicit evidence in the provided text that Greenhouse is using, integrating with, or partnering with Activated Scale or the site\u2019s own product. The excerpt does not show changelog entries, integration docs, case studies, or partnership announcements related to Green",
+     "mentions_vendor": false,
+     "points": 0.84
+    },
+    {
+     "lane": "hiring_to_replace",
+     "lane_label": "Hiring to replace",
+     "url": "https://job-boards.greenhouse.io/gongio/jobs/4697977006",
+     "title": "Job Application for GTM AI Engineer at Gong.io",
+     "source": "job-boards.greenhouse.io",
+     "date": null,
+     "relevance": "weak",
+     "evidence": "The page describes a GTM AI Engineer role at Gong.io and mentions AI-powered infrastructure and workflows but does not explicitly state building a capability that overlaps Actively AI\u2019s targeted features (an AI-based account-prioritization and reasoning engine integrated with CRM and call data to identify target accounts and suggest next-best-actions). The explicit duties focus on internal AI tool",
+     "mentions_vendor": false,
+     "points": 0.56
+    }
+   ]
+  },
+  {
+   "customer": {
+    "name": "Navan",
+    "domain": "navan.com",
+    "evidence": "Navan is cited as a customer in official press coverage by Bain Capital Ventures.",
+    "source": "web evidence"
+   },
+   "score": 5.08,
+   "tier": "at_risk",
+   "evidence": [
+    {
+     "lane": "budget_distress",
+     "lane_label": "Budget / strategy risk",
+     "url": "https://seekingalpha.com/article/4889701-navan-while-dirt-cheap-ai-is-a-major-risk-for-this-company",
+     "title": "Navan Stock: While Dirt Cheap, AI Is A Major Risk For This Company (NASDAQ:NAVN) | Seeking Alpha",
+     "source": "seekingalpha.com",
+     "date": "2026-04-10",
+     "relevance": "strong",
+     "evidence": "Navan Inc. is rated a \"Sell\" due to vulnerability to AI-driven corporate headcount reductions impacting its travel-dependent revenue model.",
+     "mentions_vendor": false,
+     "points": 1.5
+    },
+    {
+     "lane": "budget_distress",
+     "lane_label": "Budget / strategy risk",
+     "url": "https://www.saastr.com/why-navan-is-up-30-in-2026-when-so-many-other-public-software-leaders-are-down/",
+     "title": "Why Navan Is Up +30% in 2026. When So Many Other Public Software Leaders Are Down. | SaaStrAI",
+     "source": "saastr.com",
+     "date": "2026-06-26",
+     "relevance": "strong",
+     "evidence": "\"Navan is up because it is built on the winning side of that exact disruption: - Usage-based revenue instead of seats. - AI as a margin and distribution engine instead of a threat. - Competitor consolidation flowing in instead of out.\"",
+     "mentions_vendor": false,
+     "points": 1.5
+    },
+    {
+     "lane": "in_house_build",
+     "lane_label": "Building in-house",
+     "url": "https://www.linkedin.com/posts/oliverchristensen0_navan-kernel-navan-uses-kernel-to-focus-activity-7364204356318961665-zodg",
+     "title": "Navan \ud83e\udd1d Kernel Navan uses Kernel to focus all their GTM efforts on the right companies. | Oliver Christensen",
+     "source": "linkedin.com",
+     "date": "2025-08-21",
+     "relevance": "weak",
+     "evidence": "\"Navan uses Kernel across 300k accounts to: - Identify travel spend - Get reliable firmographics - Ensure CRM Hygiene\" (Navan \ud83e\udd1d Kernel Navan uses Kernel to focus all their GTM efforts on the right companies.)",
+     "mentions_vendor": false,
+     "points": 0.89
+    },
+    {
+     "lane": "in_house_build",
+     "lane_label": "Building in-house",
+     "url": "https://www.linkedin.com/posts/anderskrohn_navan-uses-kernels-custom-travel-spend-estimate-activity-7363984128326742017-CFcp",
+     "title": "Navan uses Kernel\u2019s custom travel spend estimate to prequalify every account in the CRM \ud83d\ude80 | Anders Krohn",
+     "source": "linkedin.com",
+     "date": "2025-08-20",
+     "relevance": "weak",
+     "evidence": "Navan uses Kernel\u2019s custom travel spend estimate to prequalify every account in the CRM \ud83d\ude80 Kernel worked with Navan to clean over 300,000 accounts, enrich accounts with accurate headcount data, and, most importantly, prioritize companies by their travel spend.",
+     "mentions_vendor": false,
+     "points": 0.63
+    },
+    {
+     "lane": "hiring_to_replace",
+     "lane_label": "Hiring to replace",
+     "url": "https://builtin.com/job/data-integration-engineer/10658163",
+     "title": "Data Integration Engineer - Navan | Built In",
+     "source": "builtin.com",
+     "date": null,
+     "relevance": "weak",
+     "evidence": "Build and maintain AI-powered integrations and agents connecting business systems (Salesforce, Gong, Snowflake, Slack, NetSuite) using Workato and Python. Implement agents to enrich data, monitor deal health, track competitive mentions, and expose safe connectors to LLMs.",
+     "mentions_vendor": false,
+     "points": 0.56
+    }
+   ]
+  },
+  {
+   "customer": {
+    "name": "Attentive",
+    "domain": "attentivemobile.com",
+    "evidence": "Attentive is cited as a customer in official press coverage by Bain Capital Ventures.",
+    "source": "web evidence"
+   },
+   "score": 4.61,
+   "tier": "watch",
+   "evidence": [
+    {
+     "lane": "budget_distress",
+     "lane_label": "Budget / strategy risk",
+     "url": "https://ecommerce-times.com/attentives-senior-talent-exodus-is-rattling-sms-marketing-clients/",
+     "title": "Attentive\u2019s Senior Talent Exodus Is Rattling SMS Marketing Clients \u2013 Ecommerce Times",
+     "source": "ecommerce-times.com",
+     "date": "2026-06-04",
+     "relevance": "strong",
+     "evidence": "Sources say a disagreement over the pace and direction of Attentive\u2019s AI feature roadmap \u2014 specifically, how aggressively to push autonomous send-time optimization and generative copy tools into enterprise workflows \u2014 has created visible friction between product leadership and the go-to-market team.",
+     "mentions_vendor": false,
+     "points": 1.5
+    },
+    {
+     "lane": "budget_distress",
+     "lane_label": "Budget / strategy risk",
+     "url": "https://ecommerce-times.com/is-attentive-quietly-losing-its-grip-on-dtcs-biggest-sms-spenders/",
+     "title": "Is Attentive Quietly Losing Its Grip on DTC\u2019s Biggest SMS Spenders? \u2013 Ecommerce Times",
+     "source": "ecommerce-times.com",
+     "date": "2026-08-19",
+     "relevance": "strong",
+     "evidence": "\u201cOver the past 60 days, at least three agency sources with direct knowledge of client migrations tell Ecommerce Times that Attentive \u2014 long considered the undisputed heavyweight of DTC text marketing \u2014 is facing an unusually concentrated wave of contract non-renewals and mid-cycle audits from brands spending north of $500,000 annually on SMS.\u201d",
+     "mentions_vendor": false,
+     "points": 1.5
+    },
+    {
+     "lane": "in_house_build",
+     "lane_label": "Building in-house",
+     "url": "https://www.thecmowire.com/news/ai-marketing-personalization-eric-miao-attentive",
+     "title": "The Next Platform Shift: From Feature Stacks to Autonomous Execution Built for ROI",
+     "source": "thecmowire.com",
+     "date": "2026-06-05",
+     "relevance": "weak",
+     "evidence": "\"Three years ago, that observation pushed Attentive to double down on AI, building technology designed to act on a marketer's behalf rather than adding to their workload.\"",
+     "mentions_vendor": false,
+     "points": 1.05
+    },
+    {
+     "lane": "hiring_to_replace",
+     "lane_label": "Hiring to replace",
+     "url": "https://job-boards.greenhouse.io/attentive/jobs/4135931009",
+     "title": "Job Application for GTM Engineer at Attentive",
+     "source": "job-boards.greenhouse.io",
+     "date": null,
+     "relevance": "weak",
+     "evidence": "The job posting describes a GTM Engineer at Attentive focused on building workflows, automation, and AI-enabled processes to support go-to-market teams, with emphasis on integrating systems like Salesforce and Gong; there is no explicit mention of Actively AI or a custom AI-based account-prioritization and reasoning engine that integrates with CRM and call data.",
+     "mentions_vendor": false,
+     "points": 0.56
+    }
+   ]
+  }
+ ],
+ "summary": {
+  "vendor": "Actively AI",
+  "domain": "actively.ai",
+  "counts": {
+   "at_risk": 3,
+   "watch": 5,
+   "healthy": 0
+  },
+  "elapsed_s": 34.5,
+  "api_calls": 46,
+  "cost_usd": 0.522,
+  "generated_at": "2026-08-21T05:24:17.343887+00:00"
+ }
+}

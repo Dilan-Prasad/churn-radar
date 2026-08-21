@@ -62,12 +62,15 @@ _scan_log_by_ip: dict[str, deque] = {}
 _active_scans = 0
 
 
-def live_scan_gate(ip: str):
+def live_scan_gate(ip: str, has_own_key: bool):
     """Returns an error string if this live scan should be refused, else
-    records the scan and returns None."""
+    records the scan and returns None. Visitors bringing their own Exa key
+    spend their own credits, so only the concurrency cap applies to them."""
     if _active_scans >= MAX_CONCURRENT_SCANS:
         return ("Two live scans are already running — give them a minute to finish, "
                 "or use Replay cached for an instant (free) result.")
+    if has_own_key:
+        return None
     now = time.time()
     while _scan_log and now - _scan_log[0] > 3600:
         _scan_log.popleft()
@@ -75,8 +78,9 @@ def live_scan_gate(ip: str):
     while per_ip and now - per_ip[0] > 3600:
         per_ip.popleft()
     if len(_scan_log) >= LIVE_SCANS_PER_HOUR or len(per_ip) >= LIVE_SCANS_PER_IP_PER_HOUR:
-        return ("Hourly live-scan budget reached (each live sweep costs real API credits). "
-                "Try Replay cached, or come back in a bit.")
+        return ("Hourly live-scan budget reached (each live sweep spends the demo's API "
+                "credits). Try Replay cached, add your own Exa key in the API key panel, "
+                "or come back in a bit.")
     _scan_log.append(now)
     per_ip.append(now)
     return None
@@ -90,16 +94,17 @@ app = FastAPI(title="Churn Radar")
 class ExaClient:
     """Thin async Exa client: rate-spaced, retrying, cost-accounting."""
 
-    def __init__(self, emit):
+    def __init__(self, emit, api_key: str | None = None):
         self.emit = emit                      # push events to the SSE stream
         self.sem = asyncio.Semaphore(MAX_CONCURRENCY)
         self.gate = asyncio.Lock()
         self.last_start = 0.0
         self.calls = 0
         self.cost = 0.0
+        self.auth_error = False               # set on 401/403 from Exa
         self.http = httpx.AsyncClient(
             base_url=EXA_BASE,
-            headers={"x-api-key": EXA_API_KEY, "Content-Type": "application/json"},
+            headers={"x-api-key": api_key or EXA_API_KEY, "Content-Type": "application/json"},
             timeout=45.0,
         )
 
@@ -127,6 +132,12 @@ class ExaClient:
                     await asyncio.sleep(0.6 * (attempt + 1))
                     continue
                 ms = int((time.monotonic() - t0) * 1000)
+                if r.status_code in (401, 403):
+                    self.auth_error = True    # bad key — retrying won't help
+                    await self.emit({"type": "call", "endpoint": endpoint,
+                                     "tag": tag, "ms": ms, "cost": 0,
+                                     "error": f"HTTP {r.status_code} — API key rejected"})
+                    return None
                 if r.status_code == 429 or r.status_code >= 500:
                     if attempt == 3:
                         await self.emit({"type": "call", "endpoint": endpoint,
@@ -594,8 +605,8 @@ async def sweep_customer(exa: ExaClient, customer, lanes_for, vendor_domain, emi
     return verdict
 
 
-async def run_pipeline(domain: str, max_customers: int, emit):
-    exa = ExaClient(emit)
+async def run_pipeline(domain: str, max_customers: int, emit, api_key: str | None = None):
+    exa = ExaClient(emit, api_key=api_key)
     t0 = time.monotonic()
     try:
         # ---- phase 0: does this domain even exist on the web? --------------
@@ -604,6 +615,11 @@ async def run_pipeline(domain: str, max_customers: int, emit):
         probe = await exa.post("/search", {
             "query": "company homepage", "includeDomains": [domain], "numResults": 3,
         }, "domain-probe")
+        if exa.auth_error:
+            await emit({"type": "error",
+                        "message": "Exa rejected the API key (HTTP 401). If you added your own key, "
+                                   "fix or clear it in the API key panel and try again."})
+            return None
         probe_hits = [r for r in (probe or {}).get("results", [])
                       if result_domain(r.get("url", "")).endswith(domain)]
         if not probe_hits:
@@ -772,6 +788,42 @@ async def index():
     return FileResponse(ROOT / "static" / "index.html")
 
 
+_key_checks: dict[str, deque] = {}   # ip -> recent key-check timestamps
+
+
+@app.post("/api/key/check")
+async def key_check(request: Request):
+    """Verify an Exa key with one minimal search call. The key is used for
+    this request only — never stored or logged."""
+    ip = request.headers.get("x-real-ip") or (request.client.host if request.client else "?")
+    now = time.time()
+    dq = _key_checks.setdefault(ip, deque())
+    while dq and now - dq[0] > 3600:
+        dq.popleft()
+    if len(dq) >= 10:
+        return JSONResponse({"ok": False, "error": "Too many key checks — try again later."})
+    dq.append(now)
+    try:
+        body = await request.json()
+    except (json.JSONDecodeError, ValueError):
+        body = {}
+    key = str(body.get("key", "")).strip()[:120]
+    if not key:
+        return JSONResponse({"ok": False, "error": "Paste a key first."})
+    try:
+        async with httpx.AsyncClient(timeout=12.0) as c:
+            r = await c.post(f"{EXA_BASE}/search",
+                             json={"query": "exa.ai", "numResults": 1},
+                             headers={"x-api-key": key, "Content-Type": "application/json"})
+    except httpx.HTTPError:
+        return JSONResponse({"ok": False, "error": "Couldn't reach the Exa API — try again."})
+    if r.status_code == 200:
+        return JSONResponse({"ok": True})
+    if r.status_code in (401, 403):
+        return JSONResponse({"ok": False, "error": "Exa rejected this key (401)."})
+    return JSONResponse({"ok": False, "error": f"Exa returned HTTP {r.status_code}."})
+
+
 @app.get("/api/cached")
 async def cached_runs():
     out = []
@@ -793,9 +845,13 @@ def sse(event: dict):
 async def scan(request: Request, url: str, max_customers: int = 15, mode: str = "live"):
     domain = normalize_domain(url)
 
+    user_key = (request.headers.get("x-exa-key") or "").strip()[:120] or None
+
     async def stream():
-        if not EXA_API_KEY:
-            yield sse({"type": "error", "message": "EXA_API_KEY is not set. Add it to .env or the environment."})
+        if not EXA_API_KEY and not user_key:
+            yield sse({"type": "error",
+                       "message": "No Exa API key configured — add yours in the API key panel "
+                                  "(top right), or set EXA_API_KEY on the server."})
             return
         if not domain:
             yield sse({"type": "error",
@@ -818,7 +874,7 @@ async def scan(request: Request, url: str, max_customers: int = 15, mode: str = 
             return
 
         client_ip = request.headers.get("x-real-ip") or (request.client.host if request.client else "?")
-        refusal = live_scan_gate(client_ip)
+        refusal = live_scan_gate(client_ip, has_own_key=bool(user_key))
         if refusal:
             yield sse({"type": "error", "message": refusal})
             return
@@ -830,7 +886,8 @@ async def scan(request: Request, url: str, max_customers: int = 15, mode: str = 
 
         global _active_scans
         _active_scans += 1
-        task = asyncio.create_task(run_pipeline(domain, max(5, min(20, max_customers)), emit))
+        task = asyncio.create_task(
+            run_pipeline(domain, max(5, min(20, max_customers)), emit, api_key=user_key))
         run = None
         try:
             while True:

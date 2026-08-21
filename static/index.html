@@ -38,6 +38,18 @@
   button:hover{filter:brightness(1.1)}
   button:disabled{opacity:.45;cursor:default}
   button.ghost{background:transparent;color:var(--accent);border:1px solid var(--accent)}
+  button.subtle{background:transparent;color:var(--muted);border:1px solid var(--line);font-weight:600}
+  button.subtle.haskey{color:var(--accent);border-color:rgba(56,189,248,.5)}
+  .keypanel{display:none;background:var(--panel);border:1px solid var(--line);border-radius:12px;
+    padding:14px;margin-top:10px;flex-wrap:wrap;gap:10px;align-items:center}
+  .keypanel.open{display:flex}
+  .keypanel input{flex:1;min-width:260px;background:var(--panel2);color:var(--text);
+    border:1px solid var(--line);border-radius:8px;padding:9px 12px;
+    font:13px ui-monospace,SFMono-Regular,Menlo,monospace}
+  .keypanel input:focus{outline:none;border-color:var(--accent)}
+  .keymsg{font-size:12.5px;min-width:140px}
+  .keymsg.ok{color:var(--green)} .keymsg.bad{color:var(--red)}
+  .keyhint{flex-basis:100%;color:var(--muted);font-size:11.5px}
   .status{margin:14px 2px;color:var(--accent);font-size:13px;min-height:20px;
     font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
   .status .dim{color:var(--muted)}
@@ -128,6 +140,17 @@
            <span id="maxcv">15</span></label>
     <button id="goBtn" onclick="scan('live')">Scan live</button>
     <button id="cacheBtn" class="ghost" onclick="scan('cached')" style="display:none">Replay cached</button>
+    <button id="keyBtn" class="subtle" onclick="toggleKeyPanel()" title="Use your own Exa API key for live scans">🔑 API key</button>
+  </div>
+
+  <div class="keypanel" id="keyPanel">
+    <input id="keyInput" type="password" placeholder="Your Exa API key" autocomplete="off"
+           onkeydown="if(event.key==='Enter')saveKey()">
+    <button onclick="saveKey()">Save &amp; test</button>
+    <button class="ghost" onclick="clearKey()">Clear</button>
+    <span class="keymsg" id="keyMsg"></span>
+    <div class="keyhint">Stored only in this browser and sent only with your live scans — never logged.
+    With your own key the demo's hourly scan budget doesn't apply. Get a key at dashboard.exa.ai.</div>
   </div>
 
   <div class="status" id="status"></div>
@@ -168,8 +191,61 @@
 
 <script>
 const $ = id => document.getElementById(id);
-let es = null, cardsByDomain = {}, counts = {at_risk:0, watch:0, healthy:0};
+let ctrl = null, cardsByDomain = {}, counts = {at_risk:0, watch:0, healthy:0};
 let callN = 0, costT = 0, consoleOpen = false;
+
+// ---- bring-your-own-key (kept in this browser only) ----
+function getKey(){ try{ return localStorage.getItem('exa_api_key') || '' }catch(e){ return '' } }
+function setStoredKey(v){ try{ v ? localStorage.setItem('exa_api_key', v)
+                                 : localStorage.removeItem('exa_api_key') }catch(e){} }
+function updateKeyBtn(){
+  const has = !!getKey();
+  $('keyBtn').textContent = has ? '🔑 your key' : '🔑 API key';
+  $('keyBtn').classList.toggle('haskey', has);
+}
+function toggleKeyPanel(){
+  $('keyPanel').classList.toggle('open');
+  if($('keyPanel').classList.contains('open')){ $('keyInput').value = getKey(); $('keyInput').focus(); }
+}
+async function saveKey(){
+  const k = $('keyInput').value.trim();
+  const msg = $('keyMsg');
+  if(!k){ msg.textContent = 'Paste a key first.'; msg.className = 'keymsg bad'; return; }
+  setStoredKey(k); updateKeyBtn();
+  msg.textContent = 'testing…'; msg.className = 'keymsg';
+  try{
+    const r = await (await fetch('/api/key/check', {method:'POST',
+      headers:{'Content-Type':'application/json'}, body: JSON.stringify({key:k})})).json();
+    msg.textContent = r.ok ? '✓ key works — live scans now use it' : '✗ ' + r.error;
+    msg.className = 'keymsg ' + (r.ok ? 'ok' : 'bad');
+  }catch(e){ msg.textContent = 'saved (test failed to reach server)'; msg.className = 'keymsg'; }
+}
+function clearKey(){
+  setStoredKey(''); $('keyInput').value = '';
+  $('keyMsg').textContent = 'cleared — live scans use the demo key';
+  $('keyMsg').className = 'keymsg'; updateKeyBtn();
+}
+
+// ---- SSE over fetch, so the key travels as a header, never in the URL ----
+async function streamScan(url, onEvent, signal){
+  const headers = {};
+  if(getKey()) headers['X-Exa-Key'] = getKey();
+  const resp = await fetch(url, {headers, signal});
+  const reader = resp.body.getReader();
+  const dec = new TextDecoder();
+  let buf = '';
+  for(;;){
+    const {done, value} = await reader.read();
+    if(done) break;
+    buf += dec.decode(value, {stream:true});
+    let i;
+    while((i = buf.indexOf('\n\n')) >= 0){
+      const chunk = buf.slice(0, i); buf = buf.slice(i + 2);
+      for(const line of chunk.split('\n'))
+        if(line.startsWith('data: ')) onEvent(JSON.parse(line.slice(6)));
+    }
+  }
+}
 
 const LANE_NAMES = {
   competitor_adoption:"COMPETITOR ADOPTION", in_house_build:"BUILDING IN-HOUSE",
@@ -192,6 +268,7 @@ async function refreshCacheBtn(){
 }
 $('url').addEventListener('input', refreshCacheBtn);
 refreshCacheBtn();
+updateKeyBtn();
 
 // deep link: /?url=exa.ai&auto=live|cached starts a scan on load
 const qp = new URLSearchParams(location.search);
@@ -210,20 +287,21 @@ function reset(){
 }
 
 function scan(mode){
-  if(es) es.close();
+  if(ctrl) ctrl.abort();
   reset();
   document.body.classList.add('scanning');
   $('goBtn').disabled=true; $('cacheBtn').disabled=true;
   const url = encodeURIComponent($('url').value.trim());
   const maxc = $('maxc').value;
   $('status').textContent = mode==='cached' ? '↺ replaying cached run…' : '⟲ starting scan…';
-  es = new EventSource(`/api/scan?url=${url}&max_customers=${maxc}&mode=${mode}`);
-  es.onmessage = e => handle(JSON.parse(e.data));
-  es.onerror = () => { finish(); };
+  const my = new AbortController(); ctrl = my;
+  streamScan(`/api/scan?url=${url}&max_customers=${maxc}&mode=${mode}`, handle, my.signal)
+    .catch(()=>{})
+    .finally(()=>{ if(ctrl===my) finish(); });
 }
 
 function finish(){
-  if(es){es.close();es=null}
+  ctrl = null;
   document.body.classList.remove('scanning');
   $('goBtn').disabled=false; $('cacheBtn').disabled=false;
   refreshCacheBtn();
