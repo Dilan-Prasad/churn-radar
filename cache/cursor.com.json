@@ -1,0 +1,1902 @@
+{
+ "profile": {
+  "company_name": "Cursor (Anysphere)",
+  "one_liner": "Cursor is an AI-native code editor that enables autonomous agentic coding, allowing developers to build, edit, and refactor software using natural language.",
+  "churn_modes": [
+   "Microsoft integrates superior agentic capabilities into GitHub Copilot/Visual Studio that render a separate editor unnecessary.",
+   "Anthropic or OpenAI bundle high-performance coding editors with their own frontier models and restrict Cursor's access to their APIs.",
+   "Enterprises consolidate their development stack onto incumbent platforms (like Microsoft's ecosystem) to reduce costs and security overhead.",
+   "The company fails to maintain parity with frontier model performance, leading users to prefer first-party tools from model labs."
+  ],
+  "product_category": "AI-native code editor and agentic development platform",
+  "buyer_persona": "Individual developers, engineering teams, and enterprise IT/procurement departments at technology-focused companies.",
+  "capability_phrase": "AI-native code editor infrastructure with integrated autonomous agent workflows, codebase-aware semantic indexing, and multi-file code generation.",
+  "competitors": [
+   {
+    "domain": "github.com",
+    "name": "GitHub Copilot"
+   },
+   {
+    "name": "Claude Code",
+    "domain": "anthropic.com"
+   },
+   {
+    "name": "Devin Desktop",
+    "domain": "cognition.ai"
+   },
+   {
+    "domain": "openai.com",
+    "name": "OpenAI Codex"
+   },
+   {
+    "domain": "google.com",
+    "name": "Google Gemini coding tools"
+   },
+   {
+    "name": "Cursor (Anysphere)",
+    "domain": "perry.works",
+    "via": "findSimilar"
+   }
+  ]
+ },
+ "domain": "cursor.com",
+ "customers": [
+  {
+   "name": "Salesforce",
+   "domain": "salesforce.com",
+   "evidence": "Featured in a Cursor blog post detailing how their engineers use it to accelerate velocity.",
+   "source": "web evidence"
+  },
+  {
+   "name": "Coinbase",
+   "domain": "coinbase.com",
+   "evidence": "Featured in a Cursor blog post detailing how their developers use it to reduce time from idea to production.",
+   "source": "web evidence"
+  },
+  {
+   "name": "NVIDIA",
+   "domain": "nvidia.com",
+   "evidence": "Featured in a Cursor blog post detailing how their developers use it to increase committed code.",
+   "source": "web evidence"
+  },
+  {
+   "name": "Dropbox",
+   "domain": "dropbox.com",
+   "evidence": "Featured in a Cursor blog post detailing how they use it to build an AI-native SDLC.",
+   "source": "web evidence"
+  },
+  {
+   "name": "Stripe",
+   "domain": "stripe.com",
+   "evidence": "Featured in a Cursor blog post detailing how they rolled it out to their engineers.",
+   "source": "web evidence"
+  },
+  {
+   "name": "Box",
+   "domain": "box.com",
+   "evidence": "Featured in a Cursor blog post detailing their choice of Cursor for enterprise-grade quality and security.",
+   "source": "web evidence"
+  },
+  {
+   "name": "Vercel",
+   "domain": "vercel.com",
+   "evidence": "Featured in a Cursor blog post detailing how they used it to build Vercel Queues.",
+   "source": "web evidence"
+  },
+  {
+   "name": "Carlyle",
+   "domain": "carlyle.com",
+   "evidence": "Mentioned as using Cursor in a customer testimonial on the official Cursor website.",
+   "source": "web evidence"
+  },
+  {
+   "name": "Optiver",
+   "domain": "optiver.com",
+   "evidence": "Mentioned as using Cursor for firm-wide deployment in a customer testimonial on the official Cursor website.",
+   "source": "web evidence"
+  },
+  {
+   "name": "Wayfair",
+   "domain": "wayfair.com",
+   "evidence": "Mentioned in Cursor blog post titles/sidebar as having reduced ML model costs with Cursor.",
+   "source": "web evidence"
+  },
+  {
+   "name": "Faire",
+   "domain": "faire.com",
+   "evidence": "Mentioned in Cursor blog post sidebar as having doubled PR throughput with Cursor.",
+   "source": "web evidence"
+  },
+  {
+   "name": "Amplitude",
+   "domain": "amplitude.com",
+   "evidence": "Official case study: Autonomous development pipeline and automation of software from idea to production using Cursor automations, including Slack-triggered ticketing, PR creation, automated code fixes",
+   "source": "vendor case study"
+  },
+  {
+   "name": "OpenAI",
+   "domain": "openai.com",
+   "evidence": "\u201ccursor is built atop Microsoft Corp.\u2019s popular code editor Visual Studio Code, and its support for a wide range of large language models, including its own and those of OpenAI and Anthropic.\u201d",
+   "source": "web evidence"
+  },
+  {
+   "name": "Instacart",
+   "domain": "instacart.com",
+   "evidence": "\u201csoftware programmers at businesses ranging from deep tech companies like OpenAI to consumer brands such as Instacart, Spotify and Uber\u201d",
+   "source": "web evidence"
+  },
+  {
+   "name": "Spotify",
+   "domain": "spotify.com",
+   "evidence": "\u201cconsumer brands such as Instacart, Spotify and Uber\u201d",
+   "source": "web evidence"
+  },
+  {
+   "name": "Uber",
+   "domain": "uber.com",
+   "evidence": "\u201cconsumer brands such as Instacart, Spotify and Uber\u201d",
+   "source": "web evidence"
+  },
+  {
+   "name": "Major League Baseball",
+   "domain": "mlb.com",
+   "evidence": "\u201corganizations not generally associated with software, including Major League Baseball.\u201d",
+   "source": "web evidence"
+  },
+  {
+   "name": "Discord",
+   "domain": "discord.com",
+   "evidence": "Its public client list is a who's who of tech: Stripe, Coinbase, Discord, Salesforce, Neuralink, and Nvidia.",
+   "source": "web evidence"
+  },
+  {
+   "name": "Neuralink",
+   "domain": "neuralink.com",
+   "evidence": "Its public client list is a who's who of tech: Stripe, Coinbase, Discord, Salesforce, Neuralink, and Nvidia.",
+   "source": "web evidence"
+  }
+ ],
+ "verdicts": [
+  {
+   "customer": {
+    "name": "Salesforce",
+    "domain": "salesforce.com",
+    "evidence": "Featured in a Cursor blog post detailing how their engineers use it to accelerate velocity.",
+    "source": "web evidence"
+   },
+   "score": 10.61,
+   "tier": "at_risk",
+   "evidence": [
+    {
+     "lane": "competitor_adoption",
+     "lane_label": "Competitor adoption",
+     "url": "https://www.anthropic.com/news/salesforce-anthropic-expanded-partnership",
+     "title": "Anthropic and Salesforce expand partnership to bring ...",
+     "source": "anthropic.com",
+     "date": "2025-10-14",
+     "relevance": "strong",
+     "evidence": "Anthropic and Salesforce today announced an expanded partnership to make Claude a preferred model for Salesforce's Agentforce platform, enabling Salesforce customers in financial services, healthcare, cybersecurity, and life sciences to use trusted AI while keeping sensitive data secure.",
+     "mentions_vendor": false,
+     "points": 2.55
+    },
+    {
+     "lane": "competitor_adoption",
+     "lane_label": "Competitor adoption",
+     "url": "https://cloud.google.com/solutions/salesforce",
+     "title": "Salesforce | Google Cloud",
+     "source": "cloud.google.com",
+     "date": null,
+     "relevance": "strong",
+     "evidence": "\"Salesforce and Google Cloud have expanded our partnership to unlock the power of data and AI for actionable insights, enhanced agility, and personalization.\"",
+     "mentions_vendor": false,
+     "points": 2.4
+    },
+    {
+     "lane": "budget_distress",
+     "lane_label": "Budget / strategy risk",
+     "url": "https://www.theregister.com/saas/2026/06/09/salesforce-layoffs-hit-amid-m3ter-acquisition-and-stock-buyback/5253162",
+     "title": "Salesforce layoffs hit amid m3ter acquisition and stock buyback",
+     "source": "theregister.com",
+     "date": "2026-06-09",
+     "relevance": "strong",
+     "evidence": "Salesforce is undergoing layoffs and buying back stock while acquiring m3ter; the article states: \"Salesforce is undergoing another round of layoffs\" and describes a definitive agreement to acquire m3ter, plus a $50 billion stock repurchase authorization, indicating cost-cutting and consolidation of spending while growth via acquisitions.",
+     "mentions_vendor": false,
+     "points": 1.5
+    },
+    {
+     "lane": "budget_distress",
+     "lane_label": "Budget / strategy risk",
+     "url": "https://www.sfchronicle.com/tech/article/salesforce-san-francisco-layoffs-22377985.php",
+     "title": "Salesforce plans fourth round of S.F. layoffs in under a year",
+     "source": "sfchronicle.com",
+     "date": "2026-08-06",
+     "relevance": "strong",
+     "evidence": "Salesforce plans to eliminate approximately dozens of jobs at its San Francisco headquarters, marking the company\u2019s fourth round of local layoffs in roughly 11 months.",
+     "mentions_vendor": false,
+     "points": 1.5
+    },
+    {
+     "lane": "in_house_build",
+     "lane_label": "Building in-house",
+     "url": "https://github.com/salesforce/sf-pi/tree/main/extensions/sf-lsp",
+     "title": "sf-pi/extensions/sf-lsp at main \u00b7 salesforce/sf-pi \u00b7 GitHub",
+     "source": "github.com",
+     "date": "2026-04-27",
+     "relevance": "weak",
+     "evidence": "\"Provides real-time Language Server Protocol diagnostics to the agent after every file write or edit\" and related notes describe an in-house LSP diagnostic tool within Salesforce SF-PI extensions, including agent-script integrations and internal tooling, but there is no mention of Cursor (Anysphere) or a direct claim of building an external AI-native code editor/agent platform. The page discusses ",
+     "mentions_vendor": false,
+     "points": 1.05
+    },
+    {
+     "lane": "in_house_build",
+     "lane_label": "Building in-house",
+     "url": "https://www.salesforce.com/blog/headless-salesforce-development/",
+     "title": "Headless Development: How Humans & Agents Build on Salesforce",
+     "source": "salesforce.com",
+     "date": "2026-05-20",
+     "relevance": "weak",
+     "evidence": "Salesforce unveils Headless 360 and MCP-enabled, API/CLI-based platform capabilities that enable agents and humans to build together on Salesforce data, logic, and governance, including hosting MCP servers and enabling tools like Claude Code and Cursor to connect directly with no custom integration work.",
+     "mentions_vendor": false,
+     "points": 1.05
+    },
+    {
+     "lane": "hiring_to_replace",
+     "lane_label": "Hiring to replace",
+     "url": "https://www.salesforce.com/company/careers/jobs/jr341229/ai-architect-software-engineering/",
+     "title": "AI Architect - Software Engineering - California - Palo Alto, Washington - Seattle, California - San Francisco | Salesforce Careers",
+     "source": "salesforce.com",
+     "date": null,
+     "relevance": "weak",
+     "evidence": "The RoleWe're hiring an AI Cloud Architect to help shape how agentic systems are built, deployed, and scaled at Salesforce. You'll work at the frontier of the Agentforce platform \u2014 inventing new primitives, incubating next-gen agentic systems, partnering directly with customers, and setting architectural direction for how enterprise AI agents work in production.",
+     "mentions_vendor": false,
+     "points": 0.56
+    }
+   ]
+  },
+  {
+   "customer": {
+    "name": "Coinbase",
+    "domain": "coinbase.com",
+    "evidence": "Featured in a Cursor blog post detailing how their developers use it to reduce time from idea to production.",
+    "source": "web evidence"
+   },
+   "score": 6.92,
+   "tier": "at_risk",
+   "evidence": [
+    {
+     "lane": "budget_distress",
+     "lane_label": "Budget / strategy risk",
+     "url": "https://techcrunch.com/2026/05/05/coinbase-to-lay-off-14-of-staff-as-part-of-broader-restructuring/",
+     "title": "Coinbase to lay off 14% of staff as part of broader restructuring | TechCrunch",
+     "source": "techcrunch.com",
+     "date": "2026-05-05",
+     "relevance": "strong",
+     "evidence": "\u201cCoinbase said on Tuesday it is laying off about 700 employees, or 14% of its staff, as part of a broader restructuring aimed at addressing market volatility and increasing the use of AI tools to improve efficiency.\u201d",
+     "mentions_vendor": false,
+     "points": 1.5
+    },
+    {
+     "lane": "budget_distress",
+     "lane_label": "Budget / strategy risk",
+     "url": "https://www.cnbc.com/2026/05/05/coinbase-cuts-headcount-by-14percent-citing-ai-acceleration-the-shares-are-gaining.html",
+     "title": "Coinbase cuts headcount by 14% citing AI acceleration",
+     "source": "cnbc.com",
+     "date": "2026-05-05",
+     "relevance": "strong",
+     "evidence": "\"Coinbase CEO Brian Armstrong said Tuesday that the company will cut roughly 14% of its workforce, or about 700 employees, citing a combination of market volatility and AI quickly changing how the company operates.\"",
+     "mentions_vendor": false,
+     "points": 1.5
+    },
+    {
+     "lane": "in_house_build",
+     "lane_label": "Building in-house",
+     "url": "https://rywalker.com/research/coinbase-forge",
+     "title": "Coinbase Forge (fka Cloudbot/Claudebot) | Ry Walker Research | Ry Walker",
+     "source": "rywalker.com",
+     "date": "2026-03-26",
+     "relevance": "weak",
+     "evidence": "\"Forge remains the best-documented in-house coding agent case study: 5% of merged PRs (as of February 2026), a 10x PR cycle-time improvement, and an adoption playbook (speedruns, CEO buy-in, Linear as source of truth) that other enterprises are copying via Open SWE.\"",
+     "mentions_vendor": false,
+     "points": 1.05
+    },
+    {
+     "lane": "in_house_build",
+     "lane_label": "Building in-house",
+     "url": "https://www.linkedin.com/posts/chintanturakhia_we-started-building-our-internal-coding-agent-activity-7493070050304827392-2LYE",
+     "title": "We started building our internal coding agent in mid-2025 at Coinbase. | Chintan Turakhia",
+     "source": "linkedin.com",
+     "date": "2026-08-11",
+     "relevance": "weak",
+     "evidence": "Coinbase built its own internal coding agent to reduce its dependency on and complement Claude Code. The Information's Laura Bratton explains why: \"Just now companies are starting to think about, oh man, maybe we shouldn't be locked into one frontier AI lab.\u201d",
+     "mentions_vendor": false,
+     "points": 1.05
+    },
+    {
+     "lane": "competitor_adoption",
+     "lane_label": "Competitor adoption",
+     "url": "https://cloud.google.com/blog/products/ai-machine-learning/announcing-agents-to-payments-ap2-protocol",
+     "title": "Announcing Agent Payments Protocol (AP2)",
+     "source": "cloud.google.com",
+     "date": "2025-09-16",
+     "relevance": "weak",
+     "evidence": "The page discusses AP2 and collaboration with Coinbase among others, stating: \"in collaboration with Coinbase, Ethereum Foundation, MetaMask and other leading organizations, we have extended the core constructs of AP2 and launched the A2A x402 extension, a production-ready solution for agent-based crypto payments.\"",
+     "mentions_vendor": false,
+     "points": 0.89
+    },
+    {
+     "lane": "hiring_to_replace",
+     "lane_label": "Hiring to replace",
+     "url": "https://www.coinbase.com/careers/positions/7997420",
+     "title": "Senior Software Engineer - AI Platform Team, Remote - USA",
+     "source": "coinbase.com",
+     "date": null,
+     "relevance": "weak",
+     "evidence": "The page describes a Senior Software Engineer - AI Platform Team at Coinbase focusing on LLM infrastructure, agent lifecycle, and platform capabilities; there is no explicit mention of Cursor (Anysphere) or its AI-native code editor infrastructure within the job description.",
+     "mentions_vendor": false,
+     "points": 0.56
+    },
+    {
+     "lane": "competitor_adoption",
+     "lane_label": "Competitor adoption",
+     "url": "https://github.com/coinbase/coinbase-sdk-nodejs",
+     "title": "coinbase/coinbase-sdk-nodejs",
+     "source": "github.com",
+     "date": "2024-05-08",
+     "relevance": "weak",
+     "evidence": "The page is the Coinbase Node.js SDK repository page; it describes Coinbase's own SDK and APIs, not Cursor (Anysphere) or a partner integration with this site\u2019s product. It mentions Coinbase\u2019s CDP API, wallet creation, and transfers, but there is no evidence of Cursor (Anysphere) usage, integration, or partnership in the page text.",
+     "mentions_vendor": false,
+     "points": 0.37
+    }
+   ]
+  },
+  {
+   "customer": {
+    "name": "NVIDIA",
+    "domain": "nvidia.com",
+    "evidence": "Featured in a Cursor blog post detailing how their developers use it to increase committed code.",
+    "source": "web evidence"
+   },
+   "score": 5.38,
+   "tier": "at_risk",
+   "evidence": [
+    {
+     "lane": "hiring_to_replace",
+     "lane_label": "Hiring to replace",
+     "url": "https://jobs.nvidia.com/careers/job/893396838222?domain=nvidia.com",
+     "title": "Senior Software Engineer, Agentic AI | NVIDIA Corporation",
+     "source": "jobs.nvidia.com",
+     "date": null,
+     "relevance": "strong",
+     "evidence": "NVIDIA is seeking a Senior Software Engineer to join our Agentic AI High-Performance Code Generation team... Lead the design and implementation of sophisticated coding agents and agentic platforms capable of multi-step reasoning, self-correction, and autonomous code generation.",
+     "mentions_vendor": false,
+     "points": 1.6
+    },
+    {
+     "lane": "in_house_build",
+     "lane_label": "Building in-house",
+     "url": "https://developer.nvidia.com/blog/reliable-ai-coding-for-unreal-engine-improving-accuracy-and-reducing-token-costs/",
+     "title": "Reliable AI Coding for Unreal Engine: Improving Accuracy and Reducing Token Costs | NVIDIA Technical Blog",
+     "source": "developer.nvidia.com",
+     "date": "2026-03-10",
+     "relevance": "weak",
+     "evidence": "The page describes NVIDIA\u2019s use of hybrid search, syntax-aware code indexing, and GPU-accelerated vector search for enterprise-scale code retrieval in Unreal Engine environments, but does not mention Cursor (Anysphere) or an in-house AI-native code editor platform by NVIDIA beyond general tooling and workflows.",
+     "mentions_vendor": false,
+     "points": 1.05
+    },
+    {
+     "lane": "in_house_build",
+     "lane_label": "Building in-house",
+     "url": "https://developer.nvidia.com/blog/how-to-self-host-a-validated-ai-coding-assistant-with-nvidia-nemo-guardrails/",
+     "title": "How to Self-Host a Validated AI Coding Assistant with NVIDIA NeMo Guardrails | NVIDIA Technical Blog",
+     "source": "developer.nvidia.com",
+     "date": "2026-07-29",
+     "relevance": "weak",
+     "evidence": "The page describes self-hosting a validated AI coding assistant using NVIDIA NeMo Guardrails with StarCoder2-7B NIM on NVIDIA infrastructure, CI verification, and metrics, but does not mention Cursor (Anysphere) or an in-house NVIDIA capability overlapping Cursor\u2019s AI-native code editor with agent workflows and semantic indexing. The strongest claim is about NVIDIA-specific tooling and architectur",
+     "mentions_vendor": false,
+     "points": 1.05
+    },
+    {
+     "lane": "competitor_adoption",
+     "lane_label": "Competitor adoption",
+     "url": "https://cloud.google.com/customers/palo-alto-networks-nvidia",
+     "title": "Palo Alto Networks Case Study | Google Cloud",
+     "source": "cloud.google.com",
+     "date": null,
+     "relevance": "weak",
+     "evidence": "\"Switching to Google Cloud delivered an immediate performance lift. NVIDIA GPU instances on Google Cloud Compute Engine substantially reduced inference latency, enabling Palo Alto Networks to meet the stringent real-time response requirements of its data loss prevention solution.\"",
+     "mentions_vendor": false,
+     "points": 0.84
+    },
+    {
+     "lane": "competitor_adoption",
+     "lane_label": "Competitor adoption",
+     "url": "https://cloud.google.com/customers/aible",
+     "title": "Aible case study | Google Cloud",
+     "source": "cloud.google.com",
+     "date": null,
+     "relevance": "weak",
+     "evidence": "Aible rapidly deploys trusted generative AI agents aligned with core business KPIs. Leveraging NVIDIA's airgapped hardware and co-optimized GPU stacks with Google Cloud's serverless BigQuery and Cloud Run, Aible delivers secure, scalable AI impact within 30 days.",
+     "mentions_vendor": false,
+     "points": 0.84
+    }
+   ]
+  },
+  {
+   "customer": {
+    "name": "Dropbox",
+    "domain": "dropbox.com",
+    "evidence": "Featured in a Cursor blog post detailing how they use it to build an AI-native SDLC.",
+    "source": "web evidence"
+   },
+   "score": 7.54,
+   "tier": "at_risk",
+   "evidence": [
+    {
+     "lane": "in_house_build",
+     "lane_label": "Building in-house",
+     "url": "https://dropbox.tech/machine-learning/introducing-nova-our-internal-platform-for-coding-agents",
+     "title": "Introducing Nova, our internal platform for coding agents",
+     "source": "dropbox.tech",
+     "date": "2026-05-21",
+     "relevance": "strong",
+     "evidence": "\"To prepare for a future where agents can assist engineers with a larger share of their work, we built Nova, an internal service for running coding agents in our cloud.\"",
+     "mentions_vendor": false,
+     "points": 3.0
+    },
+    {
+     "lane": "in_house_build",
+     "lane_label": "Building in-house",
+     "url": "https://dropbox.tech/culture/beyond-code-generation-rethinking-engineering-productivity-in-the-age-of-ai-agents",
+     "title": "rethinking engineering productivity in the age of AI agents",
+     "source": "dropbox.tech",
+     "date": "2026-05-28",
+     "relevance": "weak",
+     "evidence": "\"Nova is already producing meaningful output, accounting for roughly 1 in 12 pull requests at Dropbox today, with adoption continuing to grow.\"",
+     "mentions_vendor": false,
+     "points": 1.05
+    },
+    {
+     "lane": "competitor_adoption",
+     "lane_label": "Competitor adoption",
+     "url": "https://workspace.google.com/blog/product-announcements/g-suite-collaboration-for-dropbox-users",
+     "title": "G Suite collaboration, for Dropbox users",
+     "source": "workspace.google.com",
+     "date": "2019-06-18",
+     "relevance": "strong",
+     "evidence": "\u201cToday, we are delighted to announce that Dropbox customers can access the collaborative power of G Suite\u2014specifically in Google Docs, Sheets and Slides.\u201d",
+     "mentions_vendor": false,
+     "points": 1.05
+    },
+    {
+     "lane": "competitor_adoption",
+     "lane_label": "Competitor adoption",
+     "url": "https://workspace.google.com/marketplace/app/dropbox_for_gmail/33761876029",
+     "title": "Dropbox for Gmail\u2122 - Google Workspace Marketplace",
+     "source": "workspace.google.com",
+     "date": null,
+     "relevance": "weak",
+     "evidence": "The page is a Google Workspace Marketplace listing for Dropbox for Gmail\u2122, outlining features like saving attachments to Dropbox and sharing links within Gmail, but it does not show Dropbox using, integrating with, or partnering with this site\u2019s own product (Cursor/Anysphere) or any content indicating a direct collaboration or integration with Cursor/Anysphere. The content is focused on Dropbox\u2019s ",
+     "mentions_vendor": false,
+     "points": 0.84
+    },
+    {
+     "lane": "hiring_to_replace",
+     "lane_label": "Hiring to replace",
+     "url": "https://www.builtinseattle.com/job/senior-infrastructure-software-engineer-dash/8019786",
+     "title": "Senior Infrastructure Software Engineer, Dash - Dropbox | Built In Seattle",
+     "source": "builtinseattle.com",
+     "date": null,
+     "relevance": "weak",
+     "evidence": "The job posting describes designing and building orchestration, evaluation, and APIs for Dropbox Dash agent platform, with focus on multi-agent orchestration, planning, real-time execution, and evaluation\u2014no explicit mention of Cursor (Anysphere) or AI-native code editor infrastructure; it\u2019s an adjacent ML/AI platform role rather than a direct Cursor feature overlap.",
+     "mentions_vendor": false,
+     "points": 0.56
+    },
+    {
+     "lane": "budget_distress",
+     "lane_label": "Budget / strategy risk",
+     "url": "https://www.businessinsider.com/dropbox-drew-houston-names-ashraf-alkarmi-co-ceo-read-memos-2026-5",
+     "title": "Dropbox's Drew Houston Names Co-CEO, Plans to Step Down: Read the Memos - Business Insider",
+     "source": "businessinsider.com",
+     "date": "2026-05-26",
+     "relevance": "weak",
+     "evidence": "Drew Houston: \"Ashraf and I will jointly lead the company, and after a transition period I'll move into the role of executive chairman and Ashraf will be the sole CEO.\" (Business Insider article about Ashraf Alkarmi becoming co-CEO)",
+     "mentions_vendor": false,
+     "points": 0.52
+    },
+    {
+     "lane": "budget_distress",
+     "lane_label": "Budget / strategy risk",
+     "url": "https://www.businesswire.com/news/home/20260219141837/en/Dropbox-Announces-Fourth-Quarter-and-Fiscal-2025-Results",
+     "title": "Dropbox Announces Fourth Quarter and Fiscal 2025 Results",
+     "source": "businesswire.com",
+     "date": "2026-02-19",
+     "relevance": "weak",
+     "evidence": "We closed out 2025 on a strong note, exceeding the high end of our revenue and operating margin guidance and demonstrating our continued operating discipline,\u201d said Drew Houston, Dropbox Co-Founder and Chief Executive Officer.",
+     "mentions_vendor": false,
+     "points": 0.52
+    }
+   ]
+  },
+  {
+   "customer": {
+    "name": "Stripe",
+    "domain": "stripe.com",
+    "evidence": "Featured in a Cursor blog post detailing how they rolled it out to their engineers.",
+    "source": "web evidence"
+   },
+   "score": 8.27,
+   "tier": "at_risk",
+   "evidence": [
+    {
+     "lane": "in_house_build",
+     "lane_label": "Building in-house",
+     "url": "https://agentengineering.org/articles/what-stripes-minions-reveal-about-production-coding-agents/",
+     "title": "What Stripe's Minions Reveal About Production Coding Agents | AgentEngineering.org",
+     "source": "agentengineering.org",
+     "date": "2026-03-13",
+     "relevance": "strong",
+     "evidence": "Stripe appears to be building coding agents inside the same engineering reality humans already live in, not inside a strange parallel AI-only delivery system.",
+     "mentions_vendor": false,
+     "points": 3.0
+    },
+    {
+     "lane": "in_house_build",
+     "lane_label": "Building in-house",
+     "url": "https://stripe.dev/blog/minions-stripes-one-shot-end-to-end-coding-agents-part-2",
+     "title": "Minions: Stripe's one-shot, end-to-end coding agents\u2014Part 2",
+     "source": "stripe.dev",
+     "date": "2026-02-19",
+     "relevance": "weak",
+     "evidence": "\"we built them\" and \"we standardize on a popular rule format that supported these features\u2014Cursor\u2019s\" (mentions of building minions and reference to Cursor\u2019s rules), no direct assertion of in-house overlapping Cursor/Anysphere platform.",
+     "mentions_vendor": false,
+     "points": 1.05
+    },
+    {
+     "lane": "competitor_adoption",
+     "lane_label": "Competitor adoption",
+     "url": "https://github.com/stripe/stripe-commercetools-checkout-app",
+     "title": "Stripe payments integration with commercetools Checkout ...",
+     "source": "github.com",
+     "date": "2026-07-31",
+     "relevance": "weak",
+     "evidence": "This repository provides a commercetools [connect] integration for [Stripe payment] enabling a drop-in experience through the Stripe Payment Element and supporting webhook handling, payment intents, and checkout configuration.",
+     "mentions_vendor": false,
+     "points": 1.05
+    },
+    {
+     "lane": "competitor_adoption",
+     "lane_label": "Competitor adoption",
+     "url": "https://openai.com/business/apps/stripe/",
+     "title": "Stripe | OpenAI",
+     "source": "openai.com",
+     "date": null,
+     "relevance": "weak",
+     "evidence": "The page describes Stripe as a plugin for OpenAI products and explains how Stripe data can be used within OpenAI workflows, but it does not show Stripe actually using, integrating with, or partnering with this website\u2019s own product (Cursor/Anysphere) or any competitor\u2019s AI-native code editor. The page is about Stripe's plugin integration with OpenAI, not about Cursor/Anysphere usage. The single mo",
+     "mentions_vendor": false,
+     "points": 0.84
+    },
+    {
+     "lane": "shopping_around",
+     "lane_label": "Evaluating alternatives",
+     "url": "https://www.lennysnewsletter.com/p/this-week-on-how-i-ai-how-stripe",
+     "title": "\ufe0f This week on How I AI: How Stripe built \u201cminions\u201d",
+     "source": "lennysnewsletter.com",
+     "date": "2026-03-30",
+     "relevance": "weak",
+     "evidence": "The page discusses Stripe\u2019s \u201cminions\u201d and AI coding agents, including how Stripe builds and uses AI agents and developer infrastructure, but does not compare or publicly evaluate multiple AI-native code editor/agentic platforms (e.g., GitHub Copilot, Claude Code, Devin Desktop, OpenAI Codex, Google Gemini coding tools, Cursor). It focuses on Stripe\u2019s approach and experiences rather than benchmarki",
+     "mentions_vendor": false,
+     "points": 0.7
+    },
+    {
+     "lane": "hiring_to_replace",
+     "lane_label": "Hiring to replace",
+     "url": "https://www.employbl.com/jobs/senior-staff-software-engineer-developer-stripe-1435033",
+     "title": "Senior Staff Software Engineer,  Developer Infrastructure  - Stripe",
+     "source": "employbl.com",
+     "date": "2025-11-18",
+     "relevance": "weak",
+     "evidence": "The page describes a Senior Staff Software Engineer, Developer Infrastructure at Stripe, focusing on developer productivity, architecture, and tooling, with no explicit mention of Cursor (Anysphere) or AI-native code editor infrastructure overlap.",
+     "mentions_vendor": false,
+     "points": 0.59
+    },
+    {
+     "lane": "budget_distress",
+     "lane_label": "Budget / strategy risk",
+     "url": "https://stripe.com/newsroom/news/stripe-agrees-to-acquire-openrouter",
+     "title": "Stripe agrees to acquire OpenRouter to help businesses optimize token routing and usage",
+     "source": "stripe.com",
+     "date": "2026-08-19",
+     "relevance": "weak",
+     "evidence": "\u201cStripe ... today announced that it has agreed to acquire OpenRouter, a leading AI model gateway and routing platform.\u201d",
+     "mentions_vendor": false,
+     "points": 0.52
+    },
+    {
+     "lane": "budget_distress",
+     "lane_label": "Budget / strategy risk",
+     "url": "https://www.cnbc.com/2026/08/19/stripe-openrouter-fintech-ai-model-marketplace-.html",
+     "title": "Stripe to buy OpenRouter as fintech expands deeper into AI",
+     "source": "cnbc.com",
+     "date": "2026-08-19",
+     "relevance": "weak",
+     "evidence": "Stripe said it's acquiring OpenRouter, as the fintech company expands into the artificial intelligence model market.",
+     "mentions_vendor": false,
+     "points": 0.52
+    }
+   ]
+  },
+  {
+   "customer": {
+    "name": "Box",
+    "domain": "box.com",
+    "evidence": "Featured in a Cursor blog post detailing their choice of Cursor for enterprise-grade quality and security.",
+    "source": "web evidence"
+   },
+   "score": 8.34,
+   "tier": "at_risk",
+   "evidence": [
+    {
+     "lane": "competitor_adoption",
+     "lane_label": "Competitor adoption",
+     "url": "https://cloud.google.com/customers/box",
+     "title": "Box Case Study",
+     "source": "cloud.google.com",
+     "date": null,
+     "relevance": "strong",
+     "evidence": "\"Box partnered with Google Cloud to automate content processing and metadata extraction. With advanced Google AI tools like Gemini, Vertex AI, and Gemini Enterprise, Box enables faster, more accurate extraction of targeted data to power workflows.\"",
+     "mentions_vendor": false,
+     "points": 2.4
+    },
+    {
+     "lane": "competitor_adoption",
+     "lane_label": "Competitor adoption",
+     "url": "https://cloud.google.com/customers/box-ai",
+     "title": "BOX case study | Google Cloud",
+     "source": "cloud.google.com",
+     "date": null,
+     "relevance": "strong",
+     "evidence": "\"Box builds its customizable AI and AI agents with Google Cloud to democratize the power of AI into workers' hands.\"",
+     "mentions_vendor": false,
+     "points": 2.4
+    },
+    {
+     "lane": "in_house_build",
+     "lane_label": "Building in-house",
+     "url": "https://blog.box.com/box-cursor-plugin-giving-your-ai-coding-agent-access-box-enterprise-guardrails-built",
+     "title": "The Box Cursor Plugin: Giving your AI coding agent access to Box \u2014 with enterprise guardrails built in | Box Blog",
+     "source": "blog.box.com",
+     "date": "2026-03-05",
+     "relevance": "weak",
+     "evidence": "The Box Cursor Plugin: Giving your AI coding agent access to Box \u2014 with enterprise guardrails built in | Box Blog. The Cursor plugin is a lightweight package that extends what the AI agent can do. Ours bundles three files: mcp.json, SKILL.md, box.mdc. This single file connects Cursor to the Box MCP server, which exposes tools for files, folders, search, metadata, Box AI, and more.",
+     "mentions_vendor": false,
+     "points": 1.05
+    },
+    {
+     "lane": "in_house_build",
+     "lane_label": "Building in-house",
+     "url": "https://blog.box.com/how-box-built-its-ai-agent-langgraph",
+     "title": "How Box built its AI agent with LangGraph | Box Blog",
+     "source": "blog.box.com",
+     "date": "2025-09-04",
+     "relevance": "weak",
+     "evidence": "\u201cLangGraph gave Box the foundation to do that without starting from scratch. LangChain\u2019s model and tool abstractions kept provider and capability integrations clean. LangGraph\u2019s StateGraph runtime unlocked the stateful, interrupt-aware, parallelizable execution model the system needed.\u201d",
+     "mentions_vendor": false,
+     "points": 0.89
+    },
+    {
+     "lane": "hiring_to_replace",
+     "lane_label": "Hiring to replace",
+     "url": "https://careers.box.com/en/jobs/7412364/senior-software-engineer-agents-platform/",
+     "title": "Senior Software Engineer, Agents Platform, Redwood City | Box",
+     "source": "careers.box.com",
+     "date": null,
+     "relevance": "weak",
+     "evidence": "Box's Senior Software Engineer, Agents Platform role focuses on building core components of an Agents Platform, multi-tenant control plane, integration with LLMs, LangGraph, and agent workflows. It does not explicitly mention Cursor (Anysphere) or an AI-native code editor infrastructure with integrated autonomous agent workflows, codebase-aware semantic indexing, and multi-file code generation. Th",
+     "mentions_vendor": false,
+     "points": 0.56
+    },
+    {
+     "lane": "budget_distress",
+     "lane_label": "Budget / strategy risk",
+     "url": "https://www.computerworld.com/article/4177741/qa-box-ceo-embraces-shift-to-headless-software-in-the-agentic-ai-era.html",
+     "title": "Q&A: Box CEO embraces shift to \u2018headless\u2019 software in the agentic AI era \u2013 Computerworld",
+     "source": "computerworld.com",
+     "date": "2026-05-27",
+     "relevance": "weak",
+     "evidence": "The article discusses Box CEO Aaron Levie advocating a headless platform and agentic AI workflows, but does not mention Cursor (Anysphere), budget pressure, layoffs, or acquisitions related to Box. The content focuses on Box\u2019s strategic shift to headless APIs for agent-enabled software and monetization models, not on budget cuts or procurement consolidations.",
+     "mentions_vendor": false,
+     "points": 0.52
+    },
+    {
+     "lane": "budget_distress",
+     "lane_label": "Budget / strategy risk",
+     "url": "https://www.roic.ai/quote/BOX/transcripts/2026-year/4-quarter",
+     "title": "Box, Inc. (BOX) Q4 FY2026 Earnings Call Transcript - March 4, 2026 | Roic AI",
+     "source": "roic.ai",
+     "date": "2026-03-04",
+     "relevance": "weak",
+     "evidence": "The transcript discusses Box's AI initiatives, Box Automate, Box Apps, Box Shield, and margin expansion strategies, but does not directly indicate budget cuts, acquisitions, or pivot away from AI-native tools; it focuses on growth and investment in AI features and go-to-market initiatives.",
+     "mentions_vendor": false,
+     "points": 0.52
+    }
+   ]
+  },
+  {
+   "customer": {
+    "name": "Vercel",
+    "domain": "vercel.com",
+    "evidence": "Featured in a Cursor blog post detailing how they used it to build Vercel Queues.",
+    "source": "web evidence"
+   },
+   "score": 7.59,
+   "tier": "at_risk",
+   "evidence": [
+    {
+     "lane": "shopping_around",
+     "lane_label": "Evaluating alternatives",
+     "url": "https://vercel.com/i/github-copilot-vs-gemini-code-assist",
+     "title": "GitHub Copilot vs. Gemini Code Assist (2026)",
+     "source": "vercel.com",
+     "date": "2026-07-01",
+     "relevance": "strong",
+     "evidence": "\"Two AI coding assistants show up on almost every shortlist in 2026: GitHub Copilot and Gemini Code Assist.\"",
+     "mentions_vendor": false,
+     "points": 2.0
+    },
+    {
+     "lane": "competitor_adoption",
+     "lane_label": "Competitor adoption",
+     "url": "https://github.com/vercel-labs/devin-outpost-vercel",
+     "title": "vercel-labs/devin-outpost-vercel",
+     "source": "github.com",
+     "date": "2026-07-30",
+     "relevance": "weak",
+     "evidence": "The page discusses Devin Outposts on Vercel, including deploying Devin Outposts for Vercel and sandboxed environments, but it does not show Vercel using, integrating with, or partnering with this site\u2019s product (Cursor/Anysphere). It mainly describes how to deploy Devin Outposts on Vercel and operational details of the integration.",
+     "mentions_vendor": false,
+     "points": 1.05
+    },
+    {
+     "lane": "in_house_build",
+     "lane_label": "Building in-house",
+     "url": "https://vercel.com/blog/agentic-infrastructure",
+     "title": "Agentic Infrastructure",
+     "source": "vercel.com",
+     "date": "2026-04-09",
+     "relevance": "weak",
+     "evidence": "Vercel's agentic infrastructure unifies every AI primitive we've built into a single, secure platform, the same way we did for serverless.",
+     "mentions_vendor": false,
+     "points": 1.05
+    },
+    {
+     "lane": "in_house_build",
+     "lane_label": "Building in-house",
+     "url": "https://vercel.com/kb/guide/how-to-build-a-durable-ai-code-agent-on-vercel",
+     "title": "How to build a durable AI code agent on Vercel",
+     "source": "vercel.com",
+     "date": "2026-05-13",
+     "relevance": "weak",
+     "evidence": "\u201cAI agents that generate and run code need three things: durable orchestration that survives failures, isolated execution that protects your infrastructure, and observable model access you can swap without rewriting code. Vercel Workflows, Sandbox, and AI Gateway solve each of these.\u201d",
+     "mentions_vendor": false,
+     "points": 1.05
+    },
+    {
+     "lane": "competitor_adoption",
+     "lane_label": "Competitor adoption",
+     "url": "https://github.com/vercel/example-integration",
+     "title": "vercel/example-integration",
+     "source": "github.com",
+     "date": null,
+     "relevance": "weak",
+     "evidence": "The page is the Vercel example integration docs showing how to authenticate and interact with Vercel's API, including exchanging code for access_token and listing projects. It does not demonstrate Vercel using or partnering with this site's product, nor a direct customer/partner relationship with Cursor (Anysphere). The content is about integrating Vercel, not about Vercel using Cursor/Anysphere.",
+     "mentions_vendor": false,
+     "points": 0.84
+    },
+    {
+     "lane": "hiring_to_replace",
+     "lane_label": "Hiring to replace",
+     "url": "https://vercel.com/careers/software-engineer-agent-5704320004",
+     "title": "Software Engineer, Agent",
+     "source": "vercel.com",
+     "date": null,
+     "relevance": "weak",
+     "evidence": "We\u2019re looking for a Software Engineer to join the Vercel Agent team. Our mission is simple: deploying on Vercel should feel like adding a seasoned infrastructure engineer to your team.",
+     "mentions_vendor": false,
+     "points": 0.56
+    },
+    {
+     "lane": "budget_distress",
+     "lane_label": "Budget / strategy risk",
+     "url": "https://techcrunch.com/2026/07/06/vercel-ceo-guillermo-rauch-on-the-fight-to-split-off-models-from-agents/",
+     "title": "Vercel CEO Guillermo Rauch on the fight to split off models from agents | TechCrunch",
+     "source": "techcrunch.com",
+     "date": "2026-07-06",
+     "relevance": "weak",
+     "evidence": "The article discusses Vercel's role in AI tooling and open protocols, performance and cost concerns, and mentions various AI models and tools but does not provide explicit evidence of budget pressure, major cost-cutting, or pivot away from AI-native code editor/agentic development platform in a way that confirms those actions. A notable focus is on agents, data control, and platform strategy rathe",
+     "mentions_vendor": false,
+     "points": 0.52
+    },
+    {
+     "lane": "budget_distress",
+     "lane_label": "Budget / strategy risk",
+     "url": "https://www.businessinsider.com/vercel-ceo-guillermo-rauch-ai-lab-partner-outdated-2026-7",
+     "title": "Vercel's CEO Said Choosing One AI Lab to Partner With Is Outdated - Business Insider",
+     "source": "businessinsider.com",
+     "date": "2026-07-07",
+     "relevance": "weak",
+     "evidence": "Rauch said companies are partnering with different AI labs for different functions and that the move away from relying on a single lab is changing how AI stacks are procured; no direct reference to Cursor (Anysphere), budgeting cuts, or acquisitions.",
+     "mentions_vendor": false,
+     "points": 0.52
+    }
+   ]
+  },
+  {
+   "customer": {
+    "name": "Carlyle",
+    "domain": "carlyle.com",
+    "evidence": "Mentioned as using Cursor in a customer testimonial on the official Cursor website.",
+    "source": "web evidence"
+   },
+   "score": 4.74,
+   "tier": "watch",
+   "evidence": [
+    {
+     "lane": "hiring_to_replace",
+     "lane_label": "Hiring to replace",
+     "url": "https://www.career.com/job/the-carlyle-group/ai-platform-engineer/j202606050342216640742",
+     "title": "AI Platform Engineer Job Opening in Washington, DC at The Carlyle Group | Career.com",
+     "source": "career.com",
+     "date": null,
+     "relevance": "strong",
+     "evidence": "The job posting describes an AI Platform Engineer at The Carlyle Group focusing on AI-enabled development, agentic tooling, and integrating AI coding assistants into the SDLC (e.g., Claude Code, Cursor, MCP-based integrations, Coder, Amazon Bedrock AgentCore) to enable AI-driven development across the engineering organization.",
+     "mentions_vendor": false,
+     "points": 1.6
+    },
+    {
+     "lane": "competitor_adoption",
+     "lane_label": "Competitor adoption",
+     "url": "https://www.anthropic.com/news/finance-agents",
+     "title": "Agents for financial services",
+     "source": "anthropic.com",
+     "date": "2026-05-05",
+     "relevance": "weak",
+     "evidence": "\u201cCarlyle has adopted Claude as a key part of our AI technology stack because of its strong coding capabilities, agentic reasoning, and continual advances in both the underlying models and key features. Claude is a core tool for delivering value across our firm from investing to operations to portfolio management.\u201d",
+     "mentions_vendor": false,
+     "points": 1.05
+    },
+    {
+     "lane": "competitor_adoption",
+     "lane_label": "Competitor adoption",
+     "url": "https://openai.com/index/introducing-chatgpt-enterprise/",
+     "title": "Introducing ChatGPT Enterprise",
+     "source": "openai.com",
+     "date": "2023-08-28",
+     "relevance": "strong",
+     "evidence": "\"Early users of ChatGPT Enterprise\u2014industry leaders like Block, Canva, Carlyle, The Est\u00e9e Lauder Companies, PwC, and Zapier\u2014are redefining how they operate and are using ChatGPT to craft clearer communications, accelerate coding tasks, rapidly explore answers to complex business questions, assist with creative work, and much more.\"",
+     "mentions_vendor": false,
+     "points": 1.05
+    },
+    {
+     "lane": "budget_distress",
+     "lane_label": "Budget / strategy risk",
+     "url": "https://news.bloomberglaw.com/bankruptcy-law/carlyle-exec-says-investors-want-less-software-more-hardware",
+     "title": "Carlyle Exec Says Investors Want Less Software, More Hardware",
+     "source": "news.bloomberglaw.com",
+     "date": "2026-06-10",
+     "relevance": "weak",
+     "evidence": "Carlyle Exec Says Investors Want Less Software, More Hardware \u2014 John Redett said LPs want industrials, defense, national security, supply chain resilience and energy, signaling a shift away from software but not detailing budget cuts to specific tools like Cursor (Anysphere); the article discusses a pivot toward defense/industrial sectors rather than a procurement consolidation or cost-cutting pro",
+     "mentions_vendor": false,
+     "points": 0.52
+    },
+    {
+     "lane": "budget_distress",
+     "lane_label": "Budget / strategy risk",
+     "url": "https://www.privateequitywire.co.uk/carlyle-revamps-european-pe-team-ahead-of-fundraising-relaunch/",
+     "title": "Carlyle revamps European PE team ahead of fundraising relaunch - Private Equity Wire",
+     "source": "privateequitywire.co.uk",
+     "date": "2026-03-13",
+     "relevance": "weak",
+     "evidence": "Carlyle Group has restructured the leadership of its European private equity platform and is preparing to relaunch fundraising for its flagship European buyout fund, after a two-year pause. The article notes nine hires last year and plans for two more senior professionals, with a focus shift toward technology, healthcare, professional services, and advanced industrials, while overhauling the inves",
+     "mentions_vendor": false,
+     "points": 0.52
+    }
+   ]
+  },
+  {
+   "customer": {
+    "name": "Optiver",
+    "domain": "optiver.com",
+    "evidence": "Mentioned as using Cursor for firm-wide deployment in a customer testimonial on the official Cursor website.",
+    "source": "web evidence"
+   },
+   "score": 4.91,
+   "tier": "watch",
+   "evidence": [
+    {
+     "lane": "in_house_build",
+     "lane_label": "Building in-house",
+     "url": "https://www.optiver.com/insights/technology-blog/engineering-the-agentic-sdlc/",
+     "title": "Engineering the Agentic SDLC",
+     "source": "optiver.com",
+     "date": "2026-06-22",
+     "relevance": "weak",
+     "evidence": "\"Rethinking the SDLC for agents\" \u2014 \"An agentic SDLC starts from a different assumption: agents do most of the work, and humans guide and refine.\"",
+     "mentions_vendor": false,
+     "points": 1.05
+    },
+    {
+     "lane": "in_house_build",
+     "lane_label": "Building in-house",
+     "url": "https://www.optiver.com/insights/technology-blog/platform-engineering-end-to-end/",
+     "title": "Platform engineering at Optiver: building end-to-end trading infrastructure",
+     "source": "optiver.com",
+     "date": "2026-05-05",
+     "relevance": "weak",
+     "evidence": "\"Agentic AI is increasingly just the way people build systems. That could be a coding agent, but it\u2019s also a broader SDLC (Software Development Life Cycle) where agents might be carrying out changes in a production system or taking on some parts of the development process.\"",
+     "mentions_vendor": false,
+     "points": 1.05
+    },
+    {
+     "lane": "competitor_adoption",
+     "lane_label": "Competitor adoption",
+     "url": "https://groups.google.com/g/technology-students-gymkhana-iit-kharagpur/c/SThwB13KSXs",
+     "title": "Fwd: Auquan's Quant Quest with Optiver",
+     "source": "groups.google.com",
+     "date": null,
+     "relevance": "weak",
+     "evidence": "The page is a Google Groups post about Auquan's Quant Quest with Optiver, describing recruitment and a challenge, but it does not mention integrating Optiver's product with this site or Cursor (Anysphere). The most damning sentence would be: \u201cOptiver\u2013 has decided to partner with us for a recruitment drive, but with an interesting twist, Quant Quest.\u201d",
+     "mentions_vendor": false,
+     "points": 0.84
+    },
+    {
+     "lane": "hiring_to_replace",
+     "lane_label": "Hiring to replace",
+     "url": "https://www.optiver.com/join-us/jobs/technology/new-york/ai-engineer/",
+     "title": "AI Engineer",
+     "source": "optiver.com",
+     "date": null,
+     "relevance": "weak",
+     "evidence": "The page describes an AI Engineer role at Optiver focusing on production-grade AI systems, agent platforms, evaluation of foundation models, and integration with internal systems, data platforms, and external tools. It does not mention Cursor (Anysphere) or specifics about AI-native code editor infrastructure, autonomous agent workflows, or multi-file code generation.",
+     "mentions_vendor": false,
+     "points": 0.56
+    },
+    {
+     "lane": "budget_distress",
+     "lane_label": "Budget / strategy risk",
+     "url": "https://www.afr.com/rear-window/why-optiver-sacked-a-rebel-ai-researcher-20260330-p5zju7",
+     "title": "Why Optiver sacked Geoff Huntley, the rebel AI researcher",
+     "source": "afr.com",
+     "date": "2026-03-30",
+     "relevance": "weak",
+     "evidence": "The article discusses Optiver hiring and firing and general AI research activity, but does not mention budget pressure, tool spend cuts, Cursor (Anysphere), acquisitions, or strategic pivots related to an AI-native code editor or agentic development platform. The single most relevant line is: \u201cOptiver\u2019s new enormous Sydney HQ is located on Kent Street. The global high-frequency trading firm is a m",
+     "mentions_vendor": false,
+     "points": 0.52
+    },
+    {
+     "lane": "budget_distress",
+     "lane_label": "Budget / strategy risk",
+     "url": "https://www.optiver.com/insights/news/majority-stake-in-power-and-gas-trader-northpool/",
+     "title": "Optiver to take majority stake in power and gas trader Northpool",
+     "source": "optiver.com",
+     "date": "2026-08-18",
+     "relevance": "weak",
+     "evidence": "Optiver and Northpool today announced that Optiver has agreed to acquire a majority stake in Northpool, a European energy trading firm headquartered in Leiden, the Netherlands.",
+     "mentions_vendor": false,
+     "points": 0.52
+    },
+    {
+     "lane": "competitor_adoption",
+     "lane_label": "Competitor adoption",
+     "url": "https://github.com/nicolassinott/Optiver_Ready_Trader_Go",
+     "title": "This repository contains our solution to the Optiver's Ready ...",
+     "source": "github.com",
+     "date": "2023-03-08",
+     "relevance": "weak",
+     "evidence": "The page is a GitHub repository README describing Optiver's Ready Trader Go Challenge and the repository's solution; it does not show Optiver using or integrating with this site's product. The most damning sentence is: \u201cThis repository contains our solution to the Optiver's Ready Trader Go Challenge,\u201d which indicates usage of the Optiver challenge, not integration with Cursor (Anysphere).",
+     "mentions_vendor": false,
+     "points": 0.37
+    }
+   ]
+  },
+  {
+   "customer": {
+    "name": "Wayfair",
+    "domain": "wayfair.com",
+    "evidence": "Mentioned in Cursor blog post titles/sidebar as having reduced ML model costs with Cursor.",
+    "source": "web evidence"
+   },
+   "score": 10.04,
+   "tier": "at_risk",
+   "evidence": [
+    {
+     "lane": "competitor_adoption",
+     "lane_label": "Competitor adoption",
+     "url": "https://cloud.google.com/customers/wayfair-ai",
+     "title": "Wayfair case study | Google Cloud",
+     "source": "cloud.google.com",
+     "date": null,
+     "relevance": "strong",
+     "evidence": "Wayfair embraces Google's Gemini models and Google AI, powering new experiences that make it easier for anyone, anywhere to create their feeling of home. To solve this, Wayfair is investing in AI-powered discovery, partnering with Google Cloud to pilot its AI-powered design tool Muse and launch a new visual search-focused Discover tab in its app.",
+     "mentions_vendor": false,
+     "points": 2.4
+    },
+    {
+     "lane": "competitor_adoption",
+     "lane_label": "Competitor adoption",
+     "url": "https://cloud.google.com/customers/wayfair-developer",
+     "title": "Wayfair case study",
+     "source": "cloud.google.com",
+     "date": null,
+     "relevance": "strong",
+     "evidence": "Wayfair accelerated developer velocity and reduced CI fix time with AI on Google Cloud; leveraging Gemini model and a custom RAG pipeline to create a GenAI-powered CI/CD intelligence system that integrates with Buildkite logs, MCP metadata, and Slack, plus MCP Server + Agentic IDE Integration allowing tools like Cursor to access CI logs and RAG recommendations from within the IDE.",
+     "mentions_vendor": false,
+     "points": 2.4
+    },
+    {
+     "lane": "budget_distress",
+     "lane_label": "Budget / strategy risk",
+     "url": "https://themunicheye.com/wayfair-exits-germany-cuts-jobs-7584",
+     "title": "Wayfair Exits German Market, Resulting in 730 Job Cuts",
+     "source": "themunicheye.com",
+     "date": "2026-03-02",
+     "relevance": "strong",
+     "evidence": "Wayfair exits German market, resulting in approximately 730 job cuts and restructuring costs between $102 million and $111 million.",
+     "mentions_vendor": false,
+     "points": 1.5
+    },
+    {
+     "lane": "budget_distress",
+     "lane_label": "Budget / strategy risk",
+     "url": "https://ecommerce-times.com/wayfair-dropship-circle-collapse-is-reshaping-high-ticket-supplier-deals/",
+     "title": "Wayfair Dropship Circle Collapse Is Reshaping High-Ticket Supplier Deals \u2013 Ecommerce Times",
+     "source": "ecommerce-times.com",
+     "date": "2026-06-22",
+     "relevance": "strong",
+     "evidence": "\u201cThat circle is essentially gone\u201d referring to the CastleGate supplier circle, and the reported 18% storage-fee increase and inventory commitments rising from 6 to 15 units for items above $800 signal strategic restructuring and cost-imposed changes at Wayfair.",
+     "mentions_vendor": false,
+     "points": 1.5
+    },
+    {
+     "lane": "in_house_build",
+     "lane_label": "Building in-house",
+     "url": "https://www.youtube.com/watch?v=QM_fZ6lYCjE",
+     "title": "How Wayfair Iterates, Builds, and Ships Faster with Apollo",
+     "source": "youtube.com",
+     "date": "2026-03-21",
+     "relevance": "weak",
+     "evidence": "\"How Wayfair Iterates, Builds, and Ships Faster with Apollo\" discusses Wayfair internal tooling and AI-driven development workflows (e.g., experimentation pipeline, block builder, reusable components, AI-generated high-fidelity mocks tied to schema proposals) to accelerate software development, but does not mention Cursor (Anysphere) or an AI-native code editor/integrated agent platform by Cursor.",
+     "mentions_vendor": false,
+     "points": 1.05
+    },
+    {
+     "lane": "in_house_build",
+     "lane_label": "Building in-house",
+     "url": "https://www.aboutwayfair.com/careers/tech-blog/working-with-genai-tools-learnings",
+     "title": "About Wayfair | Working with GenAI Tools - Learnings",
+     "source": "aboutwayfair.com",
+     "date": "2025-06-17",
+     "relevance": "weak",
+     "evidence": "\"We have been experimenting with GenAI tools like Cursor, Windsurf and Copilot to increase productivity in the Software Development Life Cycle (SDLC).\"",
+     "mentions_vendor": false,
+     "points": 0.63
+    },
+    {
+     "lane": "hiring_to_replace",
+     "lane_label": "Hiring to replace",
+     "url": "https://www.wayfair.com/careers/job/principal-scientist%2C-agentic-systems-applied-science/2-13094",
+     "title": "Principal Scientist, Agentic Systems Applied Science | Wayfair",
+     "source": "wayfair.com",
+     "date": null,
+     "relevance": "weak",
+     "evidence": "The job posting describes a Principal Scientist focusing on agentic AI systems at Wayfair, including planning, memory, tool use, evaluation frameworks, and autonomy in supply chain workflows. It does not mention Cursor (Anysphere) or an overlap with Cursor's AI-native code editor infrastructure.",
+     "mentions_vendor": false,
+     "points": 0.56
+    }
+   ]
+  },
+  {
+   "customer": {
+    "name": "Faire",
+    "domain": "faire.com",
+    "evidence": "Mentioned in Cursor blog post sidebar as having doubled PR throughput with Cursor.",
+    "source": "web evidence"
+   },
+   "score": 6.03,
+   "tier": "at_risk",
+   "evidence": [
+    {
+     "lane": "budget_distress",
+     "lane_label": "Budget / strategy risk",
+     "url": "https://onlinestorenews.com/faires-rumored-retreat-from-wholesale-tech-is-rattling-the-b2b-marketplace-world/",
+     "title": "Faire\u2019s Rumored Retreat From Wholesale Tech Is Rattling the B2B Marketplace World \u2013 Online Store News",
+     "source": "onlinestorenews.com",
+     "date": "2026-08-16",
+     "relevance": "strong",
+     "evidence": "\u201cThe rumored shelving of that project, unconfirmed by Faire itself, is sending ripples through the D2C and wholesale communities that have come to depend on the platform\u2019s infrastructure.\u201d",
+     "mentions_vendor": false,
+     "points": 1.5
+    },
+    {
+     "lane": "budget_distress",
+     "lane_label": "Budget / strategy risk",
+     "url": "https://www.cnbc.com/2026/03/19/faire-ceo-growing-too-fast-nearly-sank-company-how-we-fixed-it.html",
+     "title": "Faire CEO: Growing too fast nearly sank company\u2014how we fixed it",
+     "source": "cnbc.com",
+     "date": "2026-03-19",
+     "relevance": "strong",
+     "evidence": "\u201cRhodes says\u2026 Faire slowed down \u2014 slashing spending, reducing the company's staff by roughly 20% and doing away with many of the incentives and discounts\u2026\u201d (CEO Julien Rhodes)",
+     "mentions_vendor": false,
+     "points": 1.5
+    },
+    {
+     "lane": "competitor_adoption",
+     "lane_label": "Competitor adoption",
+     "url": "https://github.com/themanojdesai/genai-llm-ml-case-studies/blob/main/case-studies/by-company/faire/fine-tuning-llama3-to-measure-semantic-relevance-in-search.md",
+     "title": "case-studies/by-company/faire/fine-tuning-llama3-to-measure-semantic-relevance-in-search.md",
+     "source": "github.com",
+     "date": null,
+     "relevance": "weak",
+     "evidence": "The page is a Faire case study about fine-tuning Llama3 to measure semantic relevance in search; it mentions Faire and its own project, but does not describe using or integrating the Cursor (Anysphere) product or any competitor integration. The DKC does not show Cursor (Anysphere) by name.",
+     "mentions_vendor": false,
+     "points": 0.84
+    },
+    {
+     "lane": "in_house_build",
+     "lane_label": "Building in-house",
+     "url": "https://craft.faire.com/agent-fairey-agentic-development-with-custom-mcp-servers-71784c9bc5bd",
+     "title": "Medium",
+     "source": "craft.faire.com",
+     "date": "2025-06-13",
+     "relevance": "weak",
+     "evidence": "\"We\u2019ve upgraded Fairey to leverage MCP Servers, bringing its capabilities to many more contexts. In the following sections, we detail techniques used to bring Fairey\u2019s tools to agents like Cursor, Claude, Codex, and ChatGPT.\"",
+     "mentions_vendor": false,
+     "points": 0.63
+    },
+    {
+     "lane": "in_house_build",
+     "lane_label": "Building in-house",
+     "url": "https://craft.faire.com/swarm-coding-agentic-development-with-multiple-background-agents-3549adc7460d",
+     "title": "Swarm-coding: agentic development with multiple background agents | by Luke Bjerring | The Craft",
+     "source": "craft.faire.com",
+     "date": "2025-08-19",
+     "relevance": "weak",
+     "evidence": "\"Background agents are remote machines that use agentic development to create code changes autonomously. At Faire, we\u2019re taking advantage of these autonomous background agents by creating tailored agent profiles for our most common workflows.\"",
+     "mentions_vendor": false,
+     "points": 0.63
+    },
+    {
+     "lane": "hiring_to_replace",
+     "lane_label": "Hiring to replace",
+     "url": "https://builtin.com/job/intermediate-backend-engineer/8587299",
+     "title": "Backend Engineer - Faire | Built In",
+     "source": "builtin.com",
+     "date": null,
+     "relevance": "weak",
+     "evidence": "In this role, you will work on internal AI-powered tools, CI/CD pipelines, test automation, experimentation and translation frameworks, and other initiatives that streamline the development lifecycle. Your work will remove bottlenecks, improve reliability, and enable engineers across Faire to build at incredible speed.",
+     "mentions_vendor": false,
+     "points": 0.56
+    },
+    {
+     "lane": "competitor_adoption",
+     "lane_label": "Competitor adoption",
+     "url": "https://github.com/Jaal-Yantra-Textiles/v2/tree/main/packages/medusa-plugin-faire-store-sync",
+     "title": "v2/packages/medusa-plugin-faire-store-sync at main \u00b7 Jaal-Yantra-Textiles/v2 \u00b7 GitHub",
+     "source": "github.com",
+     "date": "2024-12-31",
+     "relevance": "weak",
+     "evidence": "The page describes a Medusa v2 plugin to sync with Faire via Faire External Platform API v2, including OAuth flow, product sync, and order ingestion; it does not mention or imply a partnership or usage by Faire of this site's own product, nor any reference to Cursor (Anysphere). The content is integration documentation for a plugin/workflow with Faire\u2019s API, not about Faire using this site\u2019s produ",
+     "mentions_vendor": false,
+     "points": 0.37
+    }
+   ]
+  },
+  {
+   "customer": {
+    "name": "Amplitude",
+    "domain": "amplitude.com",
+    "evidence": "Official case study: Autonomous development pipeline and automation of software from idea to production using Cursor automations, including Slack-triggered ticketing, PR creation, automated code fixes",
+    "source": "vendor case study"
+   },
+   "score": 6.8,
+   "tier": "at_risk",
+   "evidence": [
+    {
+     "lane": "budget_distress",
+     "lane_label": "Budget / strategy risk",
+     "url": "https://martech.org/amplitude-and-statsig-deal-raises-questions-for-customers/",
+     "title": "Amplitude and Statsig deal raises questions for customers",
+     "source": "martech.org",
+     "date": "2026-05-08",
+     "relevance": "strong",
+     "evidence": "\u201cSeven months after purchasing Statsig, it\u2019s clear OpenAI realized it has no interest in running an enterprise software business focused on testing,\u201d Atzberger said. \u201cAmplitude is getting Statsig\u2019s code without the talent, it is a race car without a driver, and should be very worrisome for existing Statsig customers as innovation slows down and support goes away.\u201d",
+     "mentions_vendor": false,
+     "points": 1.5
+    },
+    {
+     "lane": "competitor_adoption",
+     "lane_label": "Competitor adoption",
+     "url": "https://github.com/anthropics/claude-plugins-official/pull/1289",
+     "title": "Add amplitude plugin \u00b7 Pull Request #1289 \u00b7 anthropics/claude-plugins-official",
+     "source": "github.com",
+     "date": "2026-04-07",
+     "relevance": "weak",
+     "evidence": "\"Add amplitude plugin\" pull request summary indicates Amplitude plugin is added to marketplace; it notes \"First-party from `amplitude` org, submitted by frank.lee@amplitude.com\" but does not show Amplitude using, integrating with, or partnering with this website's own product.",
+     "mentions_vendor": false,
+     "points": 1.05
+    },
+    {
+     "lane": "in_house_build",
+     "lane_label": "Building in-house",
+     "url": "https://amplitude.com/blog/custom-pr-agent",
+     "title": "How We Built Our Own PR Agents, and How You Can Too",
+     "source": "amplitude.com",
+     "date": "2026-03-27",
+     "relevance": "weak",
+     "evidence": "\"We shamelessly stole this workflow pattern from@cursor_ai\u2019s Bugbot Autofix, which we use across all our repos internally.\"",
+     "mentions_vendor": false,
+     "points": 1.05
+    },
+    {
+     "lane": "in_house_build",
+     "lane_label": "Building in-house",
+     "url": "https://amplitude.com/blog/building-cli-agents",
+     "title": "Building CLI Agents: It\u2019s What You Don\u2019t Give Them That Counts",
+     "source": "amplitude.com",
+     "date": "2026-05-27",
+     "relevance": "weak",
+     "evidence": "\"npx @amplitude/wizard runs an agent in your terminal that walks your repo, proposes events that match how your product actually works, shows you the plan, and writes the calls inline once you approve.\"",
+     "mentions_vendor": false,
+     "points": 1.05
+    },
+    {
+     "lane": "competitor_adoption",
+     "lane_label": "Competitor adoption",
+     "url": "https://github.com/statsig-io/docs/blob/main/integrations/data-connectors/amplitude.mdx",
+     "title": "integrations/data-connectors/amplitude.mdx at main \u00b7 statsig-io/docs",
+     "source": "github.com",
+     "date": null,
+     "relevance": "weak",
+     "evidence": "The page describes Amplitude integration for Statsig (incoming/outgoing events, cohort sync) but does not mention or imply any partnership, usage, or integration with Cursor (Anysphere) or its product. The content is about Amplitude as a data connector for Statsig, not a collaboration with Cursor (Anysphere).",
+     "mentions_vendor": false,
+     "points": 0.84
+    },
+    {
+     "lane": "budget_distress",
+     "lane_label": "Budget / strategy risk",
+     "url": "https://www.fool.com/earnings/call-transcripts/2026/05/07/amplitude-ampl-q1-2026-earnings-transcript/",
+     "title": "Amplitude AMPL Q1 2026 Earnings Transcript | The Motley Fool",
+     "source": "fool.com",
+     "date": "2026-05-07",
+     "relevance": "strong",
+     "evidence": "\"Specifically on expenses, the big one is inference costs. So to be able to support Global Agent, MCP, specialized agents as well as some of the other AI products, we've been spending quite a bit there. Those show up under cost of goods sold. So it's growing a lot. We'll monitor it and we'll figure out what the right long-term place for that to be and how do we value capture and get paid for it, t",
+     "mentions_vendor": true,
+     "points": 0.75
+    },
+    {
+     "lane": "hiring_to_replace",
+     "lane_label": "Hiring to replace",
+     "url": "https://job-boards.greenhouse.io/amplitude/jobs/8709027002",
+     "title": "Job Application for Staff Software Engineer- UI Foundations Team at Amplitude",
+     "source": "job-boards.greenhouse.io",
+     "date": null,
+     "relevance": "weak",
+     "evidence": "The posting describes a Staff Software Engineer for Amplitude's UI Foundations team focusing on frontend architecture, performance, DevX, and an AI-agent-driven software factory to automate engineering workflows; however, there is no explicit mention of Cursor (Anysphere) or AI-native code editor infrastructure, codebase-aware semantic indexing, or multi-file code generation in the job description",
+     "mentions_vendor": false,
+     "points": 0.56
+    }
+   ]
+  },
+  {
+   "customer": {
+    "name": "OpenAI",
+    "domain": "openai.com",
+    "evidence": "\u201ccursor is built atop Microsoft Corp.\u2019s popular code editor Visual Studio Code, and its support for a wide range of large language models, including its own and those of OpenAI and Anthropic.\u201d",
+    "source": "web evidence"
+   },
+   "score": 7.69,
+   "tier": "at_risk",
+   "evidence": [
+    {
+     "lane": "budget_distress",
+     "lane_label": "Budget / strategy risk",
+     "url": "https://apnews.com/article/openai-chatgpt-spud-sam-altman-anthropic-mythos-3c2674f5cdf67ac6d88eedb207de117c",
+     "title": "OpenAI shifts focus to business-oriented products for profitability | AP News",
+     "source": "apnews.com",
+     "date": "2026-04-16",
+     "relevance": "strong",
+     "evidence": "OpenAI\u2019s shift to business-oriented products and shedding consumer offerings as a pathway to profitability is described as a strategic pivot to better monetize at scale and fund AI systems, including expanding enterprise sales and pushing computing capacity, which directly signals budget pressure and strategic realignment rather than growth-only moves.",
+     "mentions_vendor": false,
+     "points": 1.5
+    },
+    {
+     "lane": "budget_distress",
+     "lane_label": "Budget / strategy risk",
+     "url": "https://www.reuters.com/technology/openai-set-discontinue-sora-video-platform-app-wsj-reports-2026-03-24/",
+     "title": "OpenAI drops AI video tool Sora, startling Disney, sources say | Reuters",
+     "source": "reuters.com",
+     "date": "2026-03-24",
+     "relevance": "strong",
+     "evidence": "OpenAI ends $1 billion deal with Disney, Sora project halted; OpenAI shifts focus to coding tools, corporate clients and AGI",
+     "mentions_vendor": false,
+     "points": 1.5
+    },
+    {
+     "lane": "in_house_build",
+     "lane_label": "Building in-house",
+     "url": "https://ghostarchive.org/archive/go5eG",
+     "title": "Harness engineering: leveraging Codex in an agent-first world | OpenAI | Ghostarchive",
+     "source": "ghostarchive.org",
+     "date": "2026-03-20",
+     "relevance": "weak",
+     "evidence": "\"The product has internal daily users and external alpha testers. It ships, deploys, breaks, and gets fixed. What\u2019s different is that every line of code\u2014application logic, tests, CI configuration, documentation, observability, and internal tooling\u2014has been written by Codex.\"",
+     "mentions_vendor": false,
+     "points": 1.05
+    },
+    {
+     "lane": "competitor_adoption",
+     "lane_label": "Competitor adoption",
+     "url": "https://openai.com/index/intuit-partnership/",
+     "title": "Intuit and OpenAI join forces on new AI-powered experiences | OpenAI",
+     "source": "openai.com",
+     "date": null,
+     "relevance": "weak",
+     "evidence": "The page describes a multi-year strategic partnership between OpenAI and Intuit to bring Intuit app experiences to ChatGPT and to deepen the use of OpenAI\u2019s frontier models; it does not indicate OpenAI using or integrating with a product from this site (Cursor/Anysphere) or its own code editor platform.",
+     "mentions_vendor": false,
+     "points": 0.84
+    },
+    {
+     "lane": "competitor_adoption",
+     "lane_label": "Competitor adoption",
+     "url": "https://openai.com/index/omio/",
+     "title": "How Omio is building the future of conversational travel | OpenAI",
+     "source": "openai.com",
+     "date": null,
+     "relevance": "weak",
+     "evidence": "The page discusses Omio's use of OpenAI models and ChatGPT integration for travel planning and internal AI workflows, but does not show OpenAI using Omio\u2019s product or a partnership where Omio (as a customer) uses OpenAI's own product in a way that evidences OpenAI tooling inside Omio's own platform. The strongest link is that Omio connected OpenAI models to its transportation inventory and booking",
+     "mentions_vendor": false,
+     "points": 0.84
+    },
+    {
+     "lane": "shopping_around",
+     "lane_label": "Evaluating alternatives",
+     "url": "https://neuralcoretech.com/best-ai-coding-agents-august-2026/",
+     "title": "Best AI Coding Agents August 2026 (Benchmarks & Guide) - NeuralCoreTech",
+     "source": "neuralcoretech.com",
+     "date": "2026-08-03",
+     "relevance": "weak",
+     "evidence": "\"Best AI Coding Agents August 2026 is a complete comparison of today\u2019s leading AI developer tools, including Claude Code, OpenAI Codex, Gemini CLI, GitHub Copilot, Cursor, OpenCode, and other coding agents.\"",
+     "mentions_vendor": false,
+     "points": 0.7
+    },
+    {
+     "lane": "shopping_around",
+     "lane_label": "Evaluating alternatives",
+     "url": "https://www.braingrid.ai/blog/claude-code-vs-cursor-vs-codex-vs-gemini",
+     "title": "Claude Code vs Cursor vs Codex vs Gemini: The 2026 Agent Comparison",
+     "source": "braingrid.ai",
+     "date": "2026-07-17",
+     "relevance": "weak",
+     "evidence": "\u201cLook at what these tools have actually done over the past eighteen months. Cursor shipped a stronger agent. Claude Code shipped a web and cloud experience. Codex shipped local execution. Gemini shipped a CLI.\u201d This page discusses and compares Claude Code, Cursor, Codex, and Gemini, but does not state that OpenAI is conducting or publishing the evaluation itself; it frames the comparison as an ass",
+     "mentions_vendor": false,
+     "points": 0.7
+    },
+    {
+     "lane": "hiring_to_replace",
+     "lane_label": "Hiring to replace",
+     "url": "https://openai.com/careers/software-engineer-codex-core-agents-san-francisco/",
+     "title": "Software Engineer, Codex Core Agents | OpenAI",
+     "source": "openai.com",
+     "date": null,
+     "relevance": "weak",
+     "evidence": "The OpenAI job posting describes building infrastructure for Codex agents, execution environments, and tool-enabled workflows, focusing on production-scale agent systems. It does not name Cursor (Anysphere) or explicitly mention overlapping with Cursor\u2019s product features such as AI-native code editor infrastructure, codebase-aware indexing, or multi-file code generation.",
+     "mentions_vendor": false,
+     "points": 0.56
+    }
+   ]
+  },
+  {
+   "customer": {
+    "name": "Instacart",
+    "domain": "instacart.com",
+    "evidence": "\u201csoftware programmers at businesses ranging from deep tech companies like OpenAI to consumer brands such as Instacart, Spotify and Uber\u201d",
+    "source": "web evidence"
+   },
+   "score": 4.23,
+   "tier": "watch",
+   "evidence": [
+    {
+     "lane": "in_house_build",
+     "lane_label": "Building in-house",
+     "url": "https://company.instacart.com/tech-innovation/blueberry-force-multiplier-for-the-on-call-engineer",
+     "title": "Blueberry: Force Multiplier For The On-Call Engineer | Instacart",
+     "source": "company.instacart.com",
+     "date": "2026-07-14",
+     "relevance": "weak",
+     "evidence": "\u201cBlueberry is the system we built at Instacart for those several minutes. It lives in the Slack thread where the team is already coordinating, picks up each alert as it fires, and lands a grounded explanation back in the thread in about three minutes \u2014 thousands of times a month.\u201d",
+     "mentions_vendor": false,
+     "points": 1.05
+    },
+    {
+     "lane": "in_house_build",
+     "lane_label": "Building in-house",
+     "url": "https://company.instacart.com/tech-innovation/ai-driven-development-at-instacart-scaling-impact-and-increasing-velocity",
+     "title": "AI-Driven Development at Instacart: Scaling Impact and Increasing Velocity | Instacart",
+     "source": "company.instacart.com",
+     "date": "2025-08-21",
+     "relevance": "weak",
+     "evidence": "\"Born within our Commerce organization, Project Tomato explored practical use cases across the engineering lifecycle. From outlining an ERD and generating code to debugging, analyzing logs, and ensuring test coverage, engineers embedded AI tools like Ava, Cursor, and Glean directly into their day-to-day tasks.\"",
+     "mentions_vendor": false,
+     "points": 0.89
+    },
+    {
+     "lane": "competitor_adoption",
+     "lane_label": "Competitor adoption",
+     "url": "https://openai.com/index/instacart-partnership/",
+     "title": "Instacart and OpenAI partner on AI shopping experiences",
+     "source": "openai.com",
+     "date": "2025-12-08",
+     "relevance": "weak",
+     "evidence": "\"OpenAI and Instacart are deepening their longstanding partnership by bringing the first fully integrated grocery shopping and Instant Checkout payment app to ChatGPT.\"",
+     "mentions_vendor": false,
+     "points": 0.89
+    },
+    {
+     "lane": "competitor_adoption",
+     "lane_label": "Competitor adoption",
+     "url": "https://support.google.com/business/answer/9934993",
+     "title": "Showcase in-store products on Google Search & Maps",
+     "source": "support.google.com",
+     "date": null,
+     "relevance": "weak",
+     "evidence": "\"Important: This service was called Pointy before, and it's now fully integrated into Google. The Pointy app is now the Local Inventory app.\"",
+     "mentions_vendor": false,
+     "points": 0.84
+    },
+    {
+     "lane": "hiring_to_replace",
+     "lane_label": "Hiring to replace",
+     "url": "https://app.welcometothejungle.com/jobs/GBXggoY2",
+     "title": "Senior Software Engineering Manager, Instacart",
+     "source": "app.welcometothejungle.com",
+     "date": null,
+     "relevance": "weak",
+     "evidence": "The page describes a Senior Software Engineering Manager role at Instacart focused on AI Productivity and Developer Experience, with responsibilities like AI-powered code review, LLM tooling, local dev platforms, and CI/test automation. It does not explicitly mention Cursor (Anysphere) or an overlap with Cursor\u2019s AI-native code editor infrastructure. The text references general AI tooling and deve",
+     "mentions_vendor": false,
+     "points": 0.56
+    }
+   ]
+  },
+  {
+   "customer": {
+    "name": "Spotify",
+    "domain": "spotify.com",
+    "evidence": "\u201cconsumer brands such as Instacart, Spotify and Uber\u201d",
+    "source": "web evidence"
+   },
+   "score": 9.89,
+   "tier": "at_risk",
+   "evidence": [
+    {
+     "lane": "competitor_adoption",
+     "lane_label": "Competitor adoption",
+     "url": "https://cloud.google.com/customers/spotify",
+     "title": "Spotify case study",
+     "source": "cloud.google.com",
+     "date": null,
+     "relevance": "strong",
+     "evidence": "Spotify uses Google Cloud to power its music streaming service, enabling them to scale their infrastructure, store vast amounts of data, and utilize advanced analytics for personalized user experiences.",
+     "mentions_vendor": false,
+     "points": 2.4
+    },
+    {
+     "lane": "budget_distress",
+     "lane_label": "Budget / strategy risk",
+     "url": "https://www.hollywoodreporter.com/business/digital/spotify-15-staffers-podcast-division-1236544983/",
+     "title": "Spotify Lays Off 15 Percent Of Podcasting Group, The Ringer",
+     "source": "hollywoodreporter.com",
+     "date": "2026-03-23",
+     "relevance": "strong",
+     "evidence": "The article states: \"Spotify has laid off about 3 percent of staff in its podcasting group... The layoffs Monday impacted 15 positions across The Ringer and Spotify Studios.\"",
+     "mentions_vendor": false,
+     "points": 1.5
+    },
+    {
+     "lane": "budget_distress",
+     "lane_label": "Budget / strategy risk",
+     "url": "https://www.benzinga.com/markets/tech/26/04/52119038/spotify-executives-say-ai-is-doubling-employee-productivity-while-keeping-headcount-flat-we-did-a-resizing",
+     "title": "Spotify Executives Say AI Is Doubling Employee Productivity While Keeping Headcount Flat: 'We Did A Resiz - Benzinga",
+     "source": "benzinga.com",
+     "date": "2026-04-29",
+     "relevance": "strong",
+     "evidence": "Co-CEO Alex Norstr\u00f6m: \u201cSome years ago, we did a resizing of the organization. And since then, as you\u2019ve seen, we haven\u2019t increased our employees and we have been very diligent in keeping the overall platform stable,\u201d and \u201cthe company reduced headcount by 65 employees last quarter.\u201d These quotes indicate cost discipline and a resizing/flat headcount strategy rather than expansion, aligning with bud",
+     "mentions_vendor": false,
+     "points": 1.5
+    },
+    {
+     "lane": "in_house_build",
+     "lane_label": "Building in-house",
+     "url": "https://portal.spotify.com/blog/introducing-xirp",
+     "title": "What we've learned scaling AI coding agents at Spotify | Spotify Portal",
+     "source": "portal.spotify.com",
+     "date": "2026-08-10",
+     "relevance": "weak",
+     "evidence": "The page discusses Spotify's Xirp and Portal for agentic development environments, but does not mention Cursor (Anysphere) or any external AI-native code editor/integrated agent workflows. The closest is a general description of an in-house, vendor-neutral agentic development environment paired with Portal to amplify sessions, which is not specific to Cursor's product offering.",
+     "mentions_vendor": false,
+     "points": 1.05
+    },
+    {
+     "lane": "in_house_build",
+     "lane_label": "Building in-house",
+     "url": "https://engineering.atspotify.com/2025/11/spotifys-background-coding-agent-part-1",
+     "title": "1,500+ PRs Later: Spotify\u2019s Journey with Our Background Coding Agent (Honk, Part 1) | Spotify Engineering",
+     "source": "engineering.atspotify.com",
+     "date": "2025-11-01",
+     "relevance": "weak",
+     "evidence": "\u201cThis post explores how we have evolved our Fleet Management platform with background coding agents and what more than 1,500 merged AI-generated pull requests have taught us about the future of large-scale software maintenance.\u201d",
+     "mentions_vendor": false,
+     "points": 0.89
+    },
+    {
+     "lane": "competitor_adoption",
+     "lane_label": "Competitor adoption",
+     "url": "https://cloud.google.com/customers/featured/spotify",
+     "title": "Spotify Customers Google Cloud",
+     "source": "cloud.google.com",
+     "date": null,
+     "relevance": "weak",
+     "evidence": "The page describes Spotify using Google Cloud infrastructure and tools, and references cost reductions and data workflows, but does not mention Cursor (Anysphere) or any integration with this site's product.",
+     "mentions_vendor": false,
+     "points": 0.84
+    },
+    {
+     "lane": "shopping_around",
+     "lane_label": "Evaluating alternatives",
+     "url": "https://techcrunch.com/2026/02/12/spotify-says-its-best-developers-havent-written-a-line-of-code-since-december-thanks-to-ai/",
+     "title": "Spotify says its best developers haven't written a line of ...",
+     "source": "techcrunch.com",
+     "date": "2026-02-12",
+     "relevance": "weak",
+     "evidence": "The article discusses Spotify using AI to accelerate development and mentions internal AI tooling (Honk) and Claude Code, but it does not benchmark, compare, or publicly evaluate multiple AI-native code editors or provider tools. It focuses on Spotify's use of AI and a statement that its best developers haven\u2019t written code since December. The single most relevant line is: \u201cAt Spotify, engineers a",
+     "mentions_vendor": false,
+     "points": 0.59
+    },
+    {
+     "lane": "shopping_around",
+     "lane_label": "Evaluating alternatives",
+     "url": "https://medium.com/codetodeploy/how-spotify-built-an-ai-coding-agent-that-merged-1-500-prs-6e913b9b4ca5",
+     "title": "How Spotify Built an AI Coding Agent That Merged ...",
+     "source": "medium.com",
+     "date": null,
+     "relevance": "weak",
+     "evidence": "The page discusses Spotify building an internal AI coding agent (Honk) and references using Claude Code, Claude Agent SDK, and Fleet Management, but it does not present Spotify benchmarking or publicly evaluating multiple AI-native code editors/agent platforms side-by-side or naming other providers in a comparative context. It is primarily a case study of Spotify's own system and its verification ",
+     "mentions_vendor": false,
+     "points": 0.56
+    },
+    {
+     "lane": "hiring_to_replace",
+     "lane_label": "Hiring to replace",
+     "url": "https://www.lifeatspotify.com/jobs/senior-software-engineer-enterprise-ai",
+     "title": "Senior Software Engineer - Enterprise AI",
+     "source": "lifeatspotify.com",
+     "date": null,
+     "relevance": "weak",
+     "evidence": "The page describes Senior Software Engineer - Enterprise AI at Spotify focusing on enterprise AI platform capabilities, governance, APIs, and integrations for internal AI tooling. There is no mention of Cursor (Anysphere) or AI-native code editor infrastructure, agent workflows, multi-file code generation, or Cursor\u2019s capabilities.",
+     "mentions_vendor": false,
+     "points": 0.56
+    }
+   ]
+  },
+  {
+   "customer": {
+    "name": "Uber",
+    "domain": "uber.com",
+    "evidence": "\u201cconsumer brands such as Instacart, Spotify and Uber\u201d",
+    "source": "web evidence"
+   },
+   "score": 13.2,
+   "tier": "at_risk",
+   "evidence": [
+    {
+     "lane": "competitor_adoption",
+     "lane_label": "Competitor adoption",
+     "url": "https://openai.com/index/uber/",
+     "title": "Uber uses OpenAI to help people earn smarter and book ...",
+     "source": "openai.com",
+     "date": "2026-05-06",
+     "relevance": "strong",
+     "evidence": "Uber has long used machine learning to support its marketplace. And now, with the benefit of large language models and OpenAI frontier models, Uber can reason across complex signals more quickly, deliver fast conversational responses, and power voice experiences inside the app.",
+     "mentions_vendor": false,
+     "points": 3.0
+    },
+    {
+     "lane": "competitor_adoption",
+     "lane_label": "Competitor adoption",
+     "url": "https://workspace.google.com/customers/uber/",
+     "title": "Uber Customer Success Story",
+     "source": "workspace.google.com",
+     "date": null,
+     "relevance": "strong",
+     "evidence": "Uber leverages the powerful integration of Google AppSheet with Google Workspace and Google Apps Script to maintain and even improve on the critical capabilities once provided by a third-party Google Admin console tool.",
+     "mentions_vendor": false,
+     "points": 2.4
+    },
+    {
+     "lane": "hiring_to_replace",
+     "lane_label": "Hiring to replace",
+     "url": "https://jobs.uber.com/en/jobs/149191/",
+     "title": "Sr. Staff Engineer (GenAI), San Francisco, United States",
+     "source": "jobs.uber.com",
+     "date": "2026-07-16",
+     "relevance": "strong",
+     "evidence": "The job posting describes building an autonomous support agent with agentic architectures, LLM orchestration, retrieval & reasoning, and production systems at scale, which explicitly overlaps with AI-native agent workflows and multi-source reasoning capabilities similar to Cursor (Anysphere)\u2019s offerings.",
+     "mentions_vendor": false,
+     "points": 2.0
+    },
+    {
+     "lane": "budget_distress",
+     "lane_label": "Budget / strategy risk",
+     "url": "https://www.businessinsider.com/uber-layoffs-ai-prompts-cuts-to-customer-service-jobs-2026-7",
+     "title": "Uber Layoffs: AI Prompts Cuts to Customer Service Jobs - Business Insider",
+     "source": "businessinsider.com",
+     "date": "2026-07-23",
+     "relevance": "strong",
+     "evidence": "Uber is laying off about 10% of its community operations team and asking remote employees to relocate to a city with an Uber office and work there three days a week, it said in a statement on Thursday. Bloomberg earlier reported the news.",
+     "mentions_vendor": false,
+     "points": 1.5
+    },
+    {
+     "lane": "budget_distress",
+     "lane_label": "Budget / strategy risk",
+     "url": "https://www.businessinsider.com/uber-ai-cost-stable-cheaper-models-operational-efficiency-2026-8",
+     "title": "Uber Uses AI for Cost Savings and Operational Efficiency - Business Insider",
+     "source": "businessinsider.com",
+     "date": "2026-08-05",
+     "relevance": "strong",
+     "evidence": "The article describes Uber keeping AI spend broadly stable by lowering token spend and improving cost management, and mentions layoffs of about 10% of its customer service workers as AI enables efficiency gains, signaling cost-cutting and a shift in operational strategy around AI use. Key quotes: Balaji Krishnamurthy: \"cost per token has declined... allowing us to keep overall AI spend broadly sta",
+     "mentions_vendor": false,
+     "points": 1.5
+    },
+    {
+     "lane": "in_house_build",
+     "lane_label": "Building in-house",
+     "url": "https://newsletter.pragmaticengineer.com/p/how-uber-uses-ai-for-development",
+     "title": "How Uber uses AI for development: inside look",
+     "source": "newsletter.pragmaticengineer.com",
+     "date": "2026-03-10",
+     "relevance": "weak",
+     "evidence": "Uber built Minion, an internal background agent platform with monorepo access and optimized defaults. It\u2019s a clever abstraction layer that works well in practice.",
+     "mentions_vendor": false,
+     "points": 1.05
+    },
+    {
+     "lane": "in_house_build",
+     "lane_label": "Building in-house",
+     "url": "https://engineered.at/articles/how-uber-uses-ai-for-development-inside-look",
+     "title": "How Uber uses AI for development: inside look | Engineered.at",
+     "source": "engineered.at",
+     "date": "2026-03-10",
+     "relevance": "weak",
+     "evidence": "Uber\u2019s agentic system for software engineering combines an internal AI platform (built on Michelangelo), an MCP-based model/context gateway, and no-code agent tooling to connect agents to Uber data sources and background tasks.",
+     "mentions_vendor": false,
+     "points": 1.05
+    },
+    {
+     "lane": "shopping_around",
+     "lane_label": "Evaluating alternatives",
+     "url": "https://www.forbes.com/sites/janakirammsv/2026/05/17/uber-burns-its-2026-ai-budget-in-four-months-on-claude-code/",
+     "title": "Uber Burns Its 2026 AI Budget In Four Months On Claude ...",
+     "source": "forbes.com",
+     "date": "2026-05-17",
+     "relevance": "weak",
+     "evidence": "\"Uber exhausted its entire 2026 artificial intelligence budget by April, four months into the calendar year, after Anthropic's Claude Code spread across roughly 5,000 engineers faster than the company's finance models had anticipated.\"",
+     "mentions_vendor": false,
+     "points": 0.7
+    }
+   ]
+  },
+  {
+   "customer": {
+    "name": "Major League Baseball",
+    "domain": "mlb.com",
+    "evidence": "\u201corganizations not generally associated with software, including Major League Baseball.\u201d",
+    "source": "web evidence"
+   },
+   "score": 5.59,
+   "tier": "at_risk",
+   "evidence": [
+    {
+     "lane": "competitor_adoption",
+     "lane_label": "Competitor adoption",
+     "url": "https://cloud.google.com/customers/featured/major-league-baseball",
+     "title": "It's a whole new\n                  ballgame.",
+     "source": "cloud.google.com",
+     "date": null,
+     "relevance": "strong",
+     "evidence": "\"MLB is putting AI to work to bring fans closer to the game. With Google Cloud, MLB is creating personalized, engaging experiences for fans and helping teams better understand the possibilities within their data.\"",
+     "mentions_vendor": false,
+     "points": 2.4
+    },
+    {
+     "lane": "in_house_build",
+     "lane_label": "Building in-house",
+     "url": "https://technology.mlblogs.com/mlbs-5th-annual-hackathon-powered-by-google-cloud-focused-on-generative-ai-761c020b68c0",
+     "title": "MLB\u2019s 5th Annual Hackathon, Powered by Google Cloud, Focused on Generative AI | by Tani Cohen | MLB Technology Blog",
+     "source": "technology.mlblogs.com",
+     "date": "2025-12-05",
+     "relevance": "weak",
+     "evidence": "\u201cNow in its fifth year, the Hackathon is key to driving innovation within MLB. The 2025 Hackathon, presented by Google Cloud, a key technology partner of MLB, allowed participants to explore AI-native \u201cre-think\u201d opportunities with direct access and collaboration with Google as a partner.",
+     "mentions_vendor": false,
+     "points": 0.89
+    },
+    {
+     "lane": "competitor_adoption",
+     "lane_label": "Competitor adoption",
+     "url": "https://cloud.google.com/customers/mlb-looker",
+     "title": "MLB modernizes BI to give fans even more to cheer about",
+     "source": "cloud.google.com",
+     "date": null,
+     "relevance": "weak",
+     "evidence": "The page discusses MLB partnering with Google Cloud to leverage Statcast, Anthos, Gemini, and other Google Cloud products, but does not mention Cursor (Anysphere) or any direct integration of MLB with this site's own product. A sentence indicating the partnership with Google Cloud and use of their services is present, but it\u2019s not about Cursor (Anysphere).",
+     "mentions_vendor": false,
+     "points": 0.84
+    },
+    {
+     "lane": "hiring_to_replace",
+     "lane_label": "Hiring to replace",
+     "url": "https://www.tealhq.com/job/senior-security-engineer_7ea1a75abdeec858d7419da142687b62917c6",
+     "title": "Senior Security Engineer @ Major League Baseball",
+     "source": "tealhq.com",
+     "date": null,
+     "relevance": "weak",
+     "evidence": "The page text describes a Senior Security Engineer role at Major League Baseball focusing on security engineering across CI/CD, cloud, IaC, WAF, bot management, security tooling, and integration into developer workflows. It does not mention Cursor (Anysphere) or AI-native code editor infrastructure, autonomous agent workflows, codebase-aware indexing, or multi-file code generation. The excerpt: \u201cA",
+     "mentions_vendor": false,
+     "points": 0.56
+    },
+    {
+     "lane": "budget_distress",
+     "lane_label": "Budget / strategy risk",
+     "url": "https://apnews.com/article/mlb-tv-fan-duel-manfred-539d0cc29d01f18b0bb9c120d4b9ed5d",
+     "title": "9 FanDuel network teams end deals, MLB prepared to produce and distribute broadcasts | AP News",
+     "source": "apnews.com",
+     "date": "2026-01-08",
+     "relevance": "weak",
+     "evidence": "Nine Major League Baseball teams have terminated their deals with the FanDuel Sports Network to carry their local broadcasts, and Commissioner Rob Manfred said MLB is prepared to produce and distribute the telecasts.",
+     "mentions_vendor": false,
+     "points": 0.45
+    },
+    {
+     "lane": "budget_distress",
+     "lane_label": "Budget / strategy risk",
+     "url": "https://www.espn.com/mlb/story/_/id/47552639/sources-9-mlb-teams-end-deals-main-street-sports-group",
+     "title": "Sources: 9 MLB teams end deals with Main Street Sports Group - ESPN",
+     "source": "espn.com",
+     "date": "2026-01-08",
+     "relevance": "weak",
+     "evidence": "\u201cThat state of flux prompted all nine MLB teams under the portfolio -- the Atlanta Braves, Cincinnati Reds, Detroit Tigers, Kansas City Royals, Los Angeles Angels, Miami Marlins, Milwaukee Brewers, St. Louis Cardinals and Tampa Bay Rays-- to terminate their original deals with Main Street.\u201d",
+     "mentions_vendor": false,
+     "points": 0.45
+    }
+   ]
+  },
+  {
+   "customer": {
+    "name": "Discord",
+    "domain": "discord.com",
+    "evidence": "Its public client list is a who's who of tech: Stripe, Coinbase, Discord, Salesforce, Neuralink, and Nvidia.",
+    "source": "web evidence"
+   },
+   "score": 1.83,
+   "tier": "watch",
+   "evidence": [
+    {
+     "lane": "hiring_to_replace",
+     "lane_label": "Hiring to replace",
+     "url": "https://www.wearedevelopers.com/jobs/ext/572064-senior-software-engineer-front-end-infrastructure",
+     "title": "Senior Software Engineer, Front-End Infrastructure",
+     "source": "wearedevelopers.com",
+     "date": null,
+     "relevance": "weak",
+     "evidence": "The page is a Discord Senior Software Engineer, Front-End Infrastructure job posting and does not mention Cursor (Anysphere) or any overlap with AI-native code editor infrastructure or autonomous agent workflows. The job focuses on JavaScript tooling, build systems, CI/CD, localization, and frontend developer productivity.",
+     "mentions_vendor": false,
+     "points": 0.56
+    },
+    {
+     "lane": "budget_distress",
+     "lane_label": "Budget / strategy risk",
+     "url": "https://www.bloomberg.com/news/articles/2026-01-06/chat-platform-discord-is-said-to-file-confidentially-for-ipo",
+     "title": "Chat Platform Discord Files Confidentially for IPO - Bloomberg",
+     "source": "bloomberg.com",
+     "date": "2026-01-06",
+     "relevance": "weak",
+     "evidence": "Discord Inc. filed confidentially for an initial public offering, according to people familiar with the matter, adding to a rapidly growing pipeline of venture capital-backed tech listings.",
+     "mentions_vendor": false,
+     "points": 0.45
+    },
+    {
+     "lane": "budget_distress",
+     "lane_label": "Budget / strategy risk",
+     "url": "https://www.gamedeveloper.com/business/report-discord-confidentially-files-for-ipo",
+     "title": "Report: Discord confidentially files for IPO",
+     "source": "gamedeveloper.com",
+     "date": "2026-01-07",
+     "relevance": "weak",
+     "evidence": "The page reports that Discord confidentially filed for an IPO and discusses leadership changes, safety tools, and commerce features, but it does not mention budget cuts, layoffs, acquisitions, or moves away from AI-native code tools like Cursor (Anysphere).",
+     "mentions_vendor": false,
+     "points": 0.45
+    },
+    {
+     "lane": "competitor_adoption",
+     "lane_label": "Competitor adoption",
+     "url": "https://cloud.google.com/blog/products/data-analytics/redshift-to-bigquery-migration-for-gaming-app",
+     "title": "Discord's migration from Redshift to BigQuery: lessons learned",
+     "source": "cloud.google.com",
+     "date": "2020-03-05",
+     "relevance": "weak",
+     "evidence": "Discord, maker of a popular voice, video, and text chat app for gaming. They have to bring a great experience to millions of customers concurrently, and keep up with demand. Here\u2019s how they moved from Redshift to Google Cloud\u2019s BigQuery to support their growth.",
+     "mentions_vendor": false,
+     "points": 0.37
+    }
+   ]
+  },
+  {
+   "customer": {
+    "name": "Neuralink",
+    "domain": "neuralink.com",
+    "evidence": "Its public client list is a who's who of tech: Stripe, Coinbase, Discord, Salesforce, Neuralink, and Nvidia.",
+    "source": "web evidence"
+   },
+   "score": 1.74,
+   "tier": "healthy",
+   "evidence": [
+    {
+     "lane": "hiring_to_replace",
+     "lane_label": "Hiring to replace",
+     "url": "https://xtalks.com/job/software-engineer-agentic-ai/",
+     "title": "Software Engineer, Agentic AI - Xtalks",
+     "source": "xtalks.com",
+     "date": "2026-05-21",
+     "relevance": "weak",
+     "evidence": "The page text describes a Neuralink Software Engineer, Agentic AI role, focusing on building systems that automate digital work for agents, including dispatchers, worker pools, identity and LLM proxies, session memory, and skills; there is no explicit mention of Cursor (Anysphere) or code editor infrastructure in the job description text provided. The only clearly relevant overlap is generic \u201cagen",
+     "mentions_vendor": false,
+     "points": 0.7
+    },
+    {
+     "lane": "budget_distress",
+     "lane_label": "Budget / strategy risk",
+     "url": "https://www.theverge.com/tech/910834/neuralink-bcis-bet",
+     "title": "Did Neuralink make the wrong bet? | The Verge",
+     "source": "theverge.com",
+     "date": "2026-04-13",
+     "relevance": "weak",
+     "evidence": "The Verge article discusses Neuralink\u2019s pivot toward speech BCIs and broader industry shifts (e.g., moving from brain-to-cursor interfaces to speech-enabled BCIs) as part of a course-correction and potential commercial/production plans, but it does not present direct evidence of budget cuts, acquisitions, or a strategic shift specifically cutting tools like Cursor (Anysphere). A later line notes \u201c",
+     "mentions_vendor": false,
+     "points": 0.52
+    },
+    {
+     "lane": "budget_distress",
+     "lane_label": "Budget / strategy risk",
+     "url": "https://www.theverge.com/ai-artificial-intelligence/919925/neuralinks-long-term-goal-is-now-ai",
+     "title": "Neuralink\u2019s long-term goal is... AI? | The Verge",
+     "source": "theverge.com",
+     "date": "2026-04-28",
+     "relevance": "weak",
+     "evidence": "The Verge article discusses Neuralink\u2019s long-term goal as tied to AI and AI safety, focusing on Musk\u2019s statements about symbiosis with AI rather than budget, procurement, or product strategy changes.",
+     "mentions_vendor": false,
+     "points": 0.52
+    }
+   ]
+  }
+ ],
+ "summary": {
+  "vendor": "Cursor (Anysphere)",
+  "domain": "cursor.com",
+  "counts": {
+   "at_risk": 14,
+   "watch": 4,
+   "healthy": 1
+  },
+  "elapsed_s": 64.8,
+  "api_calls": 101,
+  "cost_usd": 1.127,
+  "generated_at": "2026-08-21T05:51:55.040831+00:00"
+ }
+}

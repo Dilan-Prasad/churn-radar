@@ -105,9 +105,15 @@ python app.py            # → http://localhost:8000
 ```
 
 Type a domain, hit **Scan live**. Use the **accounts** slider (5–20) to size the
-sweep. Every completed run is cached to `cache/<domain>.json`; the **Replay
-cached** button restreams it instantly with zero API calls (demo insurance — and
-clearly labeled as a replay). `/?url=exa.ai&auto=live` deep-links a scan.
+sweep — or paste your own book into the **customer list field** (comma-separated
+names or domains, e.g. `HubSpot, monday.com, openrouter.ai`): the list is
+resolved to canonical names + domains via `/answer` and auto-discovery is
+skipped, which is how a real CS team would run it against their actual accounts.
+
+Every full-discovery run is cached to `cache/<domain>.json` (custom-list runs
+never overwrite it). `/?url=exa.ai&auto=live` deep-links a live scan;
+`/?url=exa.ai&auto=cached` replays the cached run instantly with zero API calls
+(demo insurance — clearly labeled as a replay).
 
 The **under the hood** drawer (bottom of the page) streams every Exa API call
 live — endpoint, lane, latency, cost — so you can narrate what the API is doing

@@ -1,0 +1,763 @@
+{
+ "profile": {
+  "one_liner": "Uber is a technology company that operates multisided platforms connecting consumers with independent providers for ride-hailing, delivery, and freight logistics services.",
+  "company_name": "Uber Technologies, Inc.",
+  "churn_modes": [
+   "Switching to personal vehicle ownership and usage.",
+   "Using public transportation or traditional taxi-hailing services.",
+   "Building a direct-to-consumer delivery or transportation infrastructure.",
+   "Switching to a competitor with lower fees or better incentives."
+  ],
+  "capability_phrase": "a proprietary demand aggregation application and logistics matching platform.",
+  "buyer_persona": "Consumers (Riders, Eaters), restaurants/grocers/merchants, shippers, and carriers.",
+  "product_category": "multisided platform for on-demand mobility, delivery, and logistics services",
+  "competitors": [
+   {
+    "domain": "lyft.com",
+    "name": "Lyft"
+   },
+   {
+    "name": "DoorDash",
+    "domain": "doordash.com"
+   },
+   {
+    "name": "Instacart",
+    "domain": "instacart.com"
+   },
+   {
+    "name": "C.H. Robinson",
+    "domain": "chrobinson.com"
+   },
+   {
+    "domain": "waymo.com",
+    "name": "Waymo"
+   },
+   {
+    "name": "Didi",
+    "domain": "didi.com"
+   },
+   {
+    "name": "Delivery Hero",
+    "domain": "deliveryhero.com",
+    "via": "findSimilar"
+   },
+   {
+    "name": "Sea Ltd",
+    "domain": "sea.com",
+    "via": "findSimilar"
+   },
+   {
+    "name": "UBER",
+    "domain": "uberrealestate.com",
+    "via": "findSimilar"
+   }
+  ]
+ },
+ "domain": "uber.com",
+ "customers": [
+  {
+   "name": "J.B. Hunt Transport, Inc.",
+   "domain": "jbhunt.com",
+   "evidence": "J.B. Hunt uses Uber for Business to provide transportation for its drivers and corporate ground travel.",
+   "source": "web evidence"
+  },
+  {
+   "name": "Zoom",
+   "domain": "zoom.us",
+   "evidence": "Zoom uses Uber for Business to manage employee work travel.",
+   "source": "web evidence"
+  },
+  {
+   "name": "Ryder",
+   "domain": "ryder.com",
+   "evidence": "Ryder uses Uber for Business via API integration for employee and customer transportation.",
+   "source": "web evidence"
+  },
+  {
+   "name": "CBRE",
+   "domain": "cbre.com",
+   "evidence": "CBRE uses the Uber for Business dashboard for ground transportation and meal delivery at its properties.",
+   "source": "web evidence"
+  },
+  {
+   "name": "Boston Medical Center",
+   "domain": "bmc.org",
+   "evidence": "Boston Medical Center uses the Uber Health platform for patient transportation.",
+   "source": "web evidence"
+  },
+  {
+   "name": "Ahold Delhaize USA",
+   "domain": "adusa.com",
+   "evidence": "Ahold Delhaize USA brands partner with Uber Eats for grocery delivery.",
+   "source": "web evidence"
+  },
+  {
+   "name": "Food Lion",
+   "domain": "foodlion.com",
+   "evidence": "Food Lion stores are available on the Uber Eats marketplace.",
+   "source": "web evidence"
+  }
+ ],
+ "verdicts": [
+  {
+   "customer": {
+    "name": "J.B. Hunt Transport, Inc.",
+    "domain": "jbhunt.com",
+    "evidence": "J.B. Hunt uses Uber for Business to provide transportation for its drivers and corporate ground travel.",
+    "source": "web evidence"
+   },
+   "score": 7.2,
+   "tier": "watch",
+   "evidence": [
+    {
+     "lane": "competitor_adoption",
+     "lane_label": "Competitor adoption",
+     "url": "https://waymo.com/blog/2022/01/establishing-long-term-alliance-with-jb",
+     "title": "Establishing a long-term alliance with J.B. Hunt for ...",
+     "source": "waymo.com",
+     "date": "2022-01-14",
+     "relevance": "strong",
+     "evidence": "Starting the year off strong, we\u2019re expanding our relationship with J.B. Hunt and entering into a long-term, strategic alliance to commercialize autonomous driving technology for trucking transportation together.",
+     "mentions_vendor": false,
+     "points": 1.05
+    },
+    {
+     "lane": "competitor_adoption",
+     "lane_label": "Competitor adoption",
+     "url": "https://waymo.com/blog/2021/12/what-we-learned-from-our-initial-trial/",
+     "title": "What we learned from our initial trial runs with J.B. Hunt",
+     "source": "waymo.com",
+     "date": "2021-12-01",
+     "relevance": "strong",
+     "evidence": "The page describes Waymo\u2019s trial runs with J.B. Hunt to carry freight autonomously and discusses collaboration with J.B. Hunt, including objectives and outcomes of a pilot program.",
+     "mentions_vendor": false,
+     "points": 1.05
+    },
+    {
+     "lane": "in_house_build",
+     "lane_label": "Building in-house",
+     "url": "https://www.jbhunt.com/our-company/newsroom/2026/07/overroute-launches-to-streamline-freight",
+     "title": "Overroute Launches with J.B. Hunt To Streamline Freight Execution for Enterprise Carriers | J.B. Hunt",
+     "source": "jbhunt.com",
+     "date": "2026-07-01",
+     "relevance": "weak",
+     "evidence": "\"Overroute, an AI-native freight technology company built for carriers and logistics operators, today announced its public launch after a year of co-design with J.B. Hunt Transport Services Inc. (Nasdaq: JBHT)\"",
+     "mentions_vendor": false,
+     "points": 1.05
+    },
+    {
+     "lane": "in_house_build",
+     "lane_label": "Building in-house",
+     "url": "https://www.jbhunt.com/blog/j-b-hunt-360/carrier/become-j-b-hunt-carrier",
+     "title": "Why Carriers Choose to Move Freight with J.B. Hunt",
+     "source": "jbhunt.com",
+     "date": "2026-07-13",
+     "relevance": "weak",
+     "evidence": "null",
+     "mentions_vendor": false,
+     "points": 1.05
+    },
+    {
+     "lane": "shopping_around",
+     "lane_label": "Evaluating alternatives",
+     "url": "https://www.freightwaves.com/news/j-b-hunt-works-with-overroute-to-launch-freight-execution-platform",
+     "title": "J.B. Hunt works with Overroute to launch freight execution platform - FreightWaves",
+     "source": "freightwaves.com",
+     "date": "2026-07-21",
+     "relevance": "weak",
+     "evidence": "Overroute publicly launched its AI-led freight execution platform to carriers and logistics operators on Tuesday, following a year-long co-design with J.B. Hunt Transport Services.",
+     "mentions_vendor": false,
+     "points": 0.7
+    },
+    {
+     "lane": "shopping_around",
+     "lane_label": "Evaluating alternatives",
+     "url": "https://www.ttnews.com/articles/jb-hunt-deploys-overroute",
+     "title": "J.B. Hunt deploys agentic AI from incubator\u2019s first startup - TT",
+     "source": "ttnews.com",
+     "date": "2026-07-28",
+     "relevance": "weak",
+     "evidence": "\u201cOverroute is the first startup from the Logistics Venture Lab \u2026\u201d and \u201cJ.B. Hunt is deploying agentic artificial intelligence across each of its business units that will coordinate data on loads the carrier transports and enable smoother freight movement.\u201d",
+     "mentions_vendor": false,
+     "points": 0.7
+    },
+    {
+     "lane": "hiring_to_replace",
+     "lane_label": "Hiring to replace",
+     "url": "https://careers.jbhunt.com/careers/technology",
+     "title": "Engineering and Technology | Careers | J.B. Hunt Jobs",
+     "source": "careers.jbhunt.com",
+     "date": null,
+     "relevance": "weak",
+     "evidence": "The page is a general Careers/Engineering and Technology overview for J.B. Hunt, listing roles (Software Engineer, Product Owner, Logistics Engineer, etc.) and describing broader tech initiatives, but does not contain a specific job posting or explicit responsibilities that overlap with Uber Technologies, Inc.'s proprietary demand aggregation platform. It mentions generic software/product roles an",
+     "mentions_vendor": false,
+     "points": 0.56
+    },
+    {
+     "lane": "budget_distress",
+     "lane_label": "Budget / strategy risk",
+     "url": "https://www.nwaonline.com/news/2026/apr/23/jb-hunt-says-its-poised-for-freight-recession/",
+     "title": "J.B. Hunt says it\u2019s poised for freight recession turnaround | Northwest Arkansas Democrat-Gazette",
+     "source": "nwaonline.com",
+     "date": "2026-04-23",
+     "relevance": "weak",
+     "evidence": "J.B. Hunt Transport Services Inc. executives believe the company is in a position of strength as they see signs of change amid the four-year freight recession.",
+     "mentions_vendor": false,
+     "points": 0.52
+    },
+    {
+     "lane": "budget_distress",
+     "lane_label": "Budget / strategy risk",
+     "url": "https://www.arkansasonline.com/news/2026/jul/15/jb-hunt-beats-analyst-expectations-in-strong/",
+     "title": "J.B. Hunt beats analyst expectations in strong second quarter | The Arkansas Democrat-Gazette - Arkansas' Best News Source",
+     "source": "arkansasonline.com",
+     "date": "2026-07-15",
+     "relevance": "weak",
+     "evidence": "J.B. Hunt Transport Services Inc. on Wednesday posted a second-quarter profit of $181.03 million, an increase of 40.75% compared to the same quarter in 2025.",
+     "mentions_vendor": false,
+     "points": 0.52
+    }
+   ]
+  },
+  {
+   "customer": {
+    "name": "Zoom",
+    "domain": "zoom.us",
+    "evidence": "Zoom uses Uber for Business to manage employee work travel.",
+    "source": "web evidence"
+   },
+   "score": 0,
+   "tier": "healthy",
+   "evidence": []
+  },
+  {
+   "customer": {
+    "name": "Ryder",
+    "domain": "ryder.com",
+    "evidence": "Ryder uses Uber for Business via API integration for employee and customer transportation.",
+    "source": "web evidence"
+   },
+   "score": 6.08,
+   "tier": "at_risk",
+   "evidence": [
+    {
+     "lane": "budget_distress",
+     "lane_label": "Budget / strategy risk",
+     "url": "https://www.nbc26.com/greenbay/ryder-to-lay-off-151-green-bay-employees-after-contract-ends",
+     "title": "Ryder to lay off 151 Green Bay employees after contract ends",
+     "source": "nbc26.com",
+     "date": "2026-05-01",
+     "relevance": "strong",
+     "evidence": "Ryder Integrated Logistics, Inc. will lay off 151 employees at two Green Bay facilities after the company\u2019s contract with a customer was not renewed, according to a state WARN notice.",
+     "mentions_vendor": false,
+     "points": 1.5
+    },
+    {
+     "lane": "in_house_build",
+     "lane_label": "Building in-house",
+     "url": "https://everythingislogistics.com/build-vs-buy-in-logistics-tech-how-ryder-thinks-about-software-selection-gary-allen/",
+     "title": "Build vs. Buy in Logistics Tech: How Ryder Thinks About Software Selection | Gary Allen",
+     "source": "everythingislogistics.com",
+     "date": "2026-02-25",
+     "relevance": "weak",
+     "evidence": "\u201cThis is the honest conversation about supply chain tech selection you don\u2019t usually get.\u201d (Gary Allen interview about Ryder evaluating 400+ vendors, build vs. buy, and tech selection)",
+     "mentions_vendor": false,
+     "points": 1.05
+    },
+    {
+     "lane": "in_house_build",
+     "lane_label": "Building in-house",
+     "url": "https://www.truckinginfo.com/news/ryder-establishes-silicon-valley-transportation-technology-lab",
+     "title": "Ryder Silicon Valley Lab Developing AI-Driven Logistics ...",
+     "source": "truckinginfo.com",
+     "date": "2026-08-19",
+     "relevance": "weak",
+     "evidence": "Baton\u2019s mission, according to a Ryder press release, is to pioneer a suite of groundbreaking customer-facing technologies. The firm\u2019s ultimate goal is to revolutionize how Ryder\u2019s customers interact with their transportation and supply chain networks.",
+     "mentions_vendor": false,
+     "points": 1.05
+    },
+    {
+     "lane": "shopping_around",
+     "lane_label": "Evaluating alternatives",
+     "url": "https://umbrex.com/resources/company-profiles/ryder/",
+     "title": "Ryder Strategy and Business Model",
+     "source": "umbrex.com",
+     "date": "2026-05-05",
+     "relevance": "weak",
+     "evidence": "The page discusses Ryder's competitors and platforms (e.g., RyderShare for supply chain visibility and telematics-based RyderGyde) but does not show Ryder benchmarking or publicly evaluating multiple multisided platform providers such as Lyft, DoorDash, Instacart, Waymo, Didi, etc. It mentions platforms Ryder has and mentions competitors, but not a Ryder-led evaluation of on-demand mobility/multi-",
+     "mentions_vendor": false,
+     "points": 0.7
+    },
+    {
+     "lane": "shopping_around",
+     "lane_label": "Evaluating alternatives",
+     "url": "https://www.freightwaves.com/checkpoint/top-3pl-companies/",
+     "title": "Top 3PL Companies in 2026: Rankings, Revenue, & Costs - Freightwaves Checkpoint",
+     "source": "freightwaves.com",
+     "date": "2026-08-09",
+     "relevance": "weak",
+     "evidence": "The page is a top 3PL ranking article that includes Ryder Supply Chain Solutions as one of the listed companies and discusses Ryder\u2019s segments and revenue, but it does not show Ryder benchmarking or publicly evaluating multiple multisided platforms for on-demand mobility/delivery services. The most relevant content is: \"Ryder's $7.80 billion ranking figure combines two reportable segments...\" and ",
+     "mentions_vendor": false,
+     "points": 0.7
+    },
+    {
+     "lane": "hiring_to_replace",
+     "lane_label": "Hiring to replace",
+     "url": "https://job-boards.greenhouse.io/baton/jobs/4011484007",
+     "title": "Job Application for Software Engineer - Infrastructure, Data Platform at Baton (A Ryder Technology Lab)",
+     "source": "job-boards.greenhouse.io",
+     "date": null,
+     "relevance": "weak",
+     "evidence": "The page describes a Software Engineer - Infrastructure, Data Platform role at Baton (A Ryder Technology Lab) with responsibilities around data streaming, near real-time data ingestion, data pipelines, and data platform responsibilities. It does not mention Uber Technologies, Inc. or any overlap with Uber's proprietary demand aggregation or logistics matching platform.",
+     "mentions_vendor": false,
+     "points": 0.56
+    },
+    {
+     "lane": "budget_distress",
+     "lane_label": "Budget / strategy risk",
+     "url": "https://www.stocktitan.net/sec-filings/R/ars-ryder-system-inc-sec-filing-e630d99d2b47.html",
+     "title": "Ryder posts $12.7B revenue, $12.92 comparable EPS | R SEC Filing - Form ARS",
+     "source": "stocktitan.net",
+     "date": "2026-03-11",
+     "relevance": "weak",
+     "evidence": "The page discusses Ryder\u2019s 2025 performance, strategic initiatives, AI deployments, and investments in fleets and technology, but contains no mention of budget pressure, cost-cutting programs, pivots away from multisided platforms for on-demand mobility, or Ryder acquiring another company. It references growth and efficiency improvements rather than distress signals.",
+     "mentions_vendor": false,
+     "points": 0.52
+    }
+   ]
+  },
+  {
+   "customer": {
+    "name": "CBRE",
+    "domain": "cbre.com",
+    "evidence": "CBRE uses the Uber for Business dashboard for ground transportation and meal delivery at its properties.",
+    "source": "web evidence"
+   },
+   "score": 3.56,
+   "tier": "watch",
+   "evidence": [
+    {
+     "lane": "in_house_build",
+     "lane_label": "Building in-house",
+     "url": "https://www.praxedo.com/our-blog/how-does-cbre-schedule-tens-of-thousands-of-technicians-across-100-countries/",
+     "title": "How Does CBRE Schedule Tens of Thousands of Technicians Across 100 Countries? | Cloud-based field service software",
+     "source": "praxedo.com",
+     "date": "2026-04-26",
+     "relevance": "weak",
+     "evidence": "The page describes CBRE using Timefold\u2019s AI-driven optimization engine to improve technician scheduling and dispatch via API integrations, but does not mention Uber Technologies, Inc. or any in-house capabilities overlapping a multisided on-demand mobility platform. A sentence noting the integration with Timefold and drag-and-drop scheduling is the core claim, not a direct statement about an Uber-",
+     "mentions_vendor": false,
+     "points": 1.05
+    },
+    {
+     "lane": "in_house_build",
+     "lane_label": "Building in-house",
+     "url": "https://linkedin.com/in/yann-combarnous",
+     "title": "Yann Combarnous",
+     "source": "linkedin.com",
+     "date": "2026-07-08",
+     "relevance": "weak",
+     "evidence": "\"First AI-native application in the organization, taking generative AI from prototype to production for thousands of field staff operating on customer premises. Agent-based scheduling optimization, hybrid RAG search across graph and vector stores, and agentic workflows with human-in-the-loop governance, running live across a global real estate portfolio.\"",
+     "mentions_vendor": false,
+     "points": 1.05
+    },
+    {
+     "lane": "hiring_to_replace",
+     "lane_label": "Hiring to replace",
+     "url": "https://careers.cbre.com/th_TH/careers/JobDetail/Sr-Program-Manager-Systems-Architecture-Demand-Orchestration/269033",
+     "title": "Sr. Program Manager \u2013 Systems Architecture & Demand Orchestration - 269033 | CBRE",
+     "source": "careers.cbre.com",
+     "date": null,
+     "relevance": "weak",
+     "evidence": "The page describes a CBRE Sr. Program Manager \u2013 Systems Architecture & Demand Orchestration role focused on design of operating models, service orchestration, and demand signaling for maintenance/work orders, with emphasis on hybrid delivery, routing, and platform guardrails. There is no explicit mention of Uber Technologies, Inc. or a proprietary Uber demand aggregation/matching platform in the t",
+     "mentions_vendor": false,
+     "points": 0.56
+    },
+    {
+     "lane": "budget_distress",
+     "lane_label": "Budget / strategy risk",
+     "url": "https://www.fool.com/earnings/call-transcripts/2026/02/12/cbre-group-cbre-q4-2025-earnings-call-transcript/",
+     "title": "CBRE Group (CBRE) Q4 2025 Earnings Call Transcript | The Motley Fool",
+     "source": "fool.com",
+     "date": "2026-02-12",
+     "relevance": "weak",
+     "evidence": "The page is an earnings call transcript for CBRE Group, discussing growth, acquisitions (e.g., Pearce Services), ERP implementation, AI-related savings, and organic investments; no mention of Uber Technologies, Inc. or budget cuts tied to Uber tools.",
+     "mentions_vendor": false,
+     "points": 0.45
+    },
+    {
+     "lane": "budget_distress",
+     "lane_label": "Budget / strategy risk",
+     "url": "https://finance.yahoo.com/news/cbre-group-inc-q4-2025-173150548.html",
+     "title": "CBRE Group, Inc. Q4 2025 Earnings Call Summary",
+     "source": "finance.yahoo.com",
+     "date": "2026-02-12",
+     "relevance": "weak",
+     "evidence": "The page is about CBRE Group, Inc. Q4 2025 earnings call summary and discusses growth, cost savings, M&A, and strategic initiatives, but does not mention Uber Technologies, Inc. or on-demand mobility tools. The most relevant items are CBRE\u2019s cost-saving measures and acquisitions, not budget pressure or strategy to cut spend on Uber-like tools. A representative line: \"Management expects to achieve ",
+     "mentions_vendor": false,
+     "points": 0.45
+    }
+   ]
+  },
+  {
+   "customer": {
+    "name": "Boston Medical Center",
+    "domain": "bmc.org",
+    "evidence": "Boston Medical Center uses the Uber Health platform for patient transportation.",
+    "source": "web evidence"
+   },
+   "score": 7.14,
+   "tier": "at_risk",
+   "evidence": [
+    {
+     "lane": "budget_distress",
+     "lane_label": "Budget / strategy risk",
+     "url": "https://www.bostonglobe.com/2026/06/01/business/boston-medical-center-losses/",
+     "title": "Boston Medical Center system reports losses ahead of looming Medicaid cuts",
+     "source": "bostonglobe.com",
+     "date": "2026-06-01",
+     "relevance": "strong",
+     "evidence": "The bleeding comes at a time when BMC, like many hospitals, is grappling with rising costs and is likely to face cuts in Medicaid funding next year.",
+     "mentions_vendor": false,
+     "points": 1.5
+    },
+    {
+     "lane": "budget_distress",
+     "lane_label": "Budget / strategy risk",
+     "url": "https://www.bostonglobe.com/2026/02/18/business/steward-hospitals-boston-medical-center/",
+     "title": "Former Steward Health Care hospitals drag down new owners",
+     "source": "bostonglobe.com",
+     "date": "2026-02-18",
+     "relevance": "strong",
+     "evidence": "\u201cFor Boston Medical, the cost of taking two former Steward hospitals has more than doubled its already troubling operating deficit for the year ending in September, from $111 million to a whopping $240 million.\u201d",
+     "mentions_vendor": false,
+     "points": 1.27
+    },
+    {
+     "lane": "in_house_build",
+     "lane_label": "Building in-house",
+     "url": "https://mailomg.com/2025/12/02/how-boston-medical-center-saved-big-on-shipping/",
+     "title": "Streamline Shipping with Boston Medical Center's Cloud Solution",
+     "source": "mailomg.com",
+     "date": "2025-12-02",
+     "relevance": "weak",
+     "evidence": "null",
+     "mentions_vendor": false,
+     "points": 0.89
+    },
+    {
+     "lane": "in_house_build",
+     "lane_label": "Building in-house",
+     "url": "https://www.linkedin.com/posts/jamesmcgraw88_boston-medical-center-pitney-bowes-activity-7416245136600309760-7Jp7",
+     "title": "How did Boston Medical Center save big on shipping? | James F McGraw",
+     "source": "linkedin.com",
+     "date": "2026-01-11",
+     "relevance": "weak",
+     "evidence": "The page discusses Boston Medical Center saving on shipping with a Pitney Bowes solution and does not mention Uber Technologies, Inc. or any in-house multisided platform overlapping Uber's demand aggregation and logistics matching capabilities. Primary quote relates to Pitney Bowes collaboration for shipping optimization.",
+     "mentions_vendor": false,
+     "points": 0.89
+    },
+    {
+     "lane": "shopping_around",
+     "lane_label": "Evaluating alternatives",
+     "url": "https://www.linkedin.com/posts/fredshrum_boston-medical-centers-uber-health-rides-activity-7485729163388170241-EdY2",
+     "title": "\u201cBoston Medical Center\u2019s Uber Health rides spend was far outweighed by the professional, hospital, lab, and pharmacy charges that the hospital expects to receive from appointments.\u201d | Fred Shrum, III",
+     "source": "linkedin.com",
+     "date": "2026-07-22",
+     "relevance": "weak",
+     "evidence": "\u201cBoston Medical Center\u2019s Uber Health rides spend was far outweighed by the professional, hospital, lab, and pharmacy charges that the hospital expects to receive from appointments.\u201d | Fred Shrum, III",
+     "mentions_vendor": false,
+     "points": 0.7
+    },
+    {
+     "lane": "shopping_around",
+     "lane_label": "Evaluating alternatives",
+     "url": "https://www.linkedin.com/posts/boston-medical-center_in-partnership-with-doordashs-project-dash-activity-7427802221796352000-QHck",
+     "title": "In partnership with DoorDash\u2019s Project DASH initiative, we are excited to share that we\u2019ve completed delivery of more than 1,000 medically tailored meal boxes to eligible pediatric patients experiencing food insecurity. Thank \u2026 | Boston Medical Center (BMC)",
+     "source": "linkedin.com",
+     "date": "2026-02-12",
+     "relevance": "weak",
+     "evidence": "partnership with DoorDash\u2019s Project DASH initiative, we are excited to share that we\u2019ve completed delivery of more than\n...\nmedically tailored meal boxes to eligible pediatric patients\n...\n| Boston Medical Center (BMC)\n...\nIn partnership with DoorDash\u2019s Project DASH initiative, we are excited to share that we\u2019ve completed delivery of more than 1,000 medically tailored meal boxes to eligible pediat",
+     "mentions_vendor": false,
+     "points": 0.59
+    },
+    {
+     "lane": "hiring_to_replace",
+     "lane_label": "Hiring to replace",
+     "url": "https://careers.bmc.org/jobs/director-logistics-and-distribution-bmc-south-brockton-massachusetts-united-states-ff75dba0-ac41-43f0-b499-5f7354a38c85",
+     "title": "Director, Logistics and Distribution (BMC South) - Brockton, Massachusetts, United States",
+     "source": "careers.bmc.org",
+     "date": null,
+     "relevance": "weak",
+     "evidence": "Director, Logistics & Distribution will collaborate with hospital leadership teams to implement inventory management best practices that align with budget targets and patient care priorities. With a focus on continuous improvement, the director will establish and monitor key performance indicators and develop action plans to deliver best value.",
+     "mentions_vendor": false,
+     "points": 0.56
+    },
+    {
+     "lane": "competitor_adoption",
+     "lane_label": "Competitor adoption",
+     "url": "https://company.instacart.com/updates/scaling-with-boston-childrens-hospital",
+     "title": "Scaling food as medicine programs with providers like Boston Children\u2019s Hospital | Instacart",
+     "source": "company.instacart.com",
+     "date": "2023-03-24",
+     "relevance": "weak",
+     "evidence": "\"Boston Children\u2019s Hospital is among the first health systems to leverage Instacart Health products for its patients\"",
+     "mentions_vendor": false,
+     "points": 0.37
+    },
+    {
+     "lane": "competitor_adoption",
+     "lane_label": "Competitor adoption",
+     "url": "https://www.instacart.com/company/updates/the-next-chapter-for-instacart-health",
+     "title": "The Next Chapter for Instacart Health: Introducing New Technologies, New Partnerships, and New Research | Instacart",
+     "source": "instacart.com",
+     "date": "2023-03-24",
+     "relevance": "weak",
+     "evidence": "\"Boston Children\u2019s is among the first health systems to leverage Instacart Health provider products to serve patients\"",
+     "mentions_vendor": false,
+     "points": 0.37
+    }
+   ]
+  },
+  {
+   "customer": {
+    "name": "Ahold Delhaize USA",
+    "domain": "adusa.com",
+    "evidence": "Ahold Delhaize USA brands partner with Uber Eats for grocery delivery.",
+    "source": "web evidence"
+   },
+   "score": 7.25,
+   "tier": "watch",
+   "evidence": [
+    {
+     "lane": "budget_distress",
+     "lane_label": "Budget / strategy risk",
+     "url": "https://www.retailtouchpoints.com/features/news-briefs/ahold-delhaize-to-close-6-centralized-dcs-as-store-based-fulfillment-flourishes",
+     "title": "Ahold Delhaize to Close 6 Centralized DCs as Store-Based Fulfillment Flourishes - Retail TouchPoints",
+     "source": "retailtouchpoints.com",
+     "date": "2026-01-02",
+     "relevance": "strong",
+     "evidence": "By the end of Q1 2026, Ahold Delhaize USA will shutter a centralized ecommerce fulfillment center in Manassas, Va. as well as five DCs in Pennsylvania in a move marking the supermarket giant\u2019s transition to more local, store-based fulfillment models.",
+     "mentions_vendor": false,
+     "points": 1.27
+    },
+    {
+     "lane": "competitor_adoption",
+     "lane_label": "Competitor adoption",
+     "url": "https://about.doordash.com/en-us/news/ahold-announces-partnership-with-doordash",
+     "title": "Ahold Delhaize USA Announces Partnerships with DoorDash",
+     "source": "about.doordash.com",
+     "date": "2024-02-07",
+     "relevance": "strong",
+     "evidence": "\u201cLeading omnichannel grocery retail group Ahold Delhaize USA has announced a new agreement with local commerce platform DoorDash to make an additional on-demand grocery delivery marketplace available to customers at each of its local omnichannel brands \u2013 Food Lion, Hannaford, Giant Food, The GIANT Company and Stop & Shop.\u201d",
+     "mentions_vendor": false,
+     "points": 1.05
+    },
+    {
+     "lane": "in_house_build",
+     "lane_label": "Building in-house",
+     "url": "https://www.inboundlogistics.com/articles/keeping-freight-moving-through-a-critical-transition/",
+     "title": "Trinity Logistics Keeps Freight Moving Through Transition",
+     "source": "inboundlogistics.com",
+     "date": "2026-08-04",
+     "relevance": "weak",
+     "evidence": "\"Bringing freight management in-house created cost savings and greater operational control, while Trinity helped ensure freight continued moving efficiently throughout the process.\"",
+     "mentions_vendor": false,
+     "points": 1.05
+    },
+    {
+     "lane": "in_house_build",
+     "lane_label": "Building in-house",
+     "url": "https://supplychain360.io/ahold-delhaize-omnichannel-network/",
+     "title": "Ahold Delhaize's store-first omnichannel play",
+     "source": "supplychain360.io",
+     "date": "2026-01-15",
+     "relevance": "weak",
+     "evidence": "\"Ahold Delhaize\u2019s store-first omnichannel network and AI-enabled logistics stack now give it the ability to offer near-universal same-day fulfilment across 2,000-plus U.S. stores and dense European markets without a wholesale rebuild of its physical estate. The combination of PRISM, omnichannel remodels, AI routing and a harmonised own-brand architecture means that new service propositions and pri",
+     "mentions_vendor": false,
+     "points": 0.89
+    },
+    {
+     "lane": "hiring_to_replace",
+     "lane_label": "Hiring to replace",
+     "url": "https://aholddelhaizeusa.careerswithus.com/",
+     "title": "Ahold Delhaize USA Careers | Search Jobs & Opportunities",
+     "source": "aholddelhaizeusa.careerswithus.com",
+     "date": "2026-07-24",
+     "relevance": "weak",
+     "evidence": "null",
+     "mentions_vendor": false,
+     "points": 0.7
+    },
+    {
+     "lane": "shopping_around",
+     "lane_label": "Evaluating alternatives",
+     "url": "https://www.supermarketnews.com/grocery-technology/ahold-expands-delivery-through-uber-eats",
+     "title": "Ahold expands delivery through Uber Eats",
+     "source": "supermarketnews.com",
+     "date": "2026-05-04",
+     "relevance": "weak",
+     "evidence": "Ahold Delhaize USA said it has expanded its partnership with Uber Eats to allow delivery from nearly 2,000 stores across all of the retailer\u2019s banners.",
+     "mentions_vendor": false,
+     "points": 0.7
+    },
+    {
+     "lane": "shopping_around",
+     "lane_label": "Evaluating alternatives",
+     "url": "https://www.pymnts.com/news/delivery/2026/uber-eats-helps-ahold-delhaize-expand-grocery-delivery/",
+     "title": "PYMNTS | Uber Eats Helps Ahold Delhaize Expand Grocery Delivery",
+     "source": "pymnts.com",
+     "date": "2026-05-04",
+     "relevance": "weak",
+     "evidence": "The article reports that Ahold Delhaize USA expanded its delivery partnership with Uber Eats, with phrases like: \u201cGrocery giant Ahold Delhaize has expanded its delivery partnership with Uber Eats.\u201d It does not indicate benchmarking, evaluating multiple on-demand mobility/logistics providers, or complaints about current providers; it only describes an expanded partnership with Uber Eats and related",
+     "mentions_vendor": false,
+     "points": 0.7
+    },
+    {
+     "lane": "budget_distress",
+     "lane_label": "Budget / strategy risk",
+     "url": "https://www.grocerydive.com/news/ahold-delhaize-americold-warehouse-automated-facility-distribution/827008/",
+     "title": "Ahold Delhaize winds down plans for 2 automated frozen warehouses | Grocery Dive",
+     "source": "grocerydive.com",
+     "date": "2026-08-05",
+     "relevance": "weak",
+     "evidence": "The article discusses Ahold Delhaize USA winding down automated frozen warehouse plans with Americold and continuing other investments, indicating a contraction in a specific project rather than a broad budget cut or platform strategy pivot. The most damning line is: \"Americold said in the filing it expects to record a non-cash impairment charge of approximately $305 million to $320 million for th",
+     "mentions_vendor": false,
+     "points": 0.52
+    },
+    {
+     "lane": "competitor_adoption",
+     "lane_label": "Competitor adoption",
+     "url": "https://company.instacart.com/updates/expanding-virtual-convenience-with-ahold-delhaize",
+     "title": "Expanding Virtual Convenience and Deepening Our Partnership with Ahold Delhaize USA | Instacart",
+     "source": "company.instacart.com",
+     "date": "2021-12-07",
+     "relevance": "weak",
+     "evidence": "\u201cFollowing the launch of the Instacart Convenience Hub in September, today we\u2019re proud to announce the expansion of our virtual convenience offering in partnership with Ahold Delhaize USA.\u201d This article discusses a partnership between Instacart and Ahold Delhaize USA for virtual convenience delivery, not Uber Technologies, Inc. It does not mention Uber or Uber Technologies, Inc. by name.",
+     "mentions_vendor": false,
+     "points": 0.37
+    }
+   ]
+  },
+  {
+   "customer": {
+    "name": "Food Lion",
+    "domain": "foodlion.com",
+    "evidence": "Food Lion stores are available on the Uber Eats marketplace.",
+    "source": "web evidence"
+   },
+   "score": 5.07,
+   "tier": "watch",
+   "evidence": [
+    {
+     "lane": "in_house_build",
+     "lane_label": "Building in-house",
+     "url": "https://newsroom.aholddelhaize.com/ahold-delhaize-usa-completes-omnichannel-platform-rollout-across-all-brands/",
+     "title": "Ahold Delhaize USA completes omnichannel platform rollout ac",
+     "source": "newsroom.aholddelhaize.com",
+     "date": "2025-11-24",
+     "relevance": "weak",
+     "evidence": "The page discusses an omnichannel platform rollout for Ahold Delhaize USA across its brands and its in-house development, but contains no mention of Uber Technologies, Inc. or an in-house capability related to multisided platform for on-demand mobility, delivery, and logistics services.",
+     "mentions_vendor": false,
+     "points": 0.89
+    },
+    {
+     "lane": "in_house_build",
+     "lane_label": "Building in-house",
+     "url": "https://progressivegrocer.com/ahold-delhaize-usa-completes-rollout-proprietary-digital-and-e-comm-platform",
+     "title": "Ahold Delhaize USA Completes Rollout of Proprietary Digital and E-comm Platform | Progressive Grocer",
+     "source": "progressivegrocer.com",
+     "date": "2025-11-13",
+     "relevance": "weak",
+     "evidence": "null",
+     "mentions_vendor": false,
+     "points": 0.89
+    },
+    {
+     "lane": "hiring_to_replace",
+     "lane_label": "Hiring to replace",
+     "url": "https://foodlion.careerswithus.com/search-page",
+     "title": "Food Lion Careers | Search Jobs",
+     "source": "foodlion.careerswithus.com",
+     "date": "2026-07-23",
+     "relevance": "weak",
+     "evidence": "null",
+     "mentions_vendor": false,
+     "points": 0.7
+    },
+    {
+     "lane": "shopping_around",
+     "lane_label": "Evaluating alternatives",
+     "url": "https://www.grocerydive.com/news/food-lion-the-giant-company-ahold-delhaize-instacart-foodstorm-ordering-technology/758818/",
+     "title": "Food Lion and The Giant Company embrace Instacart\u2019s FoodStorm tech | Grocery Dive",
+     "source": "grocerydive.com",
+     "date": "2025-08-27",
+     "relevance": "weak",
+     "evidence": "Ahold Delhaize\u2019s decision to deepen its ties with Instacart reflects a broader quest by the Dutch grocery company to energize its performance by investing in omnichannel capabilities.",
+     "mentions_vendor": false,
+     "points": 0.59
+    },
+    {
+     "lane": "shopping_around",
+     "lane_label": "Evaluating alternatives",
+     "url": "https://supplychain360.io/technology/ahold-delhaize-omnichannel-network/",
+     "title": "Ahold Delhaize's store-first omnichannel play",
+     "source": "supplychain360.io",
+     "date": "2026-01-15",
+     "relevance": "weak",
+     "evidence": "The page discusses Ahold Delhaize\u2019s omnichannel network, PRISM, and remodels (Food Lion, Wilmington, Raleigh, etc.) and mentions external benchmarks (Best Buy, Woolworths) but does not describe Food Lion benchmarking or evaluating multiple multisided platform providers (Lyft, DoorDash, Instacart, etc.). The only explicit Food Lion reference is as the brand undergoing omnichannel remodels and to-go",
+     "mentions_vendor": false,
+     "points": 0.59
+    },
+    {
+     "lane": "budget_distress",
+     "lane_label": "Budget / strategy risk",
+     "url": "https://d2649.cms.socastsrm.com/2026/08/05/food-lion-owner-ahold-delhaize-beats-profit-view-on-cost-cuts-market-gains/",
+     "title": "Food Lion-owner Ahold Delhaize beats profit view on cost cuts, market gains | Kat's Sandbox",
+     "source": "d2649.cms.socastsrm.com",
+     "date": "2026-08-05",
+     "relevance": "weak",
+     "evidence": "The article discusses Ahold Delhaize beating profit view due to cost cuts and market gains, with mentions of U.S. store pricing and supply chain negotiations, but it does not mention Uber Technologies, Inc. or any on-demand mobility tools, acquisitions by Food Lion, or major layoffs tied to such actions. The only direct relevance is general cost-cuts and market conditions inside a supermarket grou",
+     "mentions_vendor": false,
+     "points": 0.52
+    },
+    {
+     "lane": "budget_distress",
+     "lane_label": "Budget / strategy risk",
+     "url": "https://d2233.cms.socastsrm.com/2026/08/05/food-lion-owner-ahold-delhaize-beats-profit-view-on-cost-cuts-market-gains/",
+     "title": "Food Lion-owner Ahold Delhaize beats profit view on cost cuts, market gains | MWC Sandbox/Syndication",
+     "source": "d2233.cms.socastsrm.com",
+     "date": "2026-08-05",
+     "relevance": "weak",
+     "evidence": "\u201cU.S. sales growth of 1.4% was slowed by a reduction in government SNAP benefits and pharmacy pricing changes, with a combined negative impact of 1.6 percentage points, it said.\u201d",
+     "mentions_vendor": false,
+     "points": 0.52
+    },
+    {
+     "lane": "competitor_adoption",
+     "lane_label": "Competitor adoption",
+     "url": "https://company.instacart.com/enterprise-blog/enabling-ebt-snap-payments-for-grocery-delivery",
+     "title": "Food Lion, GIANT, Hannaford and Stop & Shop Increase Healthy Food Access by Enabling EBT-SNAP Payments for Grocery Delivery | Instacart",
+     "source": "company.instacart.com",
+     "date": "2022-09-06",
+     "relevance": "weak",
+     "evidence": "The page describes Instacart enabling EBT SNAP payments for grocery delivery with Ahold Delhaize USA brands (Food Lion, GIANT, Hannaford, Stop & Shop) but does not mention Uber Technologies, Inc. or show integration of Food Lion with Instacart\u2019s own product as a competing platform. The strongest statement is that Instacart partnered with Ahold Delhaize USA brands to enable EBT SNAP for online groc",
+     "mentions_vendor": false,
+     "points": 0.37
+    }
+   ]
+  }
+ ],
+ "summary": {
+  "vendor": "Uber Technologies, Inc.",
+  "domain": "uber.com",
+  "counts": {
+   "at_risk": 2,
+   "watch": 4,
+   "healthy": 1
+  },
+  "elapsed_s": 35.7,
+  "api_calls": 41,
+  "cost_usd": 0.467,
+  "generated_at": "2026-08-21T05:58:24.393708+00:00"
+ }
+}

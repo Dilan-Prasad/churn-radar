@@ -605,7 +605,24 @@ async def sweep_customer(exa: ExaClient, customer, lanes_for, vendor_domain, emi
     return verdict
 
 
-async def run_pipeline(domain: str, max_customers: int, emit, api_key: str | None = None):
+RESOLVE_SCHEMA = {
+    "type": "object",
+    "properties": {"customers": {"type": "array", "items": {
+        "type": "object",
+        "properties": {
+            "name": {"type": "string", "description": "commonly used brand name with canonical casing, e.g. HubSpot"},
+            "domain": {"type": "string", "description": "primary corporate domain"},
+            "description": {"type": "string", "description": "one line: who this company is"},
+            "input": {"type": "string", "description": "the original input entry this company matches"},
+        },
+        "required": ["name", "domain"],
+    }}},
+    "required": ["customers"],
+}
+
+
+async def run_pipeline(domain: str, max_customers: int, emit, api_key: str | None = None,
+                       custom_customers: str | None = None):
     exa = ExaClient(emit, api_key=api_key)
     t0 = time.monotonic()
     try:
@@ -632,12 +649,13 @@ async def run_pipeline(domain: str, max_customers: int, emit, api_key: str | Non
         # ---- phase 1: vendor profile --------------------------------------
         await emit({"type": "phase", "phase": "profile",
                     "label": f"Profiling {domain} — what do they sell, who competes, what does churn look like?"})
-        prof_data = await exa.post("/answer", {
+        profile_payload = {
             "query": (f"What does the company at {domain} sell, who buys it, and who are "
                       f"its direct competitors? Focus on the product category and what a "
                       f"customer would have to build or buy instead if they stopped using it."),
             "outputSchema": PROFILE_SCHEMA,
-        }, "vendor-profile")
+        }
+        prof_data = await exa.post("/answer", profile_payload, "vendor-profile")
         profile = parse_json_maybe((prof_data or {}).get("answer"))
         if not profile or not profile.get("company_name"):
             await emit({"type": "error",
@@ -649,7 +667,7 @@ async def run_pipeline(domain: str, max_customers: int, emit, api_key: str | Non
         vendor_name = profile["company_name"]
 
         # ---- phase 1b: competitor top-up via findSimilar -------------------
-        sim = await exa.post("/findSimilar", {
+        similar_payload = {
             "url": f"https://{domain}", "numResults": 8,
             "excludeSourceDomain": True, "category": "company",
             "contents": {"summary": {
@@ -661,7 +679,8 @@ async def run_pipeline(domain: str, max_customers: int, emit, api_key: str | Non
                     "company_name": {"type": "string"}},
                     "required": ["is_direct_competitor", "company_name"]},
             }},
-        }, "competitor-topup")
+        }
+        sim = await exa.post("/findSimilar", similar_payload, "competitor-topup")
         vendor_token = re.sub(r"\W", "", vendor_name.lower())[:6]
         known = {c["domain"].lower().removeprefix("www.") for c in profile["competitors"] if c.get("domain")}
         # findSimilar returns pages, not vetted companies: drop socials/aggregators
@@ -684,33 +703,15 @@ async def run_pipeline(domain: str, max_customers: int, emit, api_key: str | Non
             profile["competitors"].append({"name": nm, "domain": d, "via": "findSimilar"})
             known.add(d)
         competitor_domains = [c["domain"].removeprefix("www.") for c in profile["competitors"] if c.get("domain")][:10]
-        await emit({"type": "profile", "data": profile, "domain": domain})
+        # the exact requests behind the two panels — shown verbatim in the UI
+        # so demo viewers see which endpoint/prompt produced each output
+        api_calls = {
+            "profile": {"endpoint": "/answer", "payload": profile_payload},
+            "competitors": {"endpoint": "/findSimilar", "payload": similar_payload},
+        }
+        await emit({"type": "profile", "data": profile, "domain": domain, "api": api_calls})
 
-        # ---- phase 2: customer discovery -----------------------------------
-        await emit({"type": "phase", "phase": "customers",
-                    "label": f"Mapping {vendor_name}'s publicly documented customer base…"})
-        cust_answer, cust_site, cust_web = await asyncio.gather(
-            exa.post("/answer", {
-                "query": (f"List 15-20 well-known companies that are publicly documented "
-                          f"customers or users of {vendor_name} ({domain}). Only include "
-                          f"companies with public evidence: case studies on {domain}, press "
-                          f"coverage, engineering blog mentions, or official partnership "
-                          f"announcements. For each give the company domain and how we know."),
-                "outputSchema": CUSTOMERS_SCHEMA,
-            }, "customers-answer"),
-            exa.post("/search", {
-                "query": f"{vendor_name} customer case study: how a company uses {vendor_name} in production",
-                "includeDomains": [domain],
-                "numResults": 20,
-                "contents": {"summary": CASE_STUDY_SUMMARY},
-            }, "customers-casestudies"),
-            exa.post("/search", {
-                "query": f"companies using {vendor_name} in production: named customers and what they built",
-                "excludeDomains": [domain],
-                "numResults": 6,
-                "contents": {"summary": web_mentions_summary(vendor_name)},
-            }, "customers-web"),
-        )
+        # ---- phase 2: the account list --------------------------------------
         customers, seen_domains, seen_names = [], set(), set()
         VALID_DOMAIN = re.compile(r"^[a-z0-9-]+(\.[a-z0-9-]+)*\.[a-z]{2,}$")
 
@@ -730,29 +731,106 @@ async def run_pipeline(domain: str, max_customers: int, emit, api_key: str | Non
             customers.append({"name": name.strip(), "domain": cdomain,
                               "evidence": (evidence or "").strip()[:200], "source": source})
 
-        ans = parse_json_maybe((cust_answer or {}).get("answer")) or {}
-        for c in ans.get("customers", []):
-            add(c.get("name"), c.get("domain"), c.get("evidence"), "web evidence")
-        for r in (cust_site or {}).get("results", []):
-            s = parse_json_maybe(r.get("summary")) or {}
-            if s.get("customer_name"):
-                add(s["customer_name"], s.get("customer_domain"),
-                    f"Official case study: {s.get('use_case', '')}", "vendor case study")
-        for r in (cust_web or {}).get("results", []):
-            s = parse_json_maybe(r.get("summary")) or {}
-            for c in (s.get("customers") or [])[:6]:
+        if custom_customers:
+            # the CS team knows their book — resolve their list to canonical
+            # names + domains (canonical casing matters: the evidence gate
+            # matches 'HubSpot', not 'hubspot')
+            entries = [e.strip() for e in custom_customers.split(",") if e.strip()][:20]
+            await emit({"type": "phase", "phase": "customers",
+                        "label": f"Resolving your list of {len(entries)} accounts…"})
+
+            def norm(s):
+                return re.sub(r"\W", "", (s or "").lower())
+
+            def unmatched():
+                keys = {k for k in seen_names | {norm(d) for d in seen_domains} if k}
+                return [e for e in entries
+                        if norm(e) and not any(norm(e) in k or k in norm(e) for k in keys)]
+
+            async def resolve(batch, tag):
+                data = await exa.post("/answer", {
+                    "query": (f"Identify each of these {len(batch)} companies: {'; '.join(batch)}. "
+                              f"Context: they are B2B companies, likely customers of {vendor_name} "
+                              f"({profile['product_category']}). Entries may be misspelled, "
+                              f"lowercase, or missing spaces — 'open router' means OpenRouter, "
+                              f"'stackai' means StackAI. Return one object for EVERY entry: the "
+                              f"commonly used BRAND name with canonical casing (e.g. 'Cursor', not "
+                              f"'Anysphere, Inc.'), primary corporate domain, one line on who they "
+                              f"are, and 'input' echoing the original entry. Only skip an entry if "
+                              f"no real company plausibly matches it."),
+                    "outputSchema": RESOLVE_SCHEMA,
+                }, tag)
+                ans = parse_json_maybe((data or {}).get("answer")) or {}
+                for c in ans.get("customers", []):
+                    add(c.get("name"), c.get("domain"),
+                        c.get("description") or "From your list", "your list")
+
+            await resolve(entries, "resolve-customer-list")
+            if unmatched():                       # second chance for the stragglers
+                await resolve(unmatched(), "resolve-retry")
+            for e in unmatched():                 # last resort: keep domain-shaped entries verbatim
+                tok = e.lower().removeprefix("https://").removeprefix("http://").removeprefix("www.").rstrip("/")
+                if VALID_DOMAIN.match(tok):
+                    add(tok, tok, "From your list", "your list")
+            if not customers:
+                await emit({"type": "error",
+                            "message": "Couldn't resolve any of those entries to companies. Use "
+                                       "company names or domains, comma-separated."})
+                return None
+            still_missing = unmatched()
+            if still_missing:
+                await emit({"type": "warning",
+                            "message": f"Couldn't identify: {', '.join(still_missing[:6])} — "
+                                       f"sweeping the {len(customers)} accounts that resolved."})
+        else:
+            await emit({"type": "phase", "phase": "customers",
+                        "label": f"Mapping {vendor_name}'s publicly documented customer base…"})
+            cust_answer, cust_site, cust_web = await asyncio.gather(
+                exa.post("/answer", {
+                    "query": (f"List 15-20 well-known companies that are publicly documented "
+                              f"customers or users of {vendor_name} ({domain}). Only include "
+                              f"companies with public evidence: case studies on {domain}, press "
+                              f"coverage, engineering blog mentions, or official partnership "
+                              f"announcements. For each give the company domain and how we know."),
+                    "outputSchema": CUSTOMERS_SCHEMA,
+                }, "customers-answer"),
+                exa.post("/search", {
+                    "query": f"{vendor_name} customer case study: how a company uses {vendor_name} in production",
+                    "includeDomains": [domain],
+                    "numResults": 20,
+                    "contents": {"summary": CASE_STUDY_SUMMARY},
+                }, "customers-casestudies"),
+                exa.post("/search", {
+                    "query": f"companies using {vendor_name} in production: named customers and what they built",
+                    "excludeDomains": [domain],
+                    "numResults": 6,
+                    "contents": {"summary": web_mentions_summary(vendor_name)},
+                }, "customers-web"),
+            )
+            ans = parse_json_maybe((cust_answer or {}).get("answer")) or {}
+            for c in ans.get("customers", []):
                 add(c.get("name"), c.get("domain"), c.get("evidence"), "web evidence")
-        customers = customers[:max_customers]
-        if not customers:
-            await emit({"type": "error",
-                        "message": f"No publicly documented customers found for {vendor_name}. "
-                                   f"That usually means a very early company or one that keeps its "
-                                   f"customer list private — try a vendor with public case studies."})
-            return None
-        if len(customers) < 5:
-            await emit({"type": "warning",
-                        "message": f"Only {len(customers)} documented customers found — thin public "
-                                   f"footprint; verdicts below cover what's publicly visible."})
+            for r in (cust_site or {}).get("results", []):
+                s = parse_json_maybe(r.get("summary")) or {}
+                if s.get("customer_name"):
+                    add(s["customer_name"], s.get("customer_domain"),
+                        f"Official case study: {s.get('use_case', '')}", "vendor case study")
+            for r in (cust_web or {}).get("results", []):
+                s = parse_json_maybe(r.get("summary")) or {}
+                for c in (s.get("customers") or [])[:6]:
+                    add(c.get("name"), c.get("domain"), c.get("evidence"), "web evidence")
+            customers = customers[:max_customers]
+            if not customers:
+                await emit({"type": "error",
+                            "message": f"No publicly documented customers found for {vendor_name}. "
+                                       f"That usually means a very early company or one that keeps its "
+                                       f"customer list private — try a vendor with public case studies, "
+                                       f"or type your own account list."})
+                return None
+            if len(customers) < 5:
+                await emit({"type": "warning",
+                            "message": f"Only {len(customers)} documented customers found — thin public "
+                                       f"footprint; verdicts below cover what's publicly visible."})
         await emit({"type": "customers", "data": customers})
 
         # ---- phase 3: signal sweep -----------------------------------------
@@ -775,7 +853,7 @@ async def run_pipeline(domain: str, max_customers: int, emit, api_key: str | Non
         }
         await emit({"type": "done", "data": summary})
         return {"profile": profile, "domain": domain, "customers": customers,
-                "verdicts": verdicts, "summary": summary}
+                "verdicts": verdicts, "summary": summary, "api": api_calls}
     finally:
         await exa.close()
 
@@ -842,8 +920,10 @@ def sse(event: dict):
 
 
 @app.get("/api/scan")
-async def scan(request: Request, url: str, max_customers: int = 15, mode: str = "live"):
+async def scan(request: Request, url: str, max_customers: int = 15, mode: str = "live",
+               customers: str = ""):
     domain = normalize_domain(url)
+    custom_list = customers.strip()[:2000] or None
 
     user_key = (request.headers.get("x-exa-key") or "").strip()[:120] or None
 
@@ -865,7 +945,8 @@ async def scan(request: Request, url: str, max_customers: int = 15, mode: str = 
                 return
             run = json.loads(cache_file.read_text())
             yield sse({"type": "replay", "generated_at": run["summary"]["generated_at"]})
-            yield sse({"type": "profile", "data": run["profile"], "domain": run["domain"]})
+            yield sse({"type": "profile", "data": run["profile"], "domain": run["domain"],
+                       "api": run.get("api")})
             yield sse({"type": "customers", "data": run["customers"]})
             for v in run["verdicts"]:
                 yield sse({"type": "verdict", "data": v})
@@ -887,7 +968,8 @@ async def scan(request: Request, url: str, max_customers: int = 15, mode: str = 
         global _active_scans
         _active_scans += 1
         task = asyncio.create_task(
-            run_pipeline(domain, max(5, min(20, max_customers)), emit, api_key=user_key))
+            run_pipeline(domain, max(5, min(20, max_customers)), emit,
+                         api_key=user_key, custom_customers=custom_list))
         run = None
         try:
             while True:
@@ -909,7 +991,9 @@ async def scan(request: Request, url: str, max_customers: int = 15, mode: str = 
             return
         finally:
             _active_scans -= 1
-        if run:
+        # custom-list runs are personal slices — don't let them overwrite the
+        # cached full-discovery run for the domain
+        if run and not custom_list:
             cache_file.write_text(json.dumps(run, indent=1))
 
     return StreamingResponse(stream(), media_type="text/event-stream",

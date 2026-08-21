@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Churn Radar</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📡</text></svg>">
 <style>
   :root{
     --bg:#0b0f14; --panel:#121821; --panel2:#0e141c; --line:#1f2a37;
@@ -31,6 +32,7 @@
   .controls input[type=text]{flex:1;min-width:240px;background:var(--panel2);color:var(--text);
     border:1px solid var(--line);border-radius:8px;padding:10px 12px;font-size:15px}
   .controls input[type=text]:focus{outline:none;border-color:var(--accent)}
+  .controls input.fullrow{flex-basis:100%;font-size:13px}
   .controls label{color:var(--muted);font-size:12px;display:flex;align-items:center;gap:8px}
   .controls input[type=range]{accent-color:var(--accent);width:110px}
   button{background:var(--accent);color:#06222f;border:0;border-radius:8px;
@@ -62,6 +64,28 @@
   @media(max-width:880px){.grid2{grid-template-columns:1fr}}
   .panel{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:16px;display:none}
   .panel h2{margin:0 0 4px;font-size:15px}
+  .apipill{display:none;background:rgba(56,189,248,.08);color:var(--accent);
+    border:1px solid rgba(56,189,248,.4);border-radius:999px;padding:3px 11px;
+    font:500 11px ui-monospace,SFMono-Regular,Menlo,monospace;cursor:pointer;
+    margin:0 0 10px;letter-spacing:.02em}
+  .apipill:hover{background:rgba(56,189,248,.16);filter:none}
+  .modal-wrap{position:fixed;inset:0;background:rgba(4,8,12,.78);z-index:20;
+    display:none;align-items:center;justify-content:center;padding:24px}
+  .modal-wrap.open{display:flex}
+  .modal{background:var(--panel);border:1px solid var(--line);border-radius:14px;
+    max-width:820px;width:100%;max-height:84vh;display:flex;flex-direction:column}
+  .modal .mhead{display:flex;align-items:center;gap:12px;padding:16px 20px;
+    border-bottom:1px solid var(--line)}
+  .modal .mhead .ep{font:600 14px ui-monospace,Menlo,monospace;color:var(--accent)}
+  .modal .mhead .what{color:var(--muted);font-size:12.5px}
+  .modal .mhead button{margin-left:auto;padding:6px 14px;font-size:12px}
+  .modal .mhead .x{background:transparent;color:var(--muted);border:1px solid var(--line);
+    padding:6px 11px}
+  .modal pre{margin:0;padding:18px 20px;overflow:auto;font:12px/1.55 ui-monospace,Menlo,monospace;
+    color:#c9d4de;white-space:pre}
+  .modal pre .hdr{color:var(--muted)}
+  .modal .mfoot{padding:10px 20px;border-top:1px solid var(--line);color:var(--muted);
+    font-size:11.5px}
   .panel .sub{color:var(--muted);font-size:12.5px;margin:0 0 10px}
   .chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
   .chip{background:var(--panel2);border:1px solid var(--line);color:var(--muted);
@@ -139,8 +163,10 @@
            oninput="document.getElementById('maxcv').textContent=this.value">
            <span id="maxcv">15</span></label>
     <button id="goBtn" onclick="scan('live')">Scan live</button>
-    <button id="cacheBtn" class="ghost" onclick="scan('cached')" style="display:none">Replay cached</button>
     <button id="keyBtn" class="subtle" onclick="toggleKeyPanel()" title="Use your own Exa API key for live scans">🔑 API key</button>
+    <input id="custlist" type="text" class="fullrow"
+           placeholder="Optional — sweep your own accounts instead: comma-separated company names or domains"
+           onkeydown="if(event.key==='Enter')scan('live')">
   </div>
 
   <div class="keypanel" id="keyPanel">
@@ -160,6 +186,8 @@
 
   <div class="grid2">
     <div class="panel" id="profilePanel">
+      <button class="apipill" id="apiPillProfile" onclick="showApi('profile')"
+              title="See the exact Exa API call that produced this panel">{ } POST /answer</button>
       <h2 id="pName"></h2>
       <p class="sub" id="pLine"></p>
       <div class="chips" id="pChips"></div>
@@ -167,6 +195,8 @@
       <ul class="modes" id="pModes"></ul>
     </div>
     <div class="panel" id="compPanel">
+      <button class="apipill" id="apiPillComp" onclick="showApi('competitors')"
+              title="See the exact Exa API call that produced this panel">{ } POST /findSimilar</button>
       <h2>Competitive set</h2>
       <p class="sub">Who we watch for this vendor's customers showing up somewhere else. ✦ = discovered by Exa findSimilar.</p>
       <div class="chips" id="pComps"></div>
@@ -183,6 +213,20 @@
   <div class="cards" id="cards"></div>
 </div>
 
+<div class="modal-wrap" id="modalWrap" onclick="if(event.target===this)closeApi()">
+  <div class="modal" role="dialog" aria-modal="true" aria-label="Exa API call">
+    <div class="mhead">
+      <span class="ep" id="mEndpoint"></span>
+      <span class="what" id="mWhat"></span>
+      <button onclick="copyCurl()" id="mCopy">copy as curl</button>
+      <button class="x" onclick="closeApi()">✕</button>
+    </div>
+    <pre id="mBody"></pre>
+    <div class="mfoot">This is the verbatim request this page sent to the Exa API — the schema doubles
+    as the prompt: Exa searches, reads, and returns JSON in exactly this shape.</div>
+  </div>
+</div>
+
 <div class="console" id="console"></div>
 <div class="console-toggle" onclick="toggleConsole()">
   <span>▲ <span class="k">under the hood</span> — live Exa API calls</span>
@@ -193,6 +237,33 @@
 const $ = id => document.getElementById(id);
 let ctrl = null, cardsByDomain = {}, counts = {at_risk:0, watch:0, healthy:0};
 let callN = 0, costT = 0, consoleOpen = false;
+let apiCalls = null, currentApi = null;
+
+// ---- "show me the API call" modal ----
+const API_WHAT = {
+  profile: 'this one call produced the vendor profile panel',
+  competitors: 'this call proposed the competitor candidates (each vetted by the schema summary)'
+};
+function showApi(kind){
+  const c = apiCalls && apiCalls[kind];
+  if(!c) return;
+  currentApi = c;
+  $('mEndpoint').textContent = 'POST https://api.exa.ai' + c.endpoint;
+  $('mWhat').textContent = API_WHAT[kind] || '';
+  $('mBody').innerHTML = '<span class="hdr">x-api-key: ••••••••  ·  Content-Type: application/json</span>\n\n'
+    + esc(JSON.stringify(c.payload, null, 2));
+  $('mCopy').textContent = 'copy as curl';
+  $('modalWrap').classList.add('open');
+}
+function closeApi(){ $('modalWrap').classList.remove('open'); }
+addEventListener('keydown', e => { if(e.key === 'Escape') closeApi(); });
+async function copyCurl(){
+  if(!currentApi) return;
+  const body = JSON.stringify(currentApi.payload, null, 2).replace(/'/g, "'\\''");
+  const cmd = `curl -s https://api.exa.ai${currentApi.endpoint} \\\n  -H "x-api-key: $EXA_API_KEY" \\\n  -H "Content-Type: application/json" \\\n  -d '${body}'`;
+  try{ await navigator.clipboard.writeText(cmd); $('mCopy').textContent = 'copied ✓'; }
+  catch(e){ $('mCopy').textContent = 'copy failed'; }
+}
 
 // ---- bring-your-own-key (kept in this browser only) ----
 function getKey(){ try{ return localStorage.getItem('exa_api_key') || '' }catch(e){ return '' } }
@@ -257,26 +328,18 @@ function fav(dom){return `https://www.google.com/s2/favicons?domain=${encodeURIC
 
 function toggleConsole(){consoleOpen=!consoleOpen;$('console').style.display=consoleOpen?'block':'none'}
 
-async function refreshCacheBtn(){
-  try{
-    const dom = $('url').value.trim().replace(/^https?:\/\//,'').replace(/^www\./,'').replace(/[/?#].*$/,'');
-    const runs = await (await fetch('/api/cached')).json();
-    const hit = runs.find(r=>r.domain===dom);
-    $('cacheBtn').style.display = hit ? 'inline-block' : 'none';
-    if(hit) $('cacheBtn').textContent = `Replay cached (${(hit.generated_at||'').slice(0,10)})`;
-  }catch(e){/* no cache list, fine */}
-}
-$('url').addEventListener('input', refreshCacheBtn);
-refreshCacheBtn();
 updateKeyBtn();
 
-// deep link: /?url=exa.ai&auto=live|cached starts a scan on load
+// deep link: /?url=exa.ai&auto=live|cached[&customers=a,b] starts a scan on load
 const qp = new URLSearchParams(location.search);
 if(qp.get('url')) $('url').value = qp.get('url');
+if(qp.get('customers')) $('custlist').value = qp.get('customers');
 if(qp.get('auto')) window.addEventListener('load', ()=>scan(qp.get('auto')==='cached'?'cached':'live'));
 
 function reset(){
   cardsByDomain={}; counts={at_risk:0,watch:0,healthy:0}; callN=0; costT=0;
+  apiCalls=null; currentApi=null; closeApi();
+  $('apiPillProfile').style.display='none'; $('apiPillComp').style.display='none';
   $('cards').innerHTML=''; $('pChips').innerHTML=''; $('pModes').innerHTML=''; $('pComps').innerHTML='';
   $('console').innerHTML='';
   ['err','warn','info'].forEach(i=>{$(i).style.display='none'});
@@ -290,12 +353,13 @@ function scan(mode){
   if(ctrl) ctrl.abort();
   reset();
   document.body.classList.add('scanning');
-  $('goBtn').disabled=true; $('cacheBtn').disabled=true;
+  $('goBtn').disabled=true;
   const url = encodeURIComponent($('url').value.trim());
   const maxc = $('maxc').value;
+  const cust = encodeURIComponent($('custlist').value.trim());
   $('status').textContent = mode==='cached' ? '↺ replaying cached run…' : '⟲ starting scan…';
   const my = new AbortController(); ctrl = my;
-  streamScan(`/api/scan?url=${url}&max_customers=${maxc}&mode=${mode}`, handle, my.signal)
+  streamScan(`/api/scan?url=${url}&max_customers=${maxc}&mode=${mode}&customers=${cust}`, handle, my.signal)
     .catch(()=>{})
     .finally(()=>{ if(ctrl===my) finish(); });
 }
@@ -303,8 +367,7 @@ function scan(mode){
 function finish(){
   ctrl = null;
   document.body.classList.remove('scanning');
-  $('goBtn').disabled=false; $('cacheBtn').disabled=false;
-  refreshCacheBtn();
+  $('goBtn').disabled=false;
 }
 
 function handle(ev){
@@ -327,6 +390,9 @@ function handle(ev){
 
   else if(ev.type==='profile'){
     const p = ev.data;
+    apiCalls = ev.api || null;
+    $('apiPillProfile').style.display = apiCalls?.profile ? 'inline-block' : 'none';
+    $('apiPillComp').style.display = apiCalls?.competitors ? 'inline-block' : 'none';
     $('pName').textContent = p.company_name;
     $('pLine').textContent = p.one_liner;
     $('pChips').innerHTML = `<span class="chip cat">${esc(p.product_category)}</span>` +
