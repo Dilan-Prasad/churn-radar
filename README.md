@@ -116,9 +116,13 @@ python app.py            # → http://localhost:8000
 
 Type a domain, hit **Scan live**. Use the **accounts** slider (5–20) to size the
 sweep — or paste your own book into the **customer list field** (comma-separated
-names or domains, e.g. `HubSpot, monday.com, openrouter.ai`): the list is
-resolved to canonical names + domains via `/answer` and auto-discovery is
-skipped, which is how a real CS team would run it against their actual accounts.
+names or domains, e.g. `HubSpot, monday.com, openrouter.ai`). Typed entries are
+resolved to canonical names + domains via `/answer` (typo-tolerant: `open router`
+→ OpenRouter) and are **pinned** — always swept, marked YOURS on the board, and
+never dropped. Any slots the list leaves unused fill with discovered customers,
+so typing 3 accounts with the slider at 8 sweeps your 3 plus 5 found ones; a
+typed list longer than the slider sweeps in full. Overlaps dedupe by name and
+domain, so an account that is both typed and discoverable appears once.
 
 Every full-discovery run is cached to `cache/<domain>.json` (custom-list runs
 never overwrite it). `/?url=exa.ai&auto=live` deep-links a live scan;

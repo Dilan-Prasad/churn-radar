@@ -207,6 +207,8 @@
   .acct{display:flex;align-items:center;gap:11px;min-width:0}
   .fav{width:20px;height:20px;border-radius:4px;flex:none;background-color:rgba(250,249,248,.07);background-size:cover}
   .acct .nm{font-size:13.5px;font-weight:500;letter-spacing:-.008em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .yours{margin-left:7px;font:500 9px/1 var(--mono);letter-spacing:.12em;color:var(--peri);
+    border:1px solid rgba(24,64,237,.45);border-radius:4px;padding:3px 5px;vertical-align:1px}
   .acct .dm{font:400 11px/1.3 var(--mono);color:var(--mut34);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
   .cell{margin:0 5px;height:26px;border-radius:5px;display:flex;align-items:center;justify-content:center;
     border:1px solid transparent;font:500 11px/1 var(--mono);transition:background .4s,border-color .4s}
@@ -322,8 +324,8 @@
         </div>
         <input id="custlist" type="text" placeholder="HubSpot, monday.com, openrouter.ai"
                onkeydown="if(event.key==='Enter')scan('live')">
-        <div class="hint">Paste the accounts you actually own. Leave it empty and we'll map the vendor's
-        publicly documented customers for you.</div>
+        <div class="hint">Paste the accounts you actually own — they're always swept. Any slots left over
+        fill with the vendor's publicly documented customers, so type three and we'll find the rest.</div>
       </div>
       <div class="sliderrow">
         <span class="lbl">ACCOUNTS</span>
@@ -691,7 +693,8 @@ function paintRow(row){
     <div class="acct">
       <span class="fav" style="background-image:url('${fav(row.customer.domain)}');opacity:${row.resolved ? 1 : .35}"></span>
       <div style="min-width:0">
-        <div class="nm">${esc(row.customer.name)}</div>
+        <div class="nm">${esc(row.customer.name)}${row.customer.source === 'your list'
+          ? `<span class="yours" title="You typed this account — it is always swept">YOURS</span>` : ''}</div>
         <div class="dm">${esc(row.customer.domain)}</div>
       </div>
     </div>`

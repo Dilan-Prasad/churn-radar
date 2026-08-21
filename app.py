@@ -771,7 +771,11 @@ async def run_pipeline(domain: str, max_customers: int, emit, api_key: str | Non
             return None
         profile.setdefault("competitors", [])
         profile.setdefault("churn_modes", [])
-        vendor_name = profile["company_name"]
+        # /answer sometimes returns "Exa (formerly known as Exa.ai)" — the
+        # parenthetical leaks into every lane query and status label
+        vendor_name = re.sub(r"\s*\([^)]*\)", "", profile["company_name"]).strip()
+        vendor_name = vendor_name or profile["company_name"]
+        profile["company_name"] = vendor_name
 
         # ---- phase 1b: competitor top-up via findSimilar -------------------
         similar_payload = {
@@ -820,6 +824,7 @@ async def run_pipeline(domain: str, max_customers: int, emit, api_key: str | Non
 
         # ---- phase 2: the account list --------------------------------------
         customers, seen_domains, seen_names = [], set(), set()
+        pinned = 0          # accounts the user typed — always swept, never dropped
         VALID_DOMAIN = re.compile(r"^[a-z0-9-]+(\.[a-z0-9-]+)*\.[a-z]{2,}$")
 
         def add(name, cdomain, evidence, source):
@@ -879,19 +884,24 @@ async def run_pipeline(domain: str, max_customers: int, emit, api_key: str | Non
                 tok = e.lower().removeprefix("https://").removeprefix("http://").removeprefix("www.").rstrip("/")
                 if VALID_DOMAIN.match(tok):
                     add(tok, tok, "From your list", "your list")
-            if not customers:
-                await emit({"type": "error",
-                            "message": "Couldn't resolve any of those entries to companies. Use "
-                                       "company names or domains, comma-separated."})
-                return None
+            pinned = len(customers)
             still_missing = unmatched()
             if still_missing:
                 await emit({"type": "warning",
                             "message": f"Couldn't identify: {', '.join(still_missing[:6])} — "
-                                       f"sweeping the {len(customers)} accounts that resolved."})
-        else:
+                                       f"sweeping the {pinned} that resolved" +
+                                       (", plus discovered accounts to fill the rest."
+                                        if pinned < max_customers else ".")})
+
+        # top up with discovered customers whenever the typed list leaves room.
+        # pinned accounts were added first and add() dedupes, so they always
+        # survive both discovery and the slice below
+        target = max(max_customers, pinned)   # an explicit list always sweeps in full
+        if len(customers) < target:
             await emit({"type": "phase", "phase": "customers",
-                        "label": f"Mapping {vendor_name}'s publicly documented customer base…"})
+                        "label": (f"Finding {target - pinned} more of {vendor_name}'s documented "
+                                  f"customers to fill the sweep…") if pinned else
+                                 f"Mapping {vendor_name}'s publicly documented customer base…"})
             cust_answer, cust_site, cust_web = await asyncio.gather(
                 exa.post("/answer", {
                     "query": (f"List 15-20 well-known companies that are publicly documented "
@@ -926,19 +936,23 @@ async def run_pipeline(domain: str, max_customers: int, emit, api_key: str | Non
                 s = parse_json_maybe(r.get("summary")) or {}
                 for c in (s.get("customers") or [])[:6]:
                     add(c.get("name"), c.get("domain"), c.get("evidence"), "web evidence")
-            customers = customers[:max_customers]
-            if not customers:
-                await emit({"type": "error",
-                            "message": f"No publicly documented customers found for {vendor_name}. "
-                                       f"That usually means a very early company or one that keeps its "
-                                       f"customer list private — try a vendor with public case studies, "
-                                       f"or type your own account list."})
-                return None
-            if len(customers) < 5:
-                await emit({"type": "warning",
-                            "message": f"Only {len(customers)} documented customers found — thin public "
-                                       f"footprint; verdicts below cover what's publicly visible."})
-        await emit({"type": "customers", "data": customers})
+            customers = customers[:target]
+
+        if not customers:
+            await emit({"type": "error",
+                        "message": (f"Couldn't resolve any of those entries to companies, and found no "
+                                    f"documented customers for {vendor_name} either. Use company names "
+                                    f"or domains, comma-separated.") if custom_customers else
+                                   (f"No publicly documented customers found for {vendor_name}. That "
+                                    f"usually means a very early company or one that keeps its customer "
+                                    f"list private — try a vendor with public case studies, or type your "
+                                    f"own account list.")})
+            return None
+        if len(customers) < 5 and len(customers) < target:
+            await emit({"type": "warning",
+                        "message": f"Only {len(customers)} accounts to sweep — thin public footprint; "
+                                   f"verdicts below cover what's publicly visible."})
+        await emit({"type": "customers", "data": customers, "pinned": pinned})
 
         # ---- phase 3: signal sweep -----------------------------------------
         lanes_for, lanes_meta = lane_definitions(profile, competitor_domains, signals)
